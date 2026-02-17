@@ -868,19 +868,3 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-link i {
-        font-size: 2rem;
-    }
-
-    .cert-list {
-        grid-template-columns: 1fr;
-    }
-
-    .education-content {
-        grid-template-columns: 1fr;
-    }
-}
