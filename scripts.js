@@ -1,43 +1,56 @@
-// Smooth scroll navigation
-const links = document.querySelectorAll('a[href^="#"]');
+// Mobile menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-links.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-// Active link highlighting on scroll
-const sections = document.querySelectorAll('section');
-
-function changeLinkState() {
-    const scrollPos = window.scrollY;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const sectionId = section.getAttribute('id');
-        const link = document.querySelector(`a[href="#${sectionId}"]`);
-
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
     });
 }
 
-window.addEventListener('scroll', changeLinkState);
-
-// Basic portfolio interactivity
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-portfolioItems.forEach(item => {
-    item.addEventListener('click', () => {
-        item.classList.toggle('active');
-        // Add more interactivity logic here if needed
+// Close menu when link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
     });
 });
+
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// Active nav link based on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.style.color = 'white';
+        if (link.getAttribute('href').slice(1) === current) {
+            link.style.color = var('--secondary-color');
+        }
+    });
+});
+
+console.log('Portfolio loaded successfully! 🚀');
