@@ -248,7 +248,7 @@ a:hover { color: var(--primary-color); }
 
 /* ==================== SECTIONS ==================== */
 section {
-    padding: 100px 20px;
+    padding: 80px 20px;
 }
 
 .about-section {
@@ -270,6 +270,7 @@ section {
 .contact-section {
     background: linear-gradient(135deg, var(--primary-color), #1a1f2e);
     color: var(--white-text);
+    padding: 80px 20px 40px;
 }
 
 .section-title {
@@ -362,15 +363,15 @@ section {
 .experience-item::before {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--white-text);
-    border: 4px solid var(--secondary-color);
+    width: 18px;
+    height: 18px;
+    background: var(--secondary-color);
+    border: 4px solid var(--white-text);
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
-    top: 0;
-    box-shadow: 0 0 0 4px var(--primary-color);
+    top: 5px;
+    box-shadow: 0 0 0 3px var(--primary-color);
     z-index: 2;
 }
 
@@ -505,30 +506,37 @@ section {
 .education-content {
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.education-content > .education-item {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-.education-item {
+/* Make first two education items (degrees) display in a grid */
+.education-item:nth-of-type(1),
+.education-item:nth-of-type(2) {
     background: var(--white-text);
     padding: 30px;
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     border-left: 5px solid var(--secondary-color);
+    text-align: center;
+}
+
+.education-item:nth-of-type(1),
+.education-item:nth-of-type(2) {
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.education-item:nth-child(1) { animation-delay: 0s; }
-.education-item:nth-child(2) { animation-delay: 0.1s; }
-.education-item:nth-child(3) { animation-delay: 0.2s; }
-.education-item:nth-child(4) { animation-delay: 0.3s; }
-.education-item:nth-child(5) { animation-delay: 0.4s; }
-.education-item:nth-child(6) { animation-delay: 0.5s; }
+.education-item:nth-of-type(1) { animation-delay: 0s; }
+.education-item:nth-of-type(2) { animation-delay: 0.1s; }
 
-.education-item:hover {
+.education-item:nth-of-type(1):hover,
+.education-item:nth-of-type(2):hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
 }
@@ -559,15 +567,29 @@ section {
     margin: 0;
 }
 
+/* Education items grid wrapper */
+.education-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.education-item:nth-of-type(1),
+.education-item:nth-of-type(2) {
+    flex: 0 1 calc(50% - 15px);
+    min-width: 280px;
+}
+
 .certifications {
     background: var(--white-text);
     padding: 30px;
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
-    grid-column: 1 / -1;
     transition: var(--transition);
+    flex: 0 1 100%;
     opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards 0.6s;
+    animation: fadeInUp 0.6s ease-out forwards 0.2s;
 }
 
 .certifications:hover {
@@ -636,7 +658,7 @@ section {
     display: flex;
     gap: 30px;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -644,7 +666,7 @@ section {
 .contact-link {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    padding: 30px 25px;
+    padding: 25px 30px;
     border-radius: 12px;
     text-decoration: none;
     color: var(--white-text);
@@ -655,7 +677,7 @@ section {
     align-items: center;
     gap: 12px;
     font-weight: 600;
-    min-width: 150px;
+    min-width: 140px;
 }
 
 .contact-link i {
@@ -678,13 +700,14 @@ section {
 footer {
     background: #000;
     color: var(--white-text);
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
 footer p {
     margin: 0;
     font-size: 0.9rem;
+    color: #555;
 }
 
 /* ==================== ANIMATIONS ==================== */
@@ -778,12 +801,9 @@ footer p {
         font-size: 2rem;
     }
 
-    .education-content {
-        grid-template-columns: 1fr;
-    }
-
-    .certifications {
-        grid-column: 1;
+    .education-item:nth-of-type(1),
+    .education-item:nth-of-type(2) {
+        flex: 0 1 100%;
     }
 
     .cert-list {
@@ -792,6 +812,11 @@ footer p {
 
     .skills-container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .contact-link {
+        min-width: 120px;
+        padding: 20px 25px;
     }
 }
 
@@ -815,6 +840,7 @@ footer p {
 
     .contact-links {
         flex-direction: column;
+        gap: 20px;
     }
 
     .contact-link {
