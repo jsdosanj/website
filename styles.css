@@ -233,21 +233,20 @@ a:hover { color: var(--primary-color); }
     background: #1a1f28;
 }
 
-/* FIX: Make btn-secondary buttons also black like btn-primary */
-.hero-buttons .btn-secondary {
+/* FIX: Make both buttons black in hero */
+.hero-buttons .btn {
     background: var(--primary-color);
     color: var(--white-text);
     border-color: var(--primary-color);
     box-shadow: var(--shadow-md);
 }
 
-.hero-buttons .btn-secondary:hover {
+.hero-buttons .btn:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
     background: #1a1f28;
 }
 
-/* Generic btn-secondary for other sections */
 .btn-secondary {
     background: transparent;
     color: var(--white-text);
@@ -376,7 +375,7 @@ section {
     text-align: left;
 }
 
-/* FIX: Adjust dot to be closer to middle line */
+/* FIX: Adjust dot position to middle of timeline */
 .experience-item::before {
     content: '';
     position: absolute;
@@ -528,7 +527,7 @@ section {
     gap: 30px;
 }
 
-/* FIX: Simplify education items styling and center them */
+/* FIX: Simplify education items - centered text */
 .education-item {
     background: var(--white-text);
     padding: 30px;
@@ -575,7 +574,7 @@ section {
     margin: 0;
 }
 
-/* FIX: Certifications section spans full width */
+/* FIX: Certifications spans full width */
 .certifications {
     background: var(--white-text);
     padding: 30px;
@@ -853,6 +852,22 @@ footer p {
         font-size: 1.5rem;
     }
 
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-link i {
+        font-size: 2rem;
+    }
+
+    .cert-list {
+        grid-template-columns: 1fr;
+    }
+
+    .education-content {
+        grid-template-columns: 1fr;
+    }
+}
     .skills-container {
         grid-template-columns: 1fr;
     }
