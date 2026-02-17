@@ -1,4 +1,4 @@
-// Mobile Navigation - FIXED: Using correct .hamburger class
+// Mobile Navigation - Fixed for .hamburger class
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -16,6 +16,14 @@ navLinks.forEach(link => {
         hamburger?.classList.remove('active');
         navMenu?.classList.remove('active');
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar')) {
+        hamburger?.classList.remove('active');
+        navMenu?.classList.remove('active');
+    }
 });
 
 // Smooth Scrolling
@@ -77,4 +85,4 @@ animatedElements.forEach(element => {
     animationObserver.observe(element);
 });
 
-console.log('✅ Portfolio loaded successfully!');
+console.log('✅ Portfolio loaded successfully! 🚀');
