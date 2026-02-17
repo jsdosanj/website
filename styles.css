@@ -1,113 +1,104 @@
-/** Import Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Google+Sans:400,500,700&display=swap');
+.global {
+    body {
+        background-color: #ecd98c; /* Light Background */
+        color: #212529; /* Dark Text */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    h1, h2, h3, h4, h5, h6 {
+        color: #212529; /* Dark Text */
+    }
 }
 
-body {
-    font-family: 'Google Sans', sans-serif;
-    background-color: #ecd98c;
-    color: #212529;
-}
-
-/* Navbar */
+/* Navbar Styles */
 .navbar {
-    background-color: #242A35;
-    padding: 15px;
+    background-color: #242A35; /* Primary Color */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .navbar a {
-    color: #ffffff;
-    margin: 0 15px;
+    color: #ffffff; /* White Text */
     text-decoration: none;
+    padding: 15px;
+    display: inline-block;
 }
 
 /* Hero Section */
 .hero {
-    background-color: #ff9800;
+    background-color: #242A35; /* Primary Color */
+    color: #ffffff; /* White Text */
     padding: 100px 20px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 2.5em;
 }
 
-/* About Section */
-.about {
-    padding: 50px 20px;
-    text-align: center;
+.hero p {
+    font-size: 1.2em;
 }
 
-/* Experience Section */
-.experience {
-    padding: 50px 20px;
-}
-
-timeline {
-    list-style-type: none;
+/* Timeline Styles */
+.timeline {
     position: relative;
+    max-width: 1200px;
+    margin: auto;
 }
 
-timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #6c757d;
-}
-
-/* Experience items */
-timeline li {
+.timeline .event {
+    padding: 10px 20px;
+    background: #ffffff; /* White Background for events */
+    border-radius: 8px;
     position: relative;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
-timeline li::after {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 5px;
-    width: 10px;
-    height: 10px;
-    background: #ff9800;
-    border-radius: 50%;
-}
-
-/* Leadership Section */
-.leadership {
-    padding: 50px 20px;
-}
-
-/* Education Section */
-.education {
-    padding: 50px 20px;
-}
-
-grid {
+/* Grid Layouts */
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Skills Section */
-.skills {
-    padding: 50px 20px;
+/* Contact Form Styles */
+.contact-form {
+    background-color: #ffffff; /* White Background */
+    padding: 20px;
+    border-radius: 8px;
 }
 
-/* Contact Section */
-.contact {
-    padding: 50px 20px;
-    text-align: center;
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #6c757d; /* Muted Text for borders */
+    border-radius: 4px;
 }
 
-/* Muted Text */
-.muted {
-    color: #6c757d;
+/* Animations and Transitions */
+.section {
+    transition: all 0.4s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .contact-form {
+        padding: 10px;
+    }
 }
