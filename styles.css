@@ -375,7 +375,6 @@ section {
     text-align: left;
 }
 
-/* FIX: Adjust dot position to middle of timeline */
 .experience-item::before {
     content: '';
     position: absolute;
@@ -389,6 +388,14 @@ section {
     top: 25px;
     box-shadow: 0 0 0 3px var(--primary-color);
     z-index: 1;
+}
+
+/* Desktop: Position dot at the line without covering text */
+@media (min-width: 769px) {
+    .experience-item::before {
+        top: -10px;
+        z-index: 0;
+    }
 }
 
 .experience-meta {
