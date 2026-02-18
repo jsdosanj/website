@@ -152,7 +152,7 @@ a:hover { color: #2d4dbf; }
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 1100px;
     animation: fadeInUp 0.8s ease-out;
 }
 
