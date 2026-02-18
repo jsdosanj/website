@@ -297,7 +297,7 @@ section {
 
 /* ==================== ABOUT SECTION ==================== */
 .about-content {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -594,7 +594,7 @@ section {
 
 /* ==================== EDUCATION SECTION - GRID ==================== */
 .education-content {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -720,7 +720,7 @@ section {
 .contact-intro {
     font-size: 1.05rem;
     margin-bottom: 40px;
-    max-width: 700px;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.9;
