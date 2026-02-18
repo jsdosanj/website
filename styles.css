@@ -801,39 +801,48 @@ footer p {
 
 /* TABLET/MOBILE BREAKPOINT: 768px and below */
 @media (max-width: 768px) {
-    /* Navbar Styles - Keep horizontal on mobile */
+    /* Navbar Container */
     .nav-container {
         justify-content: center;
+        height: auto;
+        flex-wrap: wrap;
     }
 
+    /* Logo */
     .logo {
         position: relative;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        order: -1;
+        width: 100%;
+        padding: 8px 0;
     }
 
+    /* Navbar Menu - Keep horizontal on one row */
     .nav-menu {
-        position: fixed;
-        left: 0;
-        top: 70px;
+        position: relative;
         flex-direction: row;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
+        background: transparent;
+        backdrop-filter: none;
         width: 100%;
         text-align: center;
-        gap: 5px;
-        padding: 0;
-        border-bottom: 1px solid #e0e0e0;
+        gap: 15px;
+        padding: 8px 0;
+        border-bottom: none;
         justify-content: center;
         flex-wrap: wrap;
-        height: auto;
     }
 
+    /* Nav Links - Smaller and compact */
     .nav-link {
-        padding: 12px 8px;
+        padding: 5px 8px;
         display: inline-block;
         color: var(--dark-text);
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         white-space: nowrap;
+    }
+
+    .nav-link::after {
+        bottom: -3px;
     }
 
     /* Hero Section */
