@@ -322,12 +322,14 @@ section {
 .experience-container::before {
     content: '';
     position: absolute;
-    right: calc(50% - 1px);
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
     bottom: 0;
     width: 2px;
     background: #d0d0d0;
     border-radius: 2px;
+    z-index: 1;
 }
 
 /* Experience item cards - alternates left and right */
@@ -362,7 +364,7 @@ section {
 .experience-item:nth-child(4) { animation-delay: 0.3s; }
 .experience-item:nth-child(5) { animation-delay: 0.4s; }
 
-/* DESKTOP: Dot positioned to the RIGHT of text (outside card) */
+/* DESKTOP: Dot sits ON the center timeline, not on the card */
 .experience-item::before {
     content: '';
     position: absolute;
@@ -371,15 +373,10 @@ section {
     background: var(--royal-blue);
     border: 4px solid rgba(255, 255, 255, 0.9);
     border-radius: 50%;
-    right: -10px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 35px;
-    z-index: 5;
-}
-
-/* DESKTOP: Even items have dot positioned to the LEFT */
-.experience-item:nth-child(even)::before {
-    right: auto;
-    left: -10px;
+    z-index: 10;
 }
 
 .experience-meta {
