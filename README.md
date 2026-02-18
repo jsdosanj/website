@@ -2,8 +2,6 @@
 
 **Senior Systems Administrator | Help Desk Manager**
 
-📍 Pacific Northwest | 🔒 Security-First Mindset | 🏥 Healthcare IT Expertise | 🌍 International Affairs & National Security Advocate
-
 ---
 
 ## 🎨 Website Design & Technical Choices
