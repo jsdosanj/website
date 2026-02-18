@@ -1,4 +1,4 @@
-# Hi, I'm Jasvant Dosanjh (@jsdosanj) 👋
+# Hi, I'm Jasvant Dosanjh 👋
 
 **Senior Systems Administrator | Help Desk Manager**
 
