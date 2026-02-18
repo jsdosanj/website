@@ -1,31 +1,3 @@
-// Mobile Navigation - Fixed for .hamburger class
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-}
-
-// Close menu when link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger?.classList.remove('active');
-        navMenu?.classList.remove('active');
-    });
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.navbar')) {
-        hamburger?.classList.remove('active');
-        navMenu?.classList.remove('active');
-    }
-});
-
 // Smooth Scrolling
 const links = document.querySelectorAll('a[href^="#"]');
 
@@ -46,6 +18,7 @@ links.forEach(link => {
 });
 
 // Active Link Highlighting
+const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section, header');
 
 function updateActiveLink() {
@@ -68,21 +41,5 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
-
-// Scroll Animations
-const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-const animationObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            animationObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-animatedElements.forEach(element => {
-    animationObserver.observe(element);
-});
 
 console.log('✅ Portfolio loaded successfully! 🚀');
