@@ -449,7 +449,7 @@ section {
 .experience-item:nth-child(4) { animation-delay: 0.3s; }
 .experience-item:nth-child(5) { animation-delay: 0.4s; }
 
-/* DESKTOP: Dot sits ON the center timeline, positioned OUTSIDE card so it doesn't cover text */
+/* DESKTOP: Dot sits ON the center timeline, positioned ABOVE text so it doesn't cover anything */
 .experience-item::before {
     content: '';
     position: absolute;
@@ -460,7 +460,7 @@ section {
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
-    top: 45px;
+    top: -25px;
     z-index: 15;
     box-shadow: 0 0 0 2px var(--royal-blue);
 }
@@ -710,6 +710,13 @@ section {
 }
 
 /* ==================== CONTACT SECTION ==================== */
+/* Let's Connect Section - Light blue gradient background */
+.contact-section {
+    background: linear-gradient(135deg, #e6f0ff 0%, #f0f5ff 100%);
+    color: var(--dark-text);
+    padding: 60px 20px 30px;
+}
+
 .contact-intro {
     font-size: 1.05rem;
     margin-bottom: 40px;
@@ -769,7 +776,7 @@ section {
 
 /* ==================== FOOTER ==================== */
 footer {
-    background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #e6f0ff 0%, #f0f5ff 100%);
     color: var(--dark-text);
     padding: 30px 20px;
     text-align: center;
@@ -778,7 +785,7 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9rem;
-    color: var(--muted-text);
+    color: var(--dark-text);
 }
 
 /* ==================== ANIMATIONS ==================== */
