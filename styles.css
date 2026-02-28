@@ -915,6 +915,176 @@ section {
     }
 }
 
+/* ==================== LINKEDIN RECOMMENDATIONS SECTION ==================== */
+.recommendations-section {
+    background: linear-gradient(135deg, #f0f5ff 0%, #ffffff 100%);
+}
+
+.recommendations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recommendation-card {
+    background: var(--white-text);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border-top: 4px solid var(--royal-blue);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recommendation-card:nth-child(1) { animation-delay: 0s; }
+.recommendation-card:nth-child(2) { animation-delay: 0.1s; }
+.recommendation-card:nth-child(3) { animation-delay: 0.2s; }
+.recommendation-card:nth-child(4) { animation-delay: 0.3s; }
+.recommendation-card:nth-child(5) { animation-delay: 0.4s; }
+
+.recommendation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Recommendation Header */
+.recommendation-header {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.recommender-avatar {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e6f0ff 0%, #f0f5ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--royal-blue);
+}
+
+.recommender-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.recommender-name {
+    font-size: 1.05rem;
+    color: var(--dark-text);
+    margin: 0;
+    font-weight: 600;
+}
+
+.recommender-title {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.recommendation-link {
+    font-size: 0.75rem;
+    color: var(--royal-blue);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    transition: var(--transition);
+}
+
+.recommendation-link:hover {
+    color: #2d4dbf;
+}
+
+.recommendation-link i {
+    font-size: 0.85rem;
+}
+
+/* Recommendation Text */
+.recommendation-text {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+    line-height: 1.8;
+    margin: 0;
+    font-style: italic;
+    border-left: 3px solid var(--royal-blue);
+    padding-left: 15px;
+}
+
+/* Responsive - Recommendations */
+@media (max-width: 768px) {
+    .recommendations-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .recommendation-card {
+        padding: 25px;
+    }
+
+    .recommender-avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 2.2rem;
+    }
+
+    .recommender-name {
+        font-size: 1rem;
+    }
+
+    .recommendation-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .recommendations-container {
+        gap: 20px;
+    }
+
+    .recommendation-card {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .recommendation-header {
+        gap: 12px;
+        padding-bottom: 12px;
+    }
+
+    .recommender-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+
+    .recommender-name {
+        font-size: 0.95rem;
+    }
+
+    .recommender-title {
+        font-size: 0.8rem;
+    }
+
+    .recommendation-text {
+        font-size: 0.85rem;
+    }
+}
+
 /* ==================== CONTACT SECTION ==================== */
 /* Let's Connect Section - Light blue gradient background */
 .contact-section {
