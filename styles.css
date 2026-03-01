@@ -874,34 +874,34 @@ section {
 
 .personal-interests {
     background: var(--card-bg);
-    padding: 50px 40px;
-    border-radius: 12px;
+    padding: 25px 20px;
+    border-radius: 8px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--royal-blue);
 }
 
 .personal-interests h3 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: var(--text-primary);
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     text-align: center;
     font-family: 'Fira Code', monospace;
 }
 
 .interests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
 }
 
 .interest-item {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: flex-start;
-    padding: 20px;
+    padding: 10px 12px;
     background: rgba(65, 105, 225, 0.05);
-    border-radius: 12px;
+    border-radius: 8px;
     transition: var(--transition);
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--royal-blue);
@@ -915,7 +915,7 @@ section {
 }
 
 .interest-emoji {
-    font-size: 2rem;
+    font-size: 1.5rem;
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
@@ -924,7 +924,7 @@ section {
 }
 
 .interest-text {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.6;
 }
@@ -1346,7 +1346,7 @@ button:focus-visible,
     }
 
     .interests-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
 
@@ -1384,5 +1384,9 @@ button:focus-visible,
 
     .passions-grid {
         grid-template-columns: 1fr;
+    }
+
+    .interests-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
