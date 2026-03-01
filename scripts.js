@@ -70,6 +70,90 @@ try {
     // Silently handle errors
 }
 
+// Terminal command line animation — updates navbar terminal text on section change
+try {
+    const terminalText = document.querySelector('.terminal-title-text');
+    const sectionMap = {
+        'header': '~',
+        'about': '/jasvant/about',
+        'experience': '/jasvant/experience',
+        'skills': '/jasvant/skills',
+        'education': '/jasvant/education',
+        'passions': '/jasvant/passions',
+        'recommendations': '/jasvant/recommendations',
+        'contact': '/jasvant/contact'
+    };
+
+    // Cache section bounds; recompute on resize to avoid repeated layout reads
+    let terminalSectionBounds = [];
+    function computeTerminalSectionBounds() {
+        terminalSectionBounds = [];
+        document.querySelectorAll('section, header').forEach(function(section) {
+            const sectionId = section.getAttribute('id');
+            if (sectionId) {
+                terminalSectionBounds.push({
+                    id: sectionId,
+                    top: section.offsetTop,
+                    bottom: section.offsetTop + section.offsetHeight
+                });
+            }
+        });
+    }
+
+    let terminalRafPending = false;
+    let terminalFadeTimer = null;
+
+    function updateTerminalPath() {
+        if (terminalRafPending) return;
+        terminalRafPending = true;
+        requestAnimationFrame(function() {
+            terminalRafPending = false;
+            const scrollPosition = window.scrollY + 150;
+            let currentPath = '~';
+
+            terminalSectionBounds.forEach(function(bounds) {
+                try {
+                    if (scrollPosition >= bounds.top && scrollPosition < bounds.bottom) {
+                        currentPath = sectionMap[bounds.id] || '~';
+                    }
+                } catch (e) {}
+            });
+
+            if (terminalText) {
+                const newText = currentPath === '~'
+                    ? 'jasvant@portfolio ~ %'
+                    : 'jasvant@portfolio ~ % cd ' + currentPath;
+                if (terminalText.textContent !== newText) {
+                    // Cancel any pending fade to prevent out-of-order updates
+                    if (terminalFadeTimer !== null) {
+                        clearTimeout(terminalFadeTimer);
+                        terminalFadeTimer = null;
+                    }
+                    terminalText.style.opacity = '0';
+                    terminalFadeTimer = setTimeout(function() {
+                        terminalFadeTimer = null;
+                        terminalText.textContent = newText;
+                        terminalText.style.opacity = '1';
+                    }, 150);
+                }
+            }
+        });
+    }
+
+    if (terminalText) {
+        terminalText.style.transition = 'opacity 0.15s ease';
+        computeTerminalSectionBounds();
+        window.addEventListener('resize', computeTerminalSectionBounds, { passive: true });
+        window.addEventListener('scroll', updateTerminalPath, { passive: true });
+        window.addEventListener('load', function() {
+            computeTerminalSectionBounds();
+            updateTerminalPath();
+        });
+    }
+} catch (e) {
+    // Silently handle errors
+}
+
 // Scroll-triggered animations via Intersection Observer (Phase 1E)
 // Replaces CSS animation-delay which fires on page load even if off-screen
 try {
