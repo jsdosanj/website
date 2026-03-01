@@ -5,29 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none';">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
     <!-- Standard Meta -->
-    <meta name="description" content="Senior Systems Administrator portfolio showcasing 9+ years of IT infrastructure expertise">
-    <meta name="keywords" content="Systems Administrator, Cloud Infrastructure, IT Security, HIPAA Compliance, AWS, Azure, Linux, Windows, Senior IT, Portfolio">
+    <meta name="description" content="Jasvant Dosanjh is a Senior Systems Administrator in Seattle, WA with 9+ years of IT infrastructure expertise in cloud computing (AWS, Azure), cybersecurity (HIPAA, NIST), systems administration, and IT leadership. View portfolio, experience, and certifications.">
+    <meta name="keywords" content="Systems Administrator, Cloud Infrastructure, IT Security, HIPAA Compliance, AWS, Azure, Linux, Windows, Senior IT, Portfolio, Seattle, IT Lead, Help Desk Manager">
     <meta name="author" content="Jasvant Dosanjh">
     <meta name="location" content="Seattle, WA">
     <link rel="canonical" href="https://jsdosanj.github.io/website/">
 
     <!-- SEO - Schema.org / Structured Data -->
     <meta itemprop="name" content="Jasvant Dosanjh | Senior Systems Administrator">
-    <meta itemprop="description" content="Senior Systems Administrator portfolio showcasing 9+ years of IT infrastructure expertise">
+    <meta itemprop="description" content="Jasvant Dosanjh is a Senior Systems Administrator in Seattle, WA with 9+ years of IT infrastructure expertise in cloud computing (AWS, Azure), cybersecurity (HIPAA, NIST), systems administration, and IT leadership.">
     <meta itemprop="url" content="https://jsdosanj.github.io/website/"/>
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jsdosanj.github.io/website/">
     <meta property="og:title" content="Jasvant Dosanjh | Senior Systems Administrator">
-    <meta property="og:description" content="Senior Systems Administrator portfolio showcasing 9+ years of IT infrastructure expertise">
+    <meta property="og:description" content="Jasvant Dosanjh is a Senior Systems Administrator in Seattle, WA with 9+ years of IT infrastructure expertise in cloud computing, cybersecurity, and enterprise systems.">
+    <meta property="og:image" content="https://jsdosanj.github.io/website/IMG_0654.JPG">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jasvant Dosanjh | Senior Systems Administrator">
+    <meta name="twitter:description" content="Senior Systems Administrator in Seattle, WA with 9+ years of IT infrastructure expertise in cloud computing (AWS, Azure), cybersecurity, and enterprise systems.">
+    <meta name="twitter:image" content="https://jsdosanj.github.io/website/IMG_0654.JPG">
+    <meta name="twitter:image:alt" content="Portrait of Jasvant Dosanjh, Senior Systems Administrator">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -36,9 +46,30 @@
         "@type": "Person",
         "name": "Jasvant Dosanjh",
         "url": "https://jsdosanj.github.io/website/",
-        "description": "Senior Systems Administrator with 9+ years of IT infrastructure expertise",
+        "image": "https://jsdosanj.github.io/website/IMG_0654.JPG",
+        "description": "Senior Systems Administrator with 9+ years of IT infrastructure expertise in cloud computing, cybersecurity, and enterprise systems",
         "jobTitle": "Senior Systems Administrator",
-        "address": "Seattle, WA",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "University of Washington"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Seattle",
+            "addressRegion": "WA",
+            "addressCountry": "US"
+        },
+        "knowsAbout": ["Systems Administration", "Cloud Infrastructure", "AWS", "Azure", "HIPAA Compliance", "IT Security", "Linux", "Windows"],
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Oakland University"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Oakland Community College"
+            }
+        ],
         "sameAs": [
             "https://github.com/jsdosanj",
             "https://www.linkedin.com/in/jasvantsd"
@@ -46,18 +77,12 @@
     }
     </script>
 
-    <title>Jasvant Dosanjh</title>
+    <title>Jasvant Dosanjh | Senior Systems Administrator | IT Infrastructure Expert, Seattle WA</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome 6.4.0 with SRI hash -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Google Fonts — SRI not supported by Google Fonts; accepted risk -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Montserrat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-    </style>
 </head>
 
 <body>
@@ -133,7 +158,7 @@
             <div class="container">
                 <h2 class="section-title" id="about-title">About</h2>
                 <div class="about-content">
-                    <img src="IMG_0654.JPG" alt="Jasvant Dosanjh" class="about-headshot">
+                    <img src="IMG_0654.JPG" alt="Jasvant Dosanjh professional headshot" class="about-headshot" loading="lazy">
                     <div class="about-text">
                         <p>
                             I'm a mission-driven systems administrator with expertise in designing and maintaining secure, scalable IT infrastructure. Currently serving as a Senior Computer Specialist at the University of Washington, where I manage enterprise Linux/Windows servers, HIPAA-regulated clinical systems, and support academic, research, and clinical operations.

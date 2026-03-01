@@ -15,9 +15,11 @@ try {
                 if (targetElement) {
                     const navHeight = 70;
                     const targetPosition = targetElement.offsetTop - navHeight;
+                    // Respect prefers-reduced-motion: use instant jump instead of smooth scroll
+                    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                     window.scrollTo({
                         top: targetPosition,
-                        behavior: 'smooth'
+                        behavior: prefersReduced ? 'auto' : 'smooth'
                     });
                     // Move focus to the target for keyboard/screen reader users
                     targetElement.setAttribute('tabindex', '-1');

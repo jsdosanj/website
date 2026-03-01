@@ -10,7 +10,7 @@
     --royal-blue-glow: rgba(65, 105, 225, 0.4);
     --text-primary: #e6edf3;
     --text-secondary: #8b949e;
-    --text-muted: #6e7681;
+    --text-muted: #9ca3af;
     --border-color: #30363d;
     --shadow-glow: 0 0 15px rgba(65, 105, 225, 0.3);
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
@@ -285,7 +285,7 @@ a:hover { color: #7b9ff5; }
     line-height: 1.8;
     margin-left: auto;
     margin-right: auto;
-    max-width: 800px;
+    max-width: 1100px;
 }
 
 /* Cursor blink on hero greeting */
@@ -1053,45 +1053,45 @@ section {
 
 .contact-links {
     display: flex;
-    gap: 30px;
-    max-width: 500px;
+    gap: 16px;
     margin: 0 auto;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .contact-link {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
     background: var(--card-bg);
-    padding: 25px 30px;
-    border-radius: 12px;
+    border: 1px solid var(--royal-blue);
+    border-radius: 8px;
     text-decoration: none;
     color: var(--text-primary);
     transition: var(--transition);
-    border: 1px solid var(--royal-blue);
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    font-weight: 600;
-    min-width: 140px;
+    min-width: auto;
     box-shadow: var(--shadow-sm);
+    font-size: 0.9rem;
 }
 
 .contact-link i {
-    font-size: 2.5rem;
+    font-size: 1.3rem;
     color: var(--royal-blue);
     transition: var(--transition);
 }
 
 .contact-link span {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     font-family: 'Fira Code', monospace;
 }
 
 .contact-link:hover {
     background: var(--royal-blue);
     color: #fff;
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-glow), var(--shadow-lg);
 }
 
@@ -1143,7 +1143,40 @@ footer p:hover {
     animation: fadeInUp 0.6s ease-out forwards;
 }
 
+/* ==================== ACCESSIBILITY: FOCUS INDICATORS ==================== */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--royal-blue);
+    outline-offset: 2px;
+}
+
+/* ==================== ACCESSIBILITY: REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    .skills-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .passions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-item,
+    .leadership-item {
+        grid-template-columns: 35% 65%;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-container {
         justify-content: center;
@@ -1269,8 +1302,16 @@ footer p:hover {
     }
 
     .contact-link {
-        min-width: 120px;
-        padding: 20px 25px;
+        min-width: auto;
+        padding: 10px 18px;
+    }
+
+    .contact-link i {
+        font-size: 1.1rem;
+    }
+
+    .contact-link span {
+        font-size: 0.85rem;
     }
 
     .about-contact-buttons {
@@ -1316,13 +1357,15 @@ footer p:hover {
 }
 
 @media (max-width: 480px) {
-    .about-contact-buttons {
+    .about-contact-buttons,
+    .contact-links {
         flex-direction: column;
         gap: 12px;
         align-items: center;
     }
 
-    .about-btn {
+    .about-btn,
+    .contact-link {
         width: 100%;
         max-width: 240px;
         justify-content: center;
