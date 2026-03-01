@@ -84,7 +84,24 @@ try {
         'contact': '/jasvant/contact'
     };
 
+    // Cache section bounds; recompute on resize to avoid repeated layout reads
+    let terminalSectionBounds = [];
+    function computeTerminalSectionBounds() {
+        terminalSectionBounds = [];
+        document.querySelectorAll('section, header').forEach(function(section) {
+            const sectionId = section.getAttribute('id');
+            if (sectionId) {
+                terminalSectionBounds.push({
+                    id: sectionId,
+                    top: section.offsetTop,
+                    bottom: section.offsetTop + section.offsetHeight
+                });
+            }
+        });
+    }
+
     let terminalRafPending = false;
+    let terminalFadeTimer = null;
 
     function updateTerminalPath() {
         if (terminalRafPending) return;
@@ -94,13 +111,10 @@ try {
             const scrollPosition = window.scrollY + 150;
             let currentPath = '~';
 
-            document.querySelectorAll('section, header').forEach(function(section) {
+            terminalSectionBounds.forEach(function(bounds) {
                 try {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-                    if (sectionId && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        currentPath = sectionMap[sectionId] || '~';
+                    if (scrollPosition >= bounds.top && scrollPosition < bounds.bottom) {
+                        currentPath = sectionMap[bounds.id] || '~';
                     }
                 } catch (e) {}
             });
@@ -110,8 +124,14 @@ try {
                     ? 'jasvant@portfolio ~ %'
                     : 'jasvant@portfolio ~ % cd ' + currentPath;
                 if (terminalText.textContent !== newText) {
+                    // Cancel any pending fade to prevent out-of-order updates
+                    if (terminalFadeTimer !== null) {
+                        clearTimeout(terminalFadeTimer);
+                        terminalFadeTimer = null;
+                    }
                     terminalText.style.opacity = '0';
-                    setTimeout(function() {
+                    terminalFadeTimer = setTimeout(function() {
+                        terminalFadeTimer = null;
                         terminalText.textContent = newText;
                         terminalText.style.opacity = '1';
                     }, 150);
@@ -122,8 +142,13 @@ try {
 
     if (terminalText) {
         terminalText.style.transition = 'opacity 0.15s ease';
-        window.addEventListener('scroll', updateTerminalPath);
-        window.addEventListener('load', updateTerminalPath);
+        computeTerminalSectionBounds();
+        window.addEventListener('resize', computeTerminalSectionBounds, { passive: true });
+        window.addEventListener('scroll', updateTerminalPath, { passive: true });
+        window.addEventListener('load', function() {
+            computeTerminalSectionBounds();
+            updateTerminalPath();
+        });
     }
 } catch (e) {
     // Silently handle errors
