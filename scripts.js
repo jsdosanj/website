@@ -70,6 +70,65 @@ try {
     // Silently handle errors
 }
 
+// Terminal command line animation — updates navbar terminal text on section change
+try {
+    const terminalText = document.querySelector('.terminal-title-text');
+    const sectionMap = {
+        'header': '~',
+        'about': '/jasvant/about',
+        'experience': '/jasvant/experience',
+        'skills': '/jasvant/skills',
+        'education': '/jasvant/education',
+        'passions': '/jasvant/passions',
+        'recommendations': '/jasvant/recommendations',
+        'contact': '/jasvant/contact'
+    };
+
+    let terminalRafPending = false;
+
+    function updateTerminalPath() {
+        if (terminalRafPending) return;
+        terminalRafPending = true;
+        requestAnimationFrame(function() {
+            terminalRafPending = false;
+            const scrollPosition = window.scrollY + 150;
+            let currentPath = '~';
+
+            document.querySelectorAll('section, header').forEach(function(section) {
+                try {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    if (sectionId && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentPath = sectionMap[sectionId] || '~';
+                    }
+                } catch (e) {}
+            });
+
+            if (terminalText) {
+                const newText = currentPath === '~'
+                    ? 'jasvant@portfolio ~ %'
+                    : 'jasvant@portfolio ~ % cd ' + currentPath;
+                if (terminalText.textContent !== newText) {
+                    terminalText.style.opacity = '0';
+                    setTimeout(function() {
+                        terminalText.textContent = newText;
+                        terminalText.style.opacity = '1';
+                    }, 150);
+                }
+            }
+        });
+    }
+
+    if (terminalText) {
+        terminalText.style.transition = 'opacity 0.15s ease';
+        window.addEventListener('scroll', updateTerminalPath);
+        window.addEventListener('load', updateTerminalPath);
+    }
+} catch (e) {
+    // Silently handle errors
+}
+
 // Scroll-triggered animations via Intersection Observer (Phase 1E)
 // Replaces CSS animation-delay which fires on page load even if off-screen
 try {
