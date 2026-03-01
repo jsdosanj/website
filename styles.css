@@ -898,8 +898,8 @@ section {
 .interest-item {
     display: flex;
     gap: 10px;
-    align-items: flex-start;
-    padding: 10px 12px;
+    align-items: center;
+    padding: 14px 16px;
     background: rgba(65, 105, 225, 0.05);
     border-radius: 8px;
     transition: var(--transition);
@@ -920,13 +920,13 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 60px;
+    min-width: 36px;
 }
 
 .interest-text {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 .interest-text strong {
