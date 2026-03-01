@@ -521,90 +521,46 @@ section {
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
-.experience-container::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, transparent, var(--royal-blue) 10%, var(--royal-blue) 90%, transparent);
-    box-shadow: 0 0 8px var(--royal-blue-glow);
-    z-index: 1;
-}
-
+/* Compact two-column layout: metadata left (30%) | bullets right (70%) */
 .experience-item {
-    margin-bottom: 80px;
-    width: 48%;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 30% 70%;
     position: relative;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-    padding: 30px;
+    padding: 28px 30px;
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
-    border-right: 3px solid var(--royal-blue);
-    margin-left: 0;
-    margin-right: auto;
-    text-align: right;
     border: 1px solid var(--border-color);
-    border-right: 3px solid var(--royal-blue);
+    border-top: 3px solid var(--royal-blue);
     transition: var(--transition);
 }
 
 .experience-item:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-glow), var(--shadow-lg);
     border-color: var(--royal-blue);
 }
 
-.experience-item:nth-child(even) {
-    margin-left: auto;
-    margin-right: 0;
-    text-align: left;
-    border-right: 1px solid var(--border-color);
-    border-left: 3px solid var(--royal-blue);
-}
-
-.experience-item:nth-child(even):hover {
-    border-left-color: var(--royal-blue);
-}
-
-.experience-item:nth-child(1) { animation-delay: 0s; }
-.experience-item:nth-child(2) { animation-delay: 0.1s; }
-.experience-item:nth-child(3) { animation-delay: 0.2s; }
-.experience-item:nth-child(4) { animation-delay: 0.3s; }
-.experience-item:nth-child(5) { animation-delay: 0.4s; }
-
-.experience-item::before {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--primary-bg);
-    border: 2px solid var(--royal-blue);
-    border-radius: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -24px;
-    z-index: 15;
-    box-shadow: 0 0 8px var(--royal-blue-glow);
-}
-
 .experience-meta {
-    text-align: inherit;
-    margin-bottom: 15px;
+    padding-right: 28px;
+    border-right: 2px solid rgba(65, 105, 225, 0.3);
+    text-align: left;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .experience-meta h3 {
     color: var(--text-primary);
-    margin-bottom: 5px;
-    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
     margin-top: 0;
+    font-weight: 700;
 }
 
 .company {
@@ -616,47 +572,43 @@ section {
 
 .date {
     color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-bottom: 15px;
+    font-size: 0.82rem;
+    margin-bottom: 0;
     font-weight: 500;
     font-family: 'Fira Code', monospace;
 }
 
 .experience-details {
+    padding-left: 28px;
     background: transparent;
-    padding: 0;
     border-radius: 0;
     box-shadow: none;
-    border-left: none;
-    text-align: inherit;
-}
-
-.experience-details:hover {
-    transform: none;
-    box-shadow: none;
+    text-align: left;
 }
 
 .experience-details ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .experience-details li {
-    padding: 8px 0;
+    padding: 6px 0;
     color: var(--text-secondary);
     position: relative;
-    padding-left: 25px;
+    padding-left: 24px;
     font-size: 0.95rem;
     line-height: 1.6;
-    text-align: inherit;
 }
 
 .experience-details li::before {
-    content: '▸';
+    content: '>';
     position: absolute;
     left: 0;
     color: var(--royal-blue);
-    font-weight: bold;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: 'Fira Code', monospace;
 }
 
 /* ==================== SKILLS SECTION ==================== */
@@ -676,17 +628,7 @@ section {
     transition: var(--transition);
     border: 1px solid var(--border-color);
     border-top: 3px solid var(--royal-blue);
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
 }
-
-.skill-category:nth-child(1) { animation-delay: 0s; }
-.skill-category:nth-child(2) { animation-delay: 0.1s; }
-.skill-category:nth-child(3) { animation-delay: 0.2s; }
-.skill-category:nth-child(4) { animation-delay: 0.3s; }
-.skill-category:nth-child(5) { animation-delay: 0.4s; }
-.skill-category:nth-child(6) { animation-delay: 0.5s; }
-.skill-category:nth-child(7) { animation-delay: 0.6s; }
 
 .skill-category:hover {
     transform: translateY(-10px);
@@ -751,12 +693,7 @@ section {
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--royal-blue);
     text-align: left;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
 }
-
-.education-item:nth-child(1) { animation-delay: 0s; }
-.education-item:nth-child(2) { animation-delay: 0.1s; }
 
 .education-item:hover {
     transform: translateY(-8px);
@@ -798,8 +735,6 @@ section {
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     grid-column: 1 / -1;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards 0.2s;
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--royal-blue);
 }
@@ -879,14 +814,7 @@ section {
     transition: var(--transition);
     border: 1px solid var(--border-color);
     border-top: 3px solid var(--royal-blue);
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
 }
-
-.passion-card:nth-child(1) { animation-delay: 0s; }
-.passion-card:nth-child(2) { animation-delay: 0.1s; }
-.passion-card:nth-child(3) { animation-delay: 0.2s; }
-.passion-card:nth-child(4) { animation-delay: 0.3s; }
 
 .passion-card:hover {
     transform: translateY(-10px);
@@ -987,18 +915,10 @@ section {
     transition: var(--transition);
     border: 1px solid var(--border-color);
     border-top: 3px solid var(--royal-blue);
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
-.recommendation-card:nth-child(1) { animation-delay: 0s; }
-.recommendation-card:nth-child(2) { animation-delay: 0.1s; }
-.recommendation-card:nth-child(3) { animation-delay: 0.2s; }
-.recommendation-card:nth-child(4) { animation-delay: 0.3s; }
-.recommendation-card:nth-child(5) { animation-delay: 0.4s; }
 
 .recommendation-card:hover {
     transform: translateY(-8px);
@@ -1177,6 +1097,18 @@ footer p:hover {
     }
 }
 
+/* Scroll-reveal: JS sets opacity:0/translateY on these, then adds .is-visible */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 768px) {
     .nav-container {
@@ -1250,40 +1182,22 @@ footer p:hover {
         margin: 0 auto;
     }
 
-    /* Experience timeline - single column on left */
-    .experience-container::before {
-        left: 20px;
-        top: 0;
-    }
-
+    /* Experience — stack meta above bullets on mobile */
     .experience-item {
-        width: 100%;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding: 30px !important;
-        padding-left: 60px !important;
-        text-align: left !important;
-        border-left: 3px solid var(--royal-blue) !important;
-        border-right: none !important;
-    }
-
-    .experience-item:nth-child(even) {
-        border-left: 3px solid var(--royal-blue);
-        border-right: none;
-    }
-
-    .experience-item::before {
-        left: 0 !important;
-        top: 30px !important;
-        z-index: 15 !important;
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
     }
 
     .experience-meta {
-        text-align: left !important;
+        padding-right: 0;
+        padding-bottom: 18px;
+        border-right: none;
+        border-bottom: 2px solid rgba(65, 105, 225, 0.3);
+        margin-bottom: 18px;
     }
 
-    .experience-details li {
-        text-align: left;
+    .experience-details {
+        padding-left: 0;
     }
 
     section {
