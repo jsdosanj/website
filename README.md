@@ -14,7 +14,7 @@
 
 ## 📖 Description
 
-A fully static, single-page portfolio for **Jasvant Dosanjh** — Senior Systems Administrator based in Seattle, WA with 9+ years of IT infrastructure expertise. Built with zero dependencies (no frameworks, no build tools), the site delivers a professional, accessible, and secure experience that reflects both technical depth and personality through a macOS terminal aesthetic.
+A fully static, single-page portfolio for **Jasvant Dosanjh** — Senior Systems Administrator based in Seattle, WA with 9+ years of IT infrastructure expertise. Built without JavaScript frameworks or build tools (pure HTML, CSS, and vanilla JavaScript), the site delivers a professional, accessible, and secure experience that reflects both technical depth and personality through a macOS terminal aesthetic.
 
 ---
 
@@ -109,7 +109,7 @@ website/
 | Focus indicators | `:focus-visible` outline (2px royal blue, 2px offset) on all interactive elements |
 | Color contrast | Text colors meet WCAG 4.5:1 AA ratio on dark backgrounds |
 | Reduced motion | `@media (prefers-reduced-motion: reduce)` disables all animations/transitions |
-| Touch targets | Buttons ≥ 44×44px on mobile (WCAG 2.5.5) |
+| Touch targets | Primary touch targets sized to align with WCAG 2.5.5 guidance on mobile |
 | Keyboard navigation | Full Tab-key navigation, logical focus order |
 | Screen readers | `aria-hidden="true"` on decorative icons; descriptive `alt` text on all images |
 | Lazy loading | `loading="lazy"` on below-fold images |
@@ -132,7 +132,7 @@ website/
 | Image alt text | Descriptive alt text on all images |
 | Semantic landmarks | All sections have `id` attributes for deep linking |
 
-> **Sitemap note:** For multi-page expansion, generate a `sitemap.xml` and reference it in a `robots.txt` at the repository root. GitHub Pages serves these automatically.
+> **Sitemap note:** For multi-page expansion, add a `sitemap.xml` and reference it in a `robots.txt` at the repository root. GitHub Pages will serve these files if they are present there.
 
 ---
 
@@ -162,7 +162,7 @@ website/
 - **No `console.log`** in production
 - **`try/catch`** error handling around all DOM operations
 
-> **HTTP Headers note:** `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy` are included as `<meta>` tags for documentation intent. Full enforcement requires configuring **real HTTP response headers** at the server level. For GitHub Pages, use a `_headers` file (Netlify) or a GitHub Pages-compatible CDN (Cloudflare) to serve these headers.
+> **HTTP Headers note:** `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy` are included as `<meta>` tags for documentation intent. Full enforcement requires configuring **real HTTP response headers** at the server level. On GitHub Pages, this typically requires placing it behind a compatible CDN/proxy (e.g., Cloudflare) or using a different host that supports custom response headers. If you deploy to Netlify instead of GitHub Pages, you can use a `_headers` file to serve these headers.
 
 ---
 
