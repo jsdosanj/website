@@ -1,9 +1,9 @@
-// Smooth Scrolling
+// Smooth Scrolling — scoped to .nav-link elements to avoid intercepting skip-to-content
 // T1: Validate href values against a safe pattern before passing to querySelector
 const SAFE_ANCHOR = /^#[a-zA-Z0-9_-]+$/;
 
 try {
-    const links = document.querySelectorAll('a[href^="#"]');
+    const links = document.querySelectorAll('.nav-link[href^="#"]');
 
     links.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -18,6 +18,14 @@ try {
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
+                    });
+                    // Move focus to the target for keyboard/screen reader users
+                    targetElement.setAttribute('tabindex', '-1');
+                    targetElement.focus({ preventScroll: true });
+                    // Restore original tab behaviour once focus leaves the element
+                    targetElement.addEventListener('blur', function restoreTabindex() {
+                        targetElement.removeAttribute('tabindex');
+                        targetElement.removeEventListener('blur', restoreTabindex);
                     });
                 }
             } catch (e) {
@@ -75,6 +83,9 @@ try {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
+                    // Clear the stagger delay so future hover transitions aren't delayed
+                    entry.target.style.animationDelay = '';
+                    entry.target.style.transitionDelay = '';
                     revealObserver.unobserve(entry.target);
                 }
             });
@@ -82,8 +93,8 @@ try {
 
         scrollTargets.forEach(function(el, index) {
             el.classList.add('scroll-reveal');
-            // Stagger within groups of up to 7 (max items per section) — resets per section
-            el.style.transitionDelay = (index % 7 * 0.08) + 's';
+            // Stagger in repeating groups of up to 7 items (index cycles every 7 across all targets)
+            el.style.animationDelay = (index % 7 * 0.08) + 's';
             revealObserver.observe(el);
         });
     } else {

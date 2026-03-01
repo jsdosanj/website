@@ -1097,16 +1097,14 @@ footer p:hover {
     }
 }
 
-/* Scroll-reveal: JS sets opacity:0/translateY on these, then adds .is-visible */
+/* Scroll-reveal: JS adds .scroll-reveal (hidden) then .is-visible (animates in via keyframe).
+   Using animation (not transition) avoids overriding the component's own var(--transition). */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .scroll-reveal.is-visible {
-    opacity: 1;
-    transform: none;
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */

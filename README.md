@@ -65,16 +65,13 @@ website/
 - Mobile-first responsive design (breakpoints at 768px, 480px)
 
 ### Security Hardening
-- Content Security Policy (CSP) meta tag
-- X-Frame-Options DENY (clickjacking protection)
-- X-Content-Type-Options nosniff
-- Referrer-Policy strict-origin-when-cross-origin
-- Permissions-Policy (camera, mic, geolocation denied)
+- Content Security Policy (CSP) delivered via `<meta http-equiv>` tag — effective in modern browsers
 - `rel="noopener noreferrer"` on all external links (reverse tabnapping prevention)
 - Subresource Integrity (SRI) hash on Font Awesome CDN
 - DOM XSS prevention — anchor `href` values validated with `/^#[a-zA-Z0-9_-]+$/` before passing to `querySelector()`
 - No `console.log` in production
 - `try/catch` error handling around all DOM operations
+- **Note:** `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy` are included as `<meta>` tags in `index.html` for documentation/intent, but full enforcement of these protections requires configuring them as **real HTTP response headers** at the hosting/server level (e.g., via a `_headers` file for GitHub Pages / Netlify, or server config). GitHub Pages does not currently support custom response headers.
 
 ### Accessibility
 - Skip-to-content link (keyboard accessible)
@@ -100,11 +97,11 @@ website/
 |---|---|---|---|
 | T1 | XSS / Input Validation | DOM-based XSS via querySelector | ✅ PASS — href validated with regex before use |
 | T2 | Reverse Tabnapping | Missing `rel="noopener noreferrer"` | ✅ PASS — all `target="_blank"` links patched |
-| T3 | Content Security Policy | No CSP header/meta | ✅ PASS — CSP meta tag added |
-| T4 | Clickjacking | No X-Frame-Options | ✅ PASS — `X-Frame-Options: DENY` added |
-| T5 | MIME Sniffing | No X-Content-Type-Options | ✅ PASS — `nosniff` added |
-| T6 | Referrer Leakage | No Referrer-Policy | ✅ PASS — `strict-origin-when-cross-origin` added |
-| T7 | Permissions Policy | No Permissions-Policy | ✅ PASS — camera/mic/geo denied |
+| T3 | Content Security Policy | No CSP header/meta | ✅ PASS — CSP meta tag added (effective via meta) |
+| T4 | Clickjacking | No X-Frame-Options | ⚠️ PARTIAL — meta tag included; full protection requires HTTP response header from host |
+| T5 | MIME Sniffing | No X-Content-Type-Options | ⚠️ PARTIAL — meta tag included; full enforcement requires HTTP response header from host |
+| T6 | Referrer Leakage | No Referrer-Policy | ⚠️ PARTIAL — meta tag included; reliable enforcement requires HTTP response header from host |
+| T7 | Permissions Policy | No Permissions-Policy | ⚠️ PARTIAL — meta tag included; browser support for meta is limited; HTTP header required for full effect |
 | T8 | Supply Chain / SRI | CDN without integrity hash | ✅ PASS — Font Awesome loaded with SRI hash |
 | T9 | Info Disclosure | `console.log` in production | ✅ PASS — removed |
 | T10 | Info Disclosure | Raw GitHub URL path disclosure | ⚠️ ACCEPTED RISK — PDF resume served via raw GitHub URL |
