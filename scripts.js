@@ -1,10 +1,14 @@
 // Smooth Scrolling
+// T1: Validate href values against a safe pattern before passing to querySelector
+const SAFE_ANCHOR = /^#[a-zA-Z0-9_-]+$/;
+
 const links = document.querySelectorAll('a[href^="#"]');
 
 links.forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
+        if (!SAFE_ANCHOR.test(targetId)) return; // reject unsafe values
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             const navHeight = 70;
@@ -41,5 +45,3 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
-
-console.log('✅ Portfolio loaded successfully! 🚀');

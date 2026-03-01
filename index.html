@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
     <!-- Standard Meta -->
     <meta name="description" content="Senior Systems Administrator portfolio showcasing 9+ years of IT infrastructure expertise">
     <meta name="keywords" content="Systems Administrator, Cloud Infrastructure, IT Security, HIPAA Compliance, AWS, Azure, Linux, Windows, Senior IT, Portfolio">
     <meta name="author" content="Jasvant Dosanjh">
     <meta name="location" content="Seattle, WA">
     <link rel="canonical" href="https://jsdosanj.github.io/website/">
-    
+
     <!-- SEO - Schema.org / Structured Data -->
     <meta itemprop="name" content="Jasvant Dosanjh | Senior Systems Administrator">
     <meta itemprop="description" content="Senior Systems Administrator portfolio showcasing 9+ years of IT infrastructure expertise">
     <meta itemprop="url" content="https://jsdosanj.github.io/website/"/>
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jsdosanj.github.io/website/">
     <meta property="og:title" content="Jasvant Dosanjh | Senior Systems Administrator">
     <meta property="og:description" content="Senior Systems Administrator portfolio showcasing 9+ years of IT infrastructure expertise">
-    
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -38,37 +45,43 @@
         ]
     }
     </script>
-    
+
     <title>Jasvant Dosanjh</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.4.0 with SRI hash -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Google Fonts — SRI not supported by Google Fonts; accepted risk -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Montserrat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
     @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
     </style>
 </head>
-   
+
 <body>
+    <!-- Skip to main content (accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <!-- Navigation -->
-    <header id="header">
-        <nav class="navbar">
+    <header id="header" role="banner">
+        <nav class="navbar" aria-label="Main navigation">
+            <!-- Terminal title bar -->
+            <div class="terminal-title-bar" aria-hidden="true">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title-text">jasvant@portfolio ~ %</span>
+            </div>
             <div class="nav-container">
-                <ul class="nav-menu">
+                <ul class="nav-menu" role="list">
                     <li><a href="#header" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#education" class="nav-link">Passions</a></li>
+                    <li><a href="#passions" class="nav-link">Passions</a></li>
                     <li><a href="#recommendations" class="nav-link">Recommendations</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -76,29 +89,31 @@
         </nav>
 
         <!-- Hero Section -->
-        <div class="hero-section">
+        <div class="hero-section" role="region" aria-label="Hero">
             <div class="hero-content">
-                <h1 class="hero-greeting">Hi, I'm Jasvant 👋</h1>
+                <img src="IMG_0654.JPG" alt="Jasvant Dosanjh headshot" class="hero-headshot">
+                <h1 class="hero-greeting">Hi, I'm Jasvant</h1>
                 <p class="hero-subtitle">IT Lead | Senior Systems Administrator</p>
                 <p class="hero-description">
                     With over 9 years of IT experience across diverse industries—higher education, K-12 schools, healthcare, social media, gaming, and startups—I specialize in enterprise technical support, systems administration, and leading complex IT environments. I bring hands-on expertise across Windows, macOS, and Linux systems, network infrastructure, storage, backup, and compliance with HIPAA, NIST, and FERPA standards. My focus is on resolving high-impact technical issues, designing secure and scalable solutions, and guiding teams to deliver exceptional support to users at all levels.
                 </p>
-                <p class="hero-description">  
+                <p class="hero-description">
                     Live, Love, Laugh 😊
                 </p>
-                
-                <!-- Contact Buttons in About Section -->
+
+                <!-- Hero contact buttons -->
                 <div class="about-contact-buttons">
-                    <a href="https://linkedin.com/in/jasvantsd" target="_blank" class="about-btn">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/jasvantsd" target="_blank" rel="noopener noreferrer" class="about-btn">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                         <span>LinkedIn</span>
                     </a>
-                    <a href="https://github.com/jsdosanj" target="_blank" class="about-btn">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/jsdosanj" target="_blank" rel="noopener noreferrer" class="about-btn">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                         <span>GitHub</span>
                     </a>
+                    <!-- PDF path is an accepted risk (T10): direct raw GitHub URL discloses repo structure -->
                     <a href="https://github.com/jsdosanj/website/raw/main/JSD%20Feb%2026%20SysAdmin%20Resume.pdf" download class="about-btn">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i>
                         <span>Resume</span>
                     </a>
                 </div>
@@ -106,420 +121,445 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <p>
-                    I'm a mission-driven systems administrator with expertise in designing and maintaining secure, scalable IT infrastructure. Currently serving as a Senior Computer Specialist at the University of Washington, where I manage enterprise Linux/Windows servers, HIPAA-regulated clinical systems, and support academic, research, and clinical operations.
-                </p>
-                <p>
-                    My passion lies in solving complex infrastructure challenges, automating operational processes, and building systems that prioritize security, compliance, and reliability. I thrive in high-pressure environments, balancing rapid problem-solving with clear communication and integrity. Certified in JAMF Pro, HIMSA NOAH, Cyber Incident Response, and Agile, I combine technical depth with strategic vision to drive operational excellence and enterprise reliability.
-                </p>
-                <p>
-                    I'm also deeply engaged in international relations, cybersecurity, and community development, grounded in spiritual mentorship and civic leadership. Outside of work, I’m passionate about AI development, technology, spirituality/philosophy, in addition I play three instruments: harmonium, tabla, and dholki. I also love cooking, reading, traveling, and cheering for Manchester United! My mission is to lead with integrity, empower teams, and build resilient IT ecosystems that enable people and organizations to succeed.
-                </p>
-                <p>
-                    Currently, I'm exploring the intersection of technology and humanities by developing an AI-powered librarian system trained on historical manuscripts, classical literature, and religious/philosophical texts from Northwest India. This project combines my passion for technology, cultural heritage, and community impact through innovative LLM applications.
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- Main content landmark -->
+    <main id="main-content">
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-container">
-                <!-- Senior Computer Specialist - Infrastructure -->
-                <div class="experience-item">
-                    <div class="experience-meta">
-                        <h3>Senior Computer Specialist - Infrastructure</h3>
-                        <p class="company">University of Washington</p>
-                        <p class="date">Feb 2025 – Present</p>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Primary administrator for Linux and Windows servers supporting academic, research, and clinical workloads</li>
-                            <li>Administer Active Directory, GPO, DNS/DHCP, and identity-based access for regulated environments</li>
-                            <li>Monitor and respond to security events using CrowdStrike; remediate vulnerabilities for HIPAA systems</li>
-                            <li>Own and administer JAMF Pro for macOS and iPad fleets; contribute to Intune strategy</li>
-                            <li>Automate server provisioning and configuration using PowerShell and Bash</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Continuous background wrapper for all sections below hero -->
+    <div class="sections-bg-wrapper">
 
-                <!-- Senior Computer Specialist - Desktop Support -->
-                <div class="experience-item">
-                    <div class="experience-meta">
-                        <h3>Senior Computer Specialist - Desktop Support</h3>
-                        <p class="company">University of Washington</p>
-                        <p class="date">Jan 2023 – Feb 2025</p>
+        <!-- About Section -->
+        <section id="about" class="about-section" aria-labelledby="about-title">
+            <div class="container">
+                <h2 class="section-title" id="about-title">About</h2>
+                <div class="about-content">
+                    <img src="IMG_0654.JPG" alt="Jasvant Dosanjh" class="about-headshot">
+                    <div class="about-text">
+                        <p>
+                            I'm a mission-driven systems administrator with expertise in designing and maintaining secure, scalable IT infrastructure. Currently serving as a Senior Computer Specialist at the University of Washington, where I manage enterprise Linux/Windows servers, HIPAA-regulated clinical systems, and support academic, research, and clinical operations.
+                        </p>
+                        <p>
+                            My passion lies in solving complex infrastructure challenges, automating operational processes, and building systems that prioritize security, compliance, and reliability. I thrive in high-pressure environments, balancing rapid problem-solving with clear communication and integrity. Certified in JAMF Pro, HIMSA NOAH, Cyber Incident Response, and Agile, I combine technical depth with strategic vision to drive operational excellence and enterprise reliability.
+                        </p>
+                        <p>
+                            I'm also deeply engaged in international relations, cybersecurity, and community development, grounded in spiritual mentorship and civic leadership. Outside of work, I'm passionate about AI development, technology, spirituality/philosophy, in addition I play three instruments: harmonium, tabla, and dholki. I also love cooking, reading, traveling, and cheering for Manchester United! My mission is to lead with integrity, empower teams, and build resilient IT ecosystems that enable people and organizations to succeed.
+                        </p>
+                        <p>
+                            Currently, I'm exploring the intersection of technology and humanities by developing an AI-powered librarian system trained on historical manuscripts, classical literature, and religious/philosophical texts from Northwest India. This project combines my passion for technology, cultural heritage, and community impact through innovative LLM applications.
+                        </p>
                     </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>First point of contact for help desk requests; resolved complex technical issues for faculty and staff</li>
-                            <li>Primary operational owner of IT for UW Speech, Language & Hearing Sciences Clinic (SPHSC)</li>
-                            <li>Wrote scripts to automate device setup and configuration; improved processes by 60%</li>
-                            <li>Created comprehensive IT documentation and standard operating procedures</li>
-                            <li>Managed IT asset inventory and supply chain across multiple campus locations</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Systems Administrator - Tencent -->
-                <div class="experience-item">
-                    <div class="experience-meta">
-                        <h3>Systems Administrator</h3>
-                        <p class="company">Tencent, Team Kaiju Studio</p>
-                        <p class="date">Aug 2022 – Dec 2022</p>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Built enterprise IT infrastructure: asset management, AWS environments, MDM deployment</li>
-                            <li>Procured, imaged, and deployed 100+ workstations for large-scale game testing</li>
-                            <li>Automated onboarding/offboarding workflows; reduced manual setup by 75%</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apprentice Systems Administrator - Meta -->
-                <div class="experience-item">
-                    <div class="experience-meta">
-                        <h3>Apprentice Systems Administrator</h3>
-                        <p class="company">Meta</p>
-                        <p class="date">Aug 2020 – Feb 2022</p>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Led taskforce detecting third-party censorship of human rights content</li>
-                            <li>Built Python automation tools; reduced escalation times by 40%</li>
-                            <li>Mentored YearUp externs and enterprise support technicians</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Technical Assistant - Rochester Community Schools -->
-                <div class="experience-item">
-                    <div class="experience-meta">
-                        <h3>Technical Assistant</h3>
-                        <p class="company">Rochester Community Schools</p>
-                        <p class="date">Aug 2019 – Aug 2020</p>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Led 10,000+ Chromebook deployment initiative for 1:1 program (15,000+ students/staff)</li>
-                            <li>Established WFH taskforce; secured and distributed 11,000+ devices during pandemic</li>
-                            <li>Managed hardware/software across 10 schools</li>
-                        </ul>
+                    <div class="about-contact-buttons">
+                        <a href="https://linkedin.com/in/jasvantsd" target="_blank" rel="noopener noreferrer" class="about-btn">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/jsdosanj" target="_blank" rel="noopener noreferrer" class="about-btn">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://github.com/jsdosanj/website/raw/main/JSD%20Feb%2026%20SysAdmin%20Resume.pdf" download class="about-btn">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                            <span>Resume</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Infrastructure & Cloud</h4>
-                    <div class="skill-list">
-                        <span>AWS</span>
-                        <span>Azure</span>
-                        <span>Google Cloud</span>
-                        <span>Google Workspace</span>
-                        <span>VMware</span>
-                        <span>Proxmox</span>
-                        <span>JAMF Pro</span>
-                        <span>Intune</span>
-                        <span>JumpCloud</span>
-                        <span>Linux</span>
-                        <span>macOS</span>
-                        <span>Windows</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Security & Compliance</h4>
-                    <div class="skill-list">
-                        <span>NIST CSF</span>
-                        <span>HIPAA</span>
-                        <span>FERPA</span>
-                        <span>Incident Response</span>
-                        <span>Risk Assessment</span>
-                        <span>Data Governance</span>
-                        <span>Technical Documentation</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Automation & Scripting</h4>
-                    <div class="skill-list">
-                        <span>PowerShell</span>
-                        <span>Bash</span>
-                        <span>Python</span>
-                        <span>JavaScript</span>
-                        <span>HTML/CSS</span>
-                        <span>Java</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Tools & Services</h4>
-                    <div class="skill-list">
-                        <span>Microsoft 365</span>
-                        <span>Jira & Confluence</span>
-                        <span>Zoom Remote Support</span>
-                        <span>Bomgars</span>
-                        <span>Active Directory & GPO</span>
-                        <span>DNS, DHCP, VPN, SSH</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Healthcare IT</h4>
-                    <div class="skill-list">
-                        <span>Clinical Systems</span>
-                        <span>Vendor Management</span>
-                        <span>Research Data</span>
-                        <span>Compliance</span>
-                        <span>Pentax</span>
-                        <span>HIMSA NOAH</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>AI & Machine Learning</h4>
-                    <div class="skill-list">
-                        <span>Large Language Models (LLM)</span>
-                        <span>AI Training & Fine-tuning</span>
-                        <span>Natural Language Processing</span>
-                        <span>Machine Learning Concepts</span>
-                        <span>Text Classification</span>
-                        <span>Model Optimization</span>
-                        <span>AI Ethics</span>
-                        <span>Historical Data Processing</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Languages</h4>
-                    <div class="skill-list">
-                        <span>English (fluent)</span>
-                        <span>Punjabi (fluent)</span>
-                        <span>Hindi (conversatonal)</span>
-                        <span>Urdu (conversatonal)</span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education-section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-content">
-                <div class="education-item">
-                    <h4>B.S. Information Technology</h4>
-                    <p class="school">Oakland University | 2018 - 2020</p>
-                    <p class="detail">118 credits | Specialization in Systems Administration & Project Management | Research Paper: Exploit Development</p>
-                </div>
-
-                <div class="education-item">
-                    <h4>A.A.S. Arts & Sciences</h4>
-                    <p class="school">Oakland Community College | 2016 - 2018</p>
-                    <p class="detail">Political Science & Government</p>
-                </div>
-
-                <div class="certifications">
-                    <h4>Key Certifications (2023-2026)</h4>
-                    <ul class="cert-list">
-                        <li>Cloud Security & Audit Fundamentals (AWS, Azure, GCP)</li>
-                        <li>JAMF Pro Certified Tech</li>
-                        <li>NOAH Support Engineer (HIMSA)</li>
-                        <li>Cyber Incident Response Certified (InfoSec)</li>
-                        <li>NIST Risk Management Framework</li>
-                        <li>Google Cloud Digital Leader</li>
-                        <li>CS50: Cybersecurity (Harvard)</li>
-                        <li>Strategic Applications of IT Project & Program Management (University of Washington)</li>
-                        <li>New Manager's Toolkit (Indiana University: Kelley School of Business)</li>
-                        <li>Spiritual Life Coach (Transformation Academy)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Passions & Community Section -->
-    <section id="passions" class="passions-section">
-        <div class="container">
-            <h2 class="section-title">Passions & Community</h2>
-            
-            <div class="passions-content">
-                <!-- Passions Grid -->
-                <div class="passions-grid">
-                    <div class="passion-card">
-                        <h3>🌍 International Relations & CyberSecurity</h3>
-                        <p>Engaged in foreign affairs discourse and AI security strategy</p>
-                    </div>
-                    
-                    <div class="passion-card">
-                        <h3>🙏 Spiritual Practice & Community Leadership</h3>
-                        <p>Advancing Sikh heritage through kirtan, faith-based community development, educational equity</p>
-                    </div>
-                    
-                    <div class="passion-card">
-                        <h3>💻 Technology & Innovation</h3>
-                        <p>Cloud infrastructure, security automation, emerging IT practices</p>
-                    </div>
-                    
-                    <div class="passion-card">
-                        <h3>🤝 Community Improvement</h3>
-                        <p>Civic engagement, workplace safety advocacy, tech talent development</p>
-                    </div>
-                </div>
-
-                <!-- Personal Interests -->
-                <div class="personal-interests">
-                    <h3>Personal Interests</h3>
-                    <div class="interests-grid">
-                        <div class="interest-item">
-                            <span class="interest-emoji">⚽</span>
-                            <span class="interest-text"><strong>Avid Manchester United fan</strong> | Passionate about soccer and volleyball</span>
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section" aria-labelledby="experience-title">
+            <div class="container">
+                <h2 class="section-title" id="experience-title">Experience</h2>
+                <div class="experience-container">
+                    <!-- Senior Computer Specialist - Infrastructure -->
+                    <div class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Senior Computer Specialist - Infrastructure</h3>
+                            <p class="company">University of Washington</p>
+                            <p class="date">Feb 2025 – Present</p>
                         </div>
-                        
-                        <div class="interest-item">
-                            <span class="interest-emoji">🎵</span>
-                            <span class="interest-text"><strong>Musical instruments:</strong> Harmonium, Tabla, Dholki (kirtan performer)</span>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Primary administrator for Linux and Windows servers supporting academic, research, and clinical workloads</li>
+                                <li>Administer Active Directory, GPO, DNS/DHCP, and identity-based access for regulated environments</li>
+                                <li>Monitor and respond to security events using CrowdStrike; remediate vulnerabilities for HIPAA systems</li>
+                                <li>Own and administer JAMF Pro for macOS and iPad fleets; contribute to Intune strategy</li>
+                                <li>Automate server provisioning and configuration using PowerShell and Bash</li>
+                            </ul>
                         </div>
-                        
-                        <div class="interest-item">
-                            <span class="interest-emoji">📚</span>
-                            <span class="interest-text"><strong>Reading and intellectual discourse</strong></span>
+                    </div>
+
+                    <!-- Senior Computer Specialist - Desktop Support -->
+                    <div class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Senior Computer Specialist - Desktop Support</h3>
+                            <p class="company">University of Washington</p>
+                            <p class="date">Jan 2023 – Feb 2025</p>
                         </div>
-                        
-                        <div class="interest-item">
-                            <span class="interest-emoji">🥾</span>
-                            <span class="interest-text"><strong>Hiking and outdoor exploration</strong></span>
+                        <div class="experience-details">
+                            <ul>
+                                <li>First point of contact for help desk requests; resolved complex technical issues for faculty and staff</li>
+                                <li>Primary operational owner of IT for UW Speech, Language & Hearing Sciences Clinic (SPHSC)</li>
+                                <li>Wrote scripts to automate device setup and configuration; improved processes by 60%</li>
+                                <li>Created comprehensive IT documentation and standard operating procedures</li>
+                                <li>Managed IT asset inventory and supply chain across multiple campus locations</li>
+                            </ul>
                         </div>
-                        
-                        <div class="interest-item">
-                            <span class="interest-emoji">✈️</span>
-                            <span class="interest-text"><strong>Traveling and cultural immersion</strong></span>
+                    </div>
+
+                    <!-- Systems Administrator - Tencent -->
+                    <div class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Systems Administrator</h3>
+                            <p class="company">Tencent, Team Kaiju Studio</p>
+                            <p class="date">Aug 2022 – Dec 2022</p>
                         </div>
-                        
-                        <div class="interest-item">
-                            <span class="interest-emoji">🍳</span>
-                            <span class="interest-text"><strong>Cooking and culinary experimentation</strong></span>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Built enterprise IT infrastructure: asset management, AWS environments, MDM deployment</li>
+                                <li>Procured, imaged, and deployed 100+ workstations for large-scale game testing</li>
+                                <li>Automated onboarding/offboarding workflows; reduced manual setup by 75%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Apprentice Systems Administrator - Meta -->
+                    <div class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Apprentice Systems Administrator</h3>
+                            <p class="company">Meta</p>
+                            <p class="date">Aug 2020 – Feb 2022</p>
+                        </div>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Led taskforce detecting third-party censorship of human rights content</li>
+                                <li>Built Python automation tools; reduced escalation times by 40%</li>
+                                <li>Mentored YearUp externs and enterprise support technicians</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Technical Assistant - Rochester Community Schools -->
+                    <div class="experience-item">
+                        <div class="experience-meta">
+                            <h3>Technical Assistant</h3>
+                            <p class="company">Rochester Community Schools</p>
+                            <p class="date">Aug 2019 – Aug 2020</p>
+                        </div>
+                        <div class="experience-details">
+                            <ul>
+                                <li>Led 10,000+ Chromebook deployment initiative for 1:1 program (15,000+ students/staff)</li>
+                                <li>Established WFH taskforce; secured and distributed 11,000+ devices during pandemic</li>
+                                <li>Managed hardware/software across 10 schools</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-<!-- LinkedIn Recommendations Section -->
-    <section id="recommendations" class="recommendations-section">
-        <div class="container">
-            <h2 class="section-title">LinkedIn Recommendations</h2>
-            
-            <div class="recommendations-container">
-                <div class="recommendation-card">
-                    <div class="recommendation-header">
-                        <div class="recommender-avatar">
-                            <i class="fas fa-user-circle"></i>
-                        </div> 
-                        <div class="recommender-info">
-                            <h4 class="recommender-name">Tiffany Calverley</h4>
-                            <p class="recommender-title">Director of Development, Social Sciences @ University of Washington</p>
-                            <a href="https://www.linkedin.com/in/tiffany-calverley/" target="_blank" class="recommendation-link">
-                                <i class="fab fa-linkedin"></i> View on LinkedIn
-                            </a>
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 class="section-title" id="skills-title">Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>Infrastructure & Cloud</h4>
+                        <div class="skill-list">
+                            <span>AWS</span>
+                            <span>Azure</span>
+                            <span>Google Cloud</span>
+                            <span>Google Workspace</span>
+                            <span>VMware</span>
+                            <span>Proxmox</span>
+                            <span>JAMF Pro</span>
+                            <span>Intune</span>
+                            <span>JumpCloud</span>
+                            <span>Linux</span>
+                            <span>macOS</span>
+                            <span>Windows</span>
                         </div>
                     </div>
-                    <p class="recommendation-text">
-                        "Jasvant really walks the walk as a professional dedicated to elite customer service. I often was a client of his and can attest that he never made me feel less than for being unable to overcome my IT challenges on my own (even when I might have deserved *some* judgement because the solution was simple). In a space that is often occupied by people that are unable to explain complexity or are dismissive, Jasvant has always valued being the complete opposite and it shows in everything he does. I am sad I don't get the pleasure of working with him now, and am glad for anyone who is lucky enough to benefit from his talents and smile from his "Live. Laugh. Love." email signature."
-                    </p>
+
+                    <div class="skill-category">
+                        <h4>Security & Compliance</h4>
+                        <div class="skill-list">
+                            <span>NIST CSF</span>
+                            <span>HIPAA</span>
+                            <span>FERPA</span>
+                            <span>Incident Response</span>
+                            <span>Risk Assessment</span>
+                            <span>Data Governance</span>
+                            <span>Technical Documentation</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Automation & Scripting</h4>
+                        <div class="skill-list">
+                            <span>PowerShell</span>
+                            <span>Bash</span>
+                            <span>Python</span>
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>Java</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Tools & Services</h4>
+                        <div class="skill-list">
+                            <span>Microsoft 365</span>
+                            <span>Jira & Confluence</span>
+                            <span>Zoom Remote Support</span>
+                            <span>Bomgars</span>
+                            <span>Active Directory & GPO</span>
+                            <span>DNS, DHCP, VPN, SSH</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Healthcare IT</h4>
+                        <div class="skill-list">
+                            <span>Clinical Systems</span>
+                            <span>Vendor Management</span>
+                            <span>Research Data</span>
+                            <span>Compliance</span>
+                            <span>Pentax</span>
+                            <span>HIMSA NOAH</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>AI & Machine Learning</h4>
+                        <div class="skill-list">
+                            <span>Large Language Models (LLM)</span>
+                            <span>AI Training & Fine-tuning</span>
+                            <span>Natural Language Processing</span>
+                            <span>Machine Learning Concepts</span>
+                            <span>Text Classification</span>
+                            <span>Model Optimization</span>
+                            <span>AI Ethics</span>
+                            <span>Historical Data Processing</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-list">
+                            <span>English (fluent)</span>
+                            <span>Punjabi (fluent)</span>
+                            <span>Hindi (conversational)</span>
+                            <span>Urdu (conversational)</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="recommendation-card">
-                    <div class="recommendation-header">
-                        <div class="recommender-avatar">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="recommender-info">
-                            <h4 class="recommender-name">Kate Cescon</h4>
-                            <p class="recommender-title">Associate Director for the Industry Capstone Program @ University of Washington</p>
-                            <a href="https://www.linkedin.com/in/kate-mortensen-cescon/" target="_blank" class="recommendation-link">
-                                <i class="fab fa-linkedin"></i> View on LinkedIn
-                            </a>
-                        </div>
+        <!-- Education Section -->
+        <section id="education" class="education-section" aria-labelledby="education-title">
+            <div class="container">
+                <h2 class="section-title" id="education-title">Education</h2>
+                <div class="education-content">
+                    <div class="education-item">
+                        <h4>B.S. Information Technology</h4>
+                        <p class="school">Oakland University | 2018 - 2020</p>
+                        <p class="detail">118 credits | Specialization in Systems Administration & Project Management | Research Paper: Exploit Development</p>
                     </div>
-                    <p class="recommendation-text">
-                        "There isn’t an IT challenge Jasvant can’t tackle! Every support ticket I submitted was handled with grace, efficiency, and a touch of humor. Working in the fundraising shop (a unit within the umbrella Jasvant served), our processes and programs can be unique compared to the rest of the college. Yet I always felt completely supported with my computer needs, and I trusted Jasvant to provide the latest advice on emerging trends (like whether to switch to New Outlook or wait while considering fundraising-specific integrations). Even when the issue was user error on my end, I never felt belittled or bothersome. Thank you, Jasvant, for being a true people-first leader in this space!"
-                    </p>
+
+                    <div class="education-item">
+                        <h4>A.A.S. Arts & Sciences</h4>
+                        <p class="school">Oakland Community College | 2016 - 2018</p>
+                        <p class="detail">Political Science & Government</p>
+                    </div>
+
+                    <div class="certifications">
+                        <h4>Key Certifications (2023-2026)</h4>
+                        <ul class="cert-list">
+                            <li>Cloud Security & Audit Fundamentals (AWS, Azure, GCP)</li>
+                            <li>JAMF Pro Certified Tech</li>
+                            <li>NOAH Support Engineer (HIMSA)</li>
+                            <li>Cyber Incident Response Certified (InfoSec)</li>
+                            <li>NIST Risk Management Framework</li>
+                            <li>Google Cloud Digital Leader</li>
+                            <li>CS50: Cybersecurity (Harvard)</li>
+                            <li>Strategic Applications of IT Project & Program Management (University of Washington)</li>
+                            <li>New Manager's Toolkit (Indiana University: Kelley School of Business)</li>
+                            <li>Spiritual Life Coach (Transformation Academy)</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="recommendation-card">
-                    <div class="recommendation-header">
-                        <div class="recommender-avatar">
-                            <i class="fas fa-user-circle"></i>
+        <!-- Passions & Community Section -->
+        <section id="passions" class="passions-section" aria-labelledby="passions-title">
+            <div class="container">
+                <h2 class="section-title" id="passions-title">Passions & Community</h2>
+
+                <div class="passions-content">
+                    <!-- Passions Grid -->
+                    <div class="passions-grid">
+                        <div class="passion-card">
+                            <h3>🌍 International Relations & CyberSecurity</h3>
+                            <p>Engaged in foreign affairs discourse and AI security strategy</p>
                         </div>
-                        <div class="recommender-info">
-                            <h4 class="recommender-name">Kevin P. Thompson</h4>
-                            <p class="recommender-title">Associate Dean for Advancement @ University of Washington</p>
-                            <a href="https://www.linkedin.com/in/kpthomps/" target="_blank" class="recommendation-link">
-                                <i class="fab fa-linkedin"></i> View on LinkedIn
-                            </a>
+
+                        <div class="passion-card">
+                            <h3>🙏 Spiritual Practice & Community Leadership</h3>
+                            <p>Advancing Sikh heritage through kirtan, faith-based community development, educational equity</p>
+                        </div>
+
+                        <div class="passion-card">
+                            <h3>💻 Technology & Innovation</h3>
+                            <p>Cloud infrastructure, security automation, emerging IT practices</p>
+                        </div>
+
+                        <div class="passion-card">
+                            <h3>🤝 Community Improvement</h3>
+                            <p>Civic engagement, workplace safety advocacy, tech talent development</p>
                         </div>
                     </div>
-                    <p class="recommendation-text">
-                        "I had the pleasure of working with Jasvant in the College of Arts & Sciences at the University of Washington and can say without hesitation that he is both an exceptionally skilled IT professional and a genuinely wonderful colleague. His technical knowledge is deep and reliable, but what truly sets him apart is how approachable, patient, and generous he is with that expertise.
+
+                    <!-- Personal Interests -->
+                    <div class="personal-interests">
+                        <h3>Personal Interests</h3>
+                        <div class="interests-grid">
+                            <div class="interest-item">
+                                <span class="interest-emoji">⚽</span>
+                                <span class="interest-text"><strong>Avid Manchester United fan</strong> | Passionate about soccer and volleyball</span>
+                            </div>
+
+                            <div class="interest-item">
+                                <span class="interest-emoji">🎵</span>
+                                <span class="interest-text"><strong>Musical instruments:</strong> Harmonium, Tabla, Dholki (kirtan performer)</span>
+                            </div>
+
+                            <div class="interest-item">
+                                <span class="interest-emoji">📚</span>
+                                <span class="interest-text"><strong>Reading and intellectual discourse</strong></span>
+                            </div>
+
+                            <div class="interest-item">
+                                <span class="interest-emoji">🥾</span>
+                                <span class="interest-text"><strong>Hiking and outdoor exploration</strong></span>
+                            </div>
+
+                            <div class="interest-item">
+                                <span class="interest-emoji">✈️</span>
+                                <span class="interest-text"><strong>Traveling and cultural immersion</strong></span>
+                            </div>
+
+                            <div class="interest-item">
+                                <span class="interest-emoji">🍳</span>
+                                <span class="interest-text"><strong>Cooking and culinary experimentation</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LinkedIn Recommendations Section -->
+        <section id="recommendations" class="recommendations-section" aria-labelledby="recommendations-title">
+            <div class="container">
+                <h2 class="section-title" id="recommendations-title">LinkedIn Recommendations</h2>
+
+                <div class="recommendations-container">
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommender-avatar" aria-hidden="true">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="recommender-info">
+                                <h4 class="recommender-name">Tiffany Calverley</h4>
+                                <p class="recommender-title">Director of Development, Social Sciences @ University of Washington</p>
+                                <a href="https://www.linkedin.com/in/tiffany-calverley/" target="_blank" rel="noopener noreferrer" class="recommendation-link">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i> View on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        <p class="recommendation-text">
+                            "Jasvant really walks the walk as a professional dedicated to elite customer service. I often was a client of his and can attest that he never made me feel less than for being unable to overcome my IT challenges on my own (even when I might have deserved *some* judgement because the solution was simple). In a space that is often occupied by people that are unable to explain complexity or are dismissive, Jasvant has always valued being the complete opposite and it shows in everything he does. I am sad I don't get the pleasure of working with him now, and am glad for anyone who is lucky enough to benefit from his talents and smile from his "Live. Laugh. Love." email signature."
+                        </p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommender-avatar" aria-hidden="true">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="recommender-info">
+                                <h4 class="recommender-name">Kate Cescon</h4>
+                                <p class="recommender-title">Associate Director for the Industry Capstone Program @ University of Washington</p>
+                                <a href="https://www.linkedin.com/in/kate-mortensen-cescon/" target="_blank" rel="noopener noreferrer" class="recommendation-link">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i> View on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        <p class="recommendation-text">
+                            "There isn't an IT challenge Jasvant can't tackle! Every support ticket I submitted was handled with grace, efficiency, and a touch of humor. Working in the fundraising shop (a unit within the umbrella Jasvant served), our processes and programs can be unique compared to the rest of the college. Yet I always felt completely supported with my computer needs, and I trusted Jasvant to provide the latest advice on emerging trends (like whether to switch to New Outlook or wait while considering fundraising-specific integrations). Even when the issue was user error on my end, I never felt belittled or bothersome. Thank you, Jasvant, for being a true people-first leader in this space!"
+                        </p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommender-avatar" aria-hidden="true">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="recommender-info">
+                                <h4 class="recommender-name">Kevin P. Thompson</h4>
+                                <p class="recommender-title">Associate Dean for Advancement @ University of Washington</p>
+                                <a href="https://www.linkedin.com/in/kpthomps/" target="_blank" rel="noopener noreferrer" class="recommendation-link">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i> View on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        <p class="recommendation-text">
+                            "I had the pleasure of working with Jasvant in the College of Arts & Sciences at the University of Washington and can say without hesitation that he is both an exceptionally skilled IT professional and a genuinely wonderful colleague. His technical knowledge is deep and reliable, but what truly sets him apart is how approachable, patient, and generous he is with that expertise.
 
 Jasvant was helpful to me on numerous occasions and consistently went out of his way to support my team. He has a rare ability to explain complex technical issues clearly and calmly, which made a real difference in keeping work moving forward and reducing stress for those around him.
 
 Beyond his technical strengths, Jasvant brings kindness, professionalism, and a collaborative spirit to every interaction. He is the kind of colleague you trust, enjoy working with, and are grateful to have on your team. Any organization would be fortunate to work with him."
-                    </p>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="contact-intro">
-                I'm actively looking for IT Lead, Senior Systems Administrator or Help Desk Manager roles. Let's discuss how I can help your organization build secure, compliant, and innovative IT systems. Reach out to me via a message on LinkedIn.
-            </p>
-            
-            <div class="contact-links">
-                <a href="https://linkedin.com/in/jasvantsd" target="_blank" class="contact-link">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/jsdosanj" target="_blank" class="contact-link">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
+        </section>
 
-                <a href="https://github.com/jsdosanj/website/raw/main/JSD%20Feb%2026%20SysAdmin%20Resume.pdf" target="_blank" class="contact-link">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>Resume</span>
-                </a>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 class="section-title" id="contact-title">Let's Connect</h2>
+                <p class="contact-intro">
+                    I'm actively looking for IT Lead, Senior Systems Administrator or Help Desk Manager roles. Let's discuss how I can help your organization build secure, compliant, and innovative IT systems. Reach out to me via a message on LinkedIn.
+                </p>
+
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/jasvantsd" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/jsdosanj" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <!-- PDF path is an accepted risk (T10): direct raw GitHub URL discloses repo structure -->
+                    <a href="https://github.com/jsdosanj/website/raw/main/JSD%20Feb%2026%20SysAdmin%20Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        <span>Resume</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Live, Love, Laugh presented by Jasvant Singh Dosanjh</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <p>Live, Love, Laugh presented by Jasvant Singh Dosanjh</p>
+        </footer>
+
+    </div><!-- end .sections-bg-wrapper -->
+    </main>
 
     <script src="scripts.js"></script>
 </body>
