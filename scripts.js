@@ -77,6 +77,7 @@ try {
         'header': '~',
         'about': '/jasvant/about',
         'experience': '/jasvant/experience',
+        'leadership': '/jasvant/leadership',
         'skills': '/jasvant/skills',
         'education': '/jasvant/education',
         'passions': '/jasvant/passions',
@@ -159,7 +160,7 @@ try {
 try {
     const scrollTargets = document.querySelectorAll(
         '.experience-item, .skill-category, .education-item, ' +
-        '.certifications, .passion-card, .recommendation-card'
+        '.certifications, .passion-card, .recommendation-card, .leadership-item'
     );
 
     if ('IntersectionObserver' in window) {
