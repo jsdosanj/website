@@ -84,7 +84,7 @@ a {
 a:hover { color: #7b9ff5; }
 
 .container {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -149,7 +149,7 @@ a:hover { color: #7b9ff5; }
 }
 
 .nav-container {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -238,7 +238,7 @@ a:hover { color: #7b9ff5; }
 }
 
 .hero-content {
-    max-width: 1100px;
+    max-width: 1500px;
     animation: fadeInUp 0.8s ease-out;
     position: relative;
     z-index: 1;
@@ -402,6 +402,7 @@ section {
 /* Individual section backgrounds (transparent, over the wrapper) */
 .about-section,
 .experience-section,
+.leadership-section,
 .skills-section,
 .education-section,
 .passions-section,
@@ -435,7 +436,7 @@ section {
 
 /* ==================== ABOUT SECTION ==================== */
 .about-content {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -521,7 +522,7 @@ section {
 
 /* ==================== EXPERIENCE SECTION ==================== */
 .experience-container {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
     position: relative;
     padding: 20px 0;
@@ -614,13 +615,44 @@ section {
     font-family: 'Fira Code', monospace;
 }
 
+/* ==================== LEADERSHIP & ACTIVITIES SECTION ==================== */
+.leadership-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 0;
+}
+
+.leadership-item {
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 28px 30px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--royal-blue);
+    transition: var(--transition);
+}
+
+.leadership-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow), var(--shadow-lg);
+    border-color: var(--royal-blue);
+}
+
 /* ==================== SKILLS SECTION ==================== */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
+}
+
+.skill-category-wide {
+    grid-column: span 2;
 }
 
 .skill-category {
@@ -681,7 +713,7 @@ section {
 
 /* ==================== EDUCATION SECTION ==================== */
 .education-content {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -799,13 +831,13 @@ section {
 
 /* ==================== PASSIONS & COMMUNITY SECTION ==================== */
 .passions-content {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
 .passions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-bottom: 60px;
 }
@@ -907,7 +939,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -1011,7 +1043,7 @@ section {
 .contact-intro {
     font-size: 1.05rem;
     margin-bottom: 40px;
-    max-width: 1100px;
+    max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.9;
@@ -1202,6 +1234,12 @@ footer p:hover {
         padding-left: 0;
     }
 
+    /* Leadership — stack meta above bullets on mobile */
+    .leadership-item {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+    }
+
     section {
         padding: 60px 20px;
     }
@@ -1223,7 +1261,11 @@ footer p:hover {
     }
 
     .skills-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-category-wide {
+        grid-column: span 1;
     }
 
     .contact-link {
@@ -1250,7 +1292,7 @@ footer p:hover {
     }
 
     .passions-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
 
@@ -1291,5 +1333,13 @@ footer p:hover {
     .skills-container {
         grid-template-columns: 1fr;
         gap: 15px;
+    }
+
+    .skill-category-wide {
+        grid-column: span 1;
+    }
+
+    .passions-grid {
+        grid-template-columns: 1fr;
     }
 }
