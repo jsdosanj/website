@@ -14,7 +14,7 @@
 
 ## 📖 Description
 
-A fully static, single-page portfolio for **Jasvant Dosanjh** — Senior Systems Administrator based in Seattle, WA with 9+ years of IT infrastructure expertise. Built without JavaScript frameworks or build tools (pure HTML, CSS, and vanilla JavaScript), the site delivers a professional, accessible, and secure experience that reflects both technical depth and personality through a macOS terminal aesthetic.
+A fully static, single-page portfolio for **Jasvant Dosanjh** — Technical Project Manager based in Seattle, WA with 9+ years of IT infrastructure expertise. Built without JavaScript frameworks or build tools (pure HTML, CSS, and vanilla JavaScript), the site delivers a professional, accessible, and secure experience that reflects both technical depth and personality through a macOS terminal aesthetic.
 
 ---
 
