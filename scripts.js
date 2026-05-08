@@ -13,7 +13,7 @@ try {
             try {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = 70;
+                    const navHeight = 95;
                     const targetPosition = targetElement.offsetTop - navHeight;
                     // Respect prefers-reduced-motion: use instant jump instead of smooth scroll
                     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -80,6 +80,7 @@ try {
         'about': '/jasvant/about',
         'experience': '/jasvant/experience',
         'leadership': '/jasvant/leadership',
+        'projects': '/jasvant/projects',
         'skills': '/jasvant/skills',
         'education': '/jasvant/education',
         'passions': '/jasvant/passions',
@@ -162,7 +163,7 @@ try {
 try {
     const scrollTargets = document.querySelectorAll(
         '.experience-item, .skill-category, .education-item, ' +
-        '.certifications, .passion-card, .recommendation-card, .leadership-item'
+        '.certifications, .passion-card, .recommendation-card, .leadership-item, .project-item'
     );
 
     if ('IntersectionObserver' in window) {

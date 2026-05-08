@@ -403,6 +403,7 @@ section {
 .about-section,
 .experience-section,
 .leadership-section,
+.projects-section,
 .skills-section,
 .education-section,
 .passions-section,
@@ -1119,6 +1120,81 @@ footer p {
 footer p:hover {
     color: var(--royal-blue);
     text-shadow: 0 0 8px var(--royal-blue-glow);
+}
+
+/* ==================== PROJECTS SECTION ==================== */
+.projects-section {
+    background: transparent;
+}
+
+.projects-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 0;
+}
+
+/* project-item inherits all .leadership-item styles */
+.project-item {
+    margin-bottom: 24px;
+}
+
+.project-status {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.03em;
+}
+
+.project-status--live {
+    background: rgba(40, 200, 64, 0.12);
+    color: #28c840;
+    border: 1px solid rgba(40, 200, 64, 0.4);
+}
+
+.project-status--wip {
+    background: rgba(254, 188, 46, 0.12);
+    color: #febc2e;
+    border: 1px solid rgba(254, 188, 46, 0.4);
+}
+
+.project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    font-family: 'Fira Code', monospace;
+    color: var(--royal-blue);
+    text-decoration: none;
+    transition: var(--transition);
+    padding: 4px 0;
+}
+
+.project-link:hover {
+    color: #7b9ff5;
+    text-shadow: 0 0 6px var(--royal-blue-glow);
+}
+
+.experience-details code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+    background: rgba(65, 105, 225, 0.1);
+    border: 1px solid rgba(65, 105, 225, 0.25);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: #e6edf3;
 }
 
 /* ==================== ANIMATIONS ==================== */
