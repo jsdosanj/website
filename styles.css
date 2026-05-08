@@ -39,12 +39,21 @@ html {
     scroll-padding-top: 100px;
 }
 
+/* scroll-margin-top keeps section titles clear of the fixed navbar when
+   scrolled to via an anchor link (complements scroll-padding-top on html). */
+section {
+    scroll-margin-top: 100px;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     background-color: var(--primary-bg);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    /* Extra space at the bottom so short sections near the page end can
+       scroll into the IntersectionObserver trigger zone and become "active". */
+    padding-bottom: 40vh;
 }
 
 /* ==================== SCANLINE / CRT OVERLAY ==================== */
@@ -1257,6 +1266,10 @@ section {
         scroll-padding-top: 80px;
     }
 
+    section {
+        scroll-margin-top: 80px;
+    }
+
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.8rem; }
 
@@ -1330,6 +1343,10 @@ section {
 @media (max-width: 600px) {
     html {
         scroll-padding-top: 70px;
+    }
+
+    section {
+        scroll-margin-top: 70px;
     }
 
     .nav-menu {

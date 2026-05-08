@@ -39,35 +39,61 @@ try {
     // Silently handle errors
 }
 
-// Active Link Highlighting
+// Active Link Highlighting via IntersectionObserver (ScrollSpy)
+// rootMargin '-100px 0px -50% 0px': trigger zone starts 100px below the top
+// (below the fixed navbar) and ends at the viewport midpoint, so the active
+// section is always the one whose heading is in the visible upper half.
 try {
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section, header');
+    const sections = document.querySelectorAll('section[id]');
 
-    function updateActiveLink() {
-        const scrollPosition = window.scrollY + 100;
-
-        sections.forEach(section => {
-            try {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                const link = document.querySelector(`a[href="#${sectionId}"]`);
-
-                if (link) {
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
+    if ('IntersectionObserver' in window) {
+        const scrollSpyObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(
+                        '.nav-link[href="#' + entry.target.id + '"]'
+                    );
+                    if (activeLink) {
+                        activeLink.classList.add('active');
                     }
                 }
-            } catch (e) {
-                // Silently handle errors
-            }
+            });
+        }, {
+            rootMargin: '-100px 0px -50% 0px',
+            threshold: 0
         });
-    }
 
-    window.addEventListener('scroll', updateActiveLink);
-    window.addEventListener('load', updateActiveLink);
+        sections.forEach(function(section) {
+            scrollSpyObserver.observe(section);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver support
+        function updateActiveLink() {
+            const scrollPosition = window.scrollY + 100;
+            sections.forEach(function(section) {
+                try {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    const link = document.querySelector('a[href="#' + sectionId + '"]');
+                    if (link) {
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            navLinks.forEach(function(l) { l.classList.remove('active'); });
+                            link.classList.add('active');
+                        }
+                    }
+                } catch (e) {
+                    // Silently handle errors
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('load', updateActiveLink);
+    }
 } catch (e) {
     // Silently handle errors
 }
