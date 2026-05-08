@@ -51,9 +51,6 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    /* Extra space at the bottom so short sections near the page end can
-       scroll into the IntersectionObserver trigger zone and become "active". */
-    padding-bottom: 40vh;
 }
 
 /* ==================== SCANLINE / CRT OVERLAY ==================== */
@@ -394,6 +391,11 @@ section {
     background-position: center;
     background-attachment: fixed;
     position: relative;
+    /* Extra space so short bottom sections can scroll into the
+       IntersectionObserver trigger zone. Placed here (not on body) so
+       the padding is inside the styled wrapper and the footer stays at
+       the bottom of the visible content. */
+    padding-bottom: 40vh;
 }
 
 .sections-bg-wrapper::before {
