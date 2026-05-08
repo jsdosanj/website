@@ -39,35 +39,100 @@ try {
     // Silently handle errors
 }
 
-// Active Link Highlighting
+// Active Link Highlighting via IntersectionObserver (ScrollSpy)
+// rootMargin top offset is read from the computed scroll-padding-top value so it
+// stays in sync with the responsive CSS breakpoints (100px → 80px → 70px).
+// On resize the observer is rebuilt to pick up the updated breakpoint value.
 try {
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section, header');
+    const sections = document.querySelectorAll('section[id]');
 
-    function updateActiveLink() {
-        const scrollPosition = window.scrollY + 100;
+    if ('IntersectionObserver' in window) {
+        // Track which sections are currently inside the trigger zone.
+        const intersectingSet = new Set();
 
-        sections.forEach(section => {
-            try {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                const link = document.querySelector(`a[href="#${sectionId}"]`);
+        function buildScrollSpyObserver() {
+            const navOffset = parseInt(getComputedStyle(document.documentElement).scrollPaddingTop, 10) || 100;
 
-                if (link) {
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
+            const observer = new IntersectionObserver(function(entries) {
+                // Update the set of currently-intersecting sections.
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        intersectingSet.add(entry.target);
+                    } else {
+                        intersectingSet.delete(entry.target);
                     }
-                }
-            } catch (e) {
-                // Silently handle errors
-            }
-        });
-    }
+                });
 
-    window.addEventListener('scroll', updateActiveLink);
-    window.addEventListener('load', updateActiveLink);
+                if (intersectingSet.size === 0) return;
+
+                // When two sections share the trigger zone (e.g. a short section),
+                // pick the topmost one (smallest getBoundingClientRect().top) as the
+                // active section rather than letting "last processed" win.
+                var best = null;
+                var bestTop = Infinity;
+                intersectingSet.forEach(function(section) {
+                    var top = section.getBoundingClientRect().top;
+                    if (top < bestTop) {
+                        bestTop = top;
+                        best = section;
+                    }
+                });
+
+                if (!best) return;
+                navLinks.forEach(function(link) { link.classList.remove('active'); });
+                var activeLink = document.querySelector('.nav-link[href="#' + best.id + '"]');
+                if (activeLink) { activeLink.classList.add('active'); }
+            }, {
+                rootMargin: '-' + navOffset + 'px 0px -50% 0px',
+                threshold: 0
+            });
+
+            sections.forEach(function(section) { observer.observe(section); });
+            return observer;
+        }
+
+        var scrollSpyObserver = buildScrollSpyObserver();
+
+        // Rebuild the observer on resize so rootMargin uses the updated
+        // scroll-padding-top value from the active CSS breakpoint.
+        var resizeDebounce = null;
+        window.addEventListener('resize', function() {
+            if (resizeDebounce !== null) { clearTimeout(resizeDebounce); }
+            resizeDebounce = setTimeout(function() {
+                resizeDebounce = null;
+                intersectingSet.clear();
+                scrollSpyObserver.disconnect();
+                scrollSpyObserver = buildScrollSpyObserver();
+            }, 150);
+        }, { passive: true });
+
+    } else {
+        // Fallback for browsers without IntersectionObserver support.
+        // Uses the same responsive scroll-padding-top value as the offset.
+        function updateActiveLink() {
+            var navOffset = parseInt(getComputedStyle(document.documentElement).scrollPaddingTop, 10) || 100;
+            var scrollPosition = window.scrollY + navOffset;
+            sections.forEach(function(section) {
+                try {
+                    var sectionTop = section.offsetTop;
+                    var sectionHeight = section.offsetHeight;
+                    var sectionId = section.getAttribute('id');
+                    var link = document.querySelector('a[href="#' + sectionId + '"]');
+                    if (link) {
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            navLinks.forEach(function(l) { l.classList.remove('active'); });
+                            link.classList.add('active');
+                        }
+                    }
+                } catch (e) {
+                    // Silently handle errors
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('load', updateActiveLink);
+    }
 } catch (e) {
     // Silently handle errors
 }
