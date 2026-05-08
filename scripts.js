@@ -77,6 +77,7 @@ try {
     const terminalText = document.querySelector('.terminal-title-text');
     const sectionMap = {
         'header': '~',
+        'hero': '~',
         'about': '/jasvant/about',
         'experience': '/jasvant/experience',
         'leadership': '/jasvant/leadership',
