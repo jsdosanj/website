@@ -1,0 +1,46 @@
+---
+import { site, nav } from '../data/site';
+import { url } from '../utils';
+import Icon from './Icon.astro';
+import Khanda from './Khanda.astro';
+const year = 2026;
+---
+<footer class="relative mt-28 border-t border-white/[0.07]">
+  <div class="container-x py-14">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-3">
+          <Khanda size={34} class="text-kesari-400" />
+          <span class="font-display text-lg font-semibold text-mist-100">Dosanjh <span class="text-kesari-400">Labs</span></span>
+        </div>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-mist-400">{site.tagline}</p>
+        <p class="mt-4 flex items-center gap-2 text-sm text-mist-500">
+          <Icon name="pin" size={16} /> {site.location}
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mono text-xs uppercase tracking-widest text-mist-500">Navigate</h3>
+        <ul class="mt-4 space-y-2.5">
+          {nav.map((item) => (
+            <li><a href={url(item.href)} class="text-sm text-mist-400 hover:text-kesari-300 transition-colors">{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mono text-xs uppercase tracking-widest text-mist-500">Connect</h3>
+        <ul class="mt-4 space-y-2.5">
+          <li><a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a></li>
+          <li><a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="github" size={16} /> GitHub</a></li>
+          <li><a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="mail" size={16} /> Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 hairline flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-mist-500">© {year} {site.founder} · Dosanjh Labs. All rights reserved.</p>
+      <p class="gurmukhi text-sm text-mist-400">ਚੜ੍ਹਦੀ ਕਲਾ — <span class="font-sans not-italic text-mist-500">built in chardi kala</span></p>
+    </div>
+  </div>
+</footer>
