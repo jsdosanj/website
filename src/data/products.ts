@@ -44,11 +44,11 @@ export const products: Product[] = [
     status: 'wip',
     tagline: 'OCR that finally respects South Asian scripts.',
     description:
-      'A Tesseract post-processing engine for handwritten South Asian and Persian scripts. It corrects character misrecognition, ligature errors, and diacritic placement for Gurmukhi, Punjabi, Hindi, Urdu, and Farsi — recovering correct text where off-the-shelf OCR fails 30–40% of the time.',
+      'A Tesseract post-processing engine for handwritten South Asian and Persian scripts. It corrects character misrecognition, ligature errors, and diacritic placement for Gurmukhi, Punjabi, Hindi, Devanagari, Urdu, and Farsi — recovering correct text where off-the-shelf OCR fails 30–40% of the time.',
     highlights: [
       'Applies Unicode-level linguistic rules post-OCR to repair handwritten Gurmukhi and Urdu.',
       'Targets a systematic gap: Tesseract misrecognition for these scripts frequently exceeds 30–40%.',
-      'Shipping to PyPI as `pip install scriptfix`; installable today from GitHub.',
+      'Shipping to PyPI as `pip install gurmukhifix`; installable today from GitHub.',
     ],
     tech: ['Python', 'Tesseract', 'Unicode', 'PyPI'],
     links: [
