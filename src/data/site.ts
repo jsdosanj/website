@@ -8,6 +8,15 @@ export const site = {
   location: 'Seattle, WA',
   email: 'jasvantdosanjh@outlook.com',
   url: 'https://jsdosanj.github.io/website',
+  // Hire-me positioning
+  openToWork: true,
+  roles: [
+    'Technical Project / Program Manager',
+    'Customer Success Manager',
+    'Senior Systems Administrator',
+  ],
+  positioning:
+    'Senior IT leader, builder, and problem-solver with 10+ years turning broken infrastructure, stalled programs, and lost trust into outcomes that scale.',
   socials: {
     linkedin: 'https://linkedin.com/in/jasvantsd',
     github: 'https://github.com/jsdosanj',
