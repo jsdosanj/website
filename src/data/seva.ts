@@ -1,0 +1,73 @@
+// Parcharik / Seva — Sikh heritage, speaking, and community work
+export const sevaIntro = {
+  gurmukhi: 'ੴ',
+  mool: 'Ik Onkar — one creative reality, present in all.',
+  heading: 'Parchar & Seva',
+  lead:
+    'Beyond the lab, I serve as a parcharik — a teacher and speaker carrying the message of Guru Nanak across the world. The same instinct that drives the technology drives this: knowledge that uplifts should never stay locked away where only one person can reach it.',
+};
+
+export type SevaEngagement = {
+  org: string;
+  role: string;
+  date: string;
+  description: string;
+  link?: { label: string; href: string };
+  tags: string[];
+};
+
+export const engagements: SevaEngagement[] = [
+  {
+    org: 'Basics of Sikhi — Everything’s 13 (North America)',
+    role: 'Public Speaker & Parcharik',
+    date: 'Jan 2024 – Present',
+    description:
+      'Speak and teach at Sikh camps, universities, and Gurdwaras across North America and beyond — sharing Gurmat principles and inspiring people to live with purpose and compassion. Organize and host events throughout the Pacific Northwest, coordinate Amrit Sanchars worldwide, and teach Santhiya (correct pronunciation and understanding of Gurbani) to students globally.',
+    link: { label: 'Basics of Sikhi', href: 'https://www.basicsofsikhi.com/' },
+    tags: ['Public Speaking', 'Gurmat Education', 'Santhiya', 'Youth Camps'],
+  },
+  {
+    org: 'SikhArchive.net',
+    role: 'Contributor & Digital Preservationist',
+    date: 'Ongoing',
+    description:
+      'Support the digital preservation and accessibility of Sikh historical texts and manuscripts — bridging my parchar work with the AI and OCR tools built at Dosanjh Labs to make rare Sikh heritage searchable and available to researchers and the global Sangat.',
+    link: { label: 'SikhArchive.net', href: 'https://www.sikharchive.net/' },
+    tags: ['Digital Preservation', 'Manuscripts', 'Open Access'],
+  },
+  {
+    org: 'Gurprasadh Vidhiyaala',
+    role: 'Spiritual Counsellor & Teacher',
+    date: 'Ongoing',
+    description:
+      'Provide spiritual counselling and teaching to individuals worldwide, helping people deepen their connection to Sikh heritage and spirituality through one-on-one and group learning.',
+    tags: ['Counselling', 'Teaching', 'Community'],
+  },
+  {
+    org: 'Shabad OS',
+    role: 'Researcher & Translator',
+    date: 'Aug 2017 – Jul 2019',
+    description:
+      'Tested and improved software used by Gurdwaras worldwide and contributed translations of Guru Granth Sahib Ji and Dasam Granth from Gurmukhi to English — early roots of the heritage-tech work that continues today.',
+    link: { label: 'Shabad OS', href: 'https://shabados.com/' },
+    tags: ['Translation', 'Open Source', 'Gurbani'],
+  },
+];
+
+export const sevaValues = [
+  {
+    title: 'Naam',
+    gurmukhi: 'ਨਾਮ',
+    text: 'Grounded in remembrance — staying centred in something larger than the work itself.',
+  },
+  {
+    title: 'Seva',
+    gurmukhi: 'ਸੇਵਾ',
+    text: 'Selfless service — building and giving so that others can rise without keeping score.',
+  },
+  {
+    title: 'Chardi Kala',
+    gurmukhi: 'ਚੜ੍ਹਦੀ ਕਲਾ',
+    text: 'Relentless optimism — meeting every challenge in high, rising spirits.',
+  },
+];

@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Khanda from '../components/Khanda.astro';
+import Jali from '../components/Jali.astro';
+import ProductCard from '../components/ProductCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { site } from '../data/site';
+import { products } from '../data/products';
+import { url } from '../utils';
+
+const featured = products.filter((p) => p.featured);
+
+const stats = [
+  { value: '758M+', label: 'words in the Sikh Library corpus' },
+  { value: '5,000+', label: 'engineers served by shipped solutions' },
+  { value: '$2M', label: 'in funding secured via product strategy' },
+  { value: '10+ yrs', label: 'running real infrastructure at scale' },
+];
+
+const principles = [
+  { icon: 'workflow', title: 'Built to outlive me', text: 'Every framework I ship is designed to be replicable — adopted beyond its original scope, so the next team never re-solves a solved problem.' },
+  { icon: 'sparkles', title: 'AI as a force multiplier', text: 'From RAG over a 758M-word corpus to OCR repair for endangered scripts, I use AI to make hard problems tractable — and rare knowledge accessible.' },
+  { icon: 'shield', title: 'Compliant & secure by default', text: 'A decade across healthcare, education, and big tech taught me to build with NIST, HIPAA, and FERPA baked in — not bolted on.' },
+  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools that uplift people and democratize what was once locked away.' },
+];
+---
+<Base>
+  <!-- ===================== HERO ===================== -->
+  <section class="relative pt-36 sm:pt-44 pb-20 overflow-hidden">
+    <Jali class="absolute -top-24 right-[-10%] w-[42rem] h-[42rem] text-azure-500/[0.12] pointer-events-none" opacity={1} />
+    <div class="container-x relative">
+      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-8 items-center">
+        <div class="reveal is-visible">
+          <span class="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-medium text-mist-300">
+            <span class="h-2 w-2 rounded-full bg-kesari-500 animate-pulse-glow"></span>
+            Dosanjh Labs · independent studio
+          </span>
+          <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-bold leading-[1.05] tracking-tight text-mist-100">
+            Technology that
+            <span class="text-gradient"> helps you succeed.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-mist-400">
+            I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — a Technical Project Manager and builder in Seattle.
+            Dosanjh Labs is where I turn technology that <span class="text-mist-200">hinders</span> into technology that <span class="text-kesari-300">helps</span>:
+            from AI libraries that open up rare knowledge to infrastructure tools that make teams unstoppable.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={url('/products')} class="group inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold hover:bg-kesari-400 transition-colors">
+              Explore the products
+              <Icon name="arrow" size={18} class="group-hover:translate-x-0.5 transition-transform" />
+            </a>
+            <a href={url('/about')} class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:text-mist-100 hover:border-white/20 transition-colors">
+              Who I am
+            </a>
+          </div>
+          <div class="mt-8 flex items-center gap-5 text-sm text-mist-500">
+            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-kesari-300 transition-colors"><Icon name="github" size={18} /> GitHub</a>
+            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={18} /> LinkedIn</a>
+            <span class="inline-flex items-center gap-2"><Icon name="pin" size={16} /> Seattle, WA</span>
+          </div>
+        </div>
+
+        <!-- Portrait + emblem -->
+        <div class="reveal is-visible relative mx-auto lg:mx-0 max-w-sm w-full">
+          <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 glow-ring">
+            <img src={url('/images/headshot.jpg')} alt="Jasvant Singh Dosanjh" class="w-full aspect-[4/5] object-cover" loading="eager" width="640" height="800" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 glass rounded-xl px-4 py-3 flex items-center justify-between">
+              <div>
+                <p class="font-display text-sm font-semibold text-mist-100">Jasvant Singh Dosanjh</p>
+                <p class="mono text-[11px] text-mist-400">Founder · Dosanjh Labs</p>
+              </div>
+              <span class="gurmukhi text-kesari-400 text-xl">ੴ</span>
+            </div>
+          </div>
+          <Khanda size={70} class="absolute -top-7 -left-7 text-kesari-400/80 animate-float drop-shadow-[0_0_18px_rgba(240,169,60,0.35)]" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="container-x">
+    <div class="reveal card border-glow grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/[0.06] overflow-hidden">
+      {stats.map((s) => (
+        <div class="p-6 sm:p-8 text-center">
+          <p class="font-display text-3xl sm:text-4xl font-bold text-kesari-gradient">{s.value}</p>
+          <p class="mt-2 text-xs sm:text-sm text-mist-400 leading-snug">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED PRODUCTS ===================== -->
+  <section class="container-x mt-28">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <SectionHeading eyebrow="What we build" title="Products from the lab">
+        <p class="reveal mt-4 max-w-xl text-mist-400">Tools across AI, infrastructure, and heritage preservation — some live, some still on the workbench.</p>
+      </SectionHeading>
+      <a href={url('/products')} class="reveal inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">View all <Icon name="arrow" size={16} /></a>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {featured.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <!-- ===================== PRINCIPLES ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="How I build" title="A few principles that hold across everything" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">Whether it’s a clinical IT department or a 758-million-word manuscript corpus, the same instincts apply.</p>
+    </SectionHeading>
+    <div class="mt-12 grid gap-5 sm:grid-cols-2">
+      {principles.map((p) => (
+        <div class="reveal card card-hover p-7 flex gap-5">
+          <span class="shrink-0 grid place-items-center h-12 w-12 rounded-xl bg-ink-800 border border-white/10 text-kesari-400">
+            <Icon name={p.icon} size={22} />
+          </span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-mist-100">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mist-400">{p.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== SEVA TEASER ===================== -->
+  <section class="container-x mt-28">
+    <div class="reveal relative card border-glow overflow-hidden p-8 sm:p-12">
+      <Jali class="absolute inset-0 text-kesari-500/[0.08]" opacity={1} />
+      <div class="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+        <div>
+          <p class="gurmukhi text-3xl text-kesari-400">ੴ</p>
+          <h2 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-mist-100">Beyond the lab — parchar &amp; seva</h2>
+          <p class="mt-4 max-w-2xl text-mist-400 leading-relaxed">
+            I serve as a parcharik, carrying the message of Guru Nanak to camps, universities, and Gurdwaras around the world —
+            and partner with <span class="text-mist-200">Basics of Sikhi</span> and <span class="text-mist-200">SikhArchive.net</span> to preserve and open up Sikh heritage.
+            The same instinct drives both the code and the kirtan: knowledge that uplifts should never stay locked away.
+          </p>
+          <a href={url('/seva')} class="mt-6 inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-kesari-300 hover:border-kesari-500/40 transition-colors">
+            Explore my seva <Icon name="arrow" size={18} />
+          </a>
+        </div>
+        <Khanda size={140} class="hidden lg:block text-kesari-400/70 animate-float" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="container-x mt-28">
+    <div class="reveal text-center">
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-mist-100">Have a high-stakes program or a tool worth building?</h2>
+      <p class="mt-4 max-w-xl mx-auto text-mist-400">I’m open to Technical Project Manager, Customer Success, and IT leadership roles — and always happy to talk shop.</p>
+      <a href={url('/contact')} class="mt-8 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">
+        Let’s talk <Icon name="arrow" size={18} />
+      </a>
+    </div>
+  </section>
+</Base>

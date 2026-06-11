@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Khanda from '../components/Khanda.astro';
+import Jali from '../components/Jali.astro';
+import { site } from '../data/site';
+
+const channels = [
+  { icon: 'linkedin', label: 'LinkedIn', value: 'in/jasvantsd', href: site.socials.linkedin, note: 'Best way to reach me' },
+  { icon: 'mail', label: 'Email', value: site.email, href: `mailto:${site.email}`, note: 'For direct inquiries' },
+  { icon: 'github', label: 'GitHub', value: 'jsdosanj', href: site.socials.github, note: 'Code & projects' },
+  { icon: 'sparkles', label: 'HuggingFace', value: 'jsdosanj', href: site.socials.huggingface, note: 'AI models & datasets' },
+];
+---
+<Base title="Contact" description="Get in touch with Jasvant Singh Dosanjh — open to Technical Project Manager, Customer Success, and IT leadership roles.">
+  <section class="relative pt-36 sm:pt-48 overflow-hidden">
+    <Jali class="absolute inset-0 text-azure-500/[0.08]" opacity={1} />
+    <div class="container-x relative">
+      <div class="text-center max-w-2xl mx-auto">
+        <Khanda size={56} class="mx-auto text-kesari-400 animate-float" />
+        <h1 class="reveal is-visible mt-6 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100">Let’s connect.</h1>
+        <p class="reveal is-visible mt-5 text-lg text-mist-400 leading-relaxed">
+          I’m actively exploring <span class="text-mist-200">Technical Project Manager</span>, <span class="text-mist-200">Customer Success</span>, and <span class="text-mist-200">IT leadership</span> roles —
+          and always happy to talk infrastructure, AI, or a tool worth building. Reach out however suits you.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 max-w-3xl mx-auto">
+        {channels.map((c) => (
+          <a href={c.href} target={c.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" class="reveal card card-hover border-glow p-6 flex items-center gap-4 group">
+            <span class="grid place-items-center h-12 w-12 rounded-xl bg-ink-800 border border-white/10 text-kesari-400 group-hover:scale-105 transition-transform"><Icon name={c.icon} size={22} /></span>
+            <div class="min-w-0">
+              <p class="font-display text-base font-semibold text-mist-100">{c.label}</p>
+              <p class="mono text-sm text-mist-400 truncate">{c.value}</p>
+              <p class="text-[11px] text-mist-500 mt-0.5">{c.note}</p>
+            </div>
+            <Icon name="arrow" size={18} class="ml-auto text-mist-500 group-hover:text-kesari-300 group-hover:translate-x-0.5 transition-all" />
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <a href={site.resumes.tpm} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> TPM Résumé</a>
+        <a href={site.resumes.csm} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> CSM Résumé</a>
+      </div>
+
+      <p class="mt-12 text-center gurmukhi text-lg text-mist-500">ੴ <span class="font-sans not-italic text-sm">· Seattle, WA</span></p>
+    </div>
+  </section>
+</Base>

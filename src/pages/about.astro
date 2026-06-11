@@ -1,0 +1,213 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Icon from '../components/Icon.astro';
+import Khanda from '../components/Khanda.astro';
+import { experience } from '../data/experience';
+import { leadership } from '../data/leadership';
+import { education, certifications } from '../data/education';
+import { recommendations } from '../data/recommendations';
+import { journey, journeyCreed } from '../data/journey';
+import { site } from '../data/site';
+import { url } from '../utils';
+---
+<Base title="About" description="The origin story of Jasvant Singh Dosanjh — a lifelong problem-solver, from fixing teachers’ smartboards to speaking at community events around the world.">
+  <!-- ===================== STORY HERO ===================== -->
+  <section class="relative pt-36 sm:pt-48 pb-12 overflow-hidden">
+    <div class="starfield"></div>
+    <div class="absolute left-1/2 -translate-x-1/2 top-20 h-80 w-80 rounded-full bg-kesari-500/10 blur-[100px]"></div>
+    <!-- orbit rings -->
+    <div class="absolute left-1/2 top-44 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] orbit-ring opacity-40 animate-spin-slow hidden sm:block"></div>
+    <div class="absolute left-1/2 top-44 -translate-x-1/2 -translate-y-1/2 w-[24rem] h-[24rem] orbit-ring opacity-60 hidden sm:block"></div>
+
+    <div class="container-x relative text-center">
+      <p class="reveal is-visible mono text-xs uppercase tracking-[0.28em] text-kesari-400">The origin story</p>
+      <h1 class="reveal is-visible mt-5 font-display text-4xl sm:text-6xl font-bold tracking-tight text-mist-100 leading-[1.05]">
+        Jasvant Singh Dosanjh
+      </h1>
+      <p class="reveal is-visible mt-5 text-lg sm:text-xl text-gradient font-display font-medium">
+        Problem-solver by instinct. Solutions-driven by choice.
+      </p>
+      <p class="reveal is-visible mt-6 max-w-2xl mx-auto text-mist-400 leading-relaxed">
+        This is the story of someone who has spent his whole life doing one thing: finding what’s broken,
+        fixing it, and building something better for the people around him — from a schoolyard in Michigan
+        to a stage on the other side of the world.
+      </p>
+      <div class="reveal is-visible mt-8 flex flex-wrap justify-center gap-2.5">
+        {journeyCreed.values.map((v) => (
+          <span class="rounded-full glass px-4 py-1.5 text-sm text-kesari-200">{v}</span>
+        ))}
+      </div>
+      <div class="reveal is-visible mt-9 flex flex-wrap justify-center gap-3">
+        <a href={site.resumes.tpm} download class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> TPM Résumé</a>
+        <a href={site.resumes.csm} download class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> CSM Résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE JOURNEY (trajectory) ===================== -->
+  <section class="container-x mt-12">
+    <SectionHeading eyebrow="The trajectory" title="From the schoolyard to the world" align="center" />
+    <div class="mt-14 relative max-w-3xl mx-auto">
+      <!-- comet trail -->
+      <div class="absolute left-[19px] sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-[2px] trail-line"></div>
+      <div class="space-y-10">
+        {journey.map((c, i) => (
+          <div class="reveal relative pl-14 sm:pl-0">
+            <!-- node on the trail -->
+            <span class="absolute left-[11px] sm:left-1/2 sm:-translate-x-1/2 top-1.5 h-[18px] w-[18px] rounded-full bg-kesari-500 trail-node animate-pulse-glow"></span>
+            <div class:list={[i % 2 === 0 ? 'sm:pr-[calc(50%+2.5rem)]' : 'sm:pl-[calc(50%+2.5rem)]']}>
+              <div class="card card-hover p-6">
+                <div class="flex items-center gap-2 mono text-[11px] uppercase tracking-wider text-kesari-400">
+                  <span class="text-mist-500">Chapter {c.chapter}</span>
+                  <span class="h-1 w-1 rounded-full bg-kesari-500"></span>
+                  <span>{c.marker}</span>
+                </div>
+                <p class="mt-1 text-xs text-azure-300">{c.era}</p>
+                <h3 class="mt-2 font-display text-xl font-semibold text-mist-100">{c.title}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-mist-400">{c.text}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- creed at the end of the trail -->
+      <div class="reveal relative mt-12 text-center">
+        <Khanda size={48} class="mx-auto text-kesari-400 animate-float" />
+        <p class="mt-5 max-w-xl mx-auto font-display text-lg sm:text-xl text-mist-200 italic">“{journeyCreed.line}”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEM-SOLVER SUMMARY ===================== -->
+  <section class="container-x mt-28">
+    <div class="reveal card border-glow p-8 sm:p-10">
+      <div class="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-center">
+        <div class="rounded-2xl overflow-hidden border border-white/10 glow-ring max-w-xs">
+          <img src={url('/images/headshot.jpg')} alt="Jasvant Singh Dosanjh" class="w-full aspect-[4/5] object-cover" width="480" height="600" loading="lazy" />
+        </div>
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-semibold text-mist-100">The pattern behind every chapter</h2>
+          <p class="mt-4 text-mist-400 leading-relaxed">
+            Most problems aren’t really technical problems. They’re coordination problems, trust problems, or gaps in
+            knowledge that eventually show up in the work. Jasvant’s gift is finding those gaps — then fixing them in a way
+            that lasts. Over 10+ years across education, healthcare, gaming, and big tech, the frameworks he’s built have a
+            habit of outliving his direct involvement: adopted by other teams, other departments, other studios.
+          </p>
+          <p class="mt-4 text-mist-400 leading-relaxed">
+            He builds with one assumption — <span class="text-kesari-300">that what he makes will be used far beyond its original scope</span> —
+            and serves with one belief: that something valuable should never stay locked away where only one person can reach it.
+          </p>
+          <p class="mt-4 text-sm text-mist-500">
+            Fluent in English and Punjabi, conversational in Hindi and Urdu. Plays harmonium, tabla, and dholki.
+            Loyal to Manchester United through every challenge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="The professional record" title="Where the problem-solving went to work" />
+    <div class="mt-12 relative">
+      <div class="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-kesari-500/50 via-white/10 to-transparent"></div>
+      <div class="space-y-8">
+        {experience.map((role) => (
+          <div class="reveal relative pl-8 sm:pl-10">
+            <span class="absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border-2 border-kesari-500 bg-ink-900 sm:h-[19px] sm:w-[19px]"></span>
+            <div class="card p-5 sm:p-6">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                <h3 class="font-display text-lg font-semibold text-mist-100">{role.title}</h3>
+                <span class="mono text-xs text-mist-500 shrink-0">{role.date}</span>
+              </div>
+              <p class="text-kesari-300 text-sm font-medium mt-0.5">{role.company}</p>
+              <ul class="mt-4 space-y-2.5">
+                {role.bullets.map((b) => (
+                  <li class="flex gap-3 text-sm text-mist-400 leading-relaxed">
+                    <span class="mono text-kesari-500/70 select-none">›</span><span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LEADERSHIP ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="Beyond the title" title="Leadership & activities" />
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {leadership.map((item) => (
+        <div class="reveal card card-hover p-6">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="font-display text-base font-semibold text-mist-100">{item.title}</h3>
+            <span class="mono text-[11px] text-mist-500 shrink-0">{item.date}</span>
+          </div>
+          <p class="text-azure-300 text-sm font-medium mt-0.5">{item.org}</p>
+          <ul class="mt-4 space-y-2">
+            {item.bullets.map((b) => (
+              <li class="flex gap-2.5 text-sm text-mist-400 leading-relaxed"><span class="mt-1.5 h-1 w-1 rounded-full bg-azure-500 shrink-0"></span><span>{b}</span></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="Foundations" title="Education & certifications" />
+    <div class="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-4">
+        {education.map((e) => (
+          <div class="reveal card p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-display text-base font-semibold text-mist-100">{e.credential}</h3>
+              <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>
+            </div>
+            <p class="text-kesari-300 text-sm font-medium mt-0.5">{e.school}</p>
+            <p class="mt-2 text-sm text-mist-400">{e.detail}</p>
+          </div>
+        ))}
+      </div>
+      <div class="reveal card p-6 h-max">
+        <h3 class="mono text-xs uppercase tracking-widest text-kesari-400">Key Certifications · 2023–2026</h3>
+        <ul class="mt-5 space-y-3">
+          {certifications.map((c) => (
+            <li class="flex gap-3 text-sm text-mist-300"><Icon name="shield" size={16} class="text-kesari-500/80 shrink-0 mt-0.5" /><span>{c}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RECOMMENDATIONS ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="In their words" title="Recommendations" />
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {recommendations.map((r) => (
+        <figure class="reveal card p-6 flex flex-col">
+          <div class="text-kesari-500/40 font-display text-5xl leading-none">“</div>
+          <blockquote class="-mt-3 text-sm leading-relaxed text-mist-300 flex-1">{r.text}</blockquote>
+          <figcaption class="mt-5 pt-5 hairline">
+            <p class="font-display text-sm font-semibold text-mist-100">{r.name}</p>
+            <p class="text-xs text-mist-500 mt-0.5">{r.title}</p>
+            <a href={r.link} target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs text-azure-300 hover:underline underline-offset-4"><Icon name="linkedin" size={13} /> LinkedIn</a>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="container-x mt-28">
+    <div class="reveal text-center">
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-mist-100">The next chapter could be with your team.</h2>
+      <a href={url('/contact')} class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Let’s talk <Icon name="arrow" size={18} /></a>
+    </div>
+  </section>
+</Base>
