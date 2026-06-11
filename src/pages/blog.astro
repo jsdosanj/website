@@ -1,69 +1,76 @@
 ---
 import Base from '../layouts/Base.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
-import { posts } from '../data/posts';
+import Khanda from '../components/Khanda.astro';
+import Jali from '../components/Jali.astro';
 import { site } from '../data/site';
 
-const sorted = posts;
+const postsUrl = `${site.socials.linkedin}/recent-activity/all/`;
+const topics = [
+  { icon: 'sparkles', label: 'AI & Heritage', text: 'Building with AI, OCR, and preserving Sikh heritage.' },
+  { icon: 'code', label: 'Engineering', text: 'Infrastructure, automation, and tools that remove toil.' },
+  { icon: 'target', label: 'Leadership', text: 'Programs, trust, and frameworks that outlive you.' },
+  { icon: 'globe', label: 'Seva & Community', text: 'Service, parchar, and lessons from the journey.' },
+];
 ---
 <Base
   title="Blog"
-  description="Writing and LinkedIn posts from Jasvant Singh Dosanjh on AI, OCR, IT leadership, and Sikh heritage technology."
-  keywords={["Jasvant Dosanjh blog", "AI writing", "Sikh technology blog", "LinkedIn posts"]}
+  description="Read Jasvant Singh Dosanjh's writing and posts on LinkedIn — on AI, OCR, IT leadership, building tools that help, and Sikh heritage."
+  keywords={["Jasvant Dosanjh LinkedIn", "AI writing", "Sikh technology", "IT leadership posts"]}
 >
-  <section class="container-x pt-36 sm:pt-44">
-    <div class="max-w-3xl">
-      <p class="mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2 reveal is-visible">
-        <span class="inline-block h-px w-6 bg-kesari-500/60"></span>Writing & posts
-      </p>
-      <h1 class="reveal is-visible mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100">
-        Notes from the <span class="text-kesari-gradient">journey.</span>
-      </h1>
-      <p class="reveal is-visible mt-5 text-lg text-mist-400 leading-relaxed">
-        Thoughts on AI, infrastructure, building tools that help, and carrying heritage forward —
-        shared here and on LinkedIn. Follow along for the latest.
-      </p>
-      <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="reveal is-visible mt-6 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold hover:bg-kesari-400 transition-colors">
-        <Icon name="linkedin" size={18} /> Follow on LinkedIn
-      </a>
+  <section class="relative pt-36 sm:pt-48 overflow-hidden">
+    <Jali class="absolute inset-0 text-azure-500/[0.08]" opacity={1} />
+    <div class="absolute left-1/2 -translate-x-1/2 top-24 h-72 w-72 rounded-full bg-kesari-500/10 blur-[100px]"></div>
+    <div class="container-x relative">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="reveal is-visible mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center justify-center gap-2">
+          <span class="inline-block h-px w-6 bg-kesari-500/60"></span>Writing &amp; posts
+        </p>
+        <h1 class="reveal is-visible mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100">
+          I share most of my thinking on <span class="text-kesari-gradient">LinkedIn.</span>
+        </h1>
+        <p class="reveal is-visible mt-5 text-lg text-mist-400 leading-relaxed">
+          From AI and infrastructure to seva and the lessons along the way — I post regularly about
+          building things that help people. Come read along, and let’s start a conversation.
+        </p>
+        <div class="reveal is-visible mt-8 flex flex-wrap justify-center gap-3">
+          <a href={postsUrl} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2.5 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">
+            <Icon name="linkedin" size={20} /> Read my posts on LinkedIn
+            <Icon name="arrow" size={18} class="group-hover:translate-x-0.5 transition-transform" />
+          </a>
+          <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3.5 font-semibold text-mist-200 hover:border-white/20 transition-colors">
+            Connect with me
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="container-x mt-14">
-    {sorted.length === 0 ? (
-      <div class="reveal card p-10 text-center text-mist-400">No posts yet — check back soon.</div>
-    ) : (
-      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {sorted.map((p) => (
-          <a href={p.url} target="_blank" rel="noopener noreferrer" class="reveal card card-hover border-glow p-6 flex flex-col group">
-            <div class="flex items-center justify-between gap-3">
-              <span class="mono text-[11px] uppercase tracking-wider text-kesari-400">{p.category}</span>
-              <span class="mono text-[11px] text-mist-500">{p.date}</span>
-            </div>
-            <h2 class="mt-3 font-display text-lg font-semibold text-mist-100 group-hover:text-kesari-200 transition-colors">{p.title}</h2>
-            <p class="mt-3 text-sm leading-relaxed text-mist-400 flex-1">{p.excerpt}</p>
-            <div class="mt-5 flex flex-wrap items-center gap-1.5">
-              {p.tags.map((t) => (
-                <span class="mono text-[11px] text-mist-400 border border-white/10 rounded-md px-2 py-1">{t}</span>
-              ))}
-              <span class="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-kesari-300">
-                <Icon name="linkedin" size={14} /> Read
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
-    )}
+  <!-- Topics I write about -->
+  <section class="container-x mt-20">
+    <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      {topics.map((t) => (
+        <div class="reveal card card-hover p-6">
+          <span class="grid place-items-center h-11 w-11 rounded-xl bg-ink-800 border border-white/10 text-kesari-400"><Icon name={t.icon} size={20} /></span>
+          <h2 class="mt-4 font-display text-base font-semibold text-mist-100">{t.label}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-mist-400">{t.text}</p>
+        </div>
+      ))}
+    </div>
   </section>
 
+  <!-- Closing -->
   <section class="container-x mt-20">
-    <div class="reveal card p-6 sm:p-7 text-sm text-mist-500 flex items-start gap-3">
-      <Icon name="sparkles" size={18} class="text-kesari-500/70 shrink-0 mt-0.5" />
-      <p>
-        Want a post featured here? Add it in <code class="mono text-xs bg-ink-700 text-mist-200 px-1.5 py-0.5 rounded">src/data/posts.ts</code>
-        with its LinkedIn link — or use LinkedIn’s “Embed this post” option to embed it directly.
-      </p>
+    <div class="reveal relative card border-glow overflow-hidden p-8 sm:p-12 text-center">
+      <Jali class="absolute inset-0 text-kesari-500/[0.07]" opacity={1} />
+      <div class="relative">
+        <Khanda size={52} class="mx-auto text-kesari-400 animate-float" />
+        <h2 class="mt-5 font-display text-2xl sm:text-3xl font-semibold text-mist-100">Let’s keep the conversation going.</h2>
+        <p class="mt-3 max-w-xl mx-auto text-mist-400">Follow along for new posts, or reach out directly — I’m always glad to connect.</p>
+        <a href={postsUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">
+          <Icon name="linkedin" size={18} /> Read my posts
+        </a>
+      </div>
     </div>
   </section>
 </Base>
