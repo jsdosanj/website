@@ -1,42 +1,50 @@
 // Projects Jasvant has led across his career — the recruiter-facing showcase
-// on the About page (reverse chronological).
+// on the About page, tiered: headline projects (big cards), more work
+// (compact list), and personal / open-source projects.
 export type LedProject = {
   title: string;
   org: string;
   date: string;
   text: string;
 };
+export type MoreProject = {
+  title: string;
+  org: string;
+  date: string;
+  note?: string;
+};
+export type PersonalProject = LedProject & { href: string; linkLabel: string };
 
-export const projectsLed: LedProject[] = [
+export const headlineProjects: LedProject[] = [
   {
-    title: 'Documentation hub, scalable Jamf Pro & automation',
-    org: 'University of Washington — College of Arts & Sciences',
+    title: 'Speech & Hearing Sciences Clinic onboarding',
+    org: 'University of Washington',
     date: '2023 – 2026',
-    text: 'Built the college’s documentation hub from scratch (extensive runbooks and guides), rebuilt Jamf Pro to scale across the entire college, created custom tooling to automate repetitive tasks, and led department IT onboarding.',
+    text: 'Led the clinic’s onboarding into centralized IT — coordinated clinical vendors, enforced HIPAA, and rebuilt a fractured faculty–IT relationship. Improved the SLA from 48 hours to 2 and cut $30,000/year in spend.',
+  },
+  {
+    title: 'Scalable Jamf Pro rebuild',
+    org: 'University of Washington',
+    date: '2023 – 2026',
+    text: 'Rebuilt Jamf Pro to scale across the entire College of Arts & Sciences — 40+ departments and 400+ Apple devices (Macs and iPads) — with an enrollment and compliance framework later adopted by additional university departments.',
+  },
+  {
+    title: 'College-wide documentation hub',
+    org: 'University of Washington',
+    date: '2023 – 2026',
+    text: 'Built the college’s documentation hub from scratch — extensive runbooks and guides that became a shared resource for IT staff across the entire college, not just the Dean’s Office team.',
   },
   {
     title: 'Zero-to-one gaming-studio IT',
     org: 'Tencent — Team Kaiju Studio',
     date: '2022',
-    text: 'Built the complete IT foundation for a brand-new gaming studio — stakeholder management, vetting vendors and their products (Confluence, Jira, JumpCloud, SSO), device purchasing, and networking — and stood it up in five months.',
-  },
-  {
-    title: 'Server imaging & deployment automation',
-    org: 'Omni Group',
-    date: '2022',
-    text: 'Streamlined macOS server imaging and deployment, cutting roughly two hours off every server build and letting the team scale without adding headcount.',
+    text: 'Built a new gaming studio’s entire IT foundation in five months — 100+ custom high-end gaming PCs, networking, and identity — vetting vendors like Google, JumpCloud, AWS, Cisco, and 1Password. The stack was adopted as the standard for studios in LA and Montreal.',
   },
   {
     title: 'BeyondTrust Linux integration & developer bug tooling',
     org: 'Meta — Enterprise Engineering',
     date: '2020 – 2022',
-    text: 'Wrote Bomgar-on-Linux setup documentation that was so well received it became a first-party supported integration for BeyondTrust’s Bomgar, and built Python tooling that helped developers pinpoint bugs and surfaced documentation and remediation steps from Meta’s internal knowledge base.',
-  },
-  {
-    title: 'COVID-19 remote-learning enablement',
-    org: 'Rochester Community Schools',
-    date: '2019 – 2020',
-    text: 'Created the training materials that helped teachers ramp up for remote learning at the onset of the COVID-19 pandemic — adopted district-wide.',
+    text: 'Wrote Bomgar-on-Linux documentation that started with Oculus’s AR/VR teams and was adopted by BeyondTrust as the first-party solution for its Bomgar Linux users globally. Also built Python tooling that helped developers pinpoint bugs and surfaced remediation steps from Meta’s internal knowledge base.',
   },
   {
     title: '$2M ed-tech infrastructure foundation',
@@ -44,22 +52,34 @@ export const projectsLed: LedProject[] = [
     date: '2019',
     text: 'Managed the development team, interviewed game-development vendors, and built the IT infrastructure foundation for the ed-tech startup — work that helped secure over $2M in funding from Nestlé and the Chilean government.',
   },
+];
+
+export const moreProjects: MoreProject[] = [
+  { title: 'Zero-downtime network security migration', org: 'University of Washington', date: '2023 – 2026', note: '6 months · repeatable framework' },
+  { title: 'Automation tooling for redundant tasks', org: 'University of Washington', date: '2023 – 2026' },
+  { title: 'CSSCR System Security Officer', org: 'University of Washington', date: '2023 – 2026', note: 'NIST & HIPAA audits · multi-state compliance' },
+  { title: 'Server imaging & deployment automation', org: 'Omni Group', date: '2022', note: '~2 hrs saved per server' },
+  { title: 'COVID-19 remote-learning enablement', org: 'Rochester Community Schools', date: '2019 – 2020', note: 'adopted district-wide' },
+  { title: 'PowerShell self-service tooling', org: 'Oakland University — Technology Services', date: '2020', note: '−40% ticket volume' },
+  { title: 'Tech-support training & mentorship', org: 'Oakland University — Kresge Library', date: '2018 – 2020' },
+  { title: 'Athletics facility reservation system', org: 'Oakland Community College', date: '2016 – 2018' },
+];
+
+export const personalProjects: PersonalProject[] = [
   {
-    title: 'PowerShell self-service tooling',
-    org: 'Oakland University — Technology Services',
-    date: '2020',
-    text: 'Streamlined shares-access requests by building a PowerShell self-service tool that cut ticket volume by 40%.',
+    title: 'AI Sikh Library — open dataset',
+    org: 'Personal · open-source',
+    date: '2024 – present',
+    text: 'A 758M+ word multilingual corpus of Sikh manuscripts and scripture (powering SikhArchive) built to make rare heritage searchable. Born from problems I kept seeing in my own work and conversations at cybersecurity conferences.',
+    href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary',
+    linkLabel: 'HuggingFace',
   },
   {
-    title: 'Tech-support training & mentorship',
-    org: 'Oakland University — Kresge Library',
-    date: '2018 – 2020',
-    text: 'Created training materials and mentored and guided the library’s student tech-support staff.',
-  },
-  {
-    title: 'Athletics facility reservation system',
-    org: 'Oakland Community College — Athletics',
-    date: '2016 – 2018',
-    text: 'Streamlined the reservation process for the athletics facilities, making booking simpler and conflict-free for staff and students.',
+    title: 'GurmukhiFix / ScriptFix',
+    org: 'Personal · open-source',
+    date: '2024 – present',
+    text: 'A Tesseract post-processing engine that repairs OCR errors in handwritten South Asian and Persian scripts where off-the-shelf tools fail. Shipping to PyPI as scriptfix.',
+    href: 'https://github.com/jsdosanj/gurmukhifix',
+    linkLabel: 'GitHub',
   },
 ];
