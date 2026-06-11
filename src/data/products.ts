@@ -118,6 +118,27 @@ export const products: Product[] = [
     accent: 'kesari',
     featured: false,
   },
+  {
+    slug: 'sikharchive',
+    name: 'SikhArchive.net',
+    gurmukhi: 'ੴ',
+    category: 'Collaboration · Digital Heritage',
+    status: 'live',
+    tagline: 'Five centuries of Sikh literature, open to the world.',
+    description:
+      'SikhArchive.net is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable. This isn’t my own project — I contribute to it as a developer, helping push the platform forward alongside the team.',
+    highlights: [
+      'Working on integrating the 758M+ word Sikh Library dataset into the platform.',
+      'Built Gurbani search and an AI-powered search engine, plus design improvements.',
+      'Patching security vulnerabilities and shipping mobile web-app improvements.',
+    ],
+    tech: ['Web', 'AI Search', 'Security', 'Mobile Web'],
+    links: [
+      { label: 'Visit SikhArchive.net', href: 'https://www.sikharchive.net/', icon: 'external' },
+    ],
+    accent: 'kesari',
+    featured: false,
+  },
 ];
 
 export const statusMeta: Record<ProductStatus, { label: string; symbol: string }> = {
