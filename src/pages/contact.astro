@@ -41,9 +41,19 @@ const channels = [
         ))}
       </div>
 
-      <div class="mt-10 flex flex-wrap justify-center gap-3">
-        <a href={site.resumes.tpm} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> TPM Résumé</a>
-        <a href={site.resumes.csm} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> CSM Résumé</a>
+      <!-- Résumés — role-tailored, single page, ATS-friendly -->
+      <div class="mt-14 max-w-3xl mx-auto">
+        <p class="reveal text-center mono text-xs uppercase tracking-[0.22em] text-kesari-400">Résumés — pick the role you’re hiring for</p>
+        <div class="reveal mt-5 grid gap-3 sm:grid-cols-2">
+          {site.resumes.map((r) => (
+            <a href={r.href} download class="card card-hover p-4 flex items-center gap-3 group">
+              <span class="grid place-items-center h-10 w-10 rounded-lg bg-ink-800 border border-white/10 text-kesari-400 shrink-0"><Icon name="file" size={18} /></span>
+              <span class="font-display text-sm font-semibold text-mist-100 group-hover:text-kesari-200 transition-colors">{r.label}</span>
+              <Icon name="arrow" size={16} class="ml-auto text-mist-500 group-hover:text-kesari-300 transition-colors" />
+            </a>
+          ))}
+        </div>
+        <p class="reveal mt-4 text-center text-xs text-mist-500">Each is a single-page, ATS-friendly résumé tailored to that role.</p>
       </div>
 
     </div>

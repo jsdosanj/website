@@ -22,10 +22,13 @@ export const site = {
     github: 'https://github.com/jsdosanj',
     huggingface: 'https://huggingface.co/jsdosanj',
   },
-  resumes: {
-    tpm: '/website/resumes/JSD TPM Resume May 2026.pdf',
-    csm: '/website/resumes/JSD CSM Resume May 2026.pdf',
-  },
+  // Role-tailored, single-page, ATS-optimized résumés (June 2026)
+  resumes: [
+    { label: 'TPM / Program Manager', short: 'TPM', href: '/website/resumes/JSD TPM Resume June 2026.pdf' },
+    { label: 'Customer Success Manager', short: 'CSM', href: '/website/resumes/JSD CSM Resume June 2026.pdf' },
+    { label: 'Senior Systems Administrator', short: 'Systems', href: '/website/resumes/JSD Systems Engineer Resume June 26.pdf' },
+    { label: 'IT Manager', short: 'IT Manager', href: '/website/resumes/JSD IT Manager Resume June 26.pdf' },
+  ],
 };
 
 export const nav = [
