@@ -9,7 +9,7 @@ export const leadership: LeadershipItem[] = [
   {
     title: 'Board of Directors Member',
     org: 'University of Washington Professional Staff Organization',
-    date: 'Jul 2024 – Present',
+    date: 'Jul 2024 – Mar 2026',
     bullets: [
       'Aligns university governance with its stated values and the interests of the professional-staff community.',
       'Serves on UW faculty councils: IT & Cybersecurity, Research, and Faculty Benefits & Retirement.',
@@ -18,7 +18,7 @@ export const leadership: LeadershipItem[] = [
   {
     title: 'Public Speaker & Educator',
     org: 'Everything’s 13 (Basics of Sikhi North America)',
-    date: 'Jan 2024 – Mar 2026',
+    date: 'Jan 2024 – Present',
     bullets: [
       'Speaks and teaches at Sikh camps globally, sharing Gurmat principles and inspiring purpose and compassion.',
       'Organizes events at universities and Gurdwaras across the Pacific Northwest and coordinates Amrit Sanchars worldwide.',

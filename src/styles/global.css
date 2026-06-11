@@ -80,7 +80,7 @@ body {
 .bg-aurora {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -3;
   background:
     radial-gradient(60rem 60rem at 12% -10%, color-mix(in srgb, var(--color-azure-500) 16%, transparent), transparent 60%),
     radial-gradient(50rem 50rem at 95% 8%, color-mix(in srgb, var(--color-kesari-500) 12%, transparent), transparent 55%),

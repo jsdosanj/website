@@ -6,7 +6,7 @@ export const site = {
   description:
     'Dosanjh Labs is the independent studio of Jasvant Singh Dosanjh — a Technical Project Manager and builder in Seattle. We build tools at the intersection of infrastructure, AI, and human good: from OCR engines for endangered scripts to AI libraries that make rare knowledge accessible to the world.',
   location: 'Seattle, WA',
-  email: 'singhsxdhi@gmail.com',
+  email: 'jasvantdosanjh@outlook.com',
   url: 'https://jsdosanj.github.io/website',
   socials: {
     linkedin: 'https://linkedin.com/in/jasvantsd',
@@ -24,6 +24,7 @@ export const nav = [
   { label: 'About', href: '/about' },
   { label: 'Skills', href: '/skills' },
   { label: 'Products', href: '/products' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Seva', href: '/seva' },
   { label: 'Contact', href: '/contact' },
 ];

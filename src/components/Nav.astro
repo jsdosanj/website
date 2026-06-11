@@ -1,6 +1,7 @@
 ---
 import { nav, site } from '../data/site';
 import { url } from '../utils';
+import Logo from './Logo.astro';
 const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (href: string) => {
   const target = url(href).replace(/\/$/, '') || '/';
@@ -11,14 +12,8 @@ const isActive = (href: string) => {
   <nav class="container-x mt-4" aria-label="Main navigation">
     <div class="glass rounded-2xl px-4 sm:px-5 py-2.5 flex items-center justify-between shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)]">
       <!-- Brand -->
-      <a href={url('/')} class="group flex items-center gap-2.5 shrink-0">
-        <span class="relative grid place-items-center h-9 w-9 rounded-xl bg-ink-800 border border-white/10 overflow-hidden">
-          <span class="gurmukhi text-kesari-400 text-lg leading-none translate-y-[1px]">ੴ</span>
-          <span class="absolute inset-0 rounded-xl glow-ring opacity-60 group-hover:opacity-100 transition-opacity"></span>
-        </span>
-        <span class="font-display font-semibold tracking-tight text-mist-100 text-[15px] hidden xs:block sm:block">
-          Dosanjh<span class="text-kesari-400"> Labs</span>
-        </span>
+      <a href={url('/')} class="group flex items-center shrink-0" aria-label="Dosanjh Labs — home">
+        <Logo emblemSize={32} class="gap-2.5" />
       </a>
 
       <!-- Desktop links -->

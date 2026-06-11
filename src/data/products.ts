@@ -20,7 +20,7 @@ export const products: Product[] = [
     slug: 'sightline',
     name: 'Sightline',
     category: 'IT / Device Health',
-    status: 'planned',
+    status: 'live',
     tagline: 'See problems before they find you.',
     description:
       'Sightline keeps an eye on all of your company’s computers — Mac, Windows, and Linux — in one simple view. Instead of waiting for something to break, it shows you which devices are healthy, which are behind on updates, and which could put your data at risk. That way your team can fix the small stuff before it ever becomes a big problem.',
@@ -30,14 +30,16 @@ export const products: Product[] = [
       'Turns constant firefighting into a calm, planned routine.',
     ],
     tech: ['Device Management', 'Security', 'Dashboards', 'Automation'],
-    links: [],
+    links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/sightline-site/', icon: 'external' },
+    ],
     accent: 'azure',
     featured: true,
   },
   {
     slug: 'gurmukhifix',
     name: 'GurmukhiFix',
-    gurmukhi: 'ਗੁਰਮੁਖੀ',
+    gurmukhi: 'ਗ',
     category: 'Python / OCR / NLP',
     status: 'wip',
     tagline: 'OCR that finally respects South Asian scripts.',
@@ -50,6 +52,7 @@ export const products: Product[] = [
     ],
     tech: ['Python', 'Tesseract', 'Unicode', 'PyPI'],
     links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/gurmukhifix/index.html', icon: 'external' },
       { label: 'GitHub', href: 'https://github.com/jsdosanj/gurmukhifix', icon: 'github' },
     ],
     accent: 'kesari',
@@ -59,7 +62,7 @@ export const products: Product[] = [
     slug: 'cairn',
     name: 'Cairn',
     category: 'Team Knowledge',
-    status: 'planned',
+    status: 'live',
     tagline: 'Never lose what your team has learned.',
     description:
       'Cairn captures the know-how that usually lives in one person’s head — how to set up a new hire, fix a recurring issue, or run a big project — and turns it into clear, shareable guides. Named after the stacked stones that mark a trail for the next hiker, it makes sure nobody on your team ever has to figure things out from scratch again.',
@@ -69,29 +72,10 @@ export const products: Product[] = [
       'Helps new team members get up to speed in days instead of months.',
     ],
     tech: ['Documentation', 'Onboarding', 'Knowledge Base'],
-    links: [],
-    accent: 'azure',
-    featured: true,
-  },
-  {
-    slug: 'sikhlibrarian',
-    name: 'SikhLibrarian',
-    gurmukhi: 'ੴ',
-    category: 'AI / NLP',
-    status: 'live',
-    tagline: 'An AI librarian for 758 million words of Sikh heritage.',
-    description:
-      'An AI-powered Sikh library trained on 758M+ words of multilingual manuscripts and classical literature spanning Gurmukhi, Punjabi, Hindi, Urdu, and Farsi. It provides semantic search, contextual Q&A, and translation assistance across Sikh scripture and historical texts — making rare manuscript knowledge accessible worldwide.',
-    highlights: [
-      'Manages a 758M+ word multilingual corpus with a custom OCR pipeline for five scripts.',
-      'Semantic search, contextual Q&A, and translation across Sikh scripture and historical texts.',
-      'Live and pending a community grant for upgraded hardware and broader public access.',
-    ],
-    tech: ['RAG', 'LLMs', 'OCR', 'Multilingual NLP'],
     links: [
-      { label: 'HuggingFace Space', href: 'https://huggingface.co/spaces/jsdosanj/SikhLibrarian', icon: 'external' },
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/cairn-site/#top', icon: 'external' },
     ],
-    accent: 'kesari',
+    accent: 'azure',
     featured: true,
   },
   {
@@ -101,7 +85,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'The open corpus underneath it all.',
     description:
-      'A continuously updated multilingual corpus of Sikh manuscripts, scripture, and classical literature spanning English, Punjabi, Urdu, Hindi, and Devanagari script — totalling 758M+ words. Curated to support RAG pipelines, semantic search, and NLP research on underrepresented South Asian languages.',
+      'A continuously updated multilingual corpus of Sikh manuscripts, scripture, and classical literature spanning English, Punjabi, Urdu, Hindi, and Devanagari script — over 758 million words across a 9 GB corpus. Curated to support RAG pipelines, semantic search, and NLP research on underrepresented South Asian languages.',
     highlights: [
       'Structured to power RAG pipelines, semantic search, and NLP research.',
       'Focused on underrepresented South Asian languages and rare historical texts.',
@@ -111,7 +95,7 @@ export const products: Product[] = [
     links: [
       { label: 'HuggingFace Dataset', href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary', icon: 'external' },
     ],
-    accent: 'azure',
+    accent: 'kesari',
     featured: false,
   },
 ];
