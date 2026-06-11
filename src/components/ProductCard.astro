@@ -26,9 +26,14 @@ const statusColor =
         <p class="mono text-[11px] uppercase tracking-wider text-mist-500">{product.category}</p>
       </div>
     </div>
-    <span class:list={['shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium', statusColor]}>
-      <span>{meta.symbol}</span>{meta.label}
-    </span>
+    <div class="shrink-0 flex flex-col items-end gap-1.5">
+      <span class:list={['inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium', statusColor]}>
+        <span>{meta.symbol}</span>{meta.label}
+      </span>
+      {product.published && (
+        <span class="mono text-[10px] text-mist-500">{product.published === 'Ongoing' ? 'Ongoing' : `Published ${product.published}`}</span>
+      )}
+    </div>
   </div>
 
   <p class:list={['mt-5 text-sm font-medium', accentText]}>{product.tagline}</p>
