@@ -2,12 +2,12 @@
 import Base from '../layouts/Base.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
-import Khanda from '../components/Khanda.astro';
 import { experience } from '../data/experience';
 import { leadership } from '../data/leadership';
 import { education, certifications } from '../data/education';
 import { recommendations } from '../data/recommendations';
-import { journey, journeyCreed } from '../data/journey';
+import { journeyCreed } from '../data/journey';
+import { projectsLed } from '../data/projectsLed';
 import { site } from '../data/site';
 import { url } from '../utils';
 
@@ -27,7 +27,7 @@ const philosophyQuotes = [
 ---
 <Base
   title="About"
-  description="The story and track record of Jasvant Singh Dosanjh — a senior IT leader and lifelong problem-solver, from fixing teachers’ smartboards to delivering compliant infrastructure across healthcare, higher ed, gaming, and big tech."
+  description="The track record of Jasvant Singh Dosanjh — a senior IT leader and problem-solver who has led projects across healthcare, higher ed, gaming, and big tech: scalable Jamf Pro, zero-to-one studio IT, automation, and compliant infrastructure."
   keywords={["Jasvant Dosanjh about", "senior IT leader story", "problem solver Seattle", "IT manager experience", "Technical Program Manager résumé"]}
   preloadImage="/images/headshot-v2.jpg"
 >
@@ -40,7 +40,7 @@ const philosophyQuotes = [
     <div class="absolute left-1/2 top-44 -translate-x-1/2 -translate-y-1/2 w-[24rem] h-[24rem] orbit-ring opacity-60 hidden sm:block"></div>
 
     <div class="container-x relative text-center">
-      <p class="reveal is-visible mono text-xs uppercase tracking-[0.28em] text-kesari-400">The origin story</p>
+      <p class="reveal is-visible mono text-xs uppercase tracking-[0.28em] text-kesari-400">Who I am</p>
       <h1 class="reveal is-visible mt-5 font-display text-4xl sm:text-6xl font-bold tracking-tight text-mist-100 leading-[1.05]">
         Jasvant Singh Dosanjh
       </h1>
@@ -51,9 +51,8 @@ const philosophyQuotes = [
         Senior IT leader open to <span class="text-mist-200">Technical Project / Program Manager</span> · <span class="text-mist-200">Customer Success</span> · <span class="text-mist-200">Senior Systems Administrator</span> roles
       </p>
       <p class="reveal is-visible mt-6 max-w-2xl mx-auto text-mist-400 leading-relaxed">
-        This is the story of someone who has spent his whole life doing one thing: finding what’s broken,
-        fixing it, and building something better for the people around him — from a schoolyard in Michigan
-        to a stage on the other side of the world.
+        For a decade I’ve done one thing across very different environments — healthcare, higher ed, gaming, and big tech:
+        find what’s broken, fix it, and build something better and more durable for the teams that rely on it.
       </p>
       <div class="reveal is-visible mt-8 flex flex-wrap justify-center gap-2.5">
         {journeyCreed.values.map((v) => (
@@ -64,41 +63,6 @@ const philosophyQuotes = [
         {site.resumes.map((r) => (
           <a href={r.href} download class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> {r.short} Résumé</a>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== THE JOURNEY (trajectory) ===================== -->
-  <section class="container-x mt-12">
-    <SectionHeading eyebrow="The trajectory" title="From the schoolyard to the world" align="center" />
-    <div class="mt-14 relative max-w-3xl mx-auto">
-      <!-- comet trail -->
-      <div class="absolute left-[19px] sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-[2px] trail-line"></div>
-      <div class="space-y-10">
-        {journey.map((c, i) => (
-          <div class="reveal relative pl-14 sm:pl-0">
-            <!-- node on the trail -->
-            <span class="absolute left-[11px] sm:left-1/2 sm:-translate-x-1/2 top-1.5 h-[18px] w-[18px] rounded-full bg-kesari-500 trail-node animate-pulse-glow"></span>
-            <div class:list={[i % 2 === 0 ? 'sm:pr-[calc(50%+2.5rem)]' : 'sm:pl-[calc(50%+2.5rem)]']}>
-              <div class="card card-hover p-6">
-                <div class="flex items-center gap-2 mono text-[11px] uppercase tracking-wider text-kesari-400">
-                  <span class="text-mist-500">Chapter {c.chapter}</span>
-                  <span class="h-1 w-1 rounded-full bg-kesari-500"></span>
-                  <span>{c.marker}</span>
-                </div>
-                <p class="mt-1 text-xs text-azure-300">{c.era}</p>
-                <h3 class="mt-2 font-display text-xl font-semibold text-mist-100">{c.title}</h3>
-                <p class="mt-3 text-sm leading-relaxed text-mist-400">{c.text}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- creed at the end of the trail -->
-      <div class="reveal relative mt-12 text-center">
-        <Khanda size={48} class="mx-auto text-kesari-400 animate-float" />
-        <p class="mt-5 max-w-xl mx-auto font-display text-lg sm:text-xl text-mist-200 italic">“{journeyCreed.line}”</p>
       </div>
     </div>
   </section>
@@ -176,28 +140,38 @@ const philosophyQuotes = [
     </div>
   </section>
 
-  <!-- ===================== EXPERIENCE ===================== -->
+  <!-- ===================== PROJECTS I'VE LED ===================== -->
   <section class="container-x mt-28">
-    <SectionHeading eyebrow="The professional record" title="Where the problem-solving went to work" />
-    <div class="mt-12 relative">
-      <div class="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-kesari-500/50 via-white/10 to-transparent"></div>
-      <div class="space-y-8">
+    <SectionHeading eyebrow="Selected work" title="Projects I’ve led" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">A decade of hands-on projects across education, healthcare, gaming, and big tech — each one shipped, and many adopted well beyond their original scope.</p>
+    </SectionHeading>
+    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {projectsLed.map((p) => (
+        <div class="reveal card card-hover border-glow p-6 flex flex-col">
+          <span class="mono text-[11px] uppercase tracking-wider text-kesari-400">{p.date}</span>
+          <h3 class="mt-2 font-display text-base font-semibold text-mist-100 leading-snug">{p.title}</h3>
+          <p class="text-azure-300 text-xs font-medium mt-1.5">{p.org}</p>
+          <p class="mt-3 text-sm leading-relaxed text-mist-400 flex-1">{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== CAREER TIMELINE ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="Experience" title="Career at a glance" />
+    <div class="mt-10 relative">
+      <div class="absolute left-[6px] top-2 bottom-2 w-px bg-gradient-to-b from-kesari-500/50 via-white/10 to-transparent"></div>
+      <div class="space-y-2.5">
         {experience.map((role) => (
-          <div class="reveal relative pl-8 sm:pl-10">
-            <span class="absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border-2 border-kesari-500 bg-ink-900 sm:h-[19px] sm:w-[19px]"></span>
-            <div class="card p-5 sm:p-6">
-              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 class="font-display text-lg font-semibold text-mist-100">{role.title}</h3>
-                <span class="mono text-xs text-mist-500 shrink-0">{role.date}</span>
-              </div>
-              <p class="text-kesari-300 text-sm font-medium mt-0.5">{role.company}</p>
-              <ul class="mt-4 space-y-2.5">
-                {role.bullets.map((b) => (
-                  <li class="flex gap-3 text-sm text-mist-400 leading-relaxed">
-                    <span class="mono text-kesari-500/70 select-none">›</span><span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+          <div class="reveal relative pl-8">
+            <span class="absolute left-0 top-[15px] h-[13px] w-[13px] rounded-full border-2 border-kesari-500 bg-ink-900"></span>
+            <div class="card px-5 py-3.5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
+              <p class="text-mist-100">
+                <span class="font-display font-semibold">{role.title}</span>
+                <span class="text-kesari-300"> · {role.company}</span>
+              </p>
+              <span class="mono text-xs text-mist-500 shrink-0">{role.date}</span>
             </div>
           </div>
         ))}
