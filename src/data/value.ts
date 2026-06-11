@@ -17,7 +17,7 @@ export const helpAreas = [
     icon: 'target',
     role: 'Customer Success & Stakeholder Trust',
     blurb:
-      'I win trust and keep it — translating complexity for non-technical stakeholders, driving adoption, and making people feel supported instead of judged.',
+      'I focus on earning trust and keeping it — translating complexity for non-technical stakeholders, driving adoption, and making people feel supported rather than judged.',
     proof: [
       'Rebuilt a clinical department’s broken relationship with IT',
       'Recommendations that praise “people-first,” jargon-free service',
@@ -30,7 +30,7 @@ export const helpAreas = [
     blurb:
       'I run real fleets and harden them — Jamf, Intune, JumpCloud, cloud, and compliance — building standards that get adopted across the whole org.',
     proof: [
-      'Designed the Jamf Pro standard adopted university-wide for macOS',
+      'Standardized and scaled Jamf Pro across the entire College of Arts & Sciences at UW',
       'Built a gaming studio’s IT from zero in 5 months (adopted by 2 more studios)',
       'NIST CSF & HIPAA audits as System Security Officer',
     ],
