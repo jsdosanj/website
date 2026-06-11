@@ -8,8 +8,33 @@ import { site } from '../data/site';
 
 const live = products.filter((p) => p.status === 'live');
 const building = products.filter((p) => p.status !== 'live');
+
+// Rich structured data: each product as a CreativeWork/SoftwareApplication in an ItemList
+const productsJsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Dosanjh Labs — Products',
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: p.name,
+      applicationCategory: p.category,
+      description: p.description,
+      operatingSystem: 'Web, macOS, Windows, Linux',
+      author: { '@type': 'Person', name: site.founder },
+      ...(p.links[0] ? { url: p.links[0].href } : {}),
+    },
+  })),
+};
 ---
-<Base title="Products" description="The products of Dosanjh Labs — AI libraries, OCR engines, and infrastructure tools by Jasvant Singh Dosanjh.">
+<Base
+  title="Products"
+  description="The products of Dosanjh Labs by Jasvant Singh Dosanjh — Sightline (device health), GurmukhiFix (South Asian OCR), Cairn (team knowledge), and the 758M-word Sikh Library AI dataset."
+  keywords={["Sightline", "GurmukhiFix", "Cairn", "SikhLibrary dataset", "Gurmukhi OCR", "endpoint health dashboard", "AI heritage tools"]}
+  jsonld={productsJsonld}
+>
   <section class="container-x pt-36 sm:pt-44">
     <div class="max-w-3xl">
       <p class="mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2 reveal is-visible">

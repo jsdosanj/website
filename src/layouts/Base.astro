@@ -12,6 +12,9 @@ interface Props {
   ogImage?: string;
   keywords?: string[];
   ogType?: string;
+  noindex?: boolean;
+  preloadImage?: string;
+  jsonld?: object | object[];
 }
 const {
   title,
@@ -19,11 +22,24 @@ const {
   ogImage = '/website/images/og.png',
   keywords = [],
   ogType = 'website',
+  noindex = false,
+  preloadImage,
+  jsonld,
 } = Astro.props;
 
 const fullTitle = title ? `${title} · ${site.brand}` : `${site.brand} — ${site.shortTagline}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImageUrl = new URL(ogImage, site.url).href;
+
+// Breadcrumb trail from the path (helps Google show breadcrumb rich results)
+const segments = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').split('/').filter(Boolean);
+const crumbItems = [{ name: 'Home', href: site.url }];
+let acc = '';
+for (const s of segments) {
+  acc += '/' + s;
+  crumbItems.push({ name: s.charAt(0).toUpperCase() + s.slice(1), href: `${site.url}${acc}` });
+}
+const extraJsonld = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 
 const baseKeywords = [
   'Dosanjh Labs', 'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Project Manager',
@@ -80,6 +96,27 @@ const ldGraph = {
       publisher: { '@id': `${site.url}/#org` },
       inLanguage: 'en',
     },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: fullTitle,
+      description,
+      isPartOf: { '@id': `${site.url}/#website` },
+      about: { '@id': `${site.url}/#person` },
+      inLanguage: 'en',
+      primaryImageOfPage: ogImageUrl,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonical}#breadcrumb`,
+      itemListElement: crumbItems.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.name,
+        item: c.href,
+      })),
+    },
   ],
 };
 ---
@@ -95,8 +132,9 @@ const ldGraph = {
     <meta name="keywords" content={allKeywords} />
     <link rel="canonical" href={canonical} />
     <meta name="author" content={site.founder} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
     <meta name="theme-color" content="#0a0d13" />
+    {preloadImage && <link rel="preload" as="image" href={url(preloadImage)} fetchpriority="high" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -136,6 +174,9 @@ const ldGraph = {
 
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(ldGraph)} />
+    {extraJsonld.map((node) => (
+      <script type="application/ld+json" set:html={JSON.stringify(node)} />
+    ))}
   </head>
   <body>
     <div class="bg-aurora"></div>

@@ -11,5 +11,17 @@ export default defineConfig({
   site: 'https://jsdosanj.github.io',
   base: '/website',
   trailingSlash: 'ignore',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      changefreq: 'weekly',
+      lastmod: new Date('2026-06-11'),
+      serialize(item) {
+        // Home and key conversion pages get top priority
+        if (/\/website\/?$/.test(item.url)) item.priority = 1.0;
+        else if (/\/(about|products|contact)\/?$/.test(item.url)) item.priority = 0.9;
+        else item.priority = 0.7;
+        return item;
+      },
+    }),
+  ],
 });
