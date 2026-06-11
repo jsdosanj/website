@@ -14,10 +14,10 @@ import { url } from '../utils';
 const featured = products.filter((p) => p.featured);
 
 const principles = [
-  { icon: 'workflow', title: 'Built to outlive me', text: 'Every framework I ship is designed to be replicable — adopted beyond its original scope, so the next team never re-solves a solved problem.' },
+  { icon: 'workflow', title: 'Built to be handed off', text: 'I try to design frameworks that are easy to pass on — documented and replicable, so the next team doesn’t have to re-solve a solved problem.' },
   { icon: 'sparkles', title: 'AI as a force multiplier', text: 'From RAG over a 758M-word corpus to OCR repair for endangered scripts, I use AI to make hard problems tractable — and rare knowledge accessible.' },
   { icon: 'shield', title: 'Compliant & secure by default', text: 'A decade across healthcare, education, and big tech taught me to build with NIST, HIPAA, and FERPA baked in — not bolted on.' },
-  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools that uplift people and make teams unstoppable.' },
+  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools that uplift people and help them do their best work.' },
 ];
 ---
 <Base
@@ -41,7 +41,7 @@ const principles = [
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-mist-400">
             I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — 10+ years turning broken infrastructure,
             stalled programs, and lost trust into outcomes that scale, across healthcare, higher ed, gaming, and big tech.
-            The kind of hire whose frameworks outlive their tenure.
+            What I care about most is leaving things — and the people I work with — better than I found them.
           </p>
           <!-- target roles -->
           <div class="mt-6 flex flex-wrap gap-2">
@@ -69,7 +69,7 @@ const principles = [
         <!-- Portrait -->
         <div class="reveal is-visible relative mx-auto lg:mx-0 max-w-sm w-full">
           <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 glow-ring">
-            <img src={url('/images/headshot.jpg')} alt="Jasvant Singh Dosanjh, Technical Project Manager in Seattle" class="w-full aspect-[4/5] object-cover" loading="eager" width="640" height="800" />
+            <img src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh, Technical Project Manager in Seattle" class="w-full aspect-[4/5] object-cover" loading="eager" width="640" height="800" />
             <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4 glass rounded-xl px-4 py-3 flex items-center justify-between">
               <div>
@@ -87,8 +87,8 @@ const principles = [
 
   <!-- ===================== HOW I HELP ===================== -->
   <section class="container-x mt-12">
-    <SectionHeading eyebrow="What I bring to your team" title="Three ways I make organizations better" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">I’ve worn each of these hats — often at the same time. Whichever role you’re hiring for, here’s the value I drop in on day one.</p>
+    <SectionHeading eyebrow="What I bring to your team" title="Three ways I can help your team" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">I’ve worn each of these hats — often at the same time. Whichever role you’re hiring for, here’s where I’d hope to start adding value.</p>
     </SectionHeading>
     <div class="mt-12 grid gap-6 lg:grid-cols-3">
       {helpAreas.map((a) => (
@@ -108,8 +108,8 @@ const principles = [
 
   <!-- ===================== IMPACT / OUTCOMES ===================== -->
   <section id="impact" class="container-x mt-28 scroll-mt-28">
-    <SectionHeading eyebrow="Proof, not promises" title="Signature outcomes" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">A sample of what “invaluable” looks like in numbers. Every one of these is real, and most were adopted far beyond my original scope.</p>
+    <SectionHeading eyebrow="A few outcomes" title="Work I’m proud of" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">A handful of results from the last decade. They came from great teams as much as from me — and many ended up being used well beyond their original scope.</p>
     </SectionHeading>
     <div class="reveal mt-12 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.06]">
       {outcomes.map((o) => (
@@ -144,8 +144,8 @@ const principles = [
   <!-- ===================== PRODUCTS (proof he builds) ===================== -->
   <section class="container-x mt-28">
     <div class="flex flex-wrap items-end justify-between gap-4">
-      <SectionHeading eyebrow="I don’t just manage — I build" title="Products from the lab">
-        <p class="reveal mt-4 max-w-xl text-mist-400">Most managers can’t ship. These are tools I designed and built myself — proof I understand what I’m leading, end to end.</p>
+      <SectionHeading eyebrow="I like to stay close to the work" title="Products from the lab">
+        <p class="reveal mt-4 max-w-xl text-mist-400">I build the tools I’d want as a manager. It keeps me hands-on, honest about what I’m asking teams to do, and grounded in how the work actually feels.</p>
       </SectionHeading>
       <a href={url('/products')} class="reveal inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">View all <Icon name="arrow" size={16} /></a>
     </div>

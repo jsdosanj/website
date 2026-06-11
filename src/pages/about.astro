@@ -10,6 +10,20 @@ import { recommendations } from '../data/recommendations';
 import { journey, journeyCreed } from '../data/journey';
 import { site } from '../data/site';
 import { url } from '../utils';
+
+const philosophy = [
+  { icon: 'workflow', title: 'Build with intent', text: 'I’d rather build something once, thoughtfully, than patch it forever. I assume whatever I make will be used beyond its original scope — so I document it and make it easy for the next person to pick up.' },
+  { icon: 'shield', title: 'Proactive, not reactive', text: 'Waiting for a breach to reveal the gap is a plan that has already failed. I prefer to bake protection in early and quietly, so security is a habit rather than a fire drill.' },
+  { icon: 'sparkles', title: 'Technology should amplify', text: 'The win is never “more tools.” It’s removing the friction between people and their best work, so the technology fades into the background and the team moves faster.' },
+  { icon: 'target', title: 'IT as a success model', text: 'Done well, IT helps an organization move faster, spend smarter, and actually trust its technology. Turning IT from a hindrance into that kind of advantage is the bar I try to hold myself to.' },
+  { icon: 'spark', title: 'Lead with compassion', text: 'Kindness, patience, and forgiveness aren’t extras — they’re how trust gets built. I want people to walk away from working with me feeling supported rather than judged, ideally with a smile.' },
+  { icon: 'globe', title: 'Technology works for people', text: 'Not the other way around. Every decision I make starts and ends with the person on the other side of the screen.' },
+];
+
+const philosophyQuotes = [
+  { text: 'What truly sets him apart is how approachable, patient, and generous he is with that expertise.', name: 'Kevin P. Thompson', role: 'Associate Dean for Advancement, UW' },
+  { text: 'In a space often occupied by people unable to explain complexity, Jasvant has always valued being the complete opposite.', name: 'Tiffany Calverley', role: 'Director of Development, Social Sciences, UW' },
+];
 ---
 <Base title="About" description="The origin story of Jasvant Singh Dosanjh — a lifelong problem-solver, from fixing teachers’ smartboards to speaking at community events around the world.">
   <!-- ===================== STORY HERO ===================== -->
@@ -88,15 +102,16 @@ import { url } from '../utils';
     <div class="reveal card border-glow p-8 sm:p-10">
       <div class="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-center">
         <div class="rounded-2xl overflow-hidden border border-white/10 glow-ring max-w-xs">
-          <img src={url('/images/headshot.jpg')} alt="Jasvant Singh Dosanjh" class="w-full aspect-[4/5] object-cover" width="480" height="600" loading="lazy" />
+          <img src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh" class="w-full aspect-[4/5] object-cover" width="480" height="600" loading="lazy" />
         </div>
         <div>
           <h2 class="font-display text-2xl sm:text-3xl font-semibold text-mist-100">The pattern behind every chapter</h2>
           <p class="mt-4 text-mist-400 leading-relaxed">
             Most problems aren’t really technical problems. They’re coordination problems, trust problems, or gaps in
-            knowledge that eventually show up in the work. Jasvant’s gift is finding those gaps — then fixing them in a way
-            that lasts. Over 10+ years across education, healthcare, gaming, and big tech, the frameworks he’s built have a
-            habit of outliving his direct involvement: adopted by other teams, other departments, other studios.
+            knowledge that eventually show up in the work. What Jasvant tends to do well is notice those gaps — and then
+            work with the team to close them in a way that lasts. Over 10+ years across education, healthcare, gaming, and
+            big tech, a lot of the frameworks he helped build ended up outliving his involvement — picked up by other
+            teams, departments, and studios.
           </p>
           <p class="mt-4 text-mist-400 leading-relaxed">
             He builds with one assumption — <span class="text-kesari-300">that what he makes will be used far beyond its original scope</span> —
@@ -106,6 +121,50 @@ import { url } from '../utils';
             Fluent in English and Punjabi, conversational in Hindi and Urdu. Plays harmonium, tabla, and dholki.
             Loyal to Manchester United through every challenge.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PHILOSOPHY ===================== -->
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="Philosophy" title="How I work" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">
+        A senior hire isn’t just someone who knows the technology deeply — it’s someone who can hold that depth
+        and still make it feel approachable for everyone in the room. Here’s what I try to bring to a team.
+      </p>
+    </SectionHeading>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {philosophy.map((p) => (
+        <div class="reveal card card-hover p-6">
+          <span class="grid place-items-center h-11 w-11 rounded-xl bg-ink-800 border border-white/10 text-kesari-400"><Icon name={p.icon} size={20} /></span>
+          <h3 class="mt-4 font-display text-base font-semibold text-mist-100">{p.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-mist-400">{p.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- The senior difference -->
+    <div class="reveal mt-8 relative card border-glow overflow-hidden p-8 sm:p-10">
+      <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-kesari-500/10 blur-3xl"></div>
+      <div class="relative grid lg:grid-cols-[1.25fr_1fr] gap-8 items-center">
+        <div>
+          <h3 class="font-display text-xl sm:text-2xl font-semibold text-mist-100">Depth you can trust — explained so everyone gets it</h3>
+          <p class="mt-4 text-mist-400 leading-relaxed">
+            The part I take most seriously is understanding a system well enough to explain it simply. The goal is never to
+            sound like the smartest person in the room — it’s to make the complex feel approachable, for engineers and
+            non-technical teammates alike. When people understand the “why,” they trust the work, and that’s the difference
+            between a team that tolerates IT and one that genuinely leans on it.
+          </p>
+        </div>
+        <div class="space-y-4">
+          {philosophyQuotes.map((q) => (
+            <figure class="rounded-xl bg-ink-800/60 border border-white/[0.06] p-5">
+              <blockquote class="text-sm leading-relaxed text-mist-300">“{q.text}”</blockquote>
+              <figcaption class="mt-3 text-xs text-mist-500">— {q.name}, <span class="text-mist-400">{q.role}</span></figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </div>
