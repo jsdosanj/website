@@ -75,10 +75,10 @@ export const personalProjects: PersonalProject[] = [
     linkLabel: 'HuggingFace',
   },
   {
-    title: 'GurmukhiFix / ScriptFix',
+    title: 'GurmukhiFix',
     org: 'Personal · open-source',
     date: '2024 – present',
-    text: 'A Tesseract post-processing engine that repairs OCR errors in handwritten South Asian and Persian scripts where off-the-shelf tools fail. Shipping to PyPI as scriptfix.',
+    text: 'A Tesseract post-processing engine that repairs OCR errors in handwritten South Asian and Persian scripts where off-the-shelf tools fail. Shipping to PyPI as gurmukhifix.',
     href: 'https://github.com/jsdosanj/gurmukhifix',
     linkLabel: 'GitHub',
   },
