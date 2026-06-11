@@ -2,17 +2,15 @@
 import { site, nav } from '../data/site';
 import { url } from '../utils';
 import Icon from './Icon.astro';
-import Khanda from './Khanda.astro';
+import Logo from './Logo.astro';
 const year = 2026;
 ---
 <footer class="relative mt-28 border-t border-white/[0.07]">
   <div class="container-x py-14">
     <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
       <div>
-        <div class="flex items-center gap-3">
-          <Khanda size={34} class="text-kesari-400" />
-          <span class="font-display text-lg font-semibold text-mist-100">Dosanjh <span class="text-kesari-400">Labs</span></span>
-        </div>
+        <Logo emblemSize={36} textClass="text-lg" />
+
         <p class="mt-4 max-w-sm text-sm leading-relaxed text-mist-400">{site.tagline}</p>
         <p class="mt-4 flex items-center gap-2 text-sm text-mist-500">
           <Icon name="pin" size={16} /> {site.location}

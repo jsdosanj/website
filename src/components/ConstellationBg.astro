@@ -1,0 +1,121 @@
+---
+// Subtle, ambient "everything is interconnected" background.
+// A slow web of drifting nodes + faint connecting lines, with the studio's
+// guiding words quietly permeating through it. Very low opacity by design.
+// Honors prefers-reduced-motion and pauses when the tab is hidden.
+---
+<canvas
+  id="constellation"
+  aria-hidden="true"
+  style="position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none; opacity:0.55;"
+></canvas>
+
+<script>
+  type Node = { x: number; y: number; vx: number; vy: number };
+  type Word = { text: string; x: number; y: number; vx: number; vy: number };
+
+  const canvas = document.getElementById('constellation') as HTMLCanvasElement | null;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const WORDS = ['Love', 'Compassion', 'Kindness', 'Forgiveness', 'Self-research', 'Solving problems'];
+    let nodes: Node[] = [];
+    let words: Word[] = [];
+    let w = 0, h = 0, dpr = 1, raf = 0, running = true;
+
+    const rand = (a: number, b: number) => a + Math.random() * (b - a);
+
+    function build() {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas!.width = Math.floor(w * dpr);
+      canvas!.height = Math.floor(h * dpr);
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(26, Math.min(64, Math.floor((w * h) / 26000)));
+      nodes = Array.from({ length: count }, () => ({
+        x: rand(0, w), y: rand(0, h),
+        vx: rand(-0.18, 0.18), vy: rand(-0.18, 0.18),
+      }));
+      words = WORDS.map((text, i) => ({
+        text,
+        x: rand(0.1, 0.9) * w,
+        y: ((i + 0.5) / WORDS.length) * h + rand(-40, 40),
+        vx: rand(-0.08, 0.08), vy: rand(-0.05, 0.05),
+      }));
+    }
+
+    function wrap(p: { x: number; y: number }) {
+      if (p.x < -60) p.x = w + 60; else if (p.x > w + 60) p.x = -60;
+      if (p.y < -60) p.y = h + 60; else if (p.y > h + 60) p.y = -60;
+    }
+
+    const LINK = 150;
+
+    function draw() {
+      ctx!.clearRect(0, 0, w, h);
+
+      // faint guiding words drifting through the web
+      ctx!.font = '500 13px "JetBrains Mono", monospace';
+      ctx!.textAlign = 'center';
+      for (const word of words) {
+        if (running) { word.x += word.vx; word.y += word.vy; wrap(word); }
+        ctx!.fillStyle = 'rgba(247, 194, 90, 0.06)';
+        ctx!.fillText(word.text, word.x, word.y);
+      }
+
+      // links between nearby nodes
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        if (running) { a.x += a.vx; a.y += a.vy; wrap(a); }
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < LINK) {
+            const t = 1 - dist / LINK;
+            // blend kesari ↔ azure along the web
+            const kesari = i % 2 === 0;
+            ctx!.strokeStyle = kesari
+              ? `rgba(240, 169, 60, ${t * 0.14})`
+              : `rgba(91, 134, 245, ${t * 0.13})`;
+            ctx!.lineWidth = 0.6;
+            ctx!.beginPath();
+            ctx!.moveTo(a.x, a.y);
+            ctx!.lineTo(b.x, b.y);
+            ctx!.stroke();
+          }
+        }
+      }
+
+      // nodes
+      for (const n of nodes) {
+        ctx!.beginPath();
+        ctx!.arc(n.x, n.y, 1.4, 0, Math.PI * 2);
+        ctx!.fillStyle = 'rgba(238, 242, 248, 0.28)';
+        ctx!.fill();
+      }
+
+      if (running && !reduce) raf = requestAnimationFrame(draw);
+    }
+
+    let resizeT = 0;
+    function onResize() {
+      clearTimeout(resizeT);
+      resizeT = window.setTimeout(() => { build(); if (reduce) draw(); }, 200);
+    }
+
+    build();
+    if (reduce) {
+      running = false;
+      draw(); // single static frame
+    } else {
+      draw();
+      document.addEventListener('visibilitychange', () => {
+        running = !document.hidden;
+        if (running) { cancelAnimationFrame(raf); draw(); }
+      });
+    }
+    window.addEventListener('resize', onResize, { passive: true });
+  }
+</script>

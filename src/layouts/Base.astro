@@ -2,21 +2,76 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ConstellationBg from '../components/ConstellationBg.astro';
 import { site } from '../data/site';
+import { url } from '../utils';
 
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  keywords?: string[];
+  ogType?: string;
 }
 const {
   title,
   description = site.description,
-  ogImage = '/website/images/headshot.jpg',
+  ogImage = '/website/images/og.png',
+  keywords = [],
+  ogType = 'website',
 } = Astro.props;
 
 const fullTitle = title ? `${title} · ${site.brand}` : `${site.brand} — ${site.shortTagline}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImageUrl = new URL(ogImage, site.url).href;
+
+const baseKeywords = [
+  'Dosanjh Labs', 'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Project Manager',
+  'problem solver', 'AI developer', 'Sikh technology', 'Sightline', 'GurmukhiFix', 'Cairn',
+  'Sikh Library dataset', 'OCR Gurmukhi', 'Seattle technologist', 'IT leadership', 'Customer Success',
+];
+const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
+
+// Structured data graph: Person + Organization + WebSite (helps rich results)
+const ldGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site.url}/#person`,
+      name: site.founder,
+      url: site.url,
+      image: new URL('/website/images/headshot.jpg', site.url).href,
+      jobTitle: 'Technical Project Manager & Founder',
+      worksFor: { '@id': `${site.url}/#org` },
+      address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
+      knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
+      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'NIST CSF', 'HIPAA', 'Project Management', 'Customer Success'],
+      sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
+      email: `mailto:${site.email}`,
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${site.url}/#org`,
+      name: site.brand,
+      url: site.url,
+      slogan: site.tagline,
+      description: site.description,
+      logo: new URL('/website/favicon.svg', site.url).href,
+      founder: { '@id': `${site.url}/#person` },
+      sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#website`,
+      url: site.url,
+      name: site.brand,
+      description: site.description,
+      publisher: { '@id': `${site.url}/#org` },
+      inLanguage: 'en',
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -27,23 +82,30 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={allKeywords} />
     <link rel="canonical" href={canonical} />
     <meta name="author" content={site.founder} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#0a0d13" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.brand} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(ogImage, site.url).href} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.brand} — ${site.tagline}`} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, site.url).href} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={`${site.brand} — ${site.tagline}`} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,27 +118,17 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
     <!-- No-JS fallback: never hide content if scripts don't run -->
     <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 
-    <!-- Favicon: Ik Onkar emblem -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0d13'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23f0a93c' font-family='serif'%3E%E0%A9%B4%3C/text%3E%3C/svg%3E"
-    />
+    <!-- Favicon: Dosanjh Labs emblem -->
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="apple-touch-icon" href={url('/favicon.svg')} />
+    <link rel="sitemap" href={url('/sitemap-index.xml')} />
 
     <!-- Structured data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: site.founder,
-      url: site.url,
-      jobTitle: 'Technical Project Manager & Founder, Dosanjh Labs',
-      worksFor: { '@type': 'Organization', name: 'Dosanjh Labs' },
-      address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
-      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'NIST CSF', 'HIPAA', 'Project Management'],
-      sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
-    })} />
+    <script type="application/ld+json" set:html={JSON.stringify(ldGraph)} />
   </head>
   <body>
     <div class="bg-aurora"></div>
+    <ConstellationBg />
     <div class="bg-grain"></div>
 
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-kesari-500 focus:text-ink-950 focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
