@@ -28,7 +28,7 @@ export const experience: Role[] = [
   },
   {
     title: 'DevOps Engineer (Contract)',
-    company: 'Meta',
+    company: 'Omni Group',
     date: 'Feb 2022 – May 2022',
     bullets: [
       'Automated macOS server imaging, volume mounting, and API configuration via shell scripting — reducing per-server ramp-up from 4 hours to 1 and enabling horizontal scaling without added headcount.',

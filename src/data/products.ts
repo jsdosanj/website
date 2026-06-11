@@ -59,6 +59,26 @@ export const products: Product[] = [
     featured: true,
   },
   {
+    slug: 'lookout',
+    name: 'Lookout',
+    category: 'Infrastructure / Monitoring',
+    status: 'wip',
+    tagline: 'Know your servers are healthy — before they’re not.',
+    description:
+      'Lookout is open-source infrastructure monitoring built for humans. Lightweight agents report each server’s health to one dashboard in plain English — “disk /data is 94% full” instead of a wall of raw metrics — so anyone can tell what needs attention at a glance.',
+    highlights: [
+      'Single, dependency-free agent for Linux, Windows, and macOS — outbound-only, no open ports.',
+      'Plain-English OK / WARNING / CRITICAL alerts via email, Slack, or webhooks, with deduplication and escalation.',
+      'Nagios-plugin compatible; self-host for free (AGPL-3.0) or use the managed version.',
+    ],
+    tech: ['Monitoring', 'Agents', 'Self-Hosted', 'Open Source'],
+    links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/lookout-site/', icon: 'external' },
+    ],
+    accent: 'azure',
+    featured: false,
+  },
+  {
     slug: 'cairn',
     name: 'Cairn',
     category: 'Team Knowledge',
