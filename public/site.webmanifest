@@ -1,0 +1,13 @@
+{
+  "name": "Dosanjh Labs — Jasvant Singh Dosanjh",
+  "short_name": "Dosanjh Labs",
+  "description": "Senior IT leader, builder, and problem-solver in Seattle. Open to Technical Project Manager, Customer Success, and Senior Systems Administrator roles.",
+  "start_url": "/website/",
+  "scope": "/website/",
+  "display": "standalone",
+  "background_color": "#0a0d13",
+  "theme_color": "#0a0d13",
+  "icons": [
+    { "src": "/website/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

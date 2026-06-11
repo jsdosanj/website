@@ -46,9 +46,19 @@ const ldGraph = {
       worksFor: { '@id': `${site.url}/#org` },
       address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
-      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'NIST CSF', 'HIPAA', 'Project Management', 'Customer Success'],
+      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'Technical Project Management', 'Technical Program Management', 'Customer Success', 'Systems Administration'],
+      hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
+      seeks: site.roles.map((r) => ({ '@type': 'Demand', name: `${r} role` })),
       sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
       email: `mailto:${site.email}`,
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${site.url}/#profilepage`,
+      url: site.url,
+      name: `${site.founder} — ${site.brand}`,
+      mainEntity: { '@id': `${site.url}/#person` },
+      isPartOf: { '@id': `${site.url}/#website` },
     },
     {
       '@type': 'Organization',
@@ -121,6 +131,7 @@ const ldGraph = {
     <!-- Favicon: Dosanjh Labs emblem -->
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <link rel="apple-touch-icon" href={url('/favicon.svg')} />
+    <link rel="manifest" href={url('/site.webmanifest')} />
     <link rel="sitemap" href={url('/sitemap-index.xml')} />
 
     <!-- Structured data -->
