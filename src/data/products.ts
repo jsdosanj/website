@@ -13,11 +13,13 @@ export type Product = {
   links: { label: string; href: string; icon: string }[];
   accent: 'kesari' | 'azure';
   featured?: boolean;
+  published?: string; // e.g. "Jun 7, 2026" or "Ongoing"
 };
 
 export const products: Product[] = [
   {
     slug: 'sightline',
+    published: 'Jun 7, 2026',
     name: 'Sightline',
     category: 'IT / Device Health',
     status: 'live',
@@ -38,6 +40,7 @@ export const products: Product[] = [
   },
   {
     slug: 'gurmukhifix',
+    published: 'Jun 11, 2026',
     name: 'GurmukhiFix',
     gurmukhi: 'ਗ',
     category: 'Python / OCR / NLP',
@@ -60,6 +63,7 @@ export const products: Product[] = [
   },
   {
     slug: 'lookout',
+    published: 'Jun 11, 2026',
     name: 'Lookout',
     category: 'Infrastructure / Monitoring',
     status: 'wip',
@@ -80,6 +84,7 @@ export const products: Product[] = [
   },
   {
     slug: 'cairn',
+    published: 'Jun 10, 2026',
     name: 'Cairn',
     category: 'Team Knowledge',
     status: 'live',
@@ -100,6 +105,7 @@ export const products: Product[] = [
   },
   {
     slug: 'sikh-library-dataset',
+    published: 'May 31, 2026',
     name: 'Sikh Library — Living Dataset',
     category: 'NLP / Dataset',
     status: 'live',
@@ -120,6 +126,7 @@ export const products: Product[] = [
   },
   {
     slug: 'sikharchive',
+    published: 'Ongoing',
     name: 'SikhArchive.net',
     gurmukhi: 'ੴ',
     category: 'Collaboration · Digital Heritage',
