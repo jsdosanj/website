@@ -55,9 +55,10 @@ const philosophyQuotes = [
           <span class="rounded-full glass px-4 py-1.5 text-sm text-kesari-200">{v}</span>
         ))}
       </div>
-      <div class="reveal is-visible mt-9 flex flex-wrap justify-center gap-3">
-        <a href={site.resumes.tpm} download class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> TPM Résumé</a>
-        <a href={site.resumes.csm} download class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> CSM Résumé</a>
+      <div class="reveal is-visible mt-9 flex flex-wrap justify-center gap-2.5">
+        {site.resumes.map((r) => (
+          <a href={r.href} download class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> {r.short} Résumé</a>
+        ))}
       </div>
     </div>
   </section>
