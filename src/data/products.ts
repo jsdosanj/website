@@ -21,17 +21,17 @@ export const products: Product[] = [
     slug: 'sightline',
     published: 'Jun 7, 2026',
     name: 'Sightline',
-    category: 'IT / Device Health',
+    category: 'Compliance / GRC',
     status: 'live',
-    tagline: 'See problems before they find you.',
+    tagline: 'Know your compliance before an auditor — or an attacker — does.',
     description:
-      'Sightline keeps an eye on all of your company’s computers — Mac, Windows, and Linux — in one simple view. Instead of waiting for something to break, it shows you which devices are healthy, which are behind on updates, and which could put your data at risk. That way your team can fix the small stuff before it ever becomes a big problem.',
+      'Sightline is a compliance platform that continuously checks your security posture against 22+ frameworks — NIST CSF 2.0, HIPAA, SOC 2, PCI DSS, ISO 27001, CMMC, FERPA, GDPR, and more. It connects to the identity, device, cloud, and ticketing tools you already run and tells you, in plain English, exactly where you stand — before a gap turns into a failed audit or a breach.',
     highlights: [
-      'Brings every device into one clear dashboard, no matter which system it runs.',
-      'Flags security and update gaps early — before they turn into outages or failed audits.',
-      'Turns constant firefighting into a calm, planned routine.',
+      'Continuous, plain-English verdicts on controls across 22+ regulatory frameworks at once.',
+      'Connects to your existing identity, MDM, cloud, and ticketing tools to gather evidence automatically.',
+      'Board-ready executive summaries with drill-down findings and licensed-professional GRC sign-off.',
     ],
-    tech: ['Device Management', 'Security', 'Dashboards', 'Automation'],
+    tech: ['Compliance', 'GRC', 'NIST / SOC 2 / HIPAA', 'Security Posture'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/sightline-site/', icon: 'external' },
     ],
@@ -50,7 +50,7 @@ export const products: Product[] = [
     highlights: [
       'Guided 110-control NIST 800-171 self-assessment with a live, methodology-accurate DoD SPRS score.',
       'Auto-generates the SSP and POA&M assessors expect, and prioritizes the highest-impact gaps to fix first.',
-      'Integrates with Sightline (endpoint posture) and Cairn (policy documentation) to auto-evidence controls.',
+      'Integrates with Sightline (compliance posture) and Cairn (asset inventory) to auto-evidence controls.',
     ],
     tech: ['NIST 800-171', 'CMMC', 'GRC', 'JavaScript'],
     links: [
@@ -106,17 +106,17 @@ export const products: Product[] = [
     slug: 'cairn',
     published: 'Jun 10, 2026',
     name: 'Cairn',
-    category: 'Team Knowledge',
+    category: 'IT Asset Reconciliation',
     status: 'live',
-    tagline: 'Never lose what your team has learned.',
+    tagline: 'Every device. One source of truth.',
     description:
-      'Cairn captures the know-how that usually lives in one person’s head — how to set up a new hire, fix a recurring issue, or run a big project — and turns it into clear, shareable guides. Named after the stacked stones that mark a trail for the next hiker, it makes sure nobody on your team ever has to figure things out from scratch again.',
+      'Cairn reconciles your device fleet across every tool you already run — Jamf, Intune, Kandji, JumpCloud, CrowdStrike, Defender, and more — and syncs one authoritative inventory into Snipe-IT. It resolves conflicting records by serial number, previews every change with a dry run, and finally makes your asset system of record actually accurate. Open-source under AGPL-3.0.',
     highlights: [
-      'Saves step-by-step guides, checklists, and playbooks in one organized place.',
-      'Keeps important knowledge from walking out the door when people change roles.',
-      'Helps new team members get up to speed in days instead of months.',
+      'Pulls from 12+ MDM and EDR sources and writes one reconciled source of truth to Snipe-IT.',
+      'Serial-based reconciliation with a trust-priority system and a dry-run preview before any change.',
+      'Single cross-platform binary (macOS, Windows, Linux) with a guided GUI — no YAML required.',
     ],
-    tech: ['Documentation', 'Onboarding', 'Knowledge Base'],
+    tech: ['Snipe-IT', 'MDM / EDR Sync', 'Open Source (AGPL)', 'Cross-Platform'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/cairn-site/#top', icon: 'external' },
     ],
@@ -169,7 +169,7 @@ export const products: Product[] = [
 ];
 
 export const statusMeta: Record<ProductStatus, { label: string; symbol: string }> = {
-  live: { label: 'Live', symbol: '✦' },
-  wip: { label: 'In Progress', symbol: '⚙' },
-  planned: { label: 'In the Lab', symbol: '◷' },
+  live: { label: 'Live', symbol: '◆' },
+  wip: { label: 'In Progress', symbol: '◆' },
+  planned: { label: 'In the Lab', symbol: '◆' },
 };
