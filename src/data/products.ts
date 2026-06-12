@@ -37,7 +37,7 @@ export const products: Product[] = [
       { label: 'GitHub', href: 'https://github.com/jsdosanj/mcat-prep', icon: 'github' },
     ],
     accent: 'azure',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'sightline',
@@ -82,7 +82,7 @@ export const products: Product[] = [
       { label: 'GitHub', href: 'https://github.com/jsdosanj/gurmukhifix', icon: 'github' },
     ],
     accent: 'kesari',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'lookout',
