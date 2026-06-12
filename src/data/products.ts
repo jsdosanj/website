@@ -129,6 +129,28 @@ export const products: Product[] = [
     featured: true,
   },
   {
+    slug: 'certprep',
+    published: 'Jun 12, 2026',
+    name: 'CertPrep',
+    category: 'Education / Cert Prep',
+    status: 'live',
+    tagline: 'Pass Security+ and PMP — for free.',
+    description:
+      'CertPrep is a free, self-contained study platform for professional certification exams — no sign-up, no install. It bundles practice questions, timed exam simulators, spaced-repetition flashcards, video lessons, cheat sheets, and progress dashboards so anyone can prepare without financial barriers.',
+    highlights: [
+      'Covers Security+ (SY0-701), CISM, and PMP, each with a structured study plan.',
+      '600+ interactive practice questions and timed simulators with domain-level scoring.',
+      'Spaced-repetition flashcards, video lessons, cheat sheets, and progress tracking — completely free.',
+    ],
+    tech: ['Education', 'Web', 'Free', 'No Sign-up'],
+    links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/cert-prep/index.html', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/cert-prep', icon: 'github' },
+    ],
+    accent: 'kesari',
+    featured: false,
+  },
+  {
     slug: 'sikh-library-dataset',
     published: 'May 31, 2026',
     name: 'Sikh Library — Living Dataset',
