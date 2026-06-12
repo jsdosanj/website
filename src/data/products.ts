@@ -151,28 +151,6 @@ export const products: Product[] = [
     featured: false,
   },
   {
-    slug: 'mcat-prep',
-    published: 'Jun 12, 2026',
-    name: 'MCAT Prep',
-    category: 'Education / MCAT Prep',
-    status: 'live',
-    tagline: 'Everything you need to study for the MCAT — for free.',
-    description:
-      'MCAT Prep is a free, browser-based study platform for pre-med students — no sign-up, no cost. It bundles AAMC-style practice questions across all four sections, a full-length timed simulator with scaled scoring, spaced-repetition flashcards, study guides, and a progress dashboard. (Original questions; unaffiliated with the AAMC.)',
-    highlights: [
-      'Original AAMC-style questions across all four sections with instant feedback and full explanations.',
-      'Full-length timed exam simulator with per-section scoring and a 472–528 estimated range.',
-      'Spaced-repetition flashcards, study guides, a progress dashboard, and a curated free-resources hub.',
-    ],
-    tech: ['Education', 'Web', 'Free', 'No Sign-up'],
-    links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/mcat-prep/index.html', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/mcat-prep', icon: 'github' },
-    ],
-    accent: 'azure',
-    featured: false,
-  },
-  {
     slug: 'sikh-library-dataset',
     published: 'May 31, 2026',
     name: 'Sikh Library — Living Dataset',
