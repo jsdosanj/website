@@ -44,7 +44,7 @@ const extraJsonld = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 const baseKeywords = [
   'Dosanjh Labs', 'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Project Manager',
   'problem solver', 'AI developer', 'Sikh technology', 'Sightline', 'GurmukhiFix', 'Cairn',
-  'Sikh Library dataset', 'OCR Gurmukhi', 'Seattle technologist', 'IT leadership', 'Customer Success',
+  'Sikh Library dataset', 'OCR Gurmukhi', 'Seattle technologist', 'IT leadership', 'IT Security', 'GRC', 'Systems Engineering',
 ];
 const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
 
@@ -62,7 +62,7 @@ const ldGraph = {
       worksFor: { '@id': `${site.url}/#org` },
       address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
-      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'Technical Project Management', 'Technical Program Management', 'Customer Success', 'Systems Administration'],
+      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management'],
       hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
       seeks: site.roles.map((r) => ({ '@type': 'Demand', name: `${r} role` })),
       sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],

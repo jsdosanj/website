@@ -3,36 +3,36 @@
 
 export const helpAreas = [
   {
-    icon: 'workflow',
-    role: 'Technical Project & Program Management',
+    icon: 'shield',
+    role: 'IT Security & GRC Leadership',
     blurb:
-      'I lead complex, cross-functional programs end to end — aligning engineering, vendors, and executives, and turning technical debt into a roadmap people actually trust.',
+      'I help teams strengthen their security posture and stay audit-ready — leading NIST CSF and HIPAA assessments, GRC programs, and access controls, while translating risk into decisions leadership can act on.',
     proof: [
-      'Rescued an escalated department — SLAs from 48 hours to 2',
+      'NIST CSF & HIPAA audits as System Security Officer',
+      'Authored a BeyondTrust privileged-access standard for 5,000+ employees',
+      'Managed a $250K security budget to 100% compliance',
+    ],
+  },
+  {
+    icon: 'workflow',
+    role: 'Technical Program Management',
+    blurb:
+      'I lead complex, cross-functional programs end to end — aligning engineering, vendors, and leadership, and turning technical debt into a roadmap teams can actually trust.',
+    proof: [
+      'Cut an escalated department’s SLA from 48 hours to 2',
       'Zero unplanned downtime across a 6-month, multi-building security migration',
       'Secured $2M in funding through technical product strategy',
     ],
   },
   {
-    icon: 'target',
-    role: 'Customer Success & Stakeholder Trust',
+    icon: 'server',
+    role: 'Senior Systems & Endpoint Engineering',
     blurb:
-      'I focus on earning trust and keeping it — translating complexity for non-technical stakeholders, driving adoption, and making people feel supported rather than judged.',
-    proof: [
-      'Rebuilt a clinical department’s broken relationship with IT',
-      'Recommendations that praise “people-first,” jargon-free service',
-      'Onboarding framework reused to centralize four more departments',
-    ],
-  },
-  {
-    icon: 'shield',
-    role: 'Senior Systems Administration & Infrastructure',
-    blurb:
-      'I run real fleets and harden them — Jamf, Intune, JumpCloud, cloud, and compliance — building standards that get adopted across the whole org.',
+      'I run real fleets and harden them — hands-on with Jamf, Intune, JumpCloud, automation, and cloud — building standards that get adopted across the whole org.',
     proof: [
       'Standardized and scaled Jamf Pro across the entire College of Arts & Sciences at UW',
-      'Built a gaming studio’s IT from zero in 5 months (adopted by 2 more studios)',
-      'NIST CSF & HIPAA audits as System Security Officer',
+      'Automation that cut provisioning time 75% and saved $30K/yr',
+      'JumpCloud Go rollout adopted by the LA and Montreal studios',
     ],
   },
 ];
