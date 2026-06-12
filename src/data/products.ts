@@ -18,28 +18,6 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: 'cert-prep',
-    published: 'Jun 11, 2026',
-    name: 'Cert Prep',
-    category: 'Education / Cybersecurity',
-    status: 'live',
-    tagline: 'Pass Security+, CISM, and PMP — for free.',
-    description:
-      'A free, no-sign-up study toolkit for major IT and cybersecurity certifications. The Security+ and CISM tracks are fully interactive: 600+ practice questions, timed exam simulators that score you by domain, spaced-repetition flashcards, a progress dashboard, printable cheat sheets, and curated free video lessons — all running in the browser with nothing to install.',
-    highlights: [
-      'Two fully interactive tracks — CompTIA Security+ and ISACA CISM — plus a PMP study track.',
-      '600+ original practice questions, per-domain exam simulators, and spaced-repetition flashcards.',
-      'Built entirely on free resources; progress saves locally and exports to Markdown.',
-    ],
-    tech: ['JavaScript', 'GitHub Pages', 'EdTech', 'Cybersecurity'],
-    links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/cert-prep/', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/cert-prep', icon: 'github' },
-    ],
-    accent: 'azure',
-    featured: true,
-  },
-  {
     slug: 'sightline',
     published: 'Jun 7, 2026',
     name: 'Sightline',
@@ -134,13 +112,13 @@ export const products: Product[] = [
     name: 'CertPrep',
     category: 'Education / Cert Prep',
     status: 'live',
-    tagline: 'Pass Security+ and PMP — for free.',
+    tagline: 'Pass Security+, CISM, and PMP — for free.',
     description:
-      'CertPrep is a free, self-contained study platform for professional certification exams — no sign-up, no install. It bundles practice questions, timed exam simulators, spaced-repetition flashcards, video lessons, cheat sheets, and progress dashboards so anyone can prepare without financial barriers.',
+      'CertPrep is a free, self-contained study platform for professional certification exams — no sign-up, no install. Three fully interactive tracks (CompTIA Security+, ISACA CISM, and PMP) bundle 900+ practice questions, timed exam simulators that score you by domain, spaced-repetition flashcards, video lessons, printable cheat sheets, and progress dashboards — so anyone can prepare without financial barriers.',
     highlights: [
-      'Covers Security+ (SY0-701), CISM, and PMP, each with a structured study plan.',
-      '600+ interactive practice questions and timed simulators with domain-level scoring.',
-      'Spaced-repetition flashcards, video lessons, cheat sheets, and progress tracking — completely free.',
+      'Three fully interactive tracks — CompTIA Security+ (SY0-701), ISACA CISM, and PMP.',
+      '900+ original practice questions with timed, domain-weighted exam simulators and per-domain scoring.',
+      'Spaced-repetition flashcards, video lessons, cheat sheets, and progress that exports to Markdown — completely free.',
     ],
     tech: ['Education', 'Web', 'Free', 'No Sign-up'],
     links: [
