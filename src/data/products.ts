@@ -18,6 +18,28 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: 'bastion',
+    published: 'Jun 11, 2026',
+    name: 'Bastion',
+    category: 'Cybersecurity / GRC',
+    status: 'live',
+    tagline: 'CMMC Level 2, without the consultant.',
+    description:
+      'Bastion walks defense suppliers through all 110 NIST 800-171 controls, calculates a live DoD SPRS score, and generates an audit-ready System Security Plan and POA&M — entirely in the browser, so sensitive CUI never leaves the machine. Built for the small and mid-size suppliers that primes like Boeing now require to reach CMMC Level 2.',
+    highlights: [
+      'Guided 110-control NIST 800-171 self-assessment with a live, methodology-accurate DoD SPRS score.',
+      'Auto-generates the SSP and POA&M assessors expect, and prioritizes the highest-impact gaps to fix first.',
+      'Integrates with Sightline (endpoint posture) and Cairn (policy documentation) to auto-evidence controls.',
+    ],
+    tech: ['NIST 800-171', 'CMMC', 'GRC', 'JavaScript'],
+    links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/bastion/', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/bastion', icon: 'github' },
+    ],
+    accent: 'azure',
+    featured: true,
+  },
+  {
     slug: 'mcat-prep',
     published: 'Jun 11, 2026',
     name: 'MCAT Prep',
