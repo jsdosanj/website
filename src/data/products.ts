@@ -18,6 +18,28 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: 'cert-prep',
+    published: 'Jun 11, 2026',
+    name: 'Cert Prep',
+    category: 'Education / Cybersecurity',
+    status: 'live',
+    tagline: 'Pass Security+, CISM, and PMP — for free.',
+    description:
+      'A free, no-sign-up study toolkit for major IT and cybersecurity certifications. The Security+ and CISM tracks are fully interactive: 600+ practice questions, timed exam simulators that score you by domain, spaced-repetition flashcards, a progress dashboard, printable cheat sheets, and curated free video lessons — all running in the browser with nothing to install.',
+    highlights: [
+      'Two fully interactive tracks — CompTIA Security+ and ISACA CISM — plus a PMP study track.',
+      '600+ original practice questions, per-domain exam simulators, and spaced-repetition flashcards.',
+      'Built entirely on free resources; progress saves locally and exports to Markdown.',
+    ],
+    tech: ['JavaScript', 'GitHub Pages', 'EdTech', 'Cybersecurity'],
+    links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/cert-prep/', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/cert-prep', icon: 'github' },
+    ],
+    accent: 'azure',
+    featured: true,
+  },
+  {
     slug: 'sightline',
     published: 'Jun 7, 2026',
     name: 'Sightline',
