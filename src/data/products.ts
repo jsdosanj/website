@@ -34,6 +34,7 @@ export const products: Product[] = [
     tech: ['Device Management', 'Security', 'Dashboards', 'Automation'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/sightline-site/', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/sightline', icon: 'github' },
     ],
     accent: 'azure',
     featured: true,
@@ -78,6 +79,7 @@ export const products: Product[] = [
     tech: ['Monitoring', 'Agents', 'Self-Hosted', 'Open Source'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/lookout-site/', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/lookout', icon: 'github' },
     ],
     accent: 'azure',
     featured: false,
@@ -99,6 +101,7 @@ export const products: Product[] = [
     tech: ['Documentation', 'Onboarding', 'Knowledge Base'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/cairn-site/#top', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/cairn', icon: 'github' },
     ],
     accent: 'azure',
     featured: true,
@@ -120,6 +123,7 @@ export const products: Product[] = [
     tech: ['Dataset', 'HuggingFace', 'Multilingual', 'Open Access'],
     links: [
       { label: 'HuggingFace Dataset', href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/AI-Sikh-Librarian', icon: 'github' },
     ],
     accent: 'kesari',
     featured: false,
