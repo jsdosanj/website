@@ -33,7 +33,7 @@ export const products: Product[] = [
     ],
     tech: ['Compliance', 'GRC', 'NIST / SOC 2 / HIPAA', 'Security Posture'],
     links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/sightline-site/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/sightline/', icon: 'external' },
     ],
     accent: 'azure',
     featured: true,
@@ -54,7 +54,7 @@ export const products: Product[] = [
     ],
     tech: ['NIST 800-171', 'CMMC', 'GRC', 'JavaScript'],
     links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/bastion/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/bastion/', icon: 'external' },
     ],
     accent: 'azure',
     featured: true,
@@ -97,7 +97,7 @@ export const products: Product[] = [
     ],
     tech: ['Monitoring', 'Agents', 'Alerting', 'Cross-Platform'],
     links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/lookout-site/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/lookout/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -118,7 +118,7 @@ export const products: Product[] = [
     ],
     tech: ['Snipe-IT', 'MDM / EDR Sync', 'Open Source (AGPL)', 'Cross-Platform'],
     links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/cairn-site/#top', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/cairn/', icon: 'external' },
     ],
     accent: 'azure',
     featured: true,

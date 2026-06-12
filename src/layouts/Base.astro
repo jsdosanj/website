@@ -19,7 +19,7 @@ interface Props {
 const {
   title,
   description = site.description,
-  ogImage = '/website/images/og.png',
+  ogImage = '/images/og.png',
   keywords = [],
   ogType = 'website',
   noindex = false,
@@ -27,7 +27,7 @@ const {
   jsonld,
 } = Astro.props;
 
-const fullTitle = title ? `${title} · ${site.brand}` : `${site.brand} — ${site.shortTagline}`;
+const fullTitle = title ? `${title} · ${site.brand}` : `${site.founder} — ${site.shortTagline}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImageUrl = new URL(ogImage, site.url).href;
 
@@ -42,13 +42,14 @@ for (const s of segments) {
 const extraJsonld = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 
 const baseKeywords = [
-  'Dosanjh Labs', 'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Project Manager',
+  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Project Manager',
   'problem solver', 'AI developer', 'Sikh technology', 'Sightline', 'GurmukhiFix', 'Cairn',
   'Sikh Library dataset', 'OCR Gurmukhi', 'Seattle technologist', 'IT leadership', 'IT Security', 'GRC', 'Systems Engineering',
 ];
 const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
 
-// Structured data graph: Person + Organization + WebSite (helps rich results)
+// Structured data graph: Person (primary) + ProfilePage + WebSite (helps rich results).
+// The whole site is branded to Jasvant Dosanjh (a person), not a company.
 const ldGraph = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -56,10 +57,10 @@ const ldGraph = {
       '@type': 'Person',
       '@id': `${site.url}/#person`,
       name: site.founder,
+      alternateName: 'Jasvant Dosanjh',
       url: site.url,
-      image: new URL('/website/images/headshot-v2.jpg', site.url).href,
-      jobTitle: 'Technical Project Manager & Founder',
-      worksFor: { '@id': `${site.url}/#org` },
+      image: new URL('/images/headshot-v2.jpg', site.url).href,
+      jobTitle: 'Technical Project Manager',
       address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
       knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management'],
@@ -72,20 +73,9 @@ const ldGraph = {
       '@type': 'ProfilePage',
       '@id': `${site.url}/#profilepage`,
       url: site.url,
-      name: `${site.founder} — ${site.brand}`,
+      name: site.founder,
       mainEntity: { '@id': `${site.url}/#person` },
       isPartOf: { '@id': `${site.url}/#website` },
-    },
-    {
-      '@type': 'Organization',
-      '@id': `${site.url}/#org`,
-      name: site.brand,
-      url: site.url,
-      slogan: site.tagline,
-      description: site.description,
-      logo: new URL('/website/favicon.svg', site.url).href,
-      founder: { '@id': `${site.url}/#person` },
-      sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
     },
     {
       '@type': 'WebSite',
@@ -93,7 +83,7 @@ const ldGraph = {
       url: site.url,
       name: site.brand,
       description: site.description,
-      publisher: { '@id': `${site.url}/#org` },
+      publisher: { '@id': `${site.url}/#person` },
       inLanguage: 'en',
     },
     {
@@ -166,7 +156,7 @@ const ldGraph = {
     <!-- No-JS fallback: never hide content if scripts don't run -->
     <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 
-    <!-- Favicon: Dosanjh Labs emblem -->
+    <!-- Favicon: personal Khanda emblem -->
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <link rel="apple-touch-icon" href={url('/favicon.svg')} />
     <link rel="manifest" href={url('/site.webmanifest')} />

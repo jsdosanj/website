@@ -31,7 +31,7 @@ export const engagements: SevaEngagement[] = [
     role: 'Contributor & Digital Preservationist',
     date: 'Ongoing',
     description:
-      'Support the digital preservation and accessibility of Sikh historical texts and manuscripts — bridging my parchar work with the AI and OCR tools built at Dosanjh Labs to make rare Sikh heritage searchable and available to researchers and the global Sangat.',
+      'Support the digital preservation and accessibility of Sikh historical texts and manuscripts — bridging my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable and available to researchers and the global Sangat.',
     link: { label: 'SikhArchive.net', href: 'https://www.sikharchive.net/' },
     tags: ['Digital Preservation', 'Manuscripts', 'Open Access'],
   },

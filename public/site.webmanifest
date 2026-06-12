@@ -1,13 +1,13 @@
 {
-  "name": "Dosanjh Labs — Jasvant Singh Dosanjh",
-  "short_name": "Dosanjh Labs",
+  "name": "Jasvant Dosanjh — Technical Project Manager",
+  "short_name": "Jasvant Dosanjh",
   "description": "Senior IT leader, systems engineer, and builder in Seattle. Open to IT Security & GRC Leader, Technical Program Manager, and Senior Systems & Endpoint Engineer roles.",
-  "start_url": "/website/",
-  "scope": "/website/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0a0d13",
   "theme_color": "#0a0d13",
   "icons": [
-    { "src": "/website/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }

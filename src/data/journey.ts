@@ -32,7 +32,7 @@ export const journey = [
     chapter: '05',
     era: 'Worldwide · Today',
     title: 'A global orbit',
-    text: 'Today the orbit is global. Jasvant helps organize and speaks at community events all over the world, carrying one simple message: love, compassion, forgiveness, kindness, and self-research. By day he builds tools at Dosanjh Labs that turn technology from a barrier into a bridge. The mission hasn’t changed since the schoolyard — only the size of the room.',
+    text: 'Today the orbit is global. Jasvant helps organize and speaks at community events all over the world, carrying one simple message: love, compassion, forgiveness, kindness, and self-research. By day he builds tools that turn technology from a barrier into a bridge. The mission hasn’t changed since the schoolyard — only the size of the room.',
     marker: 'Now',
   },
 ];
