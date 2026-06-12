@@ -25,11 +25,11 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Everything you need to study for the MCAT — for free.',
     description:
-      'A free, no-sign-up MCAT study toolkit that runs entirely in the browser. It is fully interactive: 165+ original AAMC-style practice questions across all four sections, a timed exam simulator that scores you per section on the 472–528 scale, 250+ spaced-repetition flashcards, printable cheat sheets, curated free video lessons, deep study guides, a notes editor, and a progress dashboard — with one-click Markdown export/import and nothing to install.',
+      'A free, no-sign-up MCAT study toolkit that runs entirely in the browser. It is fully interactive: 330 original AAMC-style practice questions across all four sections, timed exam simulators (a mixed full-length-style mock plus single-section tests — including CARS-only) that estimate your 472–528 score and percentile, 250+ spaced-repetition flashcards, printable cheat sheets, curated free video lessons, deep study guides, a notes editor, and a progress dashboard with a test-day countdown and focus timer — light/dark themed, with one-click Markdown export/import and nothing to install.',
     highlights: [
-      'Original AAMC-style questions for Chem/Phys, CARS, Bio/Biochem, and Psych/Soc — plus a timed, section-weighted exam simulator.',
-      '250+ spaced-repetition flashcards, printable cheat sheets, study guides, and curated free Khan Academy videos.',
-      'Runs 100% in the browser; progress saves locally and exports to Markdown. Not affiliated with the AAMC.',
+      '330 original AAMC-style questions for Chem/Phys, CARS, Bio/Biochem, and Psych/Soc — plus mixed and single-section (CARS-only) timed exam simulators.',
+      '250+ spaced-repetition flashcards, printable cheat sheets, study guides, curated free Khan Academy videos, a test-day countdown, and a focus timer.',
+      'Runs 100% in the browser; progress saves locally and exports to Markdown. Light/dark themed. Not affiliated with the AAMC.',
     ],
     tech: ['JavaScript', 'GitHub Pages', 'EdTech', 'Pre-Med'],
     links: [
