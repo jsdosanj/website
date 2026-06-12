@@ -86,7 +86,7 @@ export const products: Product[] = [
     published: 'Jun 11, 2026',
     name: 'Lookout',
     category: 'Infrastructure / Monitoring',
-    status: 'wip',
+    status: 'live',
     tagline: 'Know your servers are healthy — before they’re not.',
     description:
       'Lookout is infrastructure monitoring built for humans. Lightweight agents report each server’s health to one dashboard in plain English — “disk /data is 94% full” instead of a wall of raw metrics — so anyone can tell what needs attention at a glance.',
