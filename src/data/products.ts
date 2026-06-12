@@ -18,6 +18,28 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: 'mcat-prep',
+    published: 'Jun 11, 2026',
+    name: 'MCAT Prep',
+    category: 'Education / Pre-Med',
+    status: 'live',
+    tagline: 'Everything you need to study for the MCAT — for free.',
+    description:
+      'A free, no-sign-up MCAT study toolkit that runs entirely in the browser. It is fully interactive: 165+ original AAMC-style practice questions across all four sections, a timed exam simulator that scores you per section on the 472–528 scale, 250+ spaced-repetition flashcards, printable cheat sheets, curated free video lessons, deep study guides, a notes editor, and a progress dashboard — with one-click Markdown export/import and nothing to install.',
+    highlights: [
+      'Original AAMC-style questions for Chem/Phys, CARS, Bio/Biochem, and Psych/Soc — plus a timed, section-weighted exam simulator.',
+      '250+ spaced-repetition flashcards, printable cheat sheets, study guides, and curated free Khan Academy videos.',
+      'Runs 100% in the browser; progress saves locally and exports to Markdown. Not affiliated with the AAMC.',
+    ],
+    tech: ['JavaScript', 'GitHub Pages', 'EdTech', 'Pre-Med'],
+    links: [
+      { label: 'Visit site', href: 'https://jsdosanj.github.io/mcat-prep/', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/mcat-prep', icon: 'github' },
+    ],
+    accent: 'azure',
+    featured: true,
+  },
+  {
     slug: 'sightline',
     published: 'Jun 7, 2026',
     name: 'Sightline',
