@@ -18,28 +18,6 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: 'mcat-prep',
-    published: 'Jun 11, 2026',
-    name: 'MCAT Prep',
-    category: 'Education / Pre-Med',
-    status: 'live',
-    tagline: 'Everything you need to study for the MCAT — for free.',
-    description:
-      'A free, no-sign-up MCAT study toolkit that runs entirely in the browser. It is fully interactive: 330 original AAMC-style practice questions across all four sections, timed exam simulators (a mixed full-length-style mock plus single-section tests — including CARS-only) that estimate your 472–528 score and percentile, 250+ spaced-repetition flashcards, printable cheat sheets, curated free video lessons, deep study guides, a notes editor, and a progress dashboard with a test-day countdown and focus timer — light/dark themed, with one-click Markdown export/import and nothing to install.',
-    highlights: [
-      '330 original AAMC-style questions for Chem/Phys, CARS, Bio/Biochem, and Psych/Soc — plus mixed and single-section (CARS-only) timed exam simulators.',
-      '250+ spaced-repetition flashcards, printable cheat sheets, study guides, curated free Khan Academy videos, a test-day countdown, and a focus timer.',
-      'Runs 100% in the browser; progress saves locally and exports to Markdown. Light/dark themed. Not affiliated with the AAMC.',
-    ],
-    tech: ['JavaScript', 'GitHub Pages', 'EdTech', 'Pre-Med'],
-    links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/mcat-prep/', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/mcat-prep', icon: 'github' },
-    ],
-    accent: 'azure',
-    featured: false,
-  },
-  {
     slug: 'sightline',
     published: 'Jun 7, 2026',
     name: 'Sightline',
@@ -56,7 +34,6 @@ export const products: Product[] = [
     tech: ['Device Management', 'Security', 'Dashboards', 'Automation'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/sightline-site/', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/sightline', icon: 'github' },
     ],
     accent: 'azure',
     featured: true,
@@ -78,7 +55,6 @@ export const products: Product[] = [
     tech: ['NIST 800-171', 'CMMC', 'GRC', 'JavaScript'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/bastion/', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/bastion', icon: 'github' },
     ],
     accent: 'azure',
     featured: true,
@@ -101,7 +77,6 @@ export const products: Product[] = [
     tech: ['Python', 'Tesseract', 'Unicode', 'PyPI'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/gurmukhifix/index.html', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/gurmukhifix', icon: 'github' },
     ],
     accent: 'kesari',
     featured: false,
@@ -114,16 +89,15 @@ export const products: Product[] = [
     status: 'wip',
     tagline: 'Know your servers are healthy — before they’re not.',
     description:
-      'Lookout is open-source infrastructure monitoring built for humans. Lightweight agents report each server’s health to one dashboard in plain English — “disk /data is 94% full” instead of a wall of raw metrics — so anyone can tell what needs attention at a glance.',
+      'Lookout is infrastructure monitoring built for humans. Lightweight agents report each server’s health to one dashboard in plain English — “disk /data is 94% full” instead of a wall of raw metrics — so anyone can tell what needs attention at a glance.',
     highlights: [
       'Single, dependency-free agent for Linux, Windows, and macOS — outbound-only, no open ports.',
       'Plain-English OK / WARNING / CRITICAL alerts via email, Slack, or webhooks, with deduplication and escalation.',
-      'Nagios-plugin compatible; self-host for free (AGPL-3.0) or use the managed version.',
+      'Nagios-plugin compatible, with managed and on-prem deployment options.',
     ],
-    tech: ['Monitoring', 'Agents', 'Self-Hosted', 'Open Source'],
+    tech: ['Monitoring', 'Agents', 'Alerting', 'Cross-Platform'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/lookout-site/', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/lookout', icon: 'github' },
     ],
     accent: 'azure',
     featured: false,
@@ -145,32 +119,9 @@ export const products: Product[] = [
     tech: ['Documentation', 'Onboarding', 'Knowledge Base'],
     links: [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/cairn-site/#top', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/cairn', icon: 'github' },
     ],
     accent: 'azure',
     featured: true,
-  },
-  {
-    slug: 'certprep',
-    published: 'Jun 12, 2026',
-    name: 'CertPrep',
-    category: 'Education / Cert Prep',
-    status: 'live',
-    tagline: 'Pass Security+, CISM, and PMP — for free.',
-    description:
-      'CertPrep is a free, self-contained study platform for professional certification exams — no sign-up, no install. Three fully interactive tracks (CompTIA Security+, ISACA CISM, and PMP) bundle 900+ practice questions, timed exam simulators that score you by domain, spaced-repetition flashcards, video lessons, printable cheat sheets, and progress dashboards — so anyone can prepare without financial barriers.',
-    highlights: [
-      'Three fully interactive tracks — CompTIA Security+ (SY0-701), ISACA CISM, and PMP.',
-      '900+ original practice questions with timed, domain-weighted exam simulators and per-domain scoring.',
-      'Spaced-repetition flashcards, video lessons, cheat sheets, and progress that exports to Markdown — completely free.',
-    ],
-    tech: ['Education', 'Web', 'Free', 'No Sign-up'],
-    links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/cert-prep/index.html', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/cert-prep', icon: 'github' },
-    ],
-    accent: 'kesari',
-    featured: false,
   },
   {
     slug: 'sikh-library-dataset',
@@ -189,7 +140,6 @@ export const products: Product[] = [
     tech: ['Dataset', 'HuggingFace', 'Multilingual', 'Open Access'],
     links: [
       { label: 'HuggingFace Dataset', href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary', icon: 'external' },
-      { label: 'GitHub', href: 'https://github.com/jsdosanj/AI-Sikh-Librarian', icon: 'github' },
     ],
     accent: 'kesari',
     featured: false,
