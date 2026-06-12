@@ -37,10 +37,10 @@ export const engagements: SevaEngagement[] = [
   },
   {
     org: 'Gurprasadh Vidhiyaala',
-    role: 'Spiritual Counsellor & Teacher',
+    role: 'Counsellor & Teacher',
     date: 'Until Mar 2026',
     description:
-      'Provided spiritual counselling and teaching to individuals worldwide, helping people deepen their connection to Sikh heritage and spirituality through one-on-one and group learning, until stepping away in March 2026.',
+      'Provided counselling and teaching to individuals worldwide, helping people deepen their connection to Sikh heritage through one-on-one and group learning, until stepping away in March 2026.',
     tags: ['Counselling', 'Teaching', 'Community'],
   },
   {

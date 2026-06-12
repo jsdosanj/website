@@ -35,5 +35,5 @@ export const certifications = [
   'CS50: Cybersecurity (Harvard)',
   'Strategic Applications of IT Project & Program Management (UW)',
   'New Manager’s Toolkit (Indiana University — Kelley School of Business)',
-  'Spiritual Life Coach (Transformation Academy)',
+  'Life Coach (Transformation Academy)',
 ];
