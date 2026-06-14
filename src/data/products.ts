@@ -18,6 +18,29 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: 'sikh-university',
+    published: 'Ongoing',
+    name: 'Sikh University',
+    gurmukhi: 'ਸਿੱਖ ਯੂਨੀਵਰਸਿਟੀ',
+    category: 'Education / Sikhi',
+    status: 'wip',
+    tagline: 'A free, open online university for Sikhi — and the skills of today.',
+    description:
+      'Sikh University is a free, open online university where anyone, anywhere can study Sikhi — history, theology, philosophy, language, music and the arts — from authentic sources, alongside modern skills like AI. 50+ courses are drawn from the works of leading Sikh scholars, each acting as the course professor, with tests, certificates, guided learning paths and a magic-link account system. Built free and open on Cloudflare and works alongside the Sikh Archive.',
+    highlights: [
+      '50+ courses across 10 subjects, each drawn from a real Sikh scholar’s work, with key concepts in Punjabi (Gurmukhi) and Chicago-style citations.',
+      'A full learning platform: magic-link accounts, 80%-to-pass tests, printable certificates, learning paths, search, notes, gamification and an admin dashboard.',
+      'Built on Cloudflare (Workers + D1 + R2) and rebuilt in Astro + Tailwind for a world-class, accessible experience.',
+    ],
+    tech: ['Astro', 'Tailwind', 'Cloudflare Workers', 'D1 / R2'],
+    links: [
+      { label: 'Visit site', href: 'https://sikh-university.jasvant-dosanjh.workers.dev', icon: 'external' },
+      { label: 'GitHub', href: 'https://github.com/jsdosanj/sikh-university', icon: 'external' },
+    ],
+    accent: 'kesari',
+    featured: true,
+  },
+  {
     slug: 'sightline',
     published: 'Jun 7, 2026',
     name: 'Sightline',
