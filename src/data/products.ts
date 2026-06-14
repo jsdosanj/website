@@ -251,6 +251,28 @@ export const products: Product[] = [
     featured: false,
   },
   {
+    slug: 'sikh-university',
+    published: 'Ongoing',
+    name: 'Sikh University',
+    gurmukhi: 'ੴ',
+    category: 'Education · Sikh Studies',
+    status: 'wip',
+    tagline: 'Learn Sikhi — from Gurbani to history — free and open.',
+    description:
+      'Sikh University is a free, open learning platform for Sikhi: structured courses, history, and a read-along Gurbani reader where every verse sits beside the lesson that teaches it — starting with a full Japji Sahib course built directly on the Sikh Library corpus. Course drafts are AI-assisted but labeled and routed through a human scholar review board before they’re presented as authoritative, because doctrinal and historical accuracy is a release gate, not a nicety.',
+    highlights: [
+      'Read-along Gurbani reader with verbatim verses embedded into each lesson, sourced from our own SGGS dataset.',
+      'Structured course paths (starting with Japji Sahib) with passwordless accounts and an admin/authoring console.',
+      'Accuracy-first: AI drafts are labeled “Created by AI” and reviewed by scholars before publication.',
+    ],
+    tech: ['Astro', 'Cloudflare Workers', 'D1', 'Gurbani Dataset'],
+    links: [
+      { label: 'Visit site', href: 'https://sikh-university.jasvant-dosanjh.workers.dev', icon: 'external' },
+    ],
+    accent: 'kesari',
+    featured: false,
+  },
+  {
     slug: 'gurmukhifix',
     published: 'Jun 11, 2026',
     name: 'GurmukhiFix',
