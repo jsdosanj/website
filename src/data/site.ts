@@ -34,7 +34,7 @@ export const nav = [
   { label: 'About', href: '/about' },
   { label: 'Skills', href: '/skills' },
   { label: 'Products', href: '/products' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Writing', href: '/blog' },
   { label: 'Seva', href: '/seva' },
   { label: 'Contact', href: '/contact' },
 ];
