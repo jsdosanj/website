@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       - name: Install deps (if a package.json exists)
         run: if [ -f package.json ]; then npm ci || npm install; fi
       - name: Typecheck / build / test (if scripts exist)
