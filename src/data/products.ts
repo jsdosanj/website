@@ -24,17 +24,17 @@ export const products: Product[] = [
     gurmukhi: 'ਸਿੱਖ ਯੂਨੀਵਰਸਿਟੀ',
     category: 'Education / Sikhi',
     status: 'live',
-    tagline: 'A free, open online university for Sikhi — and the skills of today.',
+    tagline: 'A free, open online university for Sikhi — from the basics to the depths.',
     description:
-      'Sikh University is a free, open online university where anyone, anywhere can study Sikhi — history, theology, philosophy, language, music and the arts — from authentic sources, alongside modern skills like AI. 50+ courses are drawn from the works of leading Sikh scholars, each acting as the course professor, with tests, certificates, guided learning paths and a magic-link account system. Built free and open on Cloudflare and works alongside the Sikh Archive.',
+      'Sikh University is a free, open online university where anyone, anywhere can study Sikhi — from its basics to its depths. 200+ courses across 19 subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside the Sikh Archive.',
     highlights: [
-      '50+ courses across 10 subjects, each drawn from a real Sikh scholar’s work, with key concepts in Punjabi (Gurmukhi) and Chicago-style citations.',
-      'A full learning platform: magic-link accounts, 80%-to-pass tests, printable certificates, learning paths, search, notes, gamification and an admin dashboard.',
-      'Built on Cloudflare (Workers + D1 + R2) and rebuilt in Astro + Tailwind for a world-class, accessible experience.',
+      '200+ courses across 19 subjects, each attributed to a real Sikh scholar, with key terms in Punjabi (Gurmukhi) and Chicago-style citations.',
+      'A read-along reader for the complete SGGS, Dasam Granth and Sri Sarbloh Granth Sahib, plus a beginner Gurmukhi primer (Baal Updesh).',
+      'A full platform: magic-link accounts, 80%-to-pass tests, printable certificates, learning paths, search, and one site-wide light/dark theme — on Cloudflare (Workers + D1 + R2), in Astro + Tailwind.',
     ],
     tech: ['Astro', 'Tailwind', 'Cloudflare Workers', 'D1 / R2'],
     links: [
-      { label: 'Visit site', href: 'https://sikh-university.dosanjhlabs.com', icon: 'external' },
+      { label: 'Visit site', href: 'https://sikh-university.jasvant-dosanjh.workers.dev', icon: 'external' },
     ],
     accent: 'kesari',
     featured: true,
@@ -247,28 +247,6 @@ export const products: Product[] = [
       { label: 'Visit site', href: '/ledger/', icon: 'external' },
     ],
     accent: 'azure',
-    featured: false,
-  },
-  {
-    slug: 'sikh-university',
-    published: 'Ongoing',
-    name: 'Sikh University',
-    gurmukhi: 'ੴ',
-    category: 'Education · Sikh Studies',
-    status: 'wip',
-    tagline: 'Learn Sikhi — from Gurbani to history — free and open.',
-    description:
-      'Sikh University is a free, open learning platform for Sikhi: structured courses, history, and a read-along Gurbani reader where every verse sits beside the lesson that teaches it — starting with a full Japji Sahib course built directly on the Sikh Library corpus. Course drafts are AI-assisted but labeled and routed through a human scholar review board before they’re presented as authoritative, because doctrinal and historical accuracy is a release gate, not a nicety.',
-    highlights: [
-      'Read-along Gurbani reader with verbatim verses embedded into each lesson, sourced from our own SGGS dataset.',
-      'Structured course paths (starting with Japji Sahib) with passwordless accounts and an admin/authoring console.',
-      'Accuracy-first: AI drafts are labeled “Created by AI” and reviewed by scholars before publication.',
-    ],
-    tech: ['Astro', 'Cloudflare Workers', 'D1', 'Gurbani Dataset'],
-    links: [
-      { label: 'Visit site', href: 'https://sikh-university.jasvant-dosanjh.workers.dev', icon: 'external' },
-    ],
-    accent: 'kesari',
     featured: false,
   },
   {
