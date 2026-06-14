@@ -3,7 +3,8 @@ export type ProductStatus = 'live' | 'wip' | 'planned';
 export type Product = {
   slug: string;
   name: string;
-  gurmukhi?: string;
+  gurmukhi?: string; // single glyph shown in the icon badge
+  gurmukhiName?: string; // full Gurmukhi wordmark shown under the title
   category: string;
   status: ProductStatus;
   tagline: string;
@@ -21,7 +22,8 @@ export const products: Product[] = [
     slug: 'sikh-university',
     published: 'Ongoing',
     name: 'Sikh University',
-    gurmukhi: 'ਸਿੱਖ ਯੂਨੀਵਰਸਿਟੀ',
+    gurmukhi: 'ੴ',
+    gurmukhiName: 'ਸਿੱਖ ਯੂਨੀਵਰਸਿਟੀ',
     category: 'Education / Sikhi',
     status: 'live',
     tagline: 'A free, open online university for Sikhi — from the basics to the depths.',
