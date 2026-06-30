@@ -40,13 +40,14 @@
   --color-mac-amber: #febc2e;
   --color-mac-green: #28c840;
 
-  /* — Text — */
+  /* — Text — tuned for WCAG AA contrast on the graphite surfaces —
+     mist-400 ≈ 6:1, mist-500 ≈ 4.6:1 (AA for normal text) — */
   --color-mist-100: #eef2f8;
   --color-mist-200: #d6dde8;
-  --color-mist-300: #b9c2cf;
-  --color-mist-400: #8b94a3;
-  --color-mist-500: #626b78;
-  --color-mist-600: #444b55;
+  --color-mist-300: #bcc5d2;
+  --color-mist-400: #969fad;
+  --color-mist-500: #7c8593;
+  --color-mist-600: #767e8b;
 
   /* — Fonts — distinctive, intentional (no Inter/Helvetica defaults).
      Bricolage Grotesque = editorial display character; Hanken Grotesk =
@@ -362,6 +363,8 @@ body {
 .cursor-dot,
 .cursor-ring { display: none; }
 
+/* Only ever shown once JS confirms a fine pointer + no reduced-motion and adds
+   `.has-cursor` — otherwise they'd strand at (0,0) as a top-left arc. */
 @media (hover: hover) and (pointer: fine) {
   .has-cursor { cursor: none; }
   .has-cursor a,
@@ -371,8 +374,8 @@ body {
   .has-cursor textarea,
   .has-cursor label { cursor: none; }
 
-  .cursor-dot,
-  .cursor-ring {
+  .has-cursor .cursor-dot,
+  .has-cursor .cursor-ring {
     display: block;
     position: fixed;
     top: 0;
@@ -533,10 +536,17 @@ body {
 
 /* Horizontal marquee */
 .marquee {
+  position: relative;
   display: flex;
+  align-items: center;
+}
+.marquee__viewport {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 90%, transparent);
 }
 .marquee__track {
   display: flex;
@@ -545,14 +555,40 @@ body {
   min-width: 100%;
   animation: marquee var(--marquee-dur, 38s) linear infinite;
 }
-.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__toggle {
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--color-ink-800) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-mist-100) 12%, transparent);
+  color: var(--color-mist-400);
+  font-size: 0.58rem;
+  opacity: 0;
+  transition: opacity 0.25s, color 0.25s;
+}
+.marquee:hover .marquee__toggle,
+.marquee:focus-within .marquee__toggle,
+.marquee__toggle:focus-visible { opacity: 1; }
+.marquee__toggle:hover { color: var(--color-kesari-300); }
+/* pause on hover or keyboard focus (WCAG 2.2.2: moving content is stoppable) */
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track,
+.marquee.is-paused .marquee__track { animation-play-state: paused; }
 .marquee[data-rev] .marquee__track { animation-direction: reverse; }
 @keyframes marquee {
   to { transform: translateX(-100%); }
 }
+/* Reduced motion: keep a gentle, slow autoscroll (no scrollbar). A pause
+   control is provided so it can always be stopped. */
 @media (prefers-reduced-motion: reduce) {
-  .marquee__track { animation: none; }
-  .marquee { mask-image: none; -webkit-mask-image: none; overflow-x: auto; }
+  .marquee__track { animation-duration: 90s; }
 }
 .marquee__item {
   display: inline-flex;
@@ -562,7 +598,7 @@ body {
   white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 0.95rem;
-  color: var(--color-mist-400);
+  color: var(--color-mist-300);
 }
 .marquee__item svg { color: var(--color-kesari-500); }
 .marquee__dot { color: var(--color-kesari-500); }
