@@ -6,11 +6,20 @@ import Jali from '../components/Jali.astro';
 import ProductCard from '../components/ProductCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Spotlight from '../components/Spotlight.astro';
+import InteractiveTerminal from '../components/InteractiveTerminal.astro';
+import BinaryRain from '../components/BinaryRain.astro';
+import Marquee from '../components/Marquee.astro';
 import { site } from '../data/site';
 import { products } from '../data/products';
 import { helpAreas, outcomes } from '../data/value';
 import { recommendations } from '../data/recommendations';
 import { url } from '../utils';
+
+const stack = [
+  'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'Google Workspace', 'AWS', 'Azure',
+  'Agile / Scrum', 'Jira', 'Workday', 'NIST CSF', 'HIPAA', 'FERPA', 'CrowdStrike',
+  'Python', 'Bash', 'CI/CD', 'Snipe-IT', 'Cloudflare',
+];
 
 const featured = products.filter((p) => p.featured);
 const primaryResume = site.resumes.find((r) => r.primary) ?? site.resumes[0];
@@ -41,9 +50,9 @@ const principles = [
       <div class="mt-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
         <!-- Left: headline + CTAs -->
         <div class="order-2 lg:order-1">
-          <h1 class="reveal font-display text-[2.7rem] sm:text-6xl lg:text-[4.4rem] font-bold leading-[0.96] tracking-tight text-mist-100">
-            IT Manager who<br />
-            <span class="text-gradient">ships, secures &amp; scales.</span>
+          <h1 class="font-display text-[2.7rem] sm:text-6xl lg:text-[4.4rem] font-bold leading-[0.96] tracking-tight text-mist-100" data-kinetic>
+            <span class="kin-line"><span class="kin-inner">IT Manager who</span></span>
+            <span class="kin-line"><span class="kin-inner text-gradient">sprints, ships &amp; scales.</span></span>
           </h1>
           <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-mist-400">
             I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — 10 years leading matrixed,
@@ -60,11 +69,11 @@ const principles = [
 
           <!-- CTAs -->
           <div class="reveal mt-8 flex flex-wrap gap-3">
-            <a href={url('/contact')} class="group inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold mono hover:bg-kesari-400 transition-colors">
+            <a href={url('/contact')} data-magnetic="0.4" class="group inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold mono hover:bg-kesari-400 transition-colors">
               ./hire-me
               <Icon name="arrow" size={18} class="group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <a href={primaryResume.href} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold mono text-mist-200 hover:text-mist-100 hover:border-white/20 transition-colors">
+            <a href={primaryResume.href} download data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold mono text-mist-200 hover:text-mist-100 hover:border-white/20 transition-colors">
               <Icon name="file" size={17} /> résumé.pdf
             </a>
           </div>
@@ -104,30 +113,20 @@ const principles = [
     </div>
   </section>
 
-  <!-- ===================== TERMINAL (typed whoami) ===================== -->
-  <section class="container-x mt-12 sm:mt-16">
-    <div class="reveal term mx-auto max-w-3xl" data-parallax="0.03">
-      <div class="term-bar">
-        <div class="term-lights" aria-hidden="true">
-          <span class="term-light red"></span>
-          <span class="term-light amber"></span>
-          <span class="term-light green"></span>
-        </div>
-        <span class="term-title">jasvant@portfolio — zsh — 80×24</span>
-        <span class="w-[3.4rem]" aria-hidden="true"></span>
-      </div>
-      <div class="term-body min-h-[15rem] sm:min-h-[15.5rem]" id="hero-term" aria-label="Terminal introduction">
-        <div id="hero-fallback">
-          <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> whoami</p>
-          <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · Seattle</p>
-          <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> cat highlights.txt</p>
-          <p class="text-mist-300">→ led 9 staff as interim helpdesk manager @ UW</p>
-          <p class="text-mist-300">→ SLA 48h → 2h · −$30k/yr · zero-downtime migration</p>
-          <p class="text-mist-300">→ built a 12-product security &amp; compliance suite</p>
-          <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> <span class="term-ok">./hire-me --available</span><span class="caret caret-blink"></span></p>
-        </div>
+  <!-- ===================== INTERACTIVE TERMINAL ===================== -->
+  <section class="relative mt-12 sm:mt-16 overflow-hidden">
+    <BinaryRain class="opacity-40" opacity={0.4} />
+    <div class="container-x relative">
+      <p class="reveal mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2 mb-5"><span class="inline-block h-px w-6 bg-kesari-500/60"></span>$ try the terminal — it's friendly, I promise</p>
+      <div class="reveal mx-auto max-w-3xl" data-parallax="0.03">
+        <InteractiveTerminal />
       </div>
     </div>
+  </section>
+
+  <!-- ===================== STACK MARQUEE ===================== -->
+  <section class="mt-12 sm:mt-16 py-5 border-y border-white/[0.07] bg-ink-900/40">
+    <Marquee items={stack} dur={46} />
   </section>
 
   <!-- ===================== OUTCOMES STRIP ===================== -->
@@ -217,7 +216,7 @@ const principles = [
 
   <!-- ===================== SEVA TEASER ===================== -->
   <section class="container-x mt-28">
-    <div class="reveal relative card border-glow overflow-hidden p-8 sm:p-12">
+    <div class="turn relative card border-glow overflow-hidden p-8 sm:p-12">
       <Jali class="absolute inset-0 text-kesari-500/[0.08]" opacity={1} />
       <div class="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
         <div>
@@ -239,7 +238,7 @@ const principles = [
 
   <!-- ===================== FINAL CTA ===================== -->
   <section class="container-x mt-28">
-    <div class="reveal term">
+    <div class="turn term">
       <div class="term-bar">
         <div class="term-lights" aria-hidden="true"><span class="term-light red"></span><span class="term-light amber"></span><span class="term-light green"></span></div>
         <span class="term-title">~/hire — jasvant</span>
@@ -257,83 +256,3 @@ const principles = [
     </div>
   </section>
 </Base>
-
-<script>
-  // Hero terminal: type the intro sequence on first paint of the home page.
-  type Line = { cmd?: string; out?: string; cls?: string; gap?: boolean };
-  const SEQ: Line[] = [
-    { cmd: 'whoami' },
-    { out: 'Jasvant Singh Dosanjh · IT Manager · Seattle', cls: 'text-mist-100' },
-    { cmd: 'cat highlights.txt', gap: true },
-    { out: '→ led 9 staff as interim helpdesk manager @ UW', cls: 'text-mist-300' },
-    { out: '→ SLA 48h → 2h · −$30k/yr · zero-downtime migration', cls: 'text-mist-300' },
-    { out: '→ built a 12-product security & compliance suite', cls: 'text-mist-300' },
-    { cmd: './hire-me --available', cls: 'term-ok', gap: true, end: true } as Line,
-  ];
-
-  function promptHTML() {
-    return '<span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> ';
-  }
-
-  function typeHero() {
-    const host = document.getElementById('hero-term');
-    if (!host) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Already animated once this session, or reduced motion → keep static fallback.
-    if (reduce || sessionStorage.getItem('heroTyped') === '1') return;
-    sessionStorage.setItem('heroTyped', '1');
-
-    const fallback = document.getElementById('hero-fallback');
-    if (fallback) fallback.remove();
-
-    let li = 0;
-    const line = (cls?: string, gap?: boolean) => {
-      const p = document.createElement('p');
-      if (gap) p.style.marginTop = '0.6rem';
-      if (cls) p.className = cls;
-      host.appendChild(p);
-      return p;
-    };
-
-    const caret = (p: HTMLElement) => {
-      const c = document.createElement('span');
-      c.className = 'caret caret-blink';
-      p.appendChild(c);
-      return c;
-    };
-
-    const next = () => {
-      if (li >= SEQ.length) return;
-      const item = SEQ[li] as Line & { end?: boolean };
-      const p = line(undefined, item.gap);
-      if (item.cmd !== undefined) {
-        p.innerHTML = promptHTML();
-        const span = document.createElement('span');
-        if (item.cls) span.className = item.cls;
-        p.appendChild(span);
-        const c = caret(p);
-        let ci = 0;
-        const tick = () => {
-          span.textContent = item.cmd!.slice(0, ci);
-          ci++;
-          if (ci <= item.cmd!.length) {
-            window.setTimeout(tick, 34 + Math.random() * 30);
-          } else {
-            if (!item.end) c.remove();
-            li++;
-            window.setTimeout(next, item.end ? 0 : 260);
-          }
-        };
-        tick();
-      } else {
-        if (item.cls) p.className = item.cls;
-        p.textContent = item.out || '';
-        li++;
-        window.setTimeout(next, 130);
-      }
-    };
-    window.setTimeout(next, 500);
-  }
-
-  document.addEventListener('astro:page-load', typeHero);
-</script>

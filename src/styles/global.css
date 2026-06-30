@@ -515,6 +515,102 @@ body {
 .card:hover .pv svg { transform: scale(1.03); }
 .pv svg { transition: transform 0.6s var(--ease-out-expo); }
 
+/* ============================================================
+   PREMIUM MOTION — kinetic type, marquee, magnetic, page-turn
+   ============================================================ */
+
+/* Kinetic headline: each line is a masked window; GSAP rises .kin-inner in.
+   No JS → text simply shows (no hiding), so it can never strand. */
+[data-kinetic] .kin-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+[data-kinetic] .kin-inner {
+  display: block;
+  will-change: transform;
+}
+
+/* Horizontal marquee */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0;
+  min-width: 100%;
+  animation: marquee var(--marquee-dur, 38s) linear infinite;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee[data-rev] .marquee__track { animation-direction: reverse; }
+@keyframes marquee {
+  to { transform: translateX(-100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .marquee { mask-image: none; -webkit-mask-image: none; overflow-x: auto; }
+}
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-inline: 1.5rem;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-mist-400);
+}
+.marquee__item svg { color: var(--color-kesari-500); }
+.marquee__dot { color: var(--color-kesari-500); }
+
+/* Magnetic buttons (JS sets --mxp/--myp) */
+[data-magnetic] {
+  transition: transform 0.35s var(--ease-out-expo);
+  will-change: transform;
+}
+
+/* Page-turn / curtain reveal: section lifts + un-clips as it enters */
+.turn {
+  --turn: 1; /* 1 = hidden, 0 = shown (JS eases toward 0 via scrub) */
+  clip-path: inset(calc(var(--turn) * 42%) 0 0 0 round 1.4rem);
+  transform: translateY(calc(var(--turn) * 40px)) scale(calc(1 - var(--turn) * 0.04));
+  transform-origin: top center;
+  opacity: calc(1 - var(--turn) * 0.35);
+}
+@media (prefers-reduced-motion: reduce) {
+  .turn { clip-path: none; transform: none; opacity: 1; }
+}
+
+/* Tabs */
+.tab-btn {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.6rem;
+  color: var(--color-mist-400);
+  transition: color 0.25s, background-color 0.25s;
+}
+.tab-btn[aria-selected='true'] {
+  color: var(--color-kesari-300);
+  background: color-mix(in srgb, var(--color-kesari-500) 12%, transparent);
+}
+.tab-panel[hidden] { display: none; }
+
+/* Binary-rain canvas backdrop */
+.binary-rain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 /* Focus visibility */
 :focus-visible {
   outline: 2px solid var(--color-kesari-400);
