@@ -5,6 +5,7 @@ import Khanda from '../components/Khanda.astro';
 import Jali from '../components/Jali.astro';
 import ProductCard from '../components/ProductCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import Spotlight from '../components/Spotlight.astro';
 import { site } from '../data/site';
 import { products } from '../data/products';
 import { helpAreas, outcomes } from '../data/value';
@@ -27,7 +28,7 @@ const principles = [
   preloadImage="/images/headshot-v2.jpg"
 >
   <!-- ===================== HERO ===================== -->
-  <section class="relative pt-32 sm:pt-40 pb-16 overflow-hidden">
+  <section class="relative pt-32 sm:pt-40 pb-12 overflow-hidden">
     <Jali class="absolute -top-24 right-[-10%] w-[42rem] h-[42rem] text-azure-500/[0.10] pointer-events-none" opacity={1} />
     <div class="container-x relative">
       <!-- eyebrow path -->
@@ -37,10 +38,10 @@ const principles = [
         <span class="inline-flex items-center gap-1.5 text-phos-400"><span class="h-1.5 w-1.5 rounded-full bg-phos-400 animate-pulse-glow"></span>open to work · Seattle / Remote</span>
       </p>
 
-      <div class="mt-7 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
-        <!-- Left: headline + terminal + CTAs -->
-        <div>
-          <h1 class="reveal font-display text-[2.6rem] sm:text-6xl lg:text-[4.2rem] font-bold leading-[0.98] tracking-tight text-mist-100">
+      <div class="mt-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
+        <!-- Left: headline + CTAs -->
+        <div class="order-2 lg:order-1">
+          <h1 class="reveal font-display text-[2.7rem] sm:text-6xl lg:text-[4.4rem] font-bold leading-[0.96] tracking-tight text-mist-100">
             IT Manager who<br />
             <span class="text-gradient">ships, secures &amp; scales.</span>
           </h1>
@@ -68,47 +69,62 @@ const principles = [
             </a>
           </div>
 
-          <!-- quick links -->
+          <!-- quick links (contact happens via the form — no inbox/phone exposed) -->
           <div class="reveal mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-sm">
             <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a>
             <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="github" size={16} /> GitHub</a>
-            <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="mail" size={16} /> Email</a>
+            <a href={url('/contact')} class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="arrow" size={15} /> Get in touch</a>
           </div>
         </div>
 
-        <!-- Right: terminal window (typed) + portrait -->
-        <div class="reveal relative">
-          <div class="term" data-parallax="0.06">
-            <div class="term-bar">
-              <div class="term-lights" aria-hidden="true">
-                <span class="term-light red"></span>
-                <span class="term-light amber"></span>
-                <span class="term-light green"></span>
-              </div>
-              <span class="term-title">jasvant@portfolio — zsh — 80×24</span>
-              <span class="w-[3.4rem]" aria-hidden="true"></span>
-            </div>
-            <div class="term-body min-h-[16.5rem] sm:min-h-[18rem]" id="hero-term" aria-label="Terminal introduction">
-              <!-- static fallback content (shown if JS/typing is off) -->
-              <div id="hero-fallback">
-                <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> whoami</p>
-                <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · Seattle</p>
-                <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> cat highlights.txt</p>
-                <p class="text-mist-300">→ led 9 staff as interim helpdesk manager @ UW</p>
-                <p class="text-mist-300">→ SLA 48h → 2h · −$30k/yr · zero-downtime migration</p>
-                <p class="text-mist-300">→ built a 12-product security &amp; compliance suite</p>
-                <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> <span class="term-ok">./hire-me --available</span><span class="caret caret-blink"></span></p>
-              </div>
+        <!-- Right: spotlight portrait (flashlight reveal) -->
+        <div class="reveal order-1 lg:order-2 relative mx-auto w-full max-w-[20rem] sm:max-w-[22rem] lg:max-w-none">
+          <div class="relative rounded-[1.6rem] border border-white/10 overflow-hidden border-glow shadow-[0_44px_100px_-50px_rgba(0,0,0,0.95)]" data-parallax="0.05">
+            <Spotlight
+              src={url('/images/headshot-v2.jpg')}
+              alt="Jasvant Singh Dosanjh, IT Manager in Seattle"
+              class="aspect-[4/5]"
+              focus="50% 34%"
+            />
+            <!-- corner labels -->
+            <span class="pointer-events-none absolute top-4 left-4 mono text-[10px] tracking-[0.28em] text-mist-300/80">IT&nbsp;MANAGER</span>
+            <span class="pointer-events-none absolute top-3.5 right-4 gurmukhi text-kesari-300/90 text-lg leading-none">ੴ</span>
+            <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] mono text-[10px] tracking-[0.3em] text-mist-400/60">EST. 2016 · AVAILABLE</span>
+            <!-- desktop reveal hint -->
+            <span class="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1.5 mono text-[10px] text-mist-400/70"><span class="h-1 w-1 rounded-full bg-kesari-400 animate-pulse-glow"></span>move cursor to reveal</span>
+            <!-- name plate -->
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5 bg-gradient-to-t from-ink-950/90 via-ink-950/40 to-transparent">
+              <p class="font-display text-lg font-semibold text-mist-100 leading-none">Jasvant Singh Dosanjh</p>
+              <p class="mono text-[11px] text-kesari-300 mt-1.5">Seattle, WA · 10 yrs · open to work</p>
             </div>
           </div>
+          <Khanda size={54} class="absolute -top-5 -right-4 text-kesari-400/80 animate-float drop-shadow-[0_0_18px_rgba(240,169,60,0.35)]" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- portrait, tucked under the terminal -->
-          <div class="absolute -bottom-8 -left-6 sm:-left-10 w-28 sm:w-36 hidden sm:block">
-            <div class="rounded-2xl overflow-hidden border border-white/10 glow-ring rotate-[-4deg]">
-              <img src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh, IT Manager in Seattle" class="w-full aspect-square object-cover" loading="eager" width="288" height="288" />
-            </div>
-          </div>
-          <Khanda size={58} class="absolute -top-6 -right-5 text-kesari-400/80 animate-float drop-shadow-[0_0_18px_rgba(240,169,60,0.35)]" />
+  <!-- ===================== TERMINAL (typed whoami) ===================== -->
+  <section class="container-x mt-12 sm:mt-16">
+    <div class="reveal term mx-auto max-w-3xl" data-parallax="0.03">
+      <div class="term-bar">
+        <div class="term-lights" aria-hidden="true">
+          <span class="term-light red"></span>
+          <span class="term-light amber"></span>
+          <span class="term-light green"></span>
+        </div>
+        <span class="term-title">jasvant@portfolio — zsh — 80×24</span>
+        <span class="w-[3.4rem]" aria-hidden="true"></span>
+      </div>
+      <div class="term-body min-h-[15rem] sm:min-h-[15.5rem]" id="hero-term" aria-label="Terminal introduction">
+        <div id="hero-fallback">
+          <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> whoami</p>
+          <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · Seattle</p>
+          <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> cat highlights.txt</p>
+          <p class="text-mist-300">→ led 9 staff as interim helpdesk manager @ UW</p>
+          <p class="text-mist-300">→ SLA 48h → 2h · −$30k/yr · zero-downtime migration</p>
+          <p class="text-mist-300">→ built a 12-product security &amp; compliance suite</p>
+          <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> <span class="term-ok">./hire-me --available</span><span class="caret caret-blink"></span></p>
         </div>
       </div>
     </div>

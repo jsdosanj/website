@@ -14,6 +14,7 @@ export type Product = {
   links: { label: string; href: string; icon: string }[];
   accent: 'kesari' | 'azure';
   featured?: boolean;
+  openSource?: boolean; // surfaced in the "Open source" group + a badge
   published?: string; // e.g. "Jun 7, 2026" or "Ongoing"
 };
 
@@ -60,7 +61,7 @@ export const products: Product[] = [
       { label: 'Visit site', href: 'https://dosanjhlabs.com/sightline/', icon: 'external' },
     ],
     accent: 'azure',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'bastion',
@@ -102,7 +103,7 @@ export const products: Product[] = [
       { label: 'Visit site', href: '/ward/', icon: 'external' },
     ],
     accent: 'azure',
-    featured: false,
+    featured: true,
   },
   {
     slug: 'charter',
@@ -250,6 +251,7 @@ export const products: Product[] = [
     ],
     accent: 'azure',
     featured: false,
+    openSource: true,
   },
   {
     slug: 'gurmukhifix',
@@ -293,6 +295,7 @@ export const products: Product[] = [
     ],
     accent: 'azure',
     featured: false,
+    openSource: true,
   },
   {
     slug: 'cairn',
@@ -313,7 +316,8 @@ export const products: Product[] = [
       { label: 'Visit site', href: 'https://dosanjhlabs.com/cairn/', icon: 'external' },
     ],
     accent: 'azure',
-    featured: true,
+    featured: false,
+    openSource: true,
   },
   {
     slug: 'sikh-library-dataset',

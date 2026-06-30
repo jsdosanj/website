@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
+import Spotlight from '../components/Spotlight.astro';
 import { experience } from '../data/experience';
 import { leadership } from '../data/leadership';
 import { education, certifications } from '../data/education';
@@ -71,8 +72,9 @@ const philosophyQuotes = [
   <section class="container-x mt-28">
     <div class="reveal card border-glow p-8 sm:p-10">
       <div class="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-center">
-        <div class="rounded-2xl overflow-hidden border border-white/10 glow-ring max-w-xs">
-          <img src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh" class="w-full aspect-[4/5] object-cover" width="480" height="600" loading="lazy" />
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 border-glow max-w-xs" data-parallax="0.05">
+          <Spotlight src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh" class="aspect-[4/5]" focus="50% 34%" />
+          <span class="pointer-events-none absolute bottom-3 left-3.5 mono text-[10px] tracking-[0.25em] text-mist-300/70">EST. 2016</span>
         </div>
         <div>
           <h2 class="font-display text-2xl sm:text-3xl font-semibold text-mist-100">The pattern behind every chapter</h2>
