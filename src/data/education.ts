@@ -26,6 +26,9 @@ export const education = [
 ];
 
 export const certifications = [
+  'Cognitive Project Management in AI — CPMAI™ (PMI)',
+  'Fundamentals of Agile Project Management (PMI)',
+  'Fundamentals of Predictive Project Management (PMI)',
   'Cloud Security & Audit Fundamentals (AWS, Azure, GCP)',
   'Jamf Pro Certified Tech',
   'NOAH Support Engineer (HIMSA)',

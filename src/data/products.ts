@@ -273,7 +273,8 @@ export const products: Product[] = [
       { label: 'Visit site', href: 'https://jsdosanj.github.io/gurmukhifix/index.html', icon: 'external' },
     ],
     accent: 'kesari',
-    featured: false,
+featured: false,
+    openSource: true,
   },
   {
     slug: 'lookout',
@@ -338,7 +339,8 @@ export const products: Product[] = [
       { label: 'HuggingFace Dataset', href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary', icon: 'external' },
     ],
     accent: 'kesari',
-    featured: false,
+featured: false,
+    openSource: true,
   },
   {
     slug: 'sikharchive',

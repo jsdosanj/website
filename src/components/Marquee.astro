@@ -1,0 +1,19 @@
+---
+// Seamless horizontal marquee. Two identical tracks scroll as one; pauses on
+// hover, reverses with `reverse`, and falls back to a scrollable strip when
+// reduced-motion is on.
+interface Props { items: string[]; reverse?: boolean; dur?: number; class?: string; }
+const { items, reverse = false, dur = 40, class: className = '' } = Astro.props;
+---
+<div class:list={['marquee', className]} data-rev={reverse ? '' : undefined} style={`--marquee-dur:${dur}s`}>
+  <div class="marquee__track">
+    {items.map((it) => (
+      <span class="marquee__item"><span class="marquee__dot">◆</span>{it}</span>
+    ))}
+  </div>
+  <div class="marquee__track" aria-hidden="true">
+    {items.map((it) => (
+      <span class="marquee__item"><span class="marquee__dot">◆</span>{it}</span>
+    ))}
+  </div>
+</div>

@@ -77,10 +77,60 @@
     });
   }
 
+  // Kinetic headlines: each .kin-inner rises into its masked line.
+  function buildKinetic() {
+    gsap.utils.toArray<HTMLElement>('[data-kinetic]').forEach((h) => {
+      const inners = h.querySelectorAll('.kin-inner');
+      if (!inners.length) return;
+      if (reduce) { gsap.set(inners, { yPercent: 0 }); return; }
+      gsap.fromTo(
+        inners,
+        { yPercent: 118 },
+        { yPercent: 0, duration: 1, ease: 'expo.out', stagger: 0.09,
+          scrollTrigger: { trigger: h, start: 'top 92%', once: true } }
+      );
+    });
+  }
+
+  // Magnetic elements pull toward the cursor (wired once each).
+  function buildMagnetic() {
+    if (reduce || !fine) return;
+    document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((el) => {
+      if ((el as any)._mag) return;
+      (el as any)._mag = true;
+      const s = parseFloat(el.dataset.magnetic || '0.35');
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        gsap.to(el, {
+          x: (e.clientX - (r.left + r.width / 2)) * s,
+          y: (e.clientY - (r.top + r.height / 2)) * s,
+          duration: 0.4, ease: 'power3.out',
+        });
+      });
+      el.addEventListener('pointerleave', () =>
+        gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' })
+      );
+    });
+  }
+
+  // Page-turn / curtain: .turn sections un-clip and settle as they enter.
+  function buildTurn() {
+    if (reduce) { gsap.utils.toArray<HTMLElement>('.turn').forEach((el) => el.style.setProperty('--turn', '0')); return; }
+    gsap.utils.toArray<HTMLElement>('.turn').forEach((el) => {
+      gsap.fromTo(el, { '--turn': 1 }, {
+        '--turn': 0, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top 88%', end: 'top 52%', scrub: 0.6 },
+      });
+    });
+  }
+
   function setup() {
     initLenis();
     ScrollTrigger.getAll().forEach((t) => t.kill());
     buildReveals();
+    buildKinetic();
+    buildMagnetic();
+    buildTurn();
     wireAnchors();
     ScrollTrigger.refresh();
   }
