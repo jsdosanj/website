@@ -15,19 +15,22 @@ import { helpAreas, outcomes } from '../data/value';
 import { recommendations } from '../data/recommendations';
 import { url } from '../utils';
 
-const stack = [
-  'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'Google Workspace', 'AWS', 'Azure',
-  'Agile / Scrum', 'Jira', 'Workday', 'NIST CSF', 'HIPAA', 'FERPA', 'CrowdStrike',
-  'Python', 'Bash', 'CI/CD', 'Snipe-IT', 'Cloudflare',
+const stackTop = [
+  'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'Google Workspace', 'Windows Server',
+  'AWS', 'Azure', 'Cloudflare', 'CrowdStrike', 'Snipe-IT',
+];
+const stackBottom = [
+  'Agile / Scrum', 'SAFe', 'Jira', 'Confluence', 'Workday', 'Azure DevOps',
+  'NIST CSF', 'HIPAA', 'FERPA', 'CMMC', 'Python', 'Bash', 'CI/CD',
 ];
 
 const featured = products.filter((p) => p.featured);
 const primaryResume = site.resumes.find((r) => r.primary) ?? site.resumes[0];
 
 const principles = [
-  { icon: 'workflow', title: 'Run it like a program', text: 'Matrixed teams, vendors, and budgets aligned to outcomes — SDLC owned end to end, Agile delivery that ships, and a roadmap stakeholders actually trust.' },
+  { icon: 'workflow', title: 'Run it like a program', text: 'Matrixed teams, vendors, and budgets aligned to outcomes. I own the SDLC end to end, run Agile delivery that ships, and keep a roadmap stakeholders actually trust.' },
   { icon: 'shield', title: 'Compliant & secure by default', text: 'A decade across healthcare, education, and big tech taught me to build with NIST, HIPAA, and FERPA baked in — not bolted on.' },
-  { icon: 'sparkles', title: 'AI as a force multiplier', text: 'A hands-on practitioner: I ship real tools with AI — from a 12-product compliance suite to OCR repair for endangered scripts — so teams move faster.' },
+  { icon: 'sparkles', title: 'AI that earns its keep', text: 'A hands-on practitioner. I ship real tools with AI, from a 12-product compliance suite to OCR repair for endangered scripts, that help teams move faster.' },
   { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools and teams that uplift people and help them do their best work.' },
 ];
 ---
@@ -124,9 +127,10 @@ const principles = [
     </div>
   </section>
 
-  <!-- ===================== STACK MARQUEE ===================== -->
-  <section class="mt-12 sm:mt-16 py-5 border-y border-white/[0.07] bg-ink-900/40">
-    <Marquee items={stack} dur={46} />
+  <!-- ===================== STACK MARQUEE (counter-scrolling rows) ===================== -->
+  <section class="mt-12 sm:mt-16 py-6 border-y border-white/[0.07] bg-ink-900/40 space-y-3" aria-label="Tools, platforms, and frameworks I work with">
+    <Marquee items={stackTop} dur={52} label="Platforms and tools, row 1" />
+    <Marquee items={stackBottom} dur={58} reverse label="Methods and frameworks, row 2" />
   </section>
 
   <!-- ===================== OUTCOMES STRIP ===================== -->
@@ -225,7 +229,7 @@ const principles = [
           <p class="mt-4 max-w-2xl text-mist-400 leading-relaxed">
             Beyond the work, I serve as a parcharik — speaking at community events worldwide and preserving Sikh heritage with
             <span class="text-mist-200"> Basics of Sikhi</span> and <span class="text-mist-200">SikhArchive.net</span>.
-            The same instinct drives the code and the seva: leadership rooted in service, resilience, and people-first values.
+            The code and the seva come from the same place: leadership rooted in service, resilience, and putting people first.
           </p>
           <a href={url('/seva')} class="mt-6 inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold mono text-kesari-300 hover:border-kesari-500/40 transition-colors">
             cd ./seva <Icon name="arrow" size={18} />

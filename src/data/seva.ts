@@ -4,7 +4,7 @@ export const sevaIntro = {
   mool: 'Ik Onkar — one creative reality, present in all.',
   heading: 'Parchar & Seva',
   lead:
-    'Beyond the lab, I serve as a parcharik — a teacher and speaker carrying the message of Guru Nanak across the world. The same instinct that drives the technology drives this: knowledge that uplifts should never stay locked away where only one person can reach it.',
+    'Beyond the lab, I serve as a parcharik: a teacher and speaker carrying the message of Guru Nanak around the world. It comes from the same place as the work I do with technology. Knowledge that lifts people up should be within reach of everyone, not locked away for a few.',
 };
 
 export type SevaEngagement = {

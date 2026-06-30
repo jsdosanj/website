@@ -1,19 +1,41 @@
 ---
 // Seamless horizontal marquee. Two identical tracks scroll as one; pauses on
-// hover, reverses with `reverse`, and falls back to a scrollable strip when
-// reduced-motion is on.
-interface Props { items: string[]; reverse?: boolean; dur?: number; class?: string; }
-const { items, reverse = false, dur = 40, class: className = '' } = Astro.props;
+// hover/focus, reverses with `reverse`, and offers a keyboard-reachable
+// pause/play control (WCAG 2.2.2). Gentle slow autoscroll under reduced motion.
+interface Props { items: string[]; reverse?: boolean; dur?: number; class?: string; label?: string; }
+const { items, reverse = false, dur = 40, class: className = '', label = 'Tools and technologies' } = Astro.props;
 ---
-<div class:list={['marquee', className]} data-rev={reverse ? '' : undefined} style={`--marquee-dur:${dur}s`}>
-  <div class="marquee__track">
-    {items.map((it) => (
-      <span class="marquee__item"><span class="marquee__dot">◆</span>{it}</span>
-    ))}
+<div class:list={['marquee', className]} data-rev={reverse ? '' : undefined} data-marquee style={`--marquee-dur:${dur}s`} role="region" aria-label={label}>
+  <div class="marquee__viewport">
+    <div class="marquee__track">
+      {items.map((it) => (
+        <span class="marquee__item"><span class="marquee__dot" aria-hidden="true">◆</span>{it}</span>
+      ))}
+    </div>
+    <div class="marquee__track" aria-hidden="true">
+      {items.map((it) => (
+        <span class="marquee__item"><span class="marquee__dot" aria-hidden="true">◆</span>{it}</span>
+      ))}
+    </div>
   </div>
-  <div class="marquee__track" aria-hidden="true">
-    {items.map((it) => (
-      <span class="marquee__item"><span class="marquee__dot">◆</span>{it}</span>
-    ))}
-  </div>
+  <button type="button" class="marquee__toggle" data-marquee-toggle aria-label="Pause scrolling">
+    <span aria-hidden="true">❙❙</span>
+  </button>
 </div>
+
+<script>
+  function wireMarquee() {
+    document.querySelectorAll<HTMLElement>('[data-marquee]').forEach((m) => {
+      if ((m as any)._wired) return;
+      (m as any)._wired = true;
+      const btn = m.querySelector<HTMLButtonElement>('[data-marquee-toggle]');
+      btn?.addEventListener('click', () => {
+        const paused = m.classList.toggle('is-paused');
+        btn.setAttribute('aria-label', paused ? 'Resume scrolling' : 'Pause scrolling');
+        btn.querySelector('span')!.textContent = paused ? '▶' : '❙❙';
+      });
+    });
+  }
+  wireMarquee();
+  document.addEventListener('astro:page-load', wireMarquee);
+</script>

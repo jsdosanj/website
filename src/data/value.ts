@@ -17,7 +17,7 @@ export const helpAreas = [
     icon: 'workflow',
     role: 'Technical Program Management',
     blurb:
-      'I lead complex, cross-functional programs end to end — aligning engineering, vendors, and leadership, and turning technical debt into a roadmap teams can actually trust.',
+      'I lead complex, cross-functional programs end to end, aligning engineering, vendors, and leadership behind a roadmap people can actually trust. Technical debt becomes a plan, not a surprise.',
     proof: [
       'Cut an escalated department’s SLA from 48 hours to 2',
       'Zero unplanned downtime across a 6-month, multi-building security migration',
@@ -28,7 +28,7 @@ export const helpAreas = [
     icon: 'server',
     role: 'Senior Systems & Endpoint Engineering',
     blurb:
-      'I run real fleets and harden them — hands-on with Jamf, Intune, JumpCloud, automation, and cloud — building standards that get adopted across the whole org.',
+      'I run and harden real fleets, hands-on with Jamf, Intune, JumpCloud, automation, and cloud. The standards I build tend to get adopted across the whole org.',
     proof: [
       'Standardized and scaled Jamf Pro across the entire College of Arts & Sciences at UW',
       'Automation that cut provisioning time 75% and saved $30K/yr',

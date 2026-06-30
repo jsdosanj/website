@@ -22,11 +22,16 @@
     let rx = mx,
       ry = my;
     let raf = 0;
+    // start both at centre (never stranded at 0,0) and stay hidden until the
+    // pointer actually moves, so there's no top-left artifact on load.
+    dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+    dot.style.opacity = ring.style.opacity = '0';
 
     const onMove = (e: PointerEvent) => {
       mx = e.clientX;
       my = e.clientY;
       dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+      dot.style.opacity = ring.style.opacity = '1';
     };
 
     const loop = () => {
