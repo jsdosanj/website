@@ -1,47 +1,64 @@
 @import 'tailwindcss';
 
 /* ============================================================
-   DOSANJH LABS — Design System
-   Dark, premium, technical — with Sikh heritage motifs
-   (kesari/saffron gold + Khalsa blue on deep ink)
+   JASVANT DOSANJH — Design System
+   "macOS Terminal" — premium, technical, cinematic.
+   Authentic graphite terminal surfaces · kesari gold as the
+   single hero accent · Khalsa blue + phosphor green as support.
+   Built for an IT Manager portfolio.
    ============================================================ */
 
 @theme {
-  /* — Core surfaces (deep ink) — */
-  --color-ink-950: #06080c;
-  --color-ink-900: #0a0d13;
-  --color-ink-850: #0e121a;
-  --color-ink-800: #131824;
-  --color-ink-700: #1b2230;
-  --color-ink-600: #28323f;
+  /* — Core surfaces (graphite, like a tuned macOS Terminal) — */
+  --color-ink-950: #07080a;
+  --color-ink-900: #0a0b0e;
+  --color-ink-850: #0e0f13;
+  --color-ink-800: #14161b;
+  --color-ink-700: #1c1f26;
+  --color-ink-600: #2a2e37;
 
-  /* — Kesari / saffron gold (Nishan Sahib heritage accent) — */
+  /* — Kesari / saffron gold — THE hero accent — */
   --color-kesari-300: #ffd98a;
   --color-kesari-400: #f7c25a;
   --color-kesari-500: #f0a93c;
   --color-kesari-600: #d98a23;
 
-  /* — Khalsa / royal blue (carried from original brand) — */
+  /* — Khalsa / royal blue — secondary accent — */
   --color-azure-300: #8fb4ff;
   --color-azure-400: #5b86f5;
   --color-azure-500: #4169e1;
   --color-azure-600: #2e4fb8;
   --color-azure-900: #16234a;
 
+  /* — Phosphor green — terminal "OK" / prompt success — */
+  --color-phos-300: #86efac;
+  --color-phos-400: #4ade80;
+  --color-phos-500: #22c55e;
+
+  /* — macOS traffic lights — */
+  --color-mac-red: #ff5f57;
+  --color-mac-amber: #febc2e;
+  --color-mac-green: #28c840;
+
   /* — Text — */
   --color-mist-100: #eef2f8;
-  --color-mist-300: #c2ccda;
-  --color-mist-400: #98a4b6;
-  --color-mist-500: #6b7686;
+  --color-mist-200: #d6dde8;
+  --color-mist-300: #b9c2cf;
+  --color-mist-400: #8b94a3;
+  --color-mist-500: #626b78;
+  --color-mist-600: #444b55;
 
-  /* — Fonts — */
-  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'Fira Code', monospace;
+  /* — Fonts — distinctive, intentional (no Inter/Helvetica defaults).
+     Bricolage Grotesque = editorial display character; Hanken Grotesk =
+     warm, legible body; JetBrains Mono = the terminal voice. — */
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Fira Code', monospace;
   --font-gurmukhi: 'Noto Serif Gurmukhi', serif;
 
   /* — Motion — */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ---------- Base ---------- */
@@ -50,9 +67,14 @@ html {
   scroll-padding-top: 6rem;
   -webkit-text-size-adjust: 100%;
 }
+/* Lenis owns the scroll once active; disable native smooth to avoid fighting it */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 body {
-  background-color: var(--color-ink-900);
+  background-color: var(--color-ink-950);
   color: var(--color-mist-300);
   font-family: var(--font-sans);
   font-feature-settings: 'cv11', 'ss01';
@@ -76,37 +98,50 @@ body {
 }
 
 /* ---------- Ambient backdrop ---------- */
-/* Fixed aurora + fine grain behind everything */
 .bg-aurora {
   position: fixed;
   inset: 0;
   z-index: -3;
   background:
-    radial-gradient(60rem 60rem at 12% -10%, color-mix(in srgb, var(--color-azure-500) 16%, transparent), transparent 60%),
-    radial-gradient(50rem 50rem at 95% 8%, color-mix(in srgb, var(--color-kesari-500) 12%, transparent), transparent 55%),
-    radial-gradient(70rem 70rem at 50% 120%, color-mix(in srgb, var(--color-azure-600) 14%, transparent), transparent 60%),
-    var(--color-ink-900);
+    radial-gradient(58rem 58rem at 12% -12%, color-mix(in srgb, var(--color-kesari-500) 9%, transparent), transparent 60%),
+    radial-gradient(48rem 48rem at 96% 6%, color-mix(in srgb, var(--color-azure-500) 9%, transparent), transparent 55%),
+    radial-gradient(70rem 70rem at 50% 125%, color-mix(in srgb, var(--color-azure-600) 10%, transparent), transparent 60%),
+    var(--color-ink-950);
+}
+/* Faint terminal scanlines over the whole page — very subtle */
+.bg-scan {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 255, 255, 0.014) 3px,
+    transparent 4px
+  );
 }
 .bg-grain {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---------- Reusable utilities ---------- */
 @utility container-x {
   width: 100%;
-  max-width: 90rem;
+  max-width: 88rem;
   margin-inline: auto;
-  /* padding scales with viewport: tight on mobile, generous on desktop */
   padding-inline: clamp(1.15rem, 4vw, 3.5rem);
 }
 
 @utility text-gradient {
-  background: linear-gradient(110deg, var(--color-mist-100) 0%, var(--color-kesari-300) 55%, var(--color-azure-300) 100%);
+  background: linear-gradient(108deg, var(--color-mist-100) 0%, var(--color-kesari-300) 60%, var(--color-kesari-500) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -120,38 +155,37 @@ body {
 }
 
 @utility glass {
-  background: color-mix(in srgb, var(--color-ink-800) 70%, transparent);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: color-mix(in srgb, var(--color-ink-800) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
   border: 1px solid color-mix(in srgb, var(--color-mist-100) 8%, transparent);
 }
 
 @utility card {
   position: relative;
-  border-radius: 1rem;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--color-ink-800) 85%, transparent), color-mix(in srgb, var(--color-ink-850) 92%, transparent));
+  border-radius: 0.9rem;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-ink-800) 88%, transparent), color-mix(in srgb, var(--color-ink-850) 94%, transparent));
   border: 1px solid color-mix(in srgb, var(--color-mist-100) 7%, transparent);
-  transition: transform 0.4s var(--ease-out-expo), border-color 0.4s, box-shadow 0.4s;
+  transition: transform 0.45s var(--ease-out-expo), border-color 0.45s, box-shadow 0.45s;
 }
 @utility card-hover {
   &:hover {
     transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--color-kesari-500) 38%, transparent);
-    box-shadow: 0 18px 50px -20px color-mix(in srgb, var(--color-kesari-600) 35%, transparent);
+    border-color: color-mix(in srgb, var(--color-kesari-500) 40%, transparent);
+    box-shadow: 0 22px 60px -24px color-mix(in srgb, var(--color-kesari-600) 38%, transparent);
   }
 }
 
 @utility glow-ring {
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--color-kesari-500) 30%, transparent),
-    0 0 40px -8px color-mix(in srgb, var(--color-kesari-500) 45%, transparent);
+    0 0 44px -8px color-mix(in srgb, var(--color-kesari-500) 42%, transparent);
 }
 
 @utility hairline {
   border-top: 1px solid color-mix(in srgb, var(--color-mist-100) 8%, transparent);
 }
 
-/* Animated gradient border for feature panels */
 @utility border-glow {
   position: relative;
   &::before {
@@ -160,7 +194,7 @@ body {
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(130deg, color-mix(in srgb, var(--color-kesari-500) 60%, transparent), transparent 40%, color-mix(in srgb, var(--color-azure-500) 60%, transparent));
+    background: linear-gradient(130deg, color-mix(in srgb, var(--color-kesari-500) 60%, transparent), transparent 42%, color-mix(in srgb, var(--color-azure-500) 50%, transparent));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -168,38 +202,111 @@ body {
   }
 }
 
-/* ---------- Scroll reveal ---------- */
+/* ============================================================
+   TERMINAL WINDOW SYSTEM — the signature motif
+   ============================================================ */
+@utility term {
+  position: relative;
+  border-radius: 0.85rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-ink-850) 96%, transparent), color-mix(in srgb, var(--color-ink-900) 98%, transparent));
+  border: 1px solid color-mix(in srgb, var(--color-mist-100) 9%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in srgb, var(--color-mist-100) 6%, transparent) inset,
+    0 40px 80px -40px rgba(0, 0, 0, 0.9),
+    0 16px 40px -24px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+@utility term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding-inline: 0.85rem;
+  background: linear-gradient(180deg, var(--color-ink-800), color-mix(in srgb, var(--color-ink-800) 80%, var(--color-ink-850)));
+  border-bottom: 1px solid color-mix(in srgb, var(--color-mist-100) 8%, transparent);
+}
+
+.term-lights { display: flex; align-items: center; gap: 0.5rem; }
+.term-light {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.25) inset;
+}
+.term-light.red { background: var(--color-mac-red); }
+.term-light.amber { background: var(--color-mac-amber); }
+.term-light.green { background: var(--color-mac-green); }
+
+.term-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--color-mist-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.term-body {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--color-mist-300);
+  padding: clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.term-prompt-sym { color: var(--color-azure-300); }
+.term-comment { color: var(--color-mist-500); }
+.term-ok { color: var(--color-phos-400); }
+.term-key { color: var(--color-kesari-400); }
+.term-str { color: var(--color-azure-300); }
+.term-user { color: var(--color-phos-400); }
+
+/* Caret for typed lines */
+.caret {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.05em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--color-kesari-400);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-kesari-500) 70%, transparent);
+}
+.caret-blink { animation: blink 1.05s steps(1) infinite; }
+
+/* Inline keycap (e.g. ⌘K) */
+.kbd {
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  padding: 0.12em 0.5em;
+  border-radius: 0.4rem;
+  background: color-mix(in srgb, var(--color-mist-100) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-mist-100) 12%, transparent);
+  border-bottom-width: 2px;
+  color: var(--color-mist-200);
+}
+
+/* ---------- Scroll reveal (GSAP-driven; CSS is the fallback) ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
   will-change: opacity, transform;
 }
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
+.reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Keyframe animations ---------- */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-14px) rotate(2deg); }
 }
-@keyframes spin-slow {
-  to { transform: rotate(360deg); }
-}
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
-}
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 
 .animate-float { animation: float-slow 8s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
@@ -223,18 +330,12 @@ body {
   background-repeat: no-repeat;
   animation: twinkle 6s ease-in-out infinite;
 }
-@keyframes twinkle {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
+@keyframes twinkle { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 
-/* Orbit ring for the story hero */
 .orbit-ring {
   border: 1px solid color-mix(in srgb, var(--color-kesari-500) 25%, transparent);
   border-radius: 9999px;
 }
-
-/* Comet trail — the glowing vertical line of the journey */
 .trail-line {
   background: linear-gradient(
     180deg,
@@ -254,6 +355,76 @@ body {
 /* Heritage typographic accent */
 .gurmukhi { font-family: var(--font-gurmukhi); }
 .mono { font-family: var(--font-mono); }
+
+/* ============================================================
+   CUSTOM CURSOR — desktop only (hover + fine pointer)
+   ============================================================ */
+.cursor-dot,
+.cursor-ring { display: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .has-cursor { cursor: none; }
+  .has-cursor a,
+  .has-cursor button,
+  .has-cursor [role='button'],
+  .has-cursor input,
+  .has-cursor textarea,
+  .has-cursor label { cursor: none; }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+    border-radius: 9999px;
+    transform: translate3d(-50%, -50%, 0);
+    mix-blend-mode: difference;
+  }
+  .cursor-dot {
+    width: 7px;
+    height: 7px;
+    background: #fff;
+  }
+  .cursor-ring {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: width 0.25s var(--ease-out-expo), height 0.25s var(--ease-out-expo),
+      background-color 0.25s, border-color 0.25s;
+  }
+  .cursor-ring.is-hover {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* ============================================================
+   BOOT LOADER
+   ============================================================ */
+#boot {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background: var(--color-ink-950);
+  transition: opacity 0.6s var(--ease-out-expo), visibility 0.6s;
+}
+#boot.done { opacity: 0; visibility: hidden; }
+#boot .boot-inner {
+  width: min(92vw, 38rem);
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 2.4vw, 0.85rem);
+  line-height: 1.85;
+  color: var(--color-mist-300);
+}
+#boot .boot-line { opacity: 0; }
+#boot .boot-line.show { opacity: 1; }
 
 /* Focus visibility */
 :focus-visible {

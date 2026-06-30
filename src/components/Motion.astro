@@ -1,0 +1,97 @@
+---
+// Premium motion layer: Lenis smooth scroll + GSAP ScrollTrigger reveals.
+// - Lenis runs only on fine-pointer, non-reduced-motion devices (desktops);
+//   phones/tablets keep buttery native scroll.
+// - Reveals are GSAP-driven, re-bound on every Astro view transition.
+// - prefers-reduced-motion → everything shows instantly, no animation.
+---
+<script>
+  import Lenis from 'lenis';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  let lenis: Lenis | null = null;
+
+  function initLenis() {
+    if (lenis || reduce || !fine) return;
+    lenis = new Lenis({
+      duration: 1.1,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time: number) => lenis!.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    document.documentElement.classList.add('lenis');
+  }
+
+  // Anchor links → smooth scroll through Lenis when it's active
+  function wireAnchors() {
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        if (lenis) lenis.scrollTo(target as HTMLElement, { offset: -90 });
+        else target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+  }
+
+  function buildReveals() {
+    const els = gsap.utils.toArray<HTMLElement>('.reveal');
+    if (reduce) {
+      els.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    els.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 26 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+          onStart: () => el.classList.add('is-visible'),
+        }
+      );
+    });
+
+    // Optional parallax for anything tagged [data-parallax]
+    gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((el) => {
+      const depth = parseFloat(el.dataset.parallax || '0.15');
+      gsap.to(el, {
+        yPercent: -depth * 100,
+        ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true },
+      });
+    });
+  }
+
+  function setup() {
+    initLenis();
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+    buildReveals();
+    wireAnchors();
+    ScrollTrigger.refresh();
+  }
+
+  // Fires on first load AND after every view transition.
+  document.addEventListener('astro:page-load', setup);
+
+  // Stop Lenis mid-transition so it doesn't fight the swap, resume after.
+  document.addEventListener('astro:before-swap', () => lenis?.stop());
+  document.addEventListener('astro:after-swap', () => {
+    window.scrollTo(0, 0);
+    lenis?.start();
+  });
+</script>

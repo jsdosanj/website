@@ -10,27 +10,32 @@ const isActive = (href: string) => {
 ---
 <header class="fixed top-0 inset-x-0 z-50">
   <nav class="container-x mt-4" aria-label="Main navigation">
-    <div class="glass rounded-2xl px-4 sm:px-5 py-2.5 flex items-center justify-between shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)]">
-      <!-- Brand -->
-      <a href={url('/')} class="group flex items-center shrink-0" aria-label="Jasvant Dosanjh — home">
-        <Logo emblemSize={32} class="gap-2.5" />
+    <div class="glass rounded-2xl pl-3 pr-2.5 sm:pl-4 py-2 flex items-center justify-between shadow-[0_8px_40px_-12px_rgba(0,0,0,0.7)]">
+      <!-- Brand + traffic lights -->
+      <a href={url('/')} class="group flex items-center gap-3 shrink-0" aria-label="Jasvant Dosanjh — home">
+        <span class="term-lights hidden sm:flex" aria-hidden="true">
+          <span class="term-light red"></span>
+          <span class="term-light amber"></span>
+          <span class="term-light green"></span>
+        </span>
+        <Logo emblemSize={28} class="gap-2" />
       </a>
 
       <!-- Desktop links -->
-      <ul class="hidden md:flex items-center gap-1" role="list">
+      <ul class="hidden md:flex items-center gap-0.5" role="list">
         {nav.map((item) => (
           <li>
             <a
               href={url(item.href)}
               class:list={[
-                'px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
+                'mono px-3 py-2 rounded-lg text-[13px] tracking-tight transition-colors',
                 isActive(item.href)
-                  ? 'text-kesari-300 bg-white/[0.04]'
+                  ? 'text-kesari-300 bg-white/[0.05]'
                   : 'text-mist-400 hover:text-mist-100 hover:bg-white/[0.03]',
               ]}
               aria-current={isActive(item.href) ? 'page' : undefined}
             >
-              {item.label}
+              <span class="text-mist-600">/</span>{item.label.toLowerCase()}
             </a>
           </li>
         ))}
@@ -40,9 +45,9 @@ const isActive = (href: string) => {
       <div class="flex items-center gap-2">
         <a
           href={url('/contact')}
-          class="hidden sm:inline-flex items-center gap-2 rounded-lg bg-kesari-500 text-ink-950 px-4 py-2 text-sm font-semibold hover:bg-kesari-400 transition-colors"
+          class="hidden sm:inline-flex items-center gap-2 rounded-lg bg-kesari-500 text-ink-950 px-4 py-2 text-[13px] font-semibold mono hover:bg-kesari-400 transition-colors"
         >
-          Let’s talk
+          ./hire-me
         </a>
         <button
           id="nav-toggle"
@@ -51,7 +56,7 @@ const isActive = (href: string) => {
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="nav-line-1" x1="3" y1="7" x2="21" y2="7"/><line class="nav-line-2" x1="3" y1="12" x2="21" y2="12"/><line class="nav-line-3" x1="3" y1="17" x2="21" y2="17"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
         </button>
       </div>
     </div>
@@ -64,16 +69,16 @@ const isActive = (href: string) => {
             <a
               href={url(item.href)}
               class:list={[
-                'block px-4 py-3 rounded-lg text-[15px] font-medium transition-colors',
-                isActive(item.href) ? 'text-kesari-300 bg-white/[0.04]' : 'text-mist-300 hover:bg-white/5',
+                'mono block px-4 py-3 rounded-lg text-[15px] transition-colors',
+                isActive(item.href) ? 'text-kesari-300 bg-white/[0.05]' : 'text-mist-300 hover:bg-white/5',
               ]}
             >
-              {item.label}
+              <span class="text-mist-600">/</span>{item.label.toLowerCase()}
             </a>
           </li>
         ))}
         <li class="p-2">
-          <a href={url('/contact')} class="block text-center rounded-lg bg-kesari-500 text-ink-950 px-4 py-3 font-semibold">Let’s talk</a>
+          <a href={url('/contact')} class="mono block text-center rounded-lg bg-kesari-500 text-ink-950 px-4 py-3 font-semibold">./hire-me</a>
         </li>
       </ul>
     </div>
@@ -81,14 +86,18 @@ const isActive = (href: string) => {
 </header>
 
 <script>
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => {
-    const open = menu?.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(open === false));
-  });
-  // close on navigation link tap
-  menu?.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', () => menu.classList.add('hidden'))
-  );
+  function wireNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(open === false));
+    });
+    menu.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => menu.classList.add('hidden'))
+    );
+  }
+  wireNav();
+  document.addEventListener('astro:after-swap', wireNav);
 </script>

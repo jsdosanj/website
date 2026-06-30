@@ -12,86 +12,125 @@ import { recommendations } from '../data/recommendations';
 import { url } from '../utils';
 
 const featured = products.filter((p) => p.featured);
+const primaryResume = site.resumes.find((r) => r.primary) ?? site.resumes[0];
 
 const principles = [
-  { icon: 'workflow', title: 'Built to be handed off', text: 'I try to design frameworks that are easy to pass on — documented and replicable, so the next team doesn’t have to re-solve a solved problem.' },
-  { icon: 'sparkles', title: 'AI as a force multiplier', text: 'From RAG over a 758M-word corpus to OCR repair for endangered scripts, I use AI to make hard problems tractable — and rare knowledge accessible.' },
+  { icon: 'workflow', title: 'Run it like a program', text: 'Matrixed teams, vendors, and budgets aligned to outcomes — SDLC owned end to end, Agile delivery that ships, and a roadmap stakeholders actually trust.' },
   { icon: 'shield', title: 'Compliant & secure by default', text: 'A decade across healthcare, education, and big tech taught me to build with NIST, HIPAA, and FERPA baked in — not bolted on.' },
-  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools that uplift people and help them do their best work.' },
+  { icon: 'sparkles', title: 'AI as a force multiplier', text: 'A hands-on practitioner: I ship real tools with AI — from a 12-product compliance suite to OCR repair for endangered scripts — so teams move faster.' },
+  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools and teams that uplift people and help them do their best work.' },
 ];
 ---
 <Base
-  description="Jasvant Singh Dosanjh — senior IT leader, security & GRC, and systems engineer in Seattle. 10+ years across healthcare, higher ed, gaming, and big tech. Open to IT Security & GRC Leader, Technical Program Manager, and Senior Systems & Endpoint Engineer roles."
-  keywords={["Seattle IT Security Leader", "GRC", "Technical Program Manager", "Senior Systems Engineer", "Endpoint Engineer", "IT Manager Seattle", "open to work", "Jamf Pro", "Intune", "JumpCloud", "NIST", "HIPAA"]}
+  description="Jasvant Singh Dosanjh — IT Manager in Seattle. 10 years leading matrixed, cross-functional teams across higher ed, healthcare, gaming, and big tech: SDLC ownership, Agile delivery, DevOps automation, vendor and budget management, and GRC across HIPAA, FERPA, and NIST. Open to IT Manager roles."
+  keywords={["IT Manager Seattle", "IT Program Manager", "IT Project Manager", "helpdesk manager", "Jamf Pro", "Intune", "JumpCloud", "NIST", "HIPAA", "FERPA", "vendor management", "Agile", "open to work"]}
   preloadImage="/images/headshot-v2.jpg"
 >
   <!-- ===================== HERO ===================== -->
-  <section class="relative pt-36 sm:pt-44 pb-16 overflow-hidden">
-    <Jali class="absolute -top-24 right-[-10%] w-[42rem] h-[42rem] text-azure-500/[0.12] pointer-events-none" opacity={1} />
+  <section class="relative pt-32 sm:pt-40 pb-16 overflow-hidden">
+    <Jali class="absolute -top-24 right-[-10%] w-[42rem] h-[42rem] text-azure-500/[0.10] pointer-events-none" opacity={1} />
     <div class="container-x relative">
-      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-8 items-center">
-        <div class="reveal is-visible">
-          <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1.5 text-xs font-medium text-emerald-300">
-            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-glow"></span>
-            Open to new roles · Seattle / Remote
-          </span>
-          <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.05] tracking-tight text-mist-100">
-            Senior IT leader,
-            <span class="text-gradient"> builder, problem-solver.</span>
+      <!-- eyebrow path -->
+      <p class="reveal mono text-xs sm:text-sm text-mist-500 flex items-center gap-2">
+        <span class="text-mist-400">~/Users/jasvant</span>
+        <span class="text-mist-600">—</span>
+        <span class="inline-flex items-center gap-1.5 text-phos-400"><span class="h-1.5 w-1.5 rounded-full bg-phos-400 animate-pulse-glow"></span>open to work · Seattle / Remote</span>
+      </p>
+
+      <div class="mt-7 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
+        <!-- Left: headline + terminal + CTAs -->
+        <div>
+          <h1 class="reveal font-display text-[2.6rem] sm:text-6xl lg:text-[4.2rem] font-bold leading-[0.98] tracking-tight text-mist-100">
+            IT Manager who<br />
+            <span class="text-gradient">ships, secures &amp; scales.</span>
           </h1>
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-mist-400">
-            I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — 10+ years turning broken infrastructure,
-            stalled programs, and lost trust into outcomes that scale, across healthcare, higher ed, gaming, and big tech.
-            What I care about most is leaving things — and the people I work with — better than I found them.
+          <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-mist-400">
+            I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — 10 years leading matrixed,
+            cross-functional teams across higher ed, healthcare, gaming, and big tech. I own the SDLC, run Agile
+            delivery, automate the busywork, manage vendors and budgets, and keep it all audit-ready.
           </p>
+
           <!-- target roles -->
-          <div class="mt-6 flex flex-wrap gap-2">
+          <div class="reveal mt-6 flex flex-wrap gap-2">
             {site.roles.map((r) => (
-              <span class="rounded-lg bg-white/[0.04] border border-white/10 text-mist-200 px-3 py-1.5 text-sm font-medium">{r}</span>
+              <span class="mono rounded-lg bg-white/[0.04] border border-white/10 text-mist-200 px-3 py-1.5 text-[13px]">{r}</span>
             ))}
           </div>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href={url('/contact')} class="group inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold hover:bg-kesari-400 transition-colors">
-              Let’s talk
+
+          <!-- CTAs -->
+          <div class="reveal mt-8 flex flex-wrap gap-3">
+            <a href={url('/contact')} class="group inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold mono hover:bg-kesari-400 transition-colors">
+              ./hire-me
               <Icon name="arrow" size={18} class="group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <a href="#impact" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:text-mist-100 hover:border-white/20 transition-colors">
-              See my impact
+            <a href={primaryResume.href} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold mono text-mist-200 hover:text-mist-100 hover:border-white/20 transition-colors">
+              <Icon name="file" size={17} /> résumé.pdf
             </a>
           </div>
-          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-            <span class="text-mist-500">Résumés:</span>
-            {site.resumes.map((r) => (
-              <a href={r.href} download class="inline-flex items-center gap-1.5 text-mist-300 hover:text-kesari-300 transition-colors"><Icon name="file" size={15} /> {r.short}</a>
-            ))}
-            <span class="text-mist-600">·</span>
-            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-mist-300 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a>
+
+          <!-- quick links -->
+          <div class="reveal mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 mono text-sm">
+            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a>
+            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="github" size={16} /> GitHub</a>
+            <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="mail" size={16} /> Email</a>
           </div>
         </div>
 
-        <!-- Portrait -->
-        <div class="reveal is-visible relative mx-auto lg:mx-0 max-w-sm w-full">
-          <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 glow-ring">
-            <img src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh, Technical Project Manager in Seattle" class="w-full aspect-[4/5] object-cover" loading="eager" width="640" height="800" />
-            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4 glass rounded-xl px-4 py-3 flex items-center justify-between">
-              <div>
-                <p class="font-display text-sm font-semibold text-mist-100">Jasvant Singh Dosanjh</p>
-                <p class="mono text-[11px] text-mist-400">Technical Program Manager · Seattle</p>
+        <!-- Right: terminal window (typed) + portrait -->
+        <div class="reveal relative">
+          <div class="term" data-parallax="0.06">
+            <div class="term-bar">
+              <div class="term-lights" aria-hidden="true">
+                <span class="term-light red"></span>
+                <span class="term-light amber"></span>
+                <span class="term-light green"></span>
               </div>
-              <span class="gurmukhi text-kesari-400 text-xl">ੴ</span>
+              <span class="term-title">jasvant@portfolio — zsh — 80×24</span>
+              <span class="w-[3.4rem]" aria-hidden="true"></span>
+            </div>
+            <div class="term-body min-h-[16.5rem] sm:min-h-[18rem]" id="hero-term" aria-label="Terminal introduction">
+              <!-- static fallback content (shown if JS/typing is off) -->
+              <div id="hero-fallback">
+                <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> whoami</p>
+                <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · Seattle</p>
+                <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> cat highlights.txt</p>
+                <p class="text-mist-300">→ led 9 staff as interim helpdesk manager @ UW</p>
+                <p class="text-mist-300">→ SLA 48h → 2h · −$30k/yr · zero-downtime migration</p>
+                <p class="text-mist-300">→ built a 12-product security &amp; compliance suite</p>
+                <p class="mt-2"><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> <span class="term-ok">./hire-me --available</span><span class="caret caret-blink"></span></p>
+              </div>
             </div>
           </div>
-          <Khanda size={70} class="absolute -top-7 -left-7 text-kesari-400/80 animate-float drop-shadow-[0_0_18px_rgba(240,169,60,0.35)]" />
+
+          <!-- portrait, tucked under the terminal -->
+          <div class="absolute -bottom-8 -left-6 sm:-left-10 w-28 sm:w-36 hidden sm:block">
+            <div class="rounded-2xl overflow-hidden border border-white/10 glow-ring rotate-[-4deg]">
+              <img src={url('/images/headshot-v2.jpg')} alt="Jasvant Singh Dosanjh, IT Manager in Seattle" class="w-full aspect-square object-cover" loading="eager" width="288" height="288" />
+            </div>
+          </div>
+          <Khanda size={58} class="absolute -top-6 -right-5 text-kesari-400/80 animate-float drop-shadow-[0_0_18px_rgba(240,169,60,0.35)]" />
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===================== OUTCOMES STRIP ===================== -->
+  <section id="impact" class="container-x mt-16 sm:mt-24 scroll-mt-28">
+    <p class="reveal mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2"><span class="inline-block h-px w-6 bg-kesari-500/60"></span>$ cat impact.log</p>
+    <div class="reveal mt-6 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.06]">
+      {outcomes.map((o) => (
+        <div class="bg-ink-850/80 p-6 sm:p-7">
+          <p class="font-display text-3xl sm:text-[2rem] font-bold text-kesari-gradient leading-none">{o.value}</p>
+          <p class="mt-3 text-xs sm:text-sm text-mist-400 leading-snug">{o.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- ===================== HOW I HELP ===================== -->
-  <section class="container-x mt-12">
-    <SectionHeading eyebrow="What I bring to your team" title="Three ways I can help your team" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">I’ve worn each of these hats — often at the same time. Whichever role you’re hiring for, here’s where I’d hope to start adding value.</p>
+  <section class="container-x mt-28">
+    <SectionHeading eyebrow="What I bring to your team" title="Three ways I add value on day one" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">I’ve worn each of these hats — often at the same time. Whichever role you’re hiring for, here’s where I’d start.</p>
     </SectionHeading>
     <div class="mt-12 grid gap-6 lg:grid-cols-3">
       {helpAreas.map((a) => (
@@ -101,24 +140,9 @@ const principles = [
           <p class="mt-2 text-sm leading-relaxed text-mist-400">{a.blurb}</p>
           <ul class="mt-5 space-y-2.5 flex-1">
             {a.proof.map((p) => (
-              <li class="flex gap-2.5 text-sm text-mist-300"><Icon name="shield" size={15} class="text-kesari-500/70 shrink-0 mt-0.5" /><span>{p}</span></li>
+              <li class="flex gap-2.5 text-sm text-mist-300"><span class="term-ok mono shrink-0">✔</span><span>{p}</span></li>
             ))}
           </ul>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ===================== IMPACT / OUTCOMES ===================== -->
-  <section id="impact" class="container-x mt-28 scroll-mt-28">
-    <SectionHeading eyebrow="A few outcomes" title="Work I’m proud of" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">A handful of results from the last decade. They came from great teams as much as from me — and many ended up being used well beyond their original scope.</p>
-    </SectionHeading>
-    <div class="reveal mt-12 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.06]">
-      {outcomes.map((o) => (
-        <div class="bg-ink-850/80 p-6 sm:p-7">
-          <p class="font-display text-3xl sm:text-[2rem] font-bold text-kesari-gradient leading-none">{o.value}</p>
-          <p class="mt-3 text-xs sm:text-sm text-mist-400 leading-snug">{o.label}</p>
         </div>
       ))}
     </div>
@@ -133,24 +157,24 @@ const principles = [
           <div class="text-kesari-500/40 font-display text-4xl leading-none">“</div>
           <blockquote class="-mt-2 text-sm leading-relaxed text-mist-300 flex-1">{r.text}</blockquote>
           <figcaption class="mt-5 pt-5 hairline">
-            <p class="font-display text-sm font-semibold text-mist-100">{r.name}</p>
+            <a href={r.link} target="_blank" rel="noopener noreferrer" class="font-display text-sm font-semibold text-mist-100 hover:text-kesari-300 transition-colors">{r.name}</a>
             <p class="text-xs text-mist-500 mt-0.5">{r.title}</p>
           </figcaption>
         </figure>
       ))}
     </div>
     <div class="reveal mt-6 text-center">
-      <a href={url('/about')} class="inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">Read the full story & track record <Icon name="arrow" size={16} /></a>
+      <a href={url('/about')} class="mono inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">cd ./about — full story &amp; track record <Icon name="arrow" size={16} /></a>
     </div>
   </section>
 
-  <!-- ===================== PRODUCTS (proof he builds) ===================== -->
+  <!-- ===================== PRODUCTS ===================== -->
   <section class="container-x mt-28">
     <div class="flex flex-wrap items-end justify-between gap-4">
-      <SectionHeading eyebrow="I like to stay close to the work" title="Products from the lab">
-        <p class="reveal mt-4 max-w-xl text-mist-400">I build the tools I’d want as a manager. It keeps me hands-on, honest about what I’m asking teams to do, and grounded in how the work actually feels.</p>
+      <SectionHeading eyebrow="I stay close to the work" title="Products from the lab">
+        <p class="reveal mt-4 max-w-xl text-mist-400">I build the tools I’d want as a manager. It keeps me hands-on, honest about what I ask teams to do, and grounded in how the work actually feels.</p>
       </SectionHeading>
-      <a href={url('/products')} class="reveal inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">View all <Icon name="arrow" size={16} /></a>
+      <a href={url('/products')} class="reveal mono inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">ls ./products <Icon name="arrow" size={16} /></a>
     </div>
     <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {featured.map((p) => <ProductCard product={p} />)}
@@ -159,7 +183,7 @@ const principles = [
 
   <!-- ===================== PRINCIPLES ===================== -->
   <section class="container-x mt-28">
-    <SectionHeading eyebrow="How I work" title="A few principles that hold across everything" align="center" />
+    <SectionHeading eyebrow="How I work" title="Principles that hold across everything" align="center" />
     <div class="mt-12 grid gap-5 sm:grid-cols-2">
       {principles.map((p) => (
         <div class="reveal card card-hover p-7 flex gap-5">
@@ -188,8 +212,8 @@ const principles = [
             <span class="text-mist-200"> Basics of Sikhi</span> and <span class="text-mist-200">SikhArchive.net</span>.
             The same instinct drives the code and the seva: leadership rooted in service, resilience, and people-first values.
           </p>
-          <a href={url('/seva')} class="mt-6 inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-kesari-300 hover:border-kesari-500/40 transition-colors">
-            See who I am beyond work <Icon name="arrow" size={18} />
+          <a href={url('/seva')} class="mt-6 inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold mono text-kesari-300 hover:border-kesari-500/40 transition-colors">
+            cd ./seva <Icon name="arrow" size={18} />
           </a>
         </div>
         <Khanda size={140} class="hidden lg:block text-kesari-400/70 animate-float" />
@@ -199,13 +223,101 @@ const principles = [
 
   <!-- ===================== FINAL CTA ===================== -->
   <section class="container-x mt-28">
-    <div class="reveal card border-glow p-8 sm:p-12 text-center">
-      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-mist-100">Hiring for Security &amp; GRC, Program Management, or Systems Engineering?</h2>
-      <p class="mt-4 max-w-xl mx-auto text-mist-400">Let’s talk about how I can help strengthen your security posture, deliver complex programs, and run compliant, scalable infrastructure for your team.</p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href={url('/contact')} class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Let’s talk <Icon name="arrow" size={18} /></a>
-        <a href={url('/contact')} class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3.5 font-semibold text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> View résumés</a>
+    <div class="reveal term">
+      <div class="term-bar">
+        <div class="term-lights" aria-hidden="true"><span class="term-light red"></span><span class="term-light amber"></span><span class="term-light green"></span></div>
+        <span class="term-title">~/hire — jasvant</span>
+        <span class="w-[3.4rem]" aria-hidden="true"></span>
+      </div>
+      <div class="term-body text-center py-12 sm:py-16">
+        <p class="mono text-sm text-mist-500">$ ./contact --role "IT Manager"</p>
+        <h2 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-mist-100 leading-tight">Hiring an IT Manager?</h2>
+        <p class="mt-4 max-w-xl mx-auto text-mist-400 font-sans">Let’s talk about how I can lead your teams, deliver your programs, harden your posture, and run infrastructure that scales.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href={url('/contact')} class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold mono hover:bg-kesari-400 transition-colors">./hire-me <Icon name="arrow" size={18} /></a>
+          <a href={primaryResume.href} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3.5 font-semibold mono text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> résumé.pdf</a>
+        </div>
       </div>
     </div>
   </section>
 </Base>
+
+<script>
+  // Hero terminal: type the intro sequence on first paint of the home page.
+  type Line = { cmd?: string; out?: string; cls?: string; gap?: boolean };
+  const SEQ: Line[] = [
+    { cmd: 'whoami' },
+    { out: 'Jasvant Singh Dosanjh · IT Manager · Seattle', cls: 'text-mist-100' },
+    { cmd: 'cat highlights.txt', gap: true },
+    { out: '→ led 9 staff as interim helpdesk manager @ UW', cls: 'text-mist-300' },
+    { out: '→ SLA 48h → 2h · −$30k/yr · zero-downtime migration', cls: 'text-mist-300' },
+    { out: '→ built a 12-product security & compliance suite', cls: 'text-mist-300' },
+    { cmd: './hire-me --available', cls: 'term-ok', gap: true, end: true } as Line,
+  ];
+
+  function promptHTML() {
+    return '<span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> ';
+  }
+
+  function typeHero() {
+    const host = document.getElementById('hero-term');
+    if (!host) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Already animated once this session, or reduced motion → keep static fallback.
+    if (reduce || sessionStorage.getItem('heroTyped') === '1') return;
+    sessionStorage.setItem('heroTyped', '1');
+
+    const fallback = document.getElementById('hero-fallback');
+    if (fallback) fallback.remove();
+
+    let li = 0;
+    const line = (cls?: string, gap?: boolean) => {
+      const p = document.createElement('p');
+      if (gap) p.style.marginTop = '0.6rem';
+      if (cls) p.className = cls;
+      host.appendChild(p);
+      return p;
+    };
+
+    const caret = (p: HTMLElement) => {
+      const c = document.createElement('span');
+      c.className = 'caret caret-blink';
+      p.appendChild(c);
+      return c;
+    };
+
+    const next = () => {
+      if (li >= SEQ.length) return;
+      const item = SEQ[li] as Line & { end?: boolean };
+      const p = line(undefined, item.gap);
+      if (item.cmd !== undefined) {
+        p.innerHTML = promptHTML();
+        const span = document.createElement('span');
+        if (item.cls) span.className = item.cls;
+        p.appendChild(span);
+        const c = caret(p);
+        let ci = 0;
+        const tick = () => {
+          span.textContent = item.cmd!.slice(0, ci);
+          ci++;
+          if (ci <= item.cmd!.length) {
+            window.setTimeout(tick, 34 + Math.random() * 30);
+          } else {
+            if (!item.end) c.remove();
+            li++;
+            window.setTimeout(next, item.end ? 0 : 260);
+          }
+        };
+        tick();
+      } else {
+        if (item.cls) p.className = item.cls;
+        p.textContent = item.out || '';
+        li++;
+        window.setTimeout(next, 130);
+      }
+    };
+    window.setTimeout(next, 500);
+  }
+
+  document.addEventListener('astro:page-load', typeHero);
+</script>

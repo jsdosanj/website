@@ -1,8 +1,12 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import ConstellationBg from '../components/ConstellationBg.astro';
+import Cursor from '../components/Cursor.astro';
+import BootLoader from '../components/BootLoader.astro';
+import Motion from '../components/Motion.astro';
 import { site } from '../data/site';
 import { url } from '../utils';
 
@@ -42,9 +46,11 @@ for (const s of segments) {
 const extraJsonld = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 
 const baseKeywords = [
-  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Project Manager',
-  'problem solver', 'AI developer', 'Sikh technology', 'Sightline', 'GurmukhiFix', 'Cairn',
-  'Sikh Library dataset', 'OCR Gurmukhi', 'Seattle technologist', 'IT leadership', 'IT Security', 'GRC', 'Systems Engineering',
+  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'IT Manager', 'IT Manager Seattle',
+  'IT Program Manager', 'IT Project Manager', 'Technical Program Manager', 'IT leadership',
+  'problem solver', 'AI practitioner', 'Sightline', 'Bastion', 'Cairn',
+  'Jamf Pro', 'Intune', 'JumpCloud', 'NIST', 'HIPAA', 'FERPA', 'GRC', 'vendor management',
+  'Agile', 'SDLC', 'Seattle technologist', 'Systems Engineering', 'open to work',
 ];
 const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
 
@@ -60,7 +66,7 @@ const ldGraph = {
       alternateName: 'Jasvant Dosanjh',
       url: site.url,
       image: new URL('/images/headshot-v2.jpg', site.url).href,
-      jobTitle: 'Technical Project Manager',
+      jobTitle: 'IT Manager',
       address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
       knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management'],
@@ -149,7 +155,7 @@ const ldGraph = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Gurmukhi:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Gurmukhi:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -167,11 +173,18 @@ const ldGraph = {
     {extraJsonld.map((node) => (
       <script type="application/ld+json" set:html={JSON.stringify(node)} />
     ))}
+
+    <!-- Cinematic page transitions -->
+    <ClientRouter />
   </head>
   <body>
     <div class="bg-aurora"></div>
     <ConstellationBg />
+    <div class="bg-scan"></div>
     <div class="bg-grain"></div>
+
+    <!-- Terminal boot sequence (first visit of a session) -->
+    <BootLoader />
 
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-kesari-500 focus:text-ink-950 focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
 
@@ -181,25 +194,11 @@ const ldGraph = {
     </main>
     <Footer />
 
-    <script>
-      // Scroll-reveal via IntersectionObserver
-      const reveals = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const io = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) {
-              (e.target as HTMLElement).classList.add('is-visible');
-              io.unobserve(e.target);
-            }
-          }
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        reveals.forEach((el, i) => {
-          (el as HTMLElement).style.transitionDelay = `${(i % 6) * 70}ms`;
-          io.observe(el);
-        });
-      } else {
-        reveals.forEach((el) => el.classList.add('is-visible'));
-      }
-    </script>
+    <!-- Custom cursor + smooth-scroll / reveal motion layer (desktop, motion-safe) -->
+    <Cursor />
+    <Motion />
+
+    <!-- Belt-and-braces: if scripts never run, reveal everything -->
+    <noscript><style>.reveal{opacity:1 !important;transform:none !important;}#boot{display:none !important;}</style></noscript>
   </body>
 </html>
