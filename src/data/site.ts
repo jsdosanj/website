@@ -2,28 +2,32 @@ export const site = {
   brand: 'Jasvant Dosanjh',
   founder: 'Jasvant Singh Dosanjh',
   tagline: 'Turning technology that hinders into technology that helps you succeed.',
-  shortTagline: 'Technical Project Manager & problem-solver.',
+  shortTagline: 'IT Manager & problem-solver.',
   description:
-    'Jasvant Singh Dosanjh — a Technical Project Manager, IT security & GRC leader, systems engineer, and builder in Seattle. I solve hard problems at the intersection of infrastructure, AI, and human good: from OCR engines for endangered scripts to AI libraries that make rare knowledge accessible to the world.',
+    'Jasvant Singh Dosanjh — IT Manager in Seattle with 10 years leading matrixed, cross-functional teams across higher education, healthcare, gaming, and big tech. Experienced in SDLC ownership, Agile delivery, DevOps automation, vendor and budget management, and GRC across HIPAA, FERPA, and NIST-regulated environments — and a hands-on AI practitioner. PMP and CompTIA Security+ in progress.',
   location: 'Seattle, WA',
   email: 'jasvantdosanjh@outlook.com',
+  phone: '+1 (425) 309-5295',
   url: 'https://jasvant.pages.dev',
   // Hire-me positioning
   openToWork: true,
+  targetRole: 'IT Manager',
   roles: [
+    'IT Manager',
+    'IT Program / Project Manager',
     'IT Security & GRC Leader',
-    'Technical Program Manager',
-    'Senior Systems & Endpoint Engineer',
   ],
   positioning:
-    'Senior IT leader, systems engineer, and builder with 10+ years strengthening security posture, leading NIST/HIPAA audits and GRC programs, and turning broken infrastructure into outcomes that scale.',
+    'IT Manager with 10 years leading matrixed, cross-functional teams across higher ed, healthcare, gaming, and big tech — owning SDLC, Agile delivery, DevOps automation, vendor and budget management, and GRC across HIPAA, FERPA, and NIST-regulated environments.',
   socials: {
     linkedin: 'https://linkedin.com/in/jasvantsd',
     github: 'https://github.com/jsdosanj',
     huggingface: 'https://huggingface.co/jsdosanj',
   },
-  // Role-tailored, single-page, ATS-optimized résumés (June 2026)
+  // Role-tailored, single-page, ATS-optimized résumés (June 2026).
+  // Primary résumé (IT Manager) leads — it matches the roles being targeted.
   resumes: [
+    { label: 'IT Manager', short: 'IT Manager', href: '/resumes/JSD IT Manager Resume June 2026.pdf', primary: true },
     { label: 'IT Security & GRC Leader', short: 'Security / GRC', href: '/resumes/JSD IT Security GRC Leader Resume June 2026.pdf' },
     { label: 'Senior Systems & Endpoint Engineer', short: 'Systems', href: '/resumes/JSD Systems Engineer Resume June 2026.pdf' },
   ],

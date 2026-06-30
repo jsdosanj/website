@@ -1,0 +1,68 @@
+---
+// Terminal "boot sequence" loader shown on first visit of a session.
+// Sequentially reveals a few system lines, then lifts away to reveal the site.
+// Honors prefers-reduced-motion (instant) and is skippable with any key/click.
+import { site } from '../data/site';
+const lines = [
+  { t: 'login: jasvant', c: '' },
+  { t: `Last login: ${site.location} · ${site.targetRole}`, c: 'term-comment' },
+  { t: '$ booting portfolio.sh …', c: 'term-user' },
+  { t: '✔ mounting 10 years of experience', c: 'term-ok' },
+  { t: '✔ loading GRC · HIPAA · NIST · FERPA', c: 'term-ok' },
+  { t: '✔ initializing 12-product lab', c: 'term-ok' },
+  { t: 'ready.', c: 'term-key' },
+];
+---
+<div id="boot" role="status" aria-label="Loading">
+  <div class="boot-inner">
+    {lines.map((l, i) => (
+      <div class:list={['boot-line', l.c]} data-i={i}>
+        <span set:html={l.t} />{i === lines.length - 1 && <span class="caret caret-blink"></span>}
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  function runBoot() {
+    const boot = document.getElementById('boot');
+    if (!boot) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const seen = sessionStorage.getItem('booted') === '1';
+
+    // After the first visit of a session (and on every in-app navigation), drop
+    // the loader instantly — no flash, no replayed sequence.
+    if (seen || reduce) {
+      boot.remove();
+      return;
+    }
+    sessionStorage.setItem('booted', '1');
+
+    const linesEls = Array.from(boot.querySelectorAll<HTMLElement>('.boot-line'));
+    const finish = () => {
+      boot.classList.add('done');
+      window.setTimeout(() => boot.remove(), 700);
+    };
+
+    let i = 0;
+    const step = () => {
+      if (i < linesEls.length) {
+        linesEls[i].classList.add('show');
+        i++;
+        window.setTimeout(step, 180);
+      } else {
+        window.setTimeout(finish, 480);
+      }
+    };
+    window.setTimeout(step, 160);
+
+    const skip = () => finish();
+    boot.addEventListener('click', skip, { once: true });
+    window.addEventListener('keydown', skip, { once: true });
+    window.setTimeout(finish, 4000); // safety: never trap the user
+  }
+
+  // Runs on first load and after every view transition.
+  document.addEventListener('astro:page-load', runBoot);
+</script>
