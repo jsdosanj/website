@@ -47,8 +47,7 @@ const primaryResume = site.resumes.find((r) => r.primary) ?? site.resumes[0];
         <ul class="mt-4 space-y-2.5">
           <li><a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a></li>
           <li><a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="github" size={16} /> GitHub</a></li>
-          <li><a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="mail" size={16} /> Email</a></li>
-          <li><a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`} class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="pin" size={16} /> {site.phone}</a></li>
+          <li><a href={url('/contact')} class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="arrow" size={16} /> Contact form</a></li>
         </ul>
       </div>
     </div>

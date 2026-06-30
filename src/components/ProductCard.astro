@@ -2,6 +2,7 @@
 import type { Product } from '../data/products';
 import { statusMeta } from '../data/products';
 import Icon from './Icon.astro';
+import ProductVisual from './ProductVisual.astro';
 
 interface Props { product: Product; }
 const { product } = Astro.props;
@@ -14,6 +15,15 @@ const statusColor =
   : 'text-mist-400 border-white/10 bg-white/[0.03]';
 ---
 <article class="card card-hover border-glow reveal p-6 sm:p-7 flex flex-col h-full">
+  <!-- generated cover art -->
+  <div class="relative -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 mb-5 rounded-t-[0.9rem] overflow-hidden border-b border-white/[0.06]">
+    <ProductVisual product={product} />
+    {product.openSource && (
+      <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-md bg-ink-950/70 backdrop-blur px-2 py-1 mono text-[10px] text-phos-300 border border-phos-400/20">
+        <span class="h-1.5 w-1.5 rounded-full bg-phos-400"></span>open source
+      </span>
+    )}
+  </div>
   <div class="flex items-start justify-between gap-4">
     <div class="flex items-center gap-3">
       <span class:list={['grid place-items-center h-11 w-11 rounded-xl bg-ink-800 border border-white/10', accentText]}>

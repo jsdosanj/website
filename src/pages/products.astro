@@ -5,9 +5,11 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
 import { products } from '../data/products';
 import { site } from '../data/site';
+import { url } from '../utils';
 
 const live = products.filter((p) => p.status === 'live');
 const building = products.filter((p) => p.status !== 'live');
+const openSource = products.filter((p) => p.openSource);
 
 // Rich structured data: each product as a CreativeWork/SoftwareApplication in an ItemList
 const productsJsonld = {
@@ -68,8 +70,18 @@ const productsJsonld = {
     </div>
   </section>
 
-  <!-- Live -->
+  <!-- Open source -->
   <section class="container-x mt-16">
+    <SectionHeading eyebrow="$ git clone — free & open" title="Open source">
+      <p class="reveal mt-4 max-w-xl text-mist-400">Tools I’ve open-sourced for IT and security teams to run, audit, and self-host — no lock-in.</p>
+    </SectionHeading>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {openSource.map((p) => <ProductCard product={p} />)}
+    </div>
+  </section>
+
+  <!-- Live -->
+  <section class="container-x mt-20">
     <SectionHeading eyebrow="Shipping now" title="Live products" />
     <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {live.map((p) => <ProductCard product={p} />)}
@@ -79,7 +91,7 @@ const productsJsonld = {
   <!-- In progress / planned -->
   <section class="container-x mt-20">
     <SectionHeading eyebrow="On the workbench" title="In progress & in the lab">
-      <p class="reveal mt-4 max-w-xl text-mist-400">Early-stage builds and concepts I’m actively shaping. Want to collaborate or pilot one? <a href={`mailto:${site.email}`} class="text-kesari-300 hover:underline underline-offset-4">Reach out</a>.</p>
+      <p class="reveal mt-4 max-w-xl text-mist-400">Early-stage builds and concepts I’m actively shaping. Want to collaborate or pilot one? <a href={url('/contact')} class="text-kesari-300 hover:underline underline-offset-4">Reach out</a>.</p>
     </SectionHeading>
     <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {building.map((p) => <ProductCard product={p} />)}

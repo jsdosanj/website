@@ -73,7 +73,6 @@ const ldGraph = {
       hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
       seeks: site.roles.map((r) => ({ '@type': 'Demand', name: `${r} role` })),
       sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
-      email: `mailto:${site.email}`,
     },
     {
       '@type': 'ProfilePage',

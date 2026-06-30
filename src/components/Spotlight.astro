@@ -1,0 +1,98 @@
+---
+// Flashlight / spotlight portrait. A near-black, desaturated base photo sits
+// under a brighter, warm-lit copy revealed through a soft-feathered circular
+// mask that follows the cursor. Idle state rests the light on the face; touch /
+// reduced-motion devices get a gentle breathing spotlight instead of tracking.
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  /** focal point of the resting spotlight, e.g. "50% 38%" */
+  focus?: string;
+}
+const { src, alt, class: className = '', focus = '50% 38%' } = Astro.props;
+const [fx, fy] = focus.split(/\s+/);
+---
+<div
+  class:list={['spot', className]}
+  data-spot
+  data-fx={fx}
+  data-fy={fy}
+  style={`--mx:${fx}; --my:${fy};`}
+>
+  <img class="spot-img spot-base" src={src} alt="" aria-hidden="true" loading="eager" decoding="async" />
+  <img class="spot-img spot-reveal" src={src} alt={alt} loading="eager" decoding="async" />
+  <div class="spot-glow" aria-hidden="true"></div>
+  <div class="spot-grid" aria-hidden="true"></div>
+  <div class="spot-vignette" aria-hidden="true"></div>
+</div>
+
+<script>
+  function initSpotlights() {
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll<HTMLElement>('[data-spot]').forEach((el) => {
+      if ((el as any)._spotWired) return;
+      (el as any)._spotWired = true;
+
+      const fx = el.dataset.fx || '50%';
+      const fy = el.dataset.fy || '38%';
+
+      // Touch or reduced-motion: rest on the face with a slow breathing radius.
+      if (!fine || reduce) {
+        el.style.setProperty('--mx', fx);
+        el.style.setProperty('--my', fy);
+        if (!reduce) el.classList.add('spot-breathe');
+        return;
+      }
+
+      // Desktop: ease the light toward the cursor.
+      const rect = () => el.getBoundingClientRect();
+      let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, active = false;
+      const setRest = () => {
+        const r = rect();
+        tx = (parseFloat(fx) / 100) * r.width;
+        ty = (parseFloat(fy) / 100) * r.height;
+      };
+      setRest();
+      cx = tx; cy = ty;
+
+      const loop = () => {
+        cx += (tx - cx) * 0.16;
+        cy += (ty - cy) * 0.16;
+        el.style.setProperty('--mx', `${cx}px`);
+        el.style.setProperty('--my', `${cy}px`);
+        if (active || Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
+          raf = requestAnimationFrame(loop);
+        } else {
+          raf = 0;
+        }
+      };
+      const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+
+      const onMove = (e: PointerEvent) => {
+        const r = rect();
+        tx = e.clientX - r.left;
+        ty = e.clientY - r.top;
+        active = true;
+        el.classList.add('spot-on');
+        kick();
+      };
+      const onLeave = () => {
+        active = false;
+        setRest();        // drift back to the face
+        el.classList.remove('spot-on');
+        kick();
+      };
+
+      el.addEventListener('pointermove', onMove, { passive: true });
+      el.addEventListener('pointerleave', onLeave, { passive: true });
+      window.addEventListener('resize', setRest, { passive: true });
+      document.addEventListener('astro:before-swap', () => cancelAnimationFrame(raf), { once: true });
+    });
+  }
+
+  initSpotlights();
+  document.addEventListener('astro:page-load', initSpotlights);
+</script>
