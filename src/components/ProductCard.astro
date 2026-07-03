@@ -11,6 +11,7 @@ const accentText = product.accent === 'kesari' ? 'text-kesari-400' : 'text-azure
 const accentDot = product.accent === 'kesari' ? 'bg-kesari-500' : 'bg-azure-500';
 const statusColor =
   product.status === 'live' ? 'text-kesari-300 border-kesari-500/30 bg-kesari-500/10'
+  : product.status === 'beta' ? 'text-azure-300 border-azure-500/30 bg-azure-500/10'
   : product.status === 'wip' ? 'text-azure-300 border-azure-500/30 bg-azure-500/10'
   : 'text-mist-400 border-white/10 bg-white/[0.03]';
 ---
@@ -21,6 +22,11 @@ const statusColor =
     {product.openSource && (
       <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-md bg-ink-950/70 backdrop-blur px-2 py-1 mono text-[10px] text-phos-300 border border-phos-400/20">
         <span class="h-1.5 w-1.5 rounded-full bg-phos-400"></span>open source
+      </span>
+    )}
+    {product.freeLimited && (
+      <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-md bg-ink-950/70 backdrop-blur px-2 py-1 mono text-[10px] text-kesari-300 border border-kesari-400/25">
+        <span class="h-1.5 w-1.5 rounded-full bg-kesari-400"></span>free · limited time
       </span>
     )}
   </div>
