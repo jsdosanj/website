@@ -310,7 +310,7 @@ featured: false,
     freeLimited: true,
     tagline: 'MCAT practice tests, questions and flashcards — aim for 528.',
     description:
-      'A free MCAT study toolkit: 900+ original AAMC-style practice questions, five full-length timed exam simulators, spaced-repetition flashcards, a progress dashboard, cheat sheets, curated videos, and a three-month study plan — built on the same no-build engine as CertPrep, with all progress kept in the browser. Not affiliated with the AAMC.',
+      'A MCAT study toolkit: 900+ original AAMC-style practice questions, five full-length timed exam simulators, spaced-repetition flashcards, a progress dashboard, cheat sheets, curated videos, and a three-month study plan — built on the same no-build engine as CertPrep, with all progress kept in the browser. Not affiliated with the AAMC.',
     highlights: [
       '900+ original AAMC-style questions and five distinct full-length exam simulators with scaled-score estimates.',
       'Leitner spaced-repetition flashcards, cheat sheets, curated video lessons, and a day-by-day three-month study plan.',
