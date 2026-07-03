@@ -2,11 +2,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Deployed to Cloudflare Pages at https://jasvant.pages.dev/ (served at root).
+// Deployed to Cloudflare Pages at https://jasvant.dosanjhlabs.com/ (served at root).
 // Tailwind runs via PostCSS (see postcss.config.mjs) — compatible with
 // Astro 6's Rolldown-based Vite.
 export default defineConfig({
-  site: 'https://jasvant.pages.dev',
+  site: 'https://jasvant.dosanjhlabs.com',
   trailingSlash: 'ignore',
   integrations: [
     sitemap({

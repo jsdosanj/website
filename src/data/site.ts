@@ -8,7 +8,7 @@ export const site = {
   location: 'Seattle, WA',
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
-  url: 'https://jasvant.pages.dev',
+  url: 'https://jasvant.dosanjhlabs.com',
   // Hire-me positioning
   openToWork: true,
   targetRole: 'IT Manager',
