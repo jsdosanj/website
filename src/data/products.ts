@@ -271,7 +271,7 @@ export const products: Product[] = [
     ],
     tech: ['Python', 'Unicode', 'Gurbani lexicon', 'PyPI'],
     links: [
-      { label: 'Visit site', href: 'https://jsdosanj.github.io/gurmukhifix/index.html', icon: 'external' },
+      { label: 'Visit site', href: 'https://gurmukhifix.dosanjhlabs.com/', icon: 'external' },
       { label: 'Source (GitHub)', href: 'https://github.com/jsdosanj/gurmukhifix', icon: 'external' },
       { label: 'PyPI', href: 'https://pypi.org/project/gurmukhifix/', icon: 'external' },
     ],
