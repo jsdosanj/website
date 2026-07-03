@@ -1,4 +1,4 @@
-export type ProductStatus = 'live' | 'wip' | 'planned';
+export type ProductStatus = 'live' | 'beta' | 'wip' | 'planned';
 
 export type Product = {
   slug: string;
@@ -15,6 +15,7 @@ export type Product = {
   accent: 'kesari' | 'azure';
   featured?: boolean;
   openSource?: boolean; // surfaced in the "Open source" group + a badge
+  freeLimited?: boolean; // "free · limited time" badge — being built out, free for now
   published?: string; // e.g. "Jun 7, 2026" or "Ongoing"
 };
 
@@ -280,6 +281,48 @@ featured: false,
     openSource: true,
   },
   {
+    slug: 'cert-prep',
+    published: 'Jun 12, 2026',
+    name: 'CertPrep',
+    category: 'Education / Certification',
+    status: 'beta',
+    freeLimited: true,
+    tagline: 'An in-depth, no-fluff study platform for Security+, CISM & PMP.',
+    description:
+      'A self-study platform for three IT certifications — CompTIA Security+, ISACA CISM and PMI PMP — on one shared, no-build engine. It pairs 1,200+ original practice questions with a timed exam simulator, Leitner spaced-repetition flashcards, rapid drills, quick-reference sheets, an interactive study planner with calendar export, and topic-organised video lessons — with all progress kept locally in the browser.',
+    highlights: [
+      '1,200+ original practice questions across Security+, CISM and PMP, with a timed exam simulator and scaled-score estimate.',
+      'Leitner spaced-repetition flashcards, rapid drills, quick-reference sheets, and an interactive study planner with `.ics` calendar export.',
+      'A fast, no-build engine — everything runs in the browser (localStorage) with Markdown export/import, installable as a PWA.',
+    ],
+    tech: ['Vanilla JS', 'HTML', 'JSON', 'PWA'],
+    links: [
+      { label: 'Visit site', href: 'https://cert-prep.dosanjhlabs.com/', icon: 'external' },
+    ],
+    accent: 'azure',
+  },
+  {
+    slug: 'aim528',
+    published: 'Jun 12, 2026',
+    name: 'Aim528',
+    category: 'Education / MCAT',
+    status: 'beta',
+    freeLimited: true,
+    tagline: 'MCAT practice tests, questions and flashcards — aim for 528.',
+    description:
+      'A free MCAT study toolkit: 900+ original AAMC-style practice questions, five full-length timed exam simulators, spaced-repetition flashcards, a progress dashboard, cheat sheets, curated videos, and a three-month study plan — built on the same no-build engine as CertPrep, with all progress kept in the browser. Not affiliated with the AAMC.',
+    highlights: [
+      '900+ original AAMC-style questions and five distinct full-length exam simulators with scaled-score estimates.',
+      'Leitner spaced-repetition flashcards, cheat sheets, curated video lessons, and a day-by-day three-month study plan.',
+      'A fast, no-build engine — everything runs in the browser (localStorage) with Markdown export/import; original items with site-wide AAMC disclaimers.',
+    ],
+    tech: ['Vanilla JS', 'HTML', 'JSON', 'PWA'],
+    links: [
+      { label: 'Visit site', href: 'https://aim528.dosanjhlabs.com/', icon: 'external' },
+    ],
+    accent: 'azure',
+  },
+  {
     slug: 'lookout',
     published: 'Jun 11, 2026',
     name: 'Lookout',
@@ -371,6 +414,7 @@ featured: false,
 
 export const statusMeta: Record<ProductStatus, { label: string; symbol: string }> = {
   live: { label: 'Live', symbol: '◆' },
+  beta: { label: 'Beta', symbol: '◆' },
   wip: { label: 'In Progress', symbol: '◆' },
   planned: { label: 'In the Lab', symbol: '◆' },
 };
