@@ -437,14 +437,16 @@ body {
 @property --r {
   syntax: '<length>';
   inherits: false;
-  initial-value: 180px;
+  initial-value: 240px;
 }
 .spot {
   position: relative;
   overflow: hidden;
   --mx: 50%;
-  --my: 36%;
-  --r: 180px;
+  --my: 46%;
+  /* responsive beam: scales with the portrait so it covers the whole face on
+     both the small about-page render and the larger home hero. */
+  --r: clamp(210px, 20vw, 300px);
   background: var(--color-ink-950);
   isolation: isolate;
 }
@@ -465,9 +467,9 @@ body {
 .spot-reveal {
   filter: brightness(1.16) saturate(1.12) contrast(1.03);
   -webkit-mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my),
-    #000 0%, rgba(0, 0, 0, 0.92) 34%, rgba(0, 0, 0, 0.42) 56%, transparent 74%);
+    #000 0%, rgba(0, 0, 0, 0.94) 44%, rgba(0, 0, 0, 0.5) 66%, transparent 82%);
   mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my),
-    #000 0%, rgba(0, 0, 0, 0.92) 34%, rgba(0, 0, 0, 0.42) 56%, transparent 74%);
+    #000 0%, rgba(0, 0, 0, 0.94) 44%, rgba(0, 0, 0, 0.5) 66%, transparent 82%);
 }
 /* warm kesari glow that paints the lit area, blended like real light */
 .spot-glow {
@@ -502,10 +504,10 @@ body {
 }
 /* grow the beam a touch while the cursor is engaged */
 .spot { transition: --r 0.45s var(--ease-out-expo); }
-.spot.spot-on { --r: 240px; }
+.spot.spot-on { --r: clamp(280px, 26vw, 380px); }
 @keyframes spot-breathe {
-  0%, 100% { --r: 150px; }
-  50% { --r: 215px; }
+  0%, 100% { --r: clamp(195px, 18vw, 280px); }
+  50% { --r: clamp(255px, 23vw, 340px); }
 }
 .spot-breathe { animation: spot-breathe 5.5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {

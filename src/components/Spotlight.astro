@@ -11,7 +11,7 @@ interface Props {
   /** focal point of the resting spotlight, e.g. "50% 34%" */
   focus?: string;
 }
-const { src, alt, class: className = '', focus = '50% 34%' } = Astro.props;
+const { src, alt, class: className = '', focus = '50% 46%' } = Astro.props;
 const [fx, fy] = focus.split(/\s+/);
 ---
 <div
@@ -38,7 +38,7 @@ const [fx, fy] = focus.split(/\s+/);
       (el as any)._spotWired = true;
 
       const fx = parseFloat(el.dataset.fx || '50');
-      const fy = parseFloat(el.dataset.fy || '34');
+      const fy = parseFloat(el.dataset.fy || '46');
       const r = () => el.getBoundingClientRect();
 
       let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, hovering = false, visible = true;
