@@ -1,0 +1,19 @@
+name: gitleaks
+# Server-side secret scanning. Fails the check if a secret is found in the tree.
+# Added 2026-07-06 to enforce secret scanning on private repos (no GitHub
+# Advanced Security). Pairs with the local gitleaks pre-commit hook.
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  gitleaks:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Secret scan (gitleaks)
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz | tar -xzf - gitleaks
+          ./gitleaks dir . --no-banner --redact --exit-code 1
