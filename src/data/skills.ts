@@ -87,6 +87,8 @@ export const skillGroups: SkillGroup[] = [
       'Jamf Pro (Certified)',
       'Microsoft Intune',
       'JumpCloud',
+      'Apple Business/School Manager',
+      'Windows Autopilot',
       'Google Workspace Admin',
       'Windows Server',
       'Linux / macOS',
