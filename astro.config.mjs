@@ -11,11 +11,14 @@ export default defineConfig({
   integrations: [
     sitemap({
       changefreq: 'weekly',
-      lastmod: new Date('2026-06-11'),
+      lastmod: new Date('2026-07-07'),
+      // Keep the noindex 404 page out of the sitemap.
+      filter: (page) => !/\/404\/?$/.test(page),
       serialize(item) {
         // Home and key conversion pages get top priority
-        if (/jasvant\.pages\.dev\/?$/.test(item.url)) item.priority = 1.0;
+        if (/jasvant\.dosanjhlabs\.com\/?$/.test(item.url)) item.priority = 1.0;
         else if (/\/(about|products|contact)\/?$/.test(item.url)) item.priority = 0.9;
+        else if (/\/ai-policy\/?$/.test(item.url)) item.priority = 0.3;
         else item.priority = 0.7;
         return item;
       },

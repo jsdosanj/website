@@ -4,14 +4,14 @@
 
 The website of **Dosanjh Labs** — the independent studio of [Jasvant Singh Dosanjh](https://linkedin.com/in/jasvantsd), a Technical Project Manager and builder in Seattle. It showcases the studio's products (Sightline, GurmukhiFix, Cairn, SikhLibrarian, and more), Jasvant's experience and skills, and his parchar & seva work.
 
-**Live:** https://jsdosanj.github.io/website/
+**Live:** https://jasvant.dosanjhlabs.com
 
 ## Stack
 
-- **[Astro 5](https://astro.build)** — multi-page static site, ships minimal JS
+- **[Astro 6](https://astro.build)** — multi-page static site, ships minimal JS
 - **[Tailwind CSS 4](https://tailwindcss.com)** — design system via CSS-first `@theme`
 - Vanilla JS for the mobile nav and scroll-reveal (IntersectionObserver)
-- Deployed to **GitHub Pages** via GitHub Actions
+- Deployed to **Cloudflare Pages** (git-connected — merge to `main` = production deploy)
 
 ## Design
 
@@ -32,7 +32,7 @@ Dark, premium, and technical — with Sikh heritage motifs (kesari/saffron gold 
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/website/
+npm run dev      # http://localhost:4321/
 npm run build    # outputs to ./dist
 npm run preview  # preview the production build
 ```
@@ -49,9 +49,13 @@ All content lives in `src/data/` — edit these TypeScript files, no template su
 
 Images live in `public/images/`, résumés in `public/resumes/`.
 
-## Custom domain
+## Domain
 
-To move to e.g. `dosanjhlabs.com`: set `site` in `astro.config.mjs` to the domain, remove `base`, add a `public/CNAME` file, and update the URLs in `src/data/site.ts`.
+Live at `https://jasvant.dosanjhlabs.com`, set via `site` in `astro.config.mjs` (no `base`) and attached to the Cloudflare Pages project. `src/data/site.ts` mirrors the same URL.
+
+## AI-crawler & SEO policy
+
+`public/robots.txt`, `public/ai.txt`, `public/llms.txt`, and `public/.well-known/tdmrep.json` declare the AI-crawler policy: answer/search AI (e.g. OAI-SearchBot, PerplexityBot, Claude-SearchBot) may crawl and cite this site, while AI/ML training crawlers (e.g. GPTBot, ClaudeBot, CCBot) are disallowed and the content is TDM-reserved. `public/_headers` mirrors this via `X-Robots-Tag` / `Content-Usage` / `TDM-Reservation` response headers. The human-readable policy lives at `/ai-policy` (`src/pages/ai-policy.astro`). See `astro.config.mjs`'s `@astrojs/sitemap` config for sitemap priorities.
 
 ---
 

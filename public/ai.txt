@@ -1,0 +1,62 @@
+# ai.txt — AI & content-usage policy for jasvant.dosanjhlabs.com
+# Human-readable summary; see /.well-known/tdmrep.json for the machine-
+# readable W3C TDM Reservation Protocol declaration, and /ai-policy for
+# the full policy page.
+
+Site: https://jasvant.dosanjhlabs.com
+Owner: Jasvant Singh Dosanjh / Dosanjh Labs
+Contact: https://jasvant.dosanjhlabs.com/contact
+
+# Answer & search AI (crawl + cite welcome)
+# These systems may crawl this site to answer questions and cite it as a
+# source. This drives real, wanted traffic back to the site.
+Allow-Agent: OAI-SearchBot
+Allow-Agent: ChatGPT-User
+Allow-Agent: Claude-SearchBot
+Allow-Agent: Claude-User
+Allow-Agent: PerplexityBot
+Allow-Agent: Perplexity-User
+Allow-Agent: Applebot
+Allow-Agent: Amzn-SearchBot
+Allow-Agent: Amzn-User
+Allow-Agent: meta-webindexer
+Allow-Agent: meta-externalfetcher
+Allow-Agent: MistralAI-Index
+Allow-Agent: MistralAI-User
+Allow-Agent: DuckAssistBot
+Usage: search, cite, answer
+
+# AI / ML training, fine-tuning, and dataset crawlers
+# Automated collection of this site's content for AI/ML training,
+# fine-tuning, RAG-corpus construction, or dataset creation is NOT
+# permitted without a license. Content is TDM-reserved under the W3C
+# TDM Reservation Protocol (tdm-reservation: 1). Use the contact link
+# above for licensing inquiries.
+Disallow-Agent: GPTBot
+Disallow-Agent: ClaudeBot
+Disallow-Agent: anthropic-ai
+Disallow-Agent: Claude-Web
+Disallow-Agent: Google-Extended
+Disallow-Agent: Applebot-Extended
+Disallow-Agent: Meta-ExternalAgent
+Disallow-Agent: FacebookBot
+Disallow-Agent: Amazonbot
+Disallow-Agent: CCBot
+Disallow-Agent: Bytespider
+Disallow-Agent: cohere-ai
+Disallow-Agent: cohere-training-data-crawler
+Disallow-Agent: Diffbot
+Disallow-Agent: Omgilibot
+Disallow-Agent: Omgili
+Disallow-Agent: webzio-extended
+Disallow-Agent: PetalBot
+Disallow-Agent: PanguBot
+Disallow-Agent: YouBot
+Disallow-Agent: ImagesiftBot
+Disallow-Agent: VelenPublicWebCrawler
+Disallow-Agent: Timpibot
+Disallow-Agent: Scrapy
+Usage: train-ai=n
+
+Policy: https://jasvant.dosanjhlabs.com/ai-policy
+TDM-Reservation: https://jasvant.dosanjhlabs.com/.well-known/tdmrep.json
