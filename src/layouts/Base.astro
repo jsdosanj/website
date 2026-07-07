@@ -54,11 +54,18 @@ const baseKeywords = [
 ];
 const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
 
-// Structured data graph: Person (primary) + ProfilePage + WebSite (helps rich results).
+// Structured data graph: Organization + Person (primary) + ProfilePage + WebSite (helps rich results).
 // The whole site is branded to Jasvant Dosanjh (a person), not a company.
 const ldGraph = {
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://dosanjhlabs.com/#organization',
+      name: 'Dosanjh Labs',
+      url: 'https://dosanjhlabs.com',
+      founder: { '@id': `${site.url}/#person` },
+    },
     {
       '@type': 'Person',
       '@id': `${site.url}/#person`,
@@ -66,10 +73,12 @@ const ldGraph = {
       alternateName: 'Jasvant Dosanjh',
       url: site.url,
       image: new URL('/images/headshot-v2.jpg', site.url).href,
+      description: site.description,
       jobTitle: 'IT Manager',
+      worksFor: { '@id': 'https://dosanjhlabs.com/#organization' },
       address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
-      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management'],
+      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management', 'Gurmukhi OCR', 'Sikh Heritage Preservation', 'Gurmat Education'],
       hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
       seeks: site.roles.map((r) => ({ '@type': 'Demand', name: `${r} role` })),
       sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],
