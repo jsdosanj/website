@@ -1,13 +1,18 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 // Deployed to Cloudflare Pages at https://jasvant.dosanjhlabs.com/ (served at root).
-// Tailwind runs via PostCSS (see postcss.config.mjs) — compatible with
-// Astro 6's Rolldown-based Vite.
+// Tailwind runs via the official @tailwindcss/vite plugin — the PostCSS
+// plugin (@tailwindcss/postcss) stopped resolving the bare `@import
+// "tailwindcss"` specifier under Astro 7's Vite/Rolldown bundler.
 export default defineConfig({
   site: 'https://jasvant.dosanjhlabs.com',
   trailingSlash: 'ignore',
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     sitemap({
       changefreq: 'weekly',
