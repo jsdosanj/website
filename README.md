@@ -2,7 +2,7 @@
 
 > Turning technology that hinders into technology that helps you succeed.
 
-The website of **Dosanjh Labs** — the independent studio of [Jasvant Singh Dosanjh](https://linkedin.com/in/jasvantsd), a Technical Project Manager and builder in Seattle. It showcases the studio's products (Sightline, GurmukhiFix, Cairn, SikhLibrarian, and more), Jasvant's experience and skills, and his parchar & seva work.
+The website of **Dosanjh Labs** — the independent studio of [Jasvant Singh Dosanjh](https://linkedin.com/in/jasvantsd), an IT Manager and builder, open to relocating. It showcases the studio's products (Sightline, GurmukhiFix, Cairn, SikhLibrarian, and more), Jasvant's experience and skills, and his parchar & seva work.
 
 **Live:** https://jasvant.dosanjhlabs.com
 
@@ -25,7 +25,7 @@ Dark, premium, and technical — with Sikh heritage motifs (kesari/saffron gold 
 | `/about` | Who I am — bio, experience timeline, leadership, education, recommendations |
 | `/skills` | Capabilities, with **Development with AI** featured |
 | `/products` | All products — live and in-the-lab |
-| `/seva` | Parchar & seva — speaking, Basics of Sikhi, SikhArchive.net |
+| `/seva` | Parchar & seva — speaking, Basics of Sikhi, Sikhi.io |
 | `/contact` | Ways to connect + résumés |
 
 ## Develop

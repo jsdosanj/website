@@ -13,6 +13,12 @@ interface Props {
 }
 const { src, alt, class: className = '', focus = '50% 46%' } = Astro.props;
 const [fx, fy] = focus.split(/\s+/);
+// WebP variants (360/640/900w) are pre-generated alongside the source JPG —
+// see src/assets/images (build script) — so every .jpg caller gets a
+// responsive, modern-format srcset for free without extra plumbing.
+const webpBase = src.replace(/\.jpe?g$/i, '');
+const webpSrcset = `${webpBase}-360.webp 360w, ${webpBase}-640.webp 640w, ${webpBase}-900.webp 900w`;
+const sizes = '(min-width: 1024px) 22rem, (min-width: 640px) 22rem, 90vw';
 ---
 <div
   class:list={['spot', className]}
@@ -21,8 +27,14 @@ const [fx, fy] = focus.split(/\s+/);
   data-fy={fy}
   style={`--mx:${fx}; --my:${fy};`}
 >
-  <img class="spot-img spot-base" src={src} alt="" aria-hidden="true" loading="eager" decoding="async" />
-  <img class="spot-img spot-reveal" src={src} alt={alt} loading="eager" decoding="async" />
+  <picture>
+    <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+    <img class="spot-img spot-base" src={src} alt="" aria-hidden="true" loading="eager" decoding="async" width="1100" height="1467" />
+  </picture>
+  <picture>
+    <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+    <img class="spot-img spot-reveal" src={src} alt={alt} loading="eager" decoding="async" width="1100" height="1467" />
+  </picture>
   <div class="spot-glow" aria-hidden="true"></div>
   <div class="spot-grid" aria-hidden="true"></div>
   <div class="spot-vignette" aria-hidden="true"></div>

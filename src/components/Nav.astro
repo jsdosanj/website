@@ -43,8 +43,17 @@ const isActive = (href: string) => {
 
       <!-- CTA + mobile toggle -->
       <div class="flex items-center gap-2">
+        <button
+          type="button"
+          id="cmdk-hint"
+          class="hidden lg:inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 text-mist-500 hover:text-kesari-300 hover:border-kesari-500/30 transition-colors"
+          aria-label="Open command palette"
+        >
+          <kbd class="kbd">⌘K</kbd>
+        </button>
         <a
           href={url('/contact')}
+          data-magnetic="0.25"
           class="hidden sm:inline-flex items-center gap-2 rounded-lg bg-kesari-500 text-ink-950 px-4 py-2 text-[13px] font-semibold mono hover:bg-kesari-400 transition-colors"
         >
           ./hire-me
@@ -56,13 +65,17 @@ const isActive = (href: string) => {
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" class="burger-bar burger-top" />
+            <line x1="3" y1="12" x2="21" y2="12" class="burger-bar burger-mid" />
+            <line x1="3" y1="17" x2="21" y2="17" class="burger-bar burger-bottom" />
+          </svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden hidden mt-2 glass rounded-2xl p-2">
+    <div id="mobile-menu" class="md:hidden mobile-menu mt-2 glass rounded-2xl p-2" inert>
       <ul class="flex flex-col" role="list">
         {nav.map((item) => (
           <li>
@@ -87,17 +100,74 @@ const isActive = (href: string) => {
 
 <script>
   function wireNav() {
-    const toggle = document.getElementById('nav-toggle');
+    const cmdkHint = document.getElementById('cmdk-hint');
+    cmdkHint?.addEventListener('click', () => document.dispatchEvent(new CustomEvent('cmdk:open')));
+
+    const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
     const menu = document.getElementById('mobile-menu');
     if (!toggle || !menu) return;
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('hidden');
-      toggle.setAttribute('aria-expanded', String(open === false));
-    });
-    menu.querySelectorAll('a').forEach((a) =>
-      a.addEventListener('click', () => menu.classList.add('hidden'))
-    );
+
+    const setOpen = (open: boolean) => {
+      menu.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      menu.toggleAttribute('inert', !open);
+    };
+
+    const onToggleClick = () => setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    const onLinkClick = () => setOpen(false);
+    const onKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    };
+    const onDocClick = (e: MouseEvent) => {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      const target = e.target as Node;
+      if (!menu.contains(target) && !toggle.contains(target)) setOpen(false);
+    };
+
+    toggle.addEventListener('click', onToggleClick);
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', onLinkClick));
+    document.addEventListener('keydown', onKeydown);
+    document.addEventListener('click', onDocClick);
+
+    // document persists across swaps — remove these before the next page's
+    // wireNav() adds its own, or they'd stack up (same class of leak as the
+    // custom cursor's pointerover/pointerout listeners).
+    document.addEventListener('astro:before-swap', () => {
+      document.removeEventListener('keydown', onKeydown);
+      document.removeEventListener('click', onDocClick);
+    }, { once: true });
   }
   wireNav();
   document.addEventListener('astro:after-swap', wireNav);
 </script>
+
+<style>
+  .mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: max-height 0.35s var(--ease-out-expo), opacity 0.25s ease, transform 0.3s var(--ease-out-expo);
+  }
+  .mobile-menu.is-open {
+    max-height: 28rem;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .burger-bar {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.3s var(--ease-out-expo), opacity 0.2s ease;
+  }
+  #nav-toggle[aria-expanded='true'] .burger-top { transform: translateY(5px) rotate(45deg); }
+  #nav-toggle[aria-expanded='true'] .burger-mid { opacity: 0; transform: scaleX(0); }
+  #nav-toggle[aria-expanded='true'] .burger-bottom { transform: translateY(-5px) rotate(-45deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu, .burger-bar { transition: none; }
+  }
+</style>

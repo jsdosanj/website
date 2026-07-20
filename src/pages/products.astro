@@ -1,13 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
+import LabStatus from '../components/LabStatus.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
 import { products } from '../data/products';
 import { site } from '../data/site';
 import { url } from '../utils';
 
-const live = products.filter((p) => p.status === 'live');
+const live = products.filter((p) => p.status === 'live' && !p.openSource);
 const building = products.filter((p) => p.status !== 'live');
 const openSource = products.filter((p) => p.openSource);
 
@@ -32,18 +33,19 @@ const productsJsonld = {
 };
 ---
 <Base
-  title="Products — Sightline, GurmukhiFix & Cairn"
-  description="Products from Dosanjh Labs by Jasvant Dosanjh — Sightline (device health), GurmukhiFix (Gurmukhi OCR), Cairn (team knowledge), and a Sikh heritage AI dataset."
-  keywords={["Sightline", "GurmukhiFix", "Cairn", "SikhLibrary dataset", "Gurmukhi OCR", "endpoint health dashboard", "AI heritage tools"]}
+  title="Products — Sikhi University, Sightline & Bastion"
+  description="Products from Jasvant Dosanjh — Sikhi University (free Sikhi education), a 12-product GRC & security suite (Sightline, Bastion, Ward & more), and open-source tools GurmukhiFix and Cairn."
+  keywords={["Sikhi University", "Sightline", "Bastion", "GurmukhiFix", "Cairn", "SikhLibrary dataset", "Gurmukhi OCR", "compliance software", "GRC suite"]}
   jsonld={productsJsonld}
+  ogImage="/og/products.png"
 >
   <section class="container-x pt-36 sm:pt-44">
     <div class="max-w-3xl">
       <p class="mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2 reveal is-visible">
         <span class="inline-block h-px w-6 bg-kesari-500/60"></span>$ ls ./products
       </p>
-      <h1 class="reveal is-visible mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100">
-        Tools that turn friction into <span class="text-kesari-gradient">momentum.</span>
+      <h1 class="mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100" data-kinetic>
+        <span class="kin-line"><span class="kin-inner">Tools that turn friction into <span class="text-kesari-gradient">momentum.</span></span></span>
       </h1>
       <p class="reveal is-visible mt-5 text-lg text-mist-400 leading-relaxed">
         Every product here exists because something that should have been easy was needlessly hard —
@@ -78,6 +80,10 @@ const productsJsonld = {
     <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {openSource.map((p) => <ProductCard product={p} />)}
     </div>
+    <p class="reveal mt-10 mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2"><span class="inline-block h-px w-6 bg-kesari-500/60"></span>$ systemctl status — live, not just claimed</p>
+    <div class="reveal mt-5">
+      <LabStatus />
+    </div>
   </section>
 
   <!-- Live -->
@@ -100,7 +106,7 @@ const productsJsonld = {
 
   <!-- CTA -->
   <section class="container-x mt-24">
-    <div class="reveal card border-glow p-8 sm:p-10 text-center">
+    <div class="turn card border-glow p-8 sm:p-10 text-center">
       <h2 class="font-display text-2xl sm:text-3xl font-semibold text-mist-100">More on the way.</h2>
       <p class="mt-3 max-w-lg mx-auto text-mist-400">Dosanjh Labs is a living workshop. Browse the storefront, follow along on GitHub and HuggingFace, or tell me what you wish existed.</p>
       <div class="mt-6 flex flex-wrap justify-center gap-3">

@@ -1,0 +1,61 @@
+---
+// "systemctl status"-styled panel showing real, live numbers pulled at
+// build time from the owner's actual public artifacts (GitHub, PyPI,
+// HuggingFace) — see src/data/live.ts. Every field is optional and simply
+// omitted if that source didn't answer; nothing here is ever fabricated.
+import { getLiveStats, relativeFromNow } from '../data/live';
+
+const stats = await getLiveStats();
+
+const rows = [
+  {
+    name: 'gurmukhifix.service',
+    version: stats.packages.gurmukhifix?.version,
+    pushedAt: stats.repos.gurmukhifix?.pushedAt,
+    stars: stats.repos.gurmukhifix?.stars,
+  },
+  {
+    name: 'cairn-sync.service',
+    version: stats.packages['cairn-sync']?.version,
+    pushedAt: stats.repos.cairn?.pushedAt,
+    stars: stats.repos.cairn?.stars,
+  },
+];
+const datasetDownloads = stats.datasets.SikhLibrary?.downloads;
+const anyLive = rows.some((r) => r.version || r.pushedAt) || typeof datasetDownloads === 'number';
+---
+<div class="term max-w-2xl mx-auto">
+  <div class="term-bar">
+    <div class="term-lights" aria-hidden="true"><span class="term-light red"></span><span class="term-light amber"></span><span class="term-light green"></span></div>
+    <span class="term-title">systemctl status — dosanjh-labs</span>
+    <span class="w-[3.4rem]" aria-hidden="true"></span>
+  </div>
+  <div class="term-body space-y-2">
+    {anyLive ? (
+      <>
+        {rows.map((r) => (
+          <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+            <span class="term-ok">●</span>
+            <span class="term-key">{r.name}</span>
+            <span class="text-mist-600">—</span>
+            <span class="term-ok">active</span>
+            {r.version && <span class="text-mist-500">· <span class="text-mist-300">v{r.version}</span></span>}
+            {r.pushedAt && <span class="text-mist-500">· <span class="term-comment">last commit {relativeFromNow(r.pushedAt)}</span></span>}
+            {typeof r.stars === 'number' && <span class="text-mist-500">· <span class="text-kesari-400">★ {r.stars}</span></span>}
+          </p>
+        ))}
+        {typeof datasetDownloads === 'number' && (
+          <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+            <span class="term-ok">●</span>
+            <span class="term-key">sikhlibrary.dataset</span>
+            <span class="text-mist-600">—</span>
+            <span class="term-ok">active</span>
+            <span class="text-mist-500">· <span class="text-mist-300">{datasetDownloads.toLocaleString()} downloads</span> (HuggingFace)</span>
+          </p>
+        )}
+      </>
+    ) : (
+      <p class="term-comment">live status temporarily unavailable — see the source links on each card below.</p>
+    )}
+  </div>
+</div>

@@ -70,7 +70,7 @@ export const personalProjects: PersonalProject[] = [
     title: 'AI Sikh Library — open dataset',
     org: 'Personal · open-source',
     date: '2024 – present',
-    text: 'A 758M+ word multilingual corpus of Sikh manuscripts and scripture (powering SikhArchive) built to make rare heritage searchable. Born from problems I kept seeing in my own work and conversations at cybersecurity conferences.',
+    text: 'A 758M+ word multilingual corpus of Sikh manuscripts and scripture (powering Sikhi.io) built to make rare heritage searchable. Born from problems I kept seeing in my own work and conversations at cybersecurity conferences.',
     href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary',
     linkLabel: 'HuggingFace',
   },

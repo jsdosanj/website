@@ -12,14 +12,15 @@ const rest = skillGroups.filter((g) => !g.wide);
   title="Skills — AI, Cloud & IT Leadership"
   description="Jasvant Dosanjh's skills: AI development (RAG, OCR, LLMs), cloud & DevOps (Docker, Cloudflare, CI/CD), security & compliance (NIST, HIPAA), endpoint infrastructure."
   keywords={["AI development", "RAG", "LLM applications", "agentic coding", "Docker", "Cloudflare", "CI/CD", "GitHub Actions", "Jamf Pro", "Microsoft Intune", "JumpCloud", "NIST CSF", "CMMC", "HIPAA", "DevSecOps", "program management skills"]}
+  ogImage="/og/skills.png"
 >
   <section class="container-x pt-36 sm:pt-44">
     <div class="max-w-3xl">
       <p class="mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2 reveal is-visible">
         <span class="inline-block h-px w-6 bg-kesari-500/60"></span>$ man jasvant
       </p>
-      <h1 class="reveal is-visible mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100">
-        What I bring to the table.
+      <h1 class="mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-mist-100" data-kinetic>
+        <span class="kin-line"><span class="kin-inner">What I bring to the table.</span></span>
       </h1>
       <p class="reveal is-visible mt-5 text-lg text-mist-400 leading-relaxed">
         A decade of running real infrastructure and leading programs, and lately building products with AI.
@@ -81,7 +82,7 @@ const rest = skillGroups.filter((g) => !g.wide);
     <div class="reveal text-center">
       <h2 class="font-display text-3xl font-semibold text-mist-100">Curious how this maps to your team?</h2>
       <p class="mt-3 max-w-lg mx-auto text-mist-400">Let’s talk about where I can drive the most value.</p>
-      <a href={url('/contact')} class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Get in touch <Icon name="arrow" size={18} /></a>
+      <a href={url('/contact')} data-magnetic="0.35" class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Get in touch <Icon name="arrow" size={18} /></a>
     </div>
   </section>
 </Base>

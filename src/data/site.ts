@@ -4,8 +4,8 @@ export const site = {
   tagline: 'Technology that helps your team succeed instead of getting in its way.',
   shortTagline: 'IT Manager & problem-solver.',
   description:
-    'Jasvant Singh Dosanjh is an IT Manager in Seattle with 10 years leading matrixed, cross-functional teams across higher education, healthcare, gaming, and big tech. He owns the SDLC, runs Agile delivery and DevOps automation, manages vendors and budgets, and handles GRC across HIPAA, FERPA, and NIST-regulated environments. He is also a hands-on AI practitioner. PMP and CompTIA Security+ in progress.',
-  location: 'Seattle, WA',
+    'Jasvant Singh Dosanjh is an IT Manager with 10 years leading matrixed, cross-functional teams across higher education, healthcare, gaming, and big tech. He owns the SDLC, runs Agile delivery and DevOps automation, manages vendors and budgets, and handles GRC across HIPAA, FERPA, and NIST-regulated environments. He is also a hands-on AI practitioner, open to relocating. PMP and CompTIA Security+ in progress.',
+  location: 'Open to Relocating',
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
   url: 'https://jasvant.dosanjhlabs.com',

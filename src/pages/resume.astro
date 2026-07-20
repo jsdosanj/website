@@ -1,0 +1,157 @@
+---
+// A live, always-current web résumé generated from the same data as the rest
+// of the site — recruiters can share a link instead of a PDF, and it never
+// drifts out of sync. Static PDF downloads (site.resumes) stay available
+// alongside it; this doesn't replace them, it complements them.
+//
+// The role tabs switch which of the three PDF variants is "primary" and
+// highlighted — they do not fork the on-page content into three different
+// narratives. The experience/education/skills below are the single source
+// of truth for all three target roles; inventing three divergent bullet
+// sets not backed by real content would misrepresent the work.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+import { experience } from '../data/experience';
+import { education, certifications } from '../data/education';
+import { skillGroups } from '../data/skills';
+import { url } from '../utils';
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${site.url}/resume#profilepage`,
+  name: `${site.founder} — Résumé`,
+  mainEntity: { '@id': `${site.url}/#person` },
+};
+---
+<Base
+  title="Résumé"
+  description={`The live web résumé of ${site.founder} — ${site.positioning}`}
+  keywords={['resume', 'CV', 'IT Manager resume', 'printable resume']}
+  jsonld={jsonld}
+  ogImage="/og/resume.png"
+>
+  <section class="resume-shell container-x pt-32 sm:pt-40 pb-20">
+    <!-- Screen-only controls: role tabs + print/download -->
+    <div class="no-print reveal is-visible flex flex-wrap items-end justify-between gap-4 max-w-[62rem] mx-auto mb-8">
+      <div>
+        <p class="mono text-xs uppercase tracking-[0.22em] text-kesari-400 flex items-center gap-2">
+          <span class="inline-block h-px w-6 bg-kesari-500/60"></span>$ cat resume.md
+        </p>
+        <h1 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-mist-100" data-kinetic>
+          <span class="kin-line"><span class="kin-inner">Résumé</span></span>
+        </h1>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" id="resume-print" data-magnetic="0.25" class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-4 py-2.5 text-sm font-semibold hover:bg-kesari-400 transition-colors">
+          <Icon name="file" size={16} /> Print / Save as PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Role picker — switches which PDF variant is primary, not the content below -->
+    <div class="no-print reveal max-w-[62rem] mx-auto mb-8" data-role-tabs>
+      <p class="mono text-[11px] uppercase tracking-[0.2em] text-mist-500 mb-2.5">Downloading for a specific role?</p>
+      <div role="tablist" aria-label="Résumé variant" class="flex flex-wrap gap-1.5">
+        {site.resumes.map((r, i) => (
+          <a
+            href={r.href}
+            download
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            class="tab-btn"
+            data-variant={r.label}
+          >
+            <span class="text-mist-600">#</span> {r.short} <Icon name="file" size={13} class="inline ml-1 -mt-0.5" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- The résumé document itself -->
+    <article class="resume-doc max-w-[62rem] mx-auto card border-glow p-8 sm:p-12">
+      <header class="pb-8 hairline">
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-mist-100">{site.founder}</h2>
+        <p class="mt-1.5 text-kesari-300 font-medium">{site.tagline}</p>
+        <p class="mt-4 text-sm leading-relaxed text-mist-400 max-w-3xl">{site.positioning}</p>
+        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          <span class="text-mist-400">{site.location}</span>
+          <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="text-kesari-300 hover:underline underline-offset-4">linkedin.com/in/jasvantsd</a>
+          <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="text-kesari-300 hover:underline underline-offset-4">github.com/jsdosanj</a>
+          <a href={url('/contact')} class="text-kesari-300 hover:underline underline-offset-4">{site.url.replace('https://', '')}</a>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {site.roles.map((r) => (
+            <span class="mono rounded-lg bg-white/[0.04] border border-white/10 text-mist-200 px-2.5 py-1 text-[12px]">{r}</span>
+          ))}
+        </div>
+      </header>
+
+      <section class="py-8 hairline">
+        <h3 class="mono text-xs uppercase tracking-[0.2em] text-kesari-400">Experience</h3>
+        <div class="mt-5 space-y-6">
+          {experience.map((role) => (
+            <div class="resume-entry">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                <h4 class="font-display text-base font-semibold text-mist-100">{role.title} <span class="text-kesari-300 font-normal">· {role.company}</span></h4>
+                <span class="mono text-xs text-mist-500 shrink-0">{role.date}</span>
+              </div>
+              <ul class="mt-2 space-y-1.5">
+                {role.bullets.map((b) => (
+                  <li class="flex gap-2.5 text-sm text-mist-400 leading-relaxed"><span class="mt-1.5 h-1 w-1 rounded-full bg-azure-500 shrink-0"></span><span>{b}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="py-8 hairline grid gap-8 sm:grid-cols-2">
+        <div>
+          <h3 class="mono text-xs uppercase tracking-[0.2em] text-kesari-400">Education</h3>
+          <div class="mt-5 space-y-4">
+            {education.map((e) => (
+              <div class="resume-entry">
+                <div class="flex items-baseline justify-between gap-3">
+                  <h4 class="font-display text-sm font-semibold text-mist-100">{e.credential}</h4>
+                  <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>
+                </div>
+                <p class="text-kesari-300 text-sm">{e.school}</p>
+                <p class="mt-1 text-xs text-mist-400">{e.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="mono text-xs uppercase tracking-[0.2em] text-kesari-400">Certifications</h3>
+          <ul class="mt-5 space-y-1.5">
+            {certifications.map((c) => (
+              <li class="flex gap-2.5 text-sm text-mist-300"><Icon name="shield" size={14} class="text-kesari-500/80 shrink-0 mt-0.5" /><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="pt-8">
+        <h3 class="mono text-xs uppercase tracking-[0.2em] text-kesari-400">Skills</h3>
+        <div class="mt-5 space-y-4">
+          {skillGroups.map((g) => (
+            <div class="resume-entry">
+              <p class="text-sm font-semibold text-mist-100">{g.title}</p>
+              <p class="mt-1 text-sm text-mist-400">{g.skills.join(' · ')}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </article>
+
+    <p class="no-print reveal mt-8 text-center text-xs text-mist-500 max-w-[62rem] mx-auto">
+      This page is generated from the same source data as the rest of the site — it will never drift out of date. PDF downloads above are role-tailored one-pagers.
+    </p>
+  </section>
+
+  <script>
+    document.getElementById('resume-print')?.addEventListener('click', () => window.print());
+  </script>
+</Base>

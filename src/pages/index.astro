@@ -35,9 +35,10 @@ const principles = [
 ];
 ---
 <Base
-  description="Jasvant Singh Dosanjh — IT Manager in Seattle. 10 years leading teams across healthcare, education, gaming, and big tech: SDLC, Agile, GRC, hands-on AI."
-  keywords={["IT Manager Seattle", "IT Program Manager", "IT Project Manager", "helpdesk manager", "Jamf Pro", "Intune", "JumpCloud", "NIST", "HIPAA", "FERPA", "vendor management", "Agile", "open to work"]}
+  description="Jasvant Singh Dosanjh — IT Manager, open to relocating. 10 years leading teams across healthcare, education, gaming, and big tech: SDLC, Agile, GRC, hands-on AI."
+  keywords={["IT Program Manager", "IT Project Manager", "helpdesk manager", "Jamf Pro", "Intune", "JumpCloud", "NIST", "HIPAA", "FERPA", "vendor management", "Agile", "open to work"]}
   preloadImage="/images/headshot-spotlight.jpg"
+  ogImage="/og/home.png"
 >
   <!-- ===================== HERO ===================== -->
   <section class="relative pt-32 sm:pt-40 pb-12 overflow-hidden">
@@ -45,9 +46,9 @@ const principles = [
     <div class="container-x relative">
       <!-- eyebrow path -->
       <p class="reveal mono text-xs sm:text-sm text-mist-500 flex items-center gap-2">
-        <span class="text-mist-400">~/Users/jasvant</span>
+        <span class="text-mist-400">~</span>
         <span class="text-mist-600">—</span>
-        <span class="inline-flex items-center gap-1.5 text-phos-400"><span class="h-1.5 w-1.5 rounded-full bg-phos-400 animate-pulse-glow"></span>open to work · Seattle / Remote</span>
+        <span class="inline-flex items-center gap-1.5 text-phos-400"><span class="h-1.5 w-1.5 rounded-full bg-phos-400 animate-pulse-glow"></span>open to work · remote / open to relocating</span>
       </p>
 
       <div class="mt-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
@@ -94,20 +95,20 @@ const principles = [
           <div class="relative rounded-[1.6rem] border border-white/10 overflow-hidden border-glow shadow-[0_44px_100px_-50px_rgba(0,0,0,0.95)]" data-parallax="0.05">
             <Spotlight
               src={url('/images/headshot-spotlight.jpg')}
-              alt="Jasvant Singh Dosanjh, IT Manager in Seattle"
+              alt="Jasvant Singh Dosanjh, IT Manager"
               class="aspect-[4/5]"
               focus="50% 46%"
             />
             <!-- corner labels -->
             <span class="pointer-events-none absolute top-4 left-4 mono text-[10px] tracking-[0.28em] text-mist-300/80">IT&nbsp;MANAGER</span>
-            <span class="pointer-events-none absolute top-3.5 right-4 gurmukhi text-kesari-300/90 text-lg leading-none">ੴ</span>
+            <span class="pointer-events-none absolute top-3.5 right-4 gurmukhi text-kesari-300/90 text-lg leading-none" lang="pa">ੴ</span>
             <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] mono text-[10px] tracking-[0.3em] text-mist-400/60">EST. 2016 · AVAILABLE</span>
             <!-- desktop reveal hint -->
             <span class="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1.5 mono text-[10px] text-mist-400/70"><span class="h-1 w-1 rounded-full bg-kesari-400 animate-pulse-glow"></span>move cursor to reveal</span>
             <!-- name plate -->
             <div class="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5 bg-gradient-to-t from-ink-950/90 via-ink-950/40 to-transparent">
               <p class="font-display text-lg font-semibold text-mist-100 leading-none">Jasvant Singh Dosanjh</p>
-              <p class="mono text-[11px] text-kesari-300 mt-1.5">Seattle, WA · 10 yrs · open to work</p>
+              <p class="mono text-[11px] text-kesari-300 mt-1.5">Open to Relocating · 10 yrs · open to work</p>
             </div>
           </div>
           <Khanda size={54} class="absolute -top-5 -right-4 text-kesari-400/80 animate-float drop-shadow-[0_0_18px_rgba(240,169,60,0.35)]" />
@@ -224,11 +225,11 @@ const principles = [
       <Jali class="absolute inset-0 text-kesari-500/[0.08]" opacity={1} />
       <div class="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
         <div>
-          <p class="gurmukhi text-3xl text-kesari-400">ੴ</p>
+          <p class="gurmukhi text-3xl text-kesari-400" lang="pa">ੴ</p>
           <h2 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-mist-100">The character behind the résumé</h2>
           <p class="mt-4 max-w-2xl text-mist-400 leading-relaxed">
             Beyond the work, I serve as a parcharik — speaking at community events worldwide and preserving Sikh heritage with
-            <span class="text-mist-200"> Basics of Sikhi</span> and <span class="text-mist-200">SikhArchive.net</span>.
+            <span class="text-mist-200"> Basics of Sikhi</span> and <span class="text-mist-200">Sikhi.io</span>.
             The code and the seva come from the same place: leadership rooted in service, resilience, and putting people first.
           </p>
           <a href={url('/seva')} class="mt-6 inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold mono text-kesari-300 hover:border-kesari-500/40 transition-colors">
@@ -253,8 +254,8 @@ const principles = [
         <h2 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-mist-100 leading-tight">Hiring an IT Manager?</h2>
         <p class="mt-4 max-w-xl mx-auto text-mist-400 font-sans">Let’s talk about how I can lead your teams, deliver your programs, harden your posture, and run infrastructure that scales.</p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={url('/contact')} class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold mono hover:bg-kesari-400 transition-colors">./hire-me <Icon name="arrow" size={18} /></a>
-          <a href={primaryResume.href} download class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3.5 font-semibold mono text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> résumé.pdf</a>
+          <a href={url('/contact')} data-magnetic="0.35" class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold mono hover:bg-kesari-400 transition-colors">./hire-me <Icon name="arrow" size={18} /></a>
+          <a href={primaryResume.href} download data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3.5 font-semibold mono text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> résumé.pdf</a>
         </div>
       </div>
     </div>
