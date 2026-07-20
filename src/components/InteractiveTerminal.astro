@@ -3,7 +3,17 @@
 // invites visitors to run (or tap) commands and get plain-English answers — the
 // terminal as something to learn and enjoy, not a wall. Fully keyboard- and
 // tap-driven; degrades to readable static text without JS.
+import { commands as rawCommands } from '../data/commands';
+import { url } from '../utils';
+
 const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
+// Shared with the ⌘K command palette — `open <name>` fuzzy-matches this list
+// and actually navigates, instead of the terminal only describing things.
+const openTargets = rawCommands.map((c) => ({
+  id: c.id,
+  label: c.label,
+  action: c.action.type === 'navigate' ? { ...c.action, href: url(c.action.href) } : c.action,
+}));
 ---
 <div class="term" id="iterm" data-iterm>
   <div class="term-bar">
@@ -17,7 +27,7 @@ const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
     <div id="iterm-out" aria-live="polite">
       <noscript>
         <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> whoami</p>
-        <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · Seattle — 10 years leading cross-functional IT teams.</p>
+        <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · open to relocating — 10 years leading cross-functional IT teams.</p>
         <p class="mt-2 term-comment">Enable JavaScript to run commands, or explore the nav above.</p>
       </noscript>
     </div>
@@ -39,8 +49,18 @@ const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
   </div>
 </div>
 
+<script define:vars={{ openTargets }}>
+  window.__openTargets = openTargets;
+</script>
+
 <script>
   type Cmd = () => string;
+  type OpenAction =
+    | { type: 'navigate'; href: string }
+    | { type: 'external'; href: string }
+    | { type: 'download'; href: string };
+  type OpenTarget = { id: string; label: string; action: OpenAction };
+  const openTargets = (window as any).__openTargets as OpenTarget[];
   const A = (href: string, label: string) => `<a href="${href}" class="text-kesari-300 underline underline-offset-2 hover:text-kesari-200">${label}</a>`;
 
   const COMMANDS: Record<string, Cmd> = {
@@ -53,9 +73,10 @@ const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
       `  <span class="term-key">certs</span>       certifications\n` +
       `  <span class="term-key">resume</span>      download my résumé\n` +
       `  <span class="term-key">contact</span>     how to reach me\n` +
+      `  <span class="term-key">open &lt;name&gt;</span>  jump to any page, product, or link — try <span class="term-key">open bastion</span>\n` +
       `  <span class="term-key">clear</span>       clear the screen`,
     whoami: () =>
-      `Jasvant Singh Dosanjh — <span class="text-mist-100">IT Manager</span> in Seattle.\n` +
+      `Jasvant Singh Dosanjh — <span class="text-mist-100">IT Manager</span>, open to relocating.\n` +
       `10 years leading matrixed, cross-functional teams across higher ed, healthcare, gaming, and big tech.`,
     skills: () =>
       `I lead IT teams and programs and translate the technical for everyone in the room:\n` +
@@ -71,7 +92,7 @@ const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
       `<span class="term-ok">✔</span> built a 12-product security & compliance suite\n` +
       `→ full story at ${A('/about', 'cd ./about')}`,
     projects: () =>
-      `Things I've built: Sikh University, Sightline, Bastion, and open-source\n` +
+      `Things I've built: Sikhi University, Sightline, Bastion, and open-source\n` +
       `Cairn / Ledger / Lookout — plus a 758M-word AI dataset.\n` +
       `→ browse ${A('/products', 'ls ./products')}`,
     certs: () =>
@@ -116,6 +137,30 @@ const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
       text.split('\n').forEach((l) => line(l || '&nbsp;', 'text-mist-300'));
     };
 
+    const runOpenAction = (a: OpenAction) => {
+      if (a.type === 'navigate') window.location.href = a.href;
+      else if (a.type === 'external') window.open(a.href, '_blank', 'noopener,noreferrer');
+      else if (a.type === 'download') {
+        const link = document.createElement('a');
+        link.href = a.href; link.download = '';
+        document.body.appendChild(link); link.click(); link.remove();
+      }
+    };
+
+    const openCommand = (query: string) => {
+      const q = query.trim().toLowerCase();
+      if (!q) { line(`usage: <span class="term-key">open &lt;name&gt;</span> — e.g. <span class="term-key">open bastion</span>, <span class="term-key">open products</span>`); return; }
+      const starts = openTargets.filter((t) => t.label.toLowerCase().startsWith(q));
+      const includes = openTargets.filter((t) => t.label.toLowerCase().includes(q));
+      const match = starts[0] || includes[0];
+      if (!match) {
+        line(`<span class="text-mac-red">open: no match for "${query.replace(/</g, '&lt;')}"</span> — try <span class="term-key">projects</span> to see names`);
+        return;
+      }
+      line(`<span class="term-ok">→ opening ${match.label}…</span>`);
+      window.setTimeout(() => runOpenAction(match.action), 260);
+    };
+
     const run = (raw: string) => {
       const cmd = raw.trim();
       if (!cmd) return;
@@ -123,6 +168,7 @@ const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
       promptEcho(cmd);
       const key = cmd.toLowerCase().split(/\s+/)[0];
       if (key === 'clear') { out.innerHTML = ''; return; }
+      if (key === 'open') { openCommand(cmd.slice(cmd.toLowerCase().indexOf('open') + 4)); out.parentElement!.scrollTop = out.parentElement!.scrollHeight; return; }
       const fn = COMMANDS[key];
       if (fn) block(fn());
       else line(`<span class="text-mac-red">zsh: command not found: ${key.replace(/</g, '&lt;')}</span> — try <span class="term-key">help</span>`);

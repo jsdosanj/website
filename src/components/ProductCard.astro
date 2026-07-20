@@ -1,12 +1,19 @@
 ---
 import type { Product } from '../data/products';
 import { statusMeta } from '../data/products';
+import { getLiveStats } from '../data/live';
 import Icon from './Icon.astro';
 import ProductVisual from './ProductVisual.astro';
 
 interface Props { product: Product; }
 const { product } = Astro.props;
 const meta = statusMeta[product.status];
+
+// Live PyPI version badge for the two packages actually published there —
+// see src/data/live.ts. Memoized build-wide, so this costs nothing extra
+// per card; omitted entirely if the slug isn't tracked or the fetch failed.
+const livePackageKey = product.slug === 'gurmukhifix' ? 'gurmukhifix' : product.slug === 'cairn' ? 'cairn-sync' : null;
+const liveVersion = livePackageKey ? (await getLiveStats()).packages[livePackageKey]?.version : undefined;
 const accentText = product.accent === 'kesari' ? 'text-kesari-400' : 'text-azure-400';
 const accentDot = product.accent === 'kesari' ? 'bg-kesari-500' : 'bg-azure-500';
 const statusColor =
@@ -34,13 +41,13 @@ const statusColor =
     <div class="flex items-center gap-3">
       <span class:list={['grid place-items-center h-11 w-11 rounded-xl bg-ink-800 border border-white/10', accentText]}>
         {product.gurmukhi
-          ? <span class="gurmukhi text-xl leading-none">{product.gurmukhi}</span>
+          ? <span class="gurmukhi text-xl leading-none" lang="pa">{product.gurmukhi}</span>
           : <span class="font-display font-bold text-lg">{product.name.charAt(0)}</span>}
       </span>
       <div>
         <h3 class="font-display text-lg font-semibold text-mist-100">{product.name}</h3>
         {product.gurmukhiName && (
-          <p class="gurmukhi text-sm leading-tight text-mist-300">{product.gurmukhiName}</p>
+          <p class="gurmukhi text-sm leading-tight text-mist-300" lang="pa">{product.gurmukhiName}</p>
         )}
         <p class="mono text-[11px] uppercase tracking-wider text-mist-500 mt-0.5">{product.category}</p>
       </div>
@@ -51,6 +58,11 @@ const statusColor =
       </span>
       {product.published && (
         <span class="mono text-[10px] text-mist-500">{product.published === 'Ongoing' ? 'Ongoing' : `Published ${product.published}`}</span>
+      )}
+      {liveVersion && (
+        <span class="inline-flex items-center gap-1 mono text-[10px] text-phos-300" title="Live version on PyPI">
+          <span class="h-1.5 w-1.5 rounded-full bg-phos-400 animate-pulse-glow"></span>v{liveVersion}
+        </span>
       )}
     </div>
   </div>

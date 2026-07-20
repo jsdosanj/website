@@ -7,8 +7,21 @@ import ConstellationBg from '../components/ConstellationBg.astro';
 import Cursor from '../components/Cursor.astro';
 import BootLoader from '../components/BootLoader.astro';
 import Motion from '../components/Motion.astro';
+import CommandPalette from '../components/CommandPalette.astro';
 import { site } from '../data/site';
 import { url } from '../utils';
+// Self-hosted fonts — plain side-effect imports so Vite runs its normal CSS
+// asset pipeline (hashing + copying every referenced woff2/woff) instead of
+// the broken relative paths a CSS-level @import produces. See global.css.
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/hanken-grotesk';
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource/noto-serif-gurmukhi/400.css';
+import '@fontsource/noto-serif-gurmukhi/500.css';
+import '@fontsource/noto-serif-gurmukhi/600.css';
+// Preload the two render-critical latin subsets to tame FOUT on the kinetic hero.
+import bricolageWoff2 from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
+import hankenWoff2 from '@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url';
 
 interface Props {
   title?: string;
@@ -46,11 +59,11 @@ for (const s of segments) {
 const extraJsonld = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 
 const baseKeywords = [
-  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'IT Manager', 'IT Manager Seattle',
+  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'IT Manager',
   'IT Program Manager', 'IT Project Manager', 'Technical Program Manager', 'IT leadership',
   'problem solver', 'AI practitioner', 'Sightline', 'Bastion', 'Cairn',
   'Jamf Pro', 'Intune', 'JumpCloud', 'NIST', 'HIPAA', 'FERPA', 'GRC', 'vendor management',
-  'Agile', 'SDLC', 'Seattle technologist', 'Systems Engineering', 'open to work',
+  'Agile', 'SDLC', 'Systems Engineering', 'open to work', 'open to relocating',
 ];
 const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
 
@@ -76,7 +89,7 @@ const ldGraph = {
       description: site.description,
       jobTitle: 'IT Manager',
       worksFor: { '@id': 'https://dosanjhlabs.com/#organization' },
-      address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
+      address: { '@type': 'PostalAddress', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
       knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management', 'Gurmukhi OCR', 'Sikh Heritage Preservation', 'Gurmat Education'],
       hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
@@ -137,7 +150,7 @@ const ldGraph = {
     <link rel="canonical" href={canonical} />
     <meta name="author" content={site.founder} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
-    <meta name="theme-color" content="#0a0d13" />
+    <meta name="theme-color" content="#07080a" />
     {preloadImage && <link rel="preload" as="image" href={url(preloadImage)} fetchpriority="high" />}
 
     <!-- Open Graph -->
@@ -159,20 +172,17 @@ const ldGraph = {
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={`${site.brand} — ${site.tagline}`} />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Gurmukhi:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts: self-hosted (imported above) — preload the two render-critical
+         latin subsets to tame FOUT on the kinetic hero. -->
+    <link rel="preload" as="font" type="font/woff2" href={bricolageWoff2} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={hankenWoff2} crossorigin />
 
     <!-- No-JS fallback: never hide content if scripts don't run -->
     <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 
     <!-- Favicon: personal Khanda emblem -->
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
-    <link rel="apple-touch-icon" href={url('/favicon.svg')} />
+    <link rel="apple-touch-icon" href={url('/icons/apple-touch-icon.png')} />
     <link rel="manifest" href={url('/site.webmanifest')} />
     <link rel="sitemap" href={url('/sitemap-index.xml')} />
 
@@ -201,6 +211,9 @@ const ldGraph = {
       <slot />
     </main>
     <Footer />
+
+    <!-- ⌘K / Ctrl+K / "/" command palette — jump anywhere on the site -->
+    <CommandPalette />
 
     <!-- Custom cursor + smooth-scroll / reveal motion layer (desktop, motion-safe) -->
     <Cursor />

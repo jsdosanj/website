@@ -1,0 +1,190 @@
+---
+// Global ⌘K / Ctrl+K / "/" command palette — jump to any page, product,
+// résumé, or social link from anywhere on the site. Shares its data with
+// InteractiveTerminal's `open` command via src/data/commands.ts.
+import { commands as rawCommands } from '../data/commands';
+import { url } from '../utils';
+
+const commands = rawCommands.map((c) => ({
+  ...c,
+  action: c.action.type === 'navigate' ? { ...c.action, href: url(c.action.href) } : c.action,
+}));
+---
+<div id="cmdk" class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
+  <div class="cmdk-backdrop" data-cmdk-close></div>
+  <div class="cmdk-panel term">
+    <div class="term-bar">
+      <div class="term-lights" aria-hidden="true"><span class="term-light red"></span><span class="term-light amber"></span><span class="term-light green"></span></div>
+      <span class="term-title">jasvant@portfolio — command palette</span>
+      <span class="w-[3.4rem]" aria-hidden="true"></span>
+    </div>
+    <div class="cmdk-input-row">
+      <span class="term-prompt-sym mono" aria-hidden="true">›</span>
+      <input
+        id="cmdk-input"
+        type="text"
+        class="cmdk-input"
+        placeholder="Type a command or search…"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        role="combobox"
+        aria-expanded="true"
+        aria-autocomplete="list"
+        aria-controls="cmdk-list"
+        aria-label="Search commands"
+      />
+      <kbd class="kbd">esc</kbd>
+    </div>
+    <ul id="cmdk-list" role="listbox" class="cmdk-list" aria-label="Commands"></ul>
+    <p id="cmdk-empty" class="cmdk-empty" hidden>No matching command.</p>
+  </div>
+</div>
+
+<script define:vars={{ commands }}>
+  function initPalette() {
+    const root = document.getElementById('cmdk');
+    const input = document.getElementById('cmdk-input');
+    const list = document.getElementById('cmdk-list');
+    const empty = document.getElementById('cmdk-empty');
+    if (!root || !input || !list || !empty) return;
+    if (root._wired) return;
+    root._wired = true;
+
+    let flat = [];
+    let activeIndex = 0;
+    let lastFocused = null;
+
+    function render() {
+      const tokens = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      const matches = commands.filter((c) => {
+        const hay = [c.label, c.hint, c.group, ...(c.keywords || [])].filter(Boolean).join(' ').toLowerCase();
+        return tokens.every((t) => hay.includes(t));
+      });
+
+      const groups = [];
+      const byGroup = new Map();
+      matches.forEach((c) => {
+        if (!byGroup.has(c.group)) { byGroup.set(c.group, []); groups.push(c.group); }
+        byGroup.get(c.group).push(c);
+      });
+
+      list.innerHTML = '';
+      flat = [];
+      groups.forEach((g) => {
+        const gEl = document.createElement('li');
+        gEl.className = 'cmdk-group';
+        gEl.setAttribute('role', 'presentation');
+        gEl.textContent = g;
+        list.appendChild(gEl);
+        byGroup.get(g).forEach((c) => {
+          const i = flat.length;
+          const li = document.createElement('li');
+          li.className = 'cmdk-item';
+          li.id = `cmdk-item-${i}`;
+          li.setAttribute('role', 'option');
+          const labelEl = document.createElement('span');
+          labelEl.className = 'cmdk-item-label';
+          labelEl.textContent = c.label;
+          li.appendChild(labelEl);
+          if (c.hint) {
+            const hintEl = document.createElement('span');
+            hintEl.className = 'cmdk-item-hint mono';
+            hintEl.textContent = c.hint;
+            li.appendChild(hintEl);
+          }
+          li.addEventListener('mouseenter', () => setActive(i));
+          li.addEventListener('click', () => activate(c));
+          list.appendChild(li);
+          flat.push(c);
+        });
+      });
+
+      empty.hidden = flat.length > 0;
+      setActive(0);
+    }
+
+    function setActive(i) {
+      if (!flat.length) return;
+      activeIndex = Math.max(0, Math.min(i, flat.length - 1));
+      list.querySelectorAll('.cmdk-item').forEach((el) => el.classList.remove('is-active'));
+      const el = document.getElementById(`cmdk-item-${activeIndex}`);
+      if (el) {
+        el.classList.add('is-active');
+        el.scrollIntoView({ block: 'nearest' });
+        input.setAttribute('aria-activedescendant', el.id);
+      }
+    }
+
+    function activate(c) {
+      close();
+      const a = c.action;
+      if (a.type === 'navigate') {
+        window.location.href = a.href;
+      } else if (a.type === 'external') {
+        window.open(a.href, '_blank', 'noopener,noreferrer');
+      } else if (a.type === 'download') {
+        const a2 = document.createElement('a');
+        a2.href = a.href;
+        a2.download = '';
+        document.body.appendChild(a2);
+        a2.click();
+        a2.remove();
+      }
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      root.hidden = false;
+      document.documentElement.classList.add('cmdk-open');
+      input.value = '';
+      render();
+      input.focus();
+    }
+    function close() {
+      root.hidden = true;
+      document.documentElement.classList.remove('cmdk-open');
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    input.addEventListener('input', render);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setActive(activeIndex + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(activeIndex - 1); }
+      else if (e.key === 'Enter') { e.preventDefault(); if (flat[activeIndex]) activate(flat[activeIndex]); }
+      else if (e.key === 'Escape') { e.preventDefault(); close(); }
+    });
+    root.querySelectorAll('[data-cmdk-close]').forEach((el) => el.addEventListener('click', close));
+
+    const onGlobalKeydown = (e) => {
+      const metaK = (e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey);
+      if (metaK) {
+        e.preventDefault();
+        root.hidden ? open() : close();
+        return;
+      }
+      if (root.hidden && e.key === '/') {
+        const active = document.activeElement;
+        const tag = active && active.tagName ? active.tagName.toLowerCase() : '';
+        const typing = tag === 'input' || tag === 'textarea' || (active && active.isContentEditable);
+        if (!typing) { e.preventDefault(); open(); }
+      } else if (!root.hidden && e.key === 'Escape') {
+        close();
+      }
+    };
+    document.addEventListener('keydown', onGlobalKeydown);
+    // Lets other components (e.g. the nav's ⌘K hint) open the palette
+    // without reaching into this closure.
+    document.addEventListener('cmdk:open', open);
+
+    // document persists across Astro swaps — drop these before the next
+    // page's initPalette() adds its own (same leak class as the cursor).
+    document.addEventListener('astro:before-swap', () => {
+      document.removeEventListener('keydown', onGlobalKeydown);
+      document.removeEventListener('cmdk:open', open);
+    }, { once: true });
+  }
+
+  initPalette();
+  document.addEventListener('astro:page-load', initPalette);
+</script>

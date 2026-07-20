@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+/* Self-hosted font @font-face rules are registered via plain JS-side-effect
+   imports in Base.astro (the documented Fontsource + Vite pattern) rather
+   than a CSS @import here — @import-ing them from inside this file, which
+   Tailwind's own bundler also processes, skips Vite's url() asset rewriting
+   and ships every font file at a broken, unhashed relative path. */
+
 /* ============================================================
    JASVANT DOSANJH — Design System
    "macOS Terminal" — premium, technical, cinematic.
@@ -52,9 +58,9 @@
   /* — Fonts — distinctive, intentional (no Inter/Helvetica defaults).
      Bricolage Grotesque = editorial display character; Hanken Grotesk =
      warm, legible body; JetBrains Mono = the terminal voice. — */
-  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Fira Code', monospace;
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', 'Fira Code', monospace;
   --font-gurmukhi: 'Noto Serif Gurmukhi', serif;
 
   /* — Motion — */
@@ -647,6 +653,146 @@ body {
   height: 100%;
   pointer-events: none;
   opacity: 0.5;
+}
+
+/* ============================================================
+   COMMAND PALETTE — ⌘K / Ctrl+K / "/"
+   ============================================================ */
+.cmdk {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: grid;
+  place-items: start center;
+  padding-top: min(14vh, 7rem);
+  padding-inline: 1rem;
+}
+.cmdk[hidden] { display: none; }
+.cmdk-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-ink-950) 72%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: cmdk-fade 0.2s ease both;
+}
+.cmdk-panel {
+  position: relative;
+  width: min(100%, 34rem);
+  max-height: min(70vh, 30rem);
+  display: flex;
+  flex-direction: column;
+  animation: cmdk-pop 0.22s var(--ease-out-expo) both;
+}
+@keyframes cmdk-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cmdk-pop { from { opacity: 0; transform: translateY(-10px) scale(0.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .cmdk-backdrop, .cmdk-panel { animation: none; }
+}
+.cmdk-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-mist-100) 8%, transparent);
+}
+.cmdk-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--color-mist-100);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+}
+.cmdk-input::placeholder { color: var(--color-mist-600); }
+.cmdk-list {
+  overflow-y: auto;
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+}
+.cmdk-group {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-mist-600);
+  padding: 0.6rem 0.6rem 0.3rem;
+}
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.55rem;
+  color: var(--color-mist-300);
+  cursor: pointer;
+  scroll-margin-block: 0.5rem;
+}
+.cmdk-item-label { font-size: 0.9rem; }
+.cmdk-item-hint {
+  font-size: 0.72rem;
+  color: var(--color-mist-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 12rem;
+}
+.cmdk-item.is-active {
+  background: color-mix(in srgb, var(--color-kesari-500) 14%, transparent);
+  color: var(--color-mist-100);
+}
+.cmdk-item.is-active .cmdk-item-hint { color: var(--color-kesari-300); }
+.cmdk-empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-mist-500);
+}
+.cmdk-empty[hidden] { display: none; }
+
+/* ============================================================
+   PRINT — a genuine, clean printable output (used by /resume, but
+   applies site-wide: nobody wants terminal chrome on a printed page).
+   ============================================================ */
+@media print {
+  /* body > header/footer are the site-wide Nav/Footer landmarks — scoped to
+     direct children so a page's own <header> (e.g. the résumé document's)
+     isn't caught by the same rule. */
+  .bg-aurora, .bg-scan, .bg-grain, .binary-rain, .starfield, .orbit-ring,
+  #boot, .cursor-dot, .cursor-ring, .cmdk, body > header, body > footer,
+  .no-print, [data-parallax], .khanda-float { display: none !important; }
+
+  html, body { background: #fff !important; height: auto !important; overflow: visible !important; }
+  body { color: #111 !important; }
+  main { padding: 0 !important; margin: 0 !important; }
+
+  * { animation: none !important; transition: none !important; box-shadow: none !important; text-shadow: none !important; }
+
+  a { color: #111 !important; text-decoration: underline; }
+  a[href^="http"]::after { content: ''; }
+
+  .resume-shell { padding: 0 !important; max-width: none !important; }
+  .resume-doc {
+    background: #fff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    color: #111 !important;
+  }
+  .resume-doc .hairline { border-color: #ccc !important; }
+  .resume-doc h2, .resume-doc h3, .resume-doc h4, .resume-doc p, .resume-doc span, .resume-doc li {
+    color: #111 !important;
+  }
+  .resume-doc .text-kesari-300, .resume-doc .text-kesari-400 { color: #7a4d00 !important; }
+  .resume-doc .text-mist-400, .resume-doc .text-mist-500 { color: #444 !important; }
+  .resume-doc .bg-white\/\[0\.04\] { background: transparent !important; border-color: #999 !important; }
+  .resume-entry { break-inside: avoid; }
+
+  @page { margin: 1.4cm; }
 }
 
 /* Focus visibility */

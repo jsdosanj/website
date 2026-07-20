@@ -3,9 +3,11 @@
 // Sequentially reveals a few system lines, then lifts away to reveal the site.
 // Honors prefers-reduced-motion (instant) and is skippable with any key/click.
 import { site } from '../data/site';
+const buildDate = new Date().toUTCString().replace(' GMT', '');
 const lines = [
   { t: 'login: jasvant', c: '' },
-  { t: `Last login: ${site.location} · ${site.targetRole}`, c: 'term-comment' },
+  { t: `Last login: ${buildDate} on ttys000`, c: 'term-comment' },
+  { t: `status: open to work · ${site.targetRole} · ${site.location}`, c: 'term-comment' },
   { t: '$ booting portfolio.sh …', c: 'term-user' },
   { t: '✔ mounting 10 years of experience', c: 'term-ok' },
   { t: '✔ loading GRC · HIPAA · NIST · FERPA', c: 'term-ok' },

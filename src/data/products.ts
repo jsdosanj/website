@@ -23,14 +23,14 @@ export const products: Product[] = [
   {
     slug: 'sikh-university',
     published: 'Ongoing',
-    name: 'Sikh University',
+    name: 'Sikhi University',
     gurmukhi: 'ੴ',
     gurmukhiName: 'ਸਿੱਖ ਯੂਨੀਵਰਸਿਟੀ',
     category: 'Education / Sikhi',
     status: 'live',
     tagline: 'A free, open online university for Sikhi — from the basics to the depths.',
     description:
-      'Sikh University is a free, open online university where anyone, anywhere can study Sikhi — from its basics to its depths. 200+ courses across 19 subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside the Sikh Archive.',
+      'Sikhi University is a free, open online university where anyone, anywhere can study Sikhi — from its basics to its depths. 200+ courses across 19 subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside Sikhi.io.',
     highlights: [
       '200+ courses across 19 subjects, each attributed to a real Sikh scholar, with key terms in Punjabi (Gurmukhi) and Chicago-style citations.',
       'A read-along reader for the complete SGGS, Dasam Granth and Sri Sarbloh Granth Sahib, plus a beginner Gurmukhi primer (Baal Updesh).',
@@ -38,10 +38,31 @@ export const products: Product[] = [
     ],
     tech: ['Astro', 'Tailwind', 'Cloudflare Workers', 'D1 / R2'],
     links: [
-      { label: 'Visit site', href: 'https://sikh-university.jasvant-dosanjh.workers.dev', icon: 'external' },
+      { label: 'Visit site', href: 'https://sikhiuni.com/', icon: 'external' },
     ],
     accent: 'kesari',
     featured: true,
+  },
+  {
+    slug: 'sikhinteractive',
+    published: 'Ongoing',
+    name: 'Sikhinteractive.com',
+    gurmukhi: 'ੴ',
+    category: 'Education / Sikhi',
+    status: 'live',
+    tagline: 'Touch-first Sikhi learning, built for gurdwara kiosks.',
+    description:
+      'Sikhinteractive.com is a touch-interactive learning experience built for kiosks installed at gurdwaras. Sangat of any age can walk up and explore Sikhi — no account, no instructions, just touch. Designed for the environment it lives in: large-format touchscreens, short walk-up sessions, and content that meets absolute beginners where they are.',
+    highlights: [
+      'Built for walk-up use: large touch targets, zero sign-in, and interactions that make sense in seconds.',
+      'Designed for kiosk installs at gurdwaras — full-screen, touch-first, ready for shared public use.',
+    ],
+    tech: ['Touchscreen UI', 'Kiosk', 'Education / Sikhi'],
+    links: [
+      { label: 'Visit site', href: 'https://sikhinteractive.com/', icon: 'external' },
+    ],
+    accent: 'kesari',
+    featured: false,
   },
   {
     slug: 'sightline',
@@ -393,13 +414,13 @@ featured: false,
   {
     slug: 'sikharchive',
     published: 'Ongoing',
-    name: 'SikhArchive.net',
+    name: 'Sikhi.io',
     gurmukhi: 'ੴ',
     category: 'Collaboration · Digital Heritage',
     status: 'live',
     tagline: 'Five centuries of Sikh literature, open to the world.',
     description:
-      'SikhArchive.net is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable. This isn’t my own project — I contribute to it as a developer, helping push the platform forward alongside the team.',
+      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable. This isn’t my own project — I contribute to it as a developer, helping push the platform forward alongside the team.',
     highlights: [
       'Working on integrating the 758M+ word Sikh Library dataset into the platform.',
       'Built Gurbani search and an AI-powered search engine, plus design improvements.',
@@ -407,7 +428,7 @@ featured: false,
     ],
     tech: ['Web', 'AI Search', 'Security', 'Mobile Web'],
     links: [
-      { label: 'Visit SikhArchive.net', href: 'https://www.sikharchive.net/', icon: 'external' },
+      { label: 'Visit Sikhi.io', href: 'https://sikhi.io/', icon: 'external' },
     ],
     accent: 'kesari',
     featured: false,

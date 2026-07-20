@@ -1,13 +1,15 @@
 {
-  "name": "Jasvant Dosanjh — Technical Project Manager",
+  "name": "Jasvant Dosanjh — IT Manager",
   "short_name": "Jasvant Dosanjh",
-  "description": "Senior IT leader, systems engineer, and builder in Seattle. Open to IT Security & GRC Leader, Technical Program Manager, and Senior Systems & Endpoint Engineer roles.",
+  "description": "Senior IT leader, systems engineer, and builder, open to relocating. Open to IT Manager, IT Program / Project Manager, and IT Security & GRC Leader roles.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0d13",
-  "theme_color": "#0a0d13",
+  "background_color": "#07080a",
+  "theme_color": "#07080a",
   "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }

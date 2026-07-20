@@ -11,9 +11,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       changefreq: 'weekly',
-      lastmod: new Date('2026-07-07'),
-      // Keep the noindex 404 page out of the sitemap.
-      filter: (page) => !/\/404\/?$/.test(page),
+      lastmod: new Date(),
+      // Keep the noindex 404 page and generated OG image endpoints out of the sitemap.
+      filter: (page) => !/\/404\/?$/.test(page) && !/\/og\//.test(page),
       serialize(item) {
         // Home and key conversion pages get top priority
         if (/jasvant\.dosanjhlabs\.com\/?$/.test(item.url)) item.priority = 1.0;

@@ -113,6 +113,22 @@
     });
   }
 
+  // "The Trajectory" journey trail: the vertical line draws downward as its
+  // section scrolls through view. CSS shows it fully drawn by default (the
+  // safe no-JS/reduced-motion state) — this only ever animates it in.
+  function buildJourneyTrail() {
+    const track = document.querySelector<HTMLElement>('[data-journey-trail]');
+    const fill = document.querySelector<HTMLElement>('[data-trail-fill]');
+    if (!track || !fill) return;
+    if (reduce) return;
+    gsap.set(fill, { scaleY: 0, transformOrigin: 'top' });
+    gsap.to(fill, {
+      scaleY: 1,
+      ease: 'none',
+      scrollTrigger: { trigger: track, start: 'top 75%', end: 'bottom 65%', scrub: 0.6 },
+    });
+  }
+
   // Page-turn / curtain: .turn sections un-clip and settle as they enter.
   function buildTurn() {
     if (reduce) { gsap.utils.toArray<HTMLElement>('.turn').forEach((el) => el.style.setProperty('--turn', '0')); return; }
@@ -131,6 +147,7 @@
     buildKinetic();
     buildMagnetic();
     buildTurn();
+    buildJourneyTrail();
     wireAnchors();
     ScrollTrigger.refresh();
   }
@@ -139,9 +156,25 @@
   document.addEventListener('astro:page-load', setup);
 
   // Stop Lenis mid-transition so it doesn't fight the swap, resume after.
-  document.addEventListener('astro:before-swap', () => lenis?.stop());
+  // Only reset scroll on a forward navigation — resetting on 'back' as well
+  // defeats Astro's own native scroll restoration and always dumps the user
+  // at the top instead of where they were. Astro only puts `direction` on
+  // the 'astro:before-swap' event, not 'astro:after-swap' — capture it here
+  // and read it back when after-swap fires.
+  let swapDirection: string | undefined;
+  document.addEventListener('astro:before-swap', (e: Event) => {
+    swapDirection = (e as any).direction;
+    lenis?.stop();
+  });
   document.addEventListener('astro:after-swap', () => {
-    window.scrollTo(0, 0);
+    // Astro records scroll position in history.state and restores it on
+    // 'back' natively — but Lenis owns scroll once active and doesn't know
+    // about that restoration, so it has to be told explicitly, not just
+    // resumed. Read the same state Astro itself saved rather than guessing.
+    const isBack = swapDirection === 'back';
+    const target = isBack ? (history.state?.scrollY ?? 0) : 0;
     lenis?.start();
+    if (lenis) lenis.scrollTo(target, { immediate: true });
+    else window.scrollTo(0, target);
   });
 </script>

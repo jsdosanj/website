@@ -14,6 +14,7 @@ export type SevaEngagement = {
   description: string;
   link?: { label: string; href: string };
   tags: string[];
+  icon: string;
 };
 
 export const engagements: SevaEngagement[] = [
@@ -21,24 +22,27 @@ export const engagements: SevaEngagement[] = [
     org: 'Basics of Sikhi — Everything’s 13 (North America)',
     role: 'Public Speaker & Parcharik',
     date: 'Jan 2024 – Present',
+    icon: 'mic',
     description:
       'Speak and teach at Sikh camps, universities, and Gurdwaras across North America and beyond — sharing Gurmat principles and inspiring people to live with purpose and compassion. Organize and host events throughout the Pacific Northwest, coordinate Amrit Sanchars worldwide, and teach Santhiya (correct pronunciation and understanding of Gurbani) to students globally.',
     link: { label: 'Basics of Sikhi', href: 'https://www.basicsofsikhi.com/' },
     tags: ['Public Speaking', 'Gurmat Education', 'Santhiya', 'Youth Camps'],
   },
   {
-    org: 'SikhArchive.net',
+    org: 'Sikhi.io',
     role: 'CTO & Lead Engineer',
     date: 'Ongoing',
+    icon: 'book',
     description:
       'Lead the engineering behind the digital preservation and accessibility of Sikh historical texts and manuscripts — bridging my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable and available to researchers and the global Sangat.',
-    link: { label: 'SikhArchive.net', href: 'https://www.sikharchive.net/' },
+    link: { label: 'Sikhi.io', href: 'https://sikhi.io/' },
     tags: ['Digital Preservation', 'Manuscripts', 'Open Access'],
   },
   {
     org: 'Gurprasadh Vidhiyaala',
     role: 'Counsellor & Teacher',
     date: 'Until Mar 2026',
+    icon: 'globe',
     description:
       'Provided counselling and teaching to individuals worldwide, helping people deepen their connection to Sikh heritage through one-on-one and group learning, until stepping away in March 2026.',
     tags: ['Counselling', 'Teaching', 'Community'],
@@ -47,6 +51,7 @@ export const engagements: SevaEngagement[] = [
     org: 'Shabad OS',
     role: 'Researcher & Translator',
     date: 'Aug 2017 – Jul 2019',
+    icon: 'code',
     description:
       'Tested and improved software used by Gurdwaras worldwide and contributed translations of Guru Granth Sahib Ji and Dasam Granth from Gurmukhi to English — early roots of the heritage-tech work that continues today.',
     link: { label: 'Shabad OS', href: 'https://shabados.com/' },
