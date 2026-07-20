@@ -7,6 +7,16 @@ export type Role = {
 
 export const experience: Role[] = [
   {
+    title: 'Founder & Principal Security Engineer',
+    company: 'Dosanjh Labs',
+    date: 'Mar 2026 – Present',
+    bullets: [
+      'Designed and shipped a 12-product security and compliance suite using AI-assisted development and Agile sprint methodology, owning the full SDLC from requirements through CI/CD deployment across GRC, HIPAA risk, vendor risk, policy management, and incident response.',
+      'Built Sightline, a GRC platform mapping security posture to 22+ frameworks — NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA, and GDPR.',
+      'Built Bastion, a CMMC Level 2 / NIST SP 800-171 self-assessment tool that computes a live DoD SPRS score and generates an audit-ready SSP and POA&M.',
+    ],
+  },
+  {
     title: 'Senior Computer Specialist — Infrastructure',
     company: 'University of Washington',
     date: 'Jan 2023 – Mar 2026',

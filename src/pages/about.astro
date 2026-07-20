@@ -285,10 +285,10 @@ const philosophyQuotes = [
           <div class="reveal card p-6">
             <div class="flex items-baseline justify-between gap-3">
               <h3 class="font-display text-base font-semibold text-mist-100">{e.credential}</h3>
-              <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>
+              {e.date && <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>}
             </div>
             <p class="text-kesari-300 text-sm font-medium mt-0.5">{e.school}</p>
-            <p class="mt-2 text-sm text-mist-400">{e.detail}</p>
+            {e.detail && <p class="mt-2 text-sm text-mist-400">{e.detail}</p>}
           </div>
         ))}
       </div>

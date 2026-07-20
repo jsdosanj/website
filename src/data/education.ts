@@ -1,9 +1,7 @@
 export const education = [
   {
-    credential: 'B.S. in IT Project Management',
+    credential: 'B.S. in Information Technology and Project Management',
     school: 'Oakland University',
-    date: 'Expected Jun 2027 · In Progress',
-    detail: '118 credits · Specialization in Project Management · Research: Exploit Development. Completed while working full-time.',
   },
   {
     credential: 'CS50: Introduction to Cybersecurity',
