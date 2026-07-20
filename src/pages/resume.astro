@@ -115,10 +115,10 @@ const jsonld = {
               <div class="resume-entry">
                 <div class="flex items-baseline justify-between gap-3">
                   <h4 class="font-display text-sm font-semibold text-mist-100">{e.credential}</h4>
-                  <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>
+                  {e.date && <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>}
                 </div>
                 <p class="text-kesari-300 text-sm">{e.school}</p>
-                <p class="mt-1 text-xs text-mist-400">{e.detail}</p>
+                {e.detail && <p class="mt-1 text-xs text-mist-400">{e.detail}</p>}
               </div>
             ))}
           </div>

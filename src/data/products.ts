@@ -122,7 +122,7 @@ export const products: Product[] = [
     ],
     tech: ['HIPAA', 'Security Risk Assessment', 'GRC', 'Local-First'],
     links: [
-      { label: 'Visit site', href: '/ward/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/ward/', icon: 'external' },
     ],
     accent: 'azure',
     featured: true,
@@ -143,7 +143,7 @@ export const products: Product[] = [
     ],
     tech: ['Policy Management', 'Attestation', 'Version Control', 'GRC'],
     links: [
-      { label: 'Visit site', href: '/charter/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/charter/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -164,7 +164,7 @@ export const products: Product[] = [
     ],
     tech: ['TPRM', 'BAA Tracking', 'Vendor Risk', 'GRC'],
     links: [
-      { label: 'Visit site', href: '/covenant/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/covenant/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -185,7 +185,7 @@ export const products: Product[] = [
     ],
     tech: ['Phishing Simulation', 'Security Awareness', 'Training', 'Reporting'],
     links: [
-      { label: 'Visit site', href: '/watchword/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/watchword/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -206,7 +206,7 @@ export const products: Product[] = [
     ],
     tech: ['IT Lifecycle', 'Onboarding / Offboarding', 'Provisioning', 'IT Ops'],
     links: [
-      { label: 'Visit site', href: '/passage/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/passage/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -227,7 +227,7 @@ export const products: Product[] = [
     ],
     tech: ['Attack Surface', 'Vulnerability Scanning', 'Security', 'Continuous Monitoring'],
     links: [
-      { label: 'Visit site', href: '/perimeter/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/perimeter/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -248,7 +248,7 @@ export const products: Product[] = [
     ],
     tech: ['Incident Response', 'Breach Notification', 'HIPAA', 'Security'],
     links: [
-      { label: 'Visit site', href: '/klaxon/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/klaxon/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
@@ -269,7 +269,7 @@ export const products: Product[] = [
     ],
     tech: ['Documentation', 'Obsidian', 'Markdown', 'Knowledge Base'],
     links: [
-      { label: 'Visit site', href: '/ledger/', icon: 'external' },
+      { label: 'Visit site', href: 'https://dosanjhlabs.com/ledger/', icon: 'external' },
     ],
     accent: 'azure',
     featured: false,
