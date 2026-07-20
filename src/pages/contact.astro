@@ -44,8 +44,8 @@ const channels = [
         ))}
       </div>
 
-      <!-- Résumés — role-tailored, single page, ATS-friendly -->
-      <div class="mt-14 max-w-3xl mx-auto">
+      <!-- Résumés — role-tailored, 2-page, ATS-friendly -->
+      <div id="resumes" class="mt-14 max-w-3xl mx-auto scroll-mt-28">
         <p class="reveal text-center mono text-xs uppercase tracking-[0.22em] text-kesari-400">Résumés — pick the role you’re hiring for</p>
         <div class="reveal mt-5 grid gap-3 sm:grid-cols-2">
           {site.resumes.map((r) => (
@@ -56,7 +56,7 @@ const channels = [
             </a>
           ))}
         </div>
-        <p class="reveal mt-4 text-center text-xs text-mist-500">Each is a single-page, ATS-friendly résumé tailored to that role.</p>
+        <p class="reveal mt-4 text-center text-xs text-mist-500">Each is a 2-page, ATS-friendly résumé tailored to that role.</p>
       </div>
 
       <!-- Contact form — FormSubmit (email never appears in source) -->
