@@ -24,7 +24,7 @@ export const site = {
     github: 'https://github.com/jsdosanj',
     huggingface: 'https://huggingface.co/jsdosanj',
   },
-  // Role-tailored, single-page, ATS-optimized résumés (June 2026).
+  // Role-tailored, 2-page, ATS-optimized résumés (June 2026).
   // Primary résumé (IT Manager) leads — it matches the roles being targeted.
   resumes: [
     { label: 'IT Manager', short: 'IT Manager', href: '/resumes/JSD IT Manager Resume June 2026.pdf', primary: true },
