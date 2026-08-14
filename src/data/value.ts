@@ -6,7 +6,7 @@ export const helpAreas = [
     icon: 'headset',
     role: 'IT Operations & Service Delivery',
     blurb:
-      'I run service-delivery operations end to end — leading help desk and infrastructure teams, owning hardware and budget programs, and keeping SLAs tight even through leadership gaps.',
+      'I run service-delivery operations end to end — leading help desk and infrastructure teams, owning hardware and budget programs, and keeping SLAs tight and environments audit-ready, even through leadership gaps.',
     proof: [
       'Stepped in as Interim Helpdesk Manager for a 9-person team, including union staff, during a leadership vacancy',
       'Cut department SLA 96% (48 hrs → 2 hrs) and standardized Jamf Pro across 300+ devices',
@@ -25,14 +25,14 @@ export const helpAreas = [
     ],
   },
   {
-    icon: 'shield',
-    role: 'IT Security & GRC Leadership',
+    icon: 'server',
+    role: 'Senior Systems & Endpoint Engineering',
     blurb:
-      'I help teams strengthen their security posture and stay audit-ready — leading NIST CSF and HIPAA assessments, GRC programs, and access controls, while translating risk into decisions leadership can act on.',
+      'I run and harden real fleets, hands-on with Jamf, Intune, JumpCloud, automation, and cloud — under NIST- and HIPAA-grade compliance. The standards I build tend to get adopted across the whole org.',
     proof: [
-      'System Security Officer & CIO for CSSCR — NIST CSF, SP 800-53 & HIPAA audits under multi-state/federal compliance',
-      'Authored a BeyondTrust privileged-access standard for 5,000+ employees',
-      'Founder of a 12-product GRC suite spanning NIST CSF 2.0, SOC 2, CMMC, ISO 27001, FERPA & GDPR',
+      'Built a 100+ device gaming-studio environment from zero in 5 months, supervising a sysadmin and a PM',
+      'JumpCloud Go MFA rollout adopted as the standard across Tencent studios in LA and Montreal',
+      'Authored Linux porting documentation BeyondTrust adopted as their first-party solution for 5,000+ engineers',
     ],
   },
 ];

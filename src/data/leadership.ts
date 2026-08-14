@@ -20,7 +20,8 @@ export const leadership: LeadershipItem[] = [
     org: 'Everything’s 13 (Basics of Sikhi North America)',
     date: 'Jan 2024 – Present',
     bullets: [
-      '50+ speaking engagements on Sikh history and philosophy across 5 countries, sharing Gurmat principles and inspiring purpose and compassion.',
+      '50+ speaking engagements on Sikh history and philosophy across 5 countries — camps and events from San Jose, Vancouver, Calgary, Winnipeg, and Seattle to Detroit and Kuala Lumpur, and many more cities worldwide.',
+      'Taught campers ranging from age 8 to 50, at camps sized from 30 to 600 attendees, and spoken at events drawing 500+ people.',
       'Organizes events at universities and Gurdwaras across the Pacific Northwest and coordinates Amrit Sanchars worldwide.',
       'Teaches Santhiya — correct pronunciation and understanding of Gurbani — to students globally.',
     ],

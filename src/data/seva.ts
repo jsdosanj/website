@@ -24,7 +24,7 @@ export const engagements: SevaEngagement[] = [
     date: 'Jan 2024 – Present',
     icon: 'mic',
     description:
-      'Speak and teach at Sikh camps, universities, and Gurdwaras across North America and beyond — sharing Gurmat principles and inspiring people to live with purpose and compassion. Organize and host events throughout the Pacific Northwest, coordinate Amrit Sanchars worldwide, and teach Santhiya (correct pronunciation and understanding of Gurbani) to students globally.',
+      'Speak and teach at Sikh camps, universities, and Gurdwaras across North America and beyond — sharing Gurmat principles and inspiring people to live with purpose and compassion. 50+ engagements across 5 countries, including San Jose, Vancouver, Calgary, Winnipeg, Seattle, Detroit, and Kuala Lumpur, teaching campers from age 8 to 50 at camps ranging from 30 to 600 attendees, and speaking at events with 500+ people. Organize and host events throughout the Pacific Northwest, coordinate Amrit Sanchars worldwide, and teach Santhiya (correct pronunciation and understanding of Gurbani) to students globally.',
     link: { label: 'Basics of Sikhi', href: 'https://www.basicsofsikhi.com/' },
     tags: ['Public Speaking', 'Gurmat Education', 'Santhiya', 'Youth Camps'],
   },
