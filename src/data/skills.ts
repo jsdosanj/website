@@ -30,6 +30,22 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    title: 'IT Service & Operations',
+    icon: 'headset',
+    blurb: 'Running the day-to-day: help desk leadership, SLAs, and the lifecycle behind every device and ticket.',
+    skills: [
+      'ITSM',
+      'Help/Service Desk Management',
+      'Incident Management',
+      'SLA Management',
+      'Ticketing & Escalation',
+      'Change Management',
+      'Asset & Procurement Management',
+      'Hardware Lifecycle Management',
+      'Business Continuity & Disaster Recovery',
+    ],
+  },
+  {
     title: 'Cloud & DevOps',
     icon: 'workflow',
     blurb: 'Shipping to a serverless edge — containerized, CI-driven, and paid-for.',
@@ -113,7 +129,9 @@ export const skillGroups: SkillGroup[] = [
       'Azure DevOps',
       'Microsoft Project',
       'Workday',
-      'SLA Management',
+      'Budget Management',
+      'Vendor Management',
+      'Stakeholder Management',
     ],
   },
   {
@@ -121,12 +139,11 @@ export const skillGroups: SkillGroup[] = [
     icon: 'spark',
     blurb: 'Aligning people and vendors around outcomes — and translating between them.',
     skills: [
-      'Cross-Functional Leadership',
-      'Vendor Coordination',
+      'People Management',
+      'Cross-Functional Team Leadership',
       'Mentorship & Coaching',
       'Executive Communication',
       'Technical-to-Business Translation',
-      'Change Management',
     ],
   },
   {

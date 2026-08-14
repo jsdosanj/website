@@ -24,6 +24,8 @@ export const education = [
 ];
 
 export const certifications = [
+  'PMP — Project Management Professional (PMI, in progress — expected Oct 2026)',
+  'CompTIA Security+ (in progress — expected Oct 2026)',
   'Cognitive Project Management in AI — CPMAI™ (PMI)',
   'Fundamentals of Agile Project Management (PMI)',
   'Fundamentals of Predictive Project Management (PMI)',

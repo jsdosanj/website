@@ -17,10 +17,16 @@ export type PersonalProject = LedProject & { href: string; linkLabel: string };
 
 export const headlineProjects: LedProject[] = [
   {
+    title: 'Interim Helpdesk Manager — leading through a vacancy',
+    org: 'University of Washington',
+    date: '2025 – 2026',
+    text: 'Stepped up to manage a 9-person infrastructure and help desk team, including 4 union civil-service staff, for 3 months during an extended leadership vacancy. Established formal ticket-dispatch accountability and kept service uninterrupted college-wide.',
+  },
+  {
     title: 'Speech & Hearing Sciences Clinic onboarding',
     org: 'University of Washington',
     date: '2023 – 2026',
-    text: 'Led the clinic’s onboarding into centralized IT — coordinated clinical vendors, enforced HIPAA, and rebuilt a fractured faculty–IT relationship. Improved the SLA from 48 hours to 2 and cut $30,000/year in spend.',
+    text: 'Led the clinic’s onboarding into centralized IT — coordinated 5 clinical vendors, enforced HIPAA, and rebuilt a fractured faculty–IT relationship. Improved the SLA 96% (48 hours to 2) and cut $30,000/year in spend.',
   },
   {
     title: 'Scalable Jamf Pro rebuild',
@@ -38,7 +44,7 @@ export const headlineProjects: LedProject[] = [
     title: 'Zero-to-one gaming-studio IT',
     org: 'Tencent — Team Kaiju Studio',
     date: '2022',
-    text: 'Built a new gaming studio’s entire IT foundation in five months — 100+ custom high-end gaming PCs, networking, and identity — vetting vendors like Google, JumpCloud, AWS, Cisco, and 1Password. The stack was adopted as the standard for studios in LA and Montreal.',
+    text: 'Built a new gaming studio’s entire IT foundation in five months — 100+ custom high-end gaming PCs, networking, and identity — vetting vendors like Google, JumpCloud, AWS, Cisco, and 1Password, while supervising a systems administrator and a project manager ahead of launch. The stack was adopted as the standard for studios in LA and Montreal.',
   },
   {
     title: 'BeyondTrust Linux integration & developer bug tooling',
