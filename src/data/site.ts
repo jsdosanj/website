@@ -15,23 +15,20 @@ export const site = {
   roles: [
     'IT Manager',
     'IT Program / Project Manager',
-    'IT Security & GRC Leader',
+    'Senior Systems Engineer',
   ],
   positioning:
-    'IT Operations & Infrastructure Manager with 10+ years leading teams (up to 9 direct reports) and $250K+ budget/vendor programs across higher ed, healthcare, gaming, and big tech — owning SDLC, Agile delivery, DevOps automation, and GRC across HIPAA, FERPA, and NIST-regulated environments.',
+    'IT Operations & Infrastructure Manager with 10+ years leading teams (up to 9 direct reports) and $250K+ budget/vendor programs across higher ed, healthcare, gaming, and big tech — owning SDLC, Agile delivery, DevOps automation, and GRC across HIPAA, FERPA, and NIST-regulated environments. A rare combination: people-manager, hands-on infrastructure engineer, and security/compliance practitioner in one hire.',
   socials: {
     linkedin: 'https://linkedin.com/in/jasvantsd',
     github: 'https://github.com/jsdosanj',
     huggingface: 'https://huggingface.co/jsdosanj',
   },
-  // Role-tailored, 2-page, ATS-optimized résumés.
+  // Two role-tailored, ATS-optimized résumés — one leadership-track, one IC-track.
   // Primary résumé (IT Manager, Aug 2026) leads — it matches the roles being targeted.
-  // NOTE: the Security/GRC and Systems Engineer variants are still the June 2026 export;
-  // re-export those from the same source once they're refreshed to match the Aug rewrite.
   resumes: [
     { label: 'IT Manager', short: 'IT Manager', href: '/resumes/JSD IT Manager Resume Aug 2026.pdf', primary: true },
-    { label: 'IT Security & GRC Leader', short: 'Security / GRC', href: '/resumes/JSD IT Security GRC Leader Resume June 2026.pdf' },
-    { label: 'Senior Systems & Endpoint Engineer', short: 'Systems', href: '/resumes/JSD Systems Engineer Resume June 2026.pdf' },
+    { label: 'Senior Systems Engineer', short: 'Systems Engineer', href: '/resumes/JSD Senior Systems Engineer Resume Aug 2026.pdf' },
   ],
 };
 
