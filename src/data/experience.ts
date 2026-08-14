@@ -7,33 +7,35 @@ export type Role = {
 
 export const experience: Role[] = [
   {
-    title: 'Founder & Principal Security Engineer',
+    title: 'Founder & Program Manager',
     company: 'Dosanjh Labs',
     date: 'Mar 2026 – Present',
     bullets: [
-      'Designed and shipped a 12-product security and compliance suite using AI-assisted development and Agile sprint methodology, owning the full SDLC from requirements through CI/CD deployment across GRC, HIPAA risk, vendor risk, policy management, and incident response.',
-      'Built Sightline, a GRC platform mapping security posture to 22+ frameworks — NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA, and GDPR.',
-      'Built Bastion, a CMMC Level 2 / NIST SP 800-171 self-assessment tool that computes a live DoD SPRS score and generates an audit-ready SSP and POA&M.',
+      'Own product strategy, roadmap, and full SDLC for a 12-product IT security and compliance suite, applying Agile sprints and AI-assisted development to ship GRC, HIPAA risk, vendor risk, policy management, and incident-response tooling from requirements through CI/CD deployment.',
+      'Built Sightline, a GRC platform mapping compliance posture across 22+ frameworks — NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA, and GDPR.',
+      'Built Bastion, a CMMC Level 2 / NIST SP 800-171 self-assessment tool that computes a live DoD SPRS score and auto-generates an audit-ready SSP and POA&M.',
     ],
   },
   {
-    title: 'Senior Computer Specialist — Infrastructure',
+    title: 'Senior Computer Specialist — Infrastructure · Interim Helpdesk Manager (3 mo.)',
     company: 'University of Washington',
     date: 'Jan 2023 – Mar 2026',
     bullets: [
-      'Primary project lead to onboard the SPHSC into centralized IT — repaired faculty trust, improved SLAs from 48 hours to 2, and cut IT spend by $30,000/year.',
+      'Managed a 9-person infrastructure and help desk team, including 4 union civil-service staff, as Interim Helpdesk Manager for 3 months during an extended leadership vacancy — established formal ticket-dispatch accountability and sustained uninterrupted service college-wide.',
+      'Cut department SLA 96% (48 hours to 2 hours) and eliminated $30,000/year in redundant IT spend as primary project lead onboarding the Speech and Hearing Sciences Clinic into centralized IT, coordinating 5 clinical vendors and enforcing HIPAA compliance.',
+      'Managed a $250,000 annual hardware lifecycle program as the team’s sole Workday-certified buyer — advising departments on budget-aligned device counts, then procuring, imaging, and deploying hardware college-wide while negotiating pricing directly with Dell and Apple.',
       'Closed the college’s endpoint-management gap by standardizing Jamf Pro across 300+ Apple devices ahead of executive deadlines; the enrollment and compliance framework was later adopted across additional university departments.',
-      'Coordinated a 6-month network security migration across CAS buildings with zero unplanned downtime; the documented framework let other CAS IT teams run their own migrations.',
-      'Served as System Security Officer for CSSCR — ran NIST CSF, SP 800-53, and HIPAA audits, delivering remediation plans that reduced institutional risk.',
+      'Delivered a 6-month, zero-downtime network security migration across CAS buildings, producing a reusable framework later adopted by peer CAS IT teams.',
+      'Served as System Security Officer and CIO for CSSCR — ran NIST CSF, SP 800-53, and HIPAA audits and delivered gap-remediation plans to department heads under multi-state (WA/CA) and federal IES compliance requirements.',
     ],
   },
   {
-    title: 'Infrastructure Implementation Lead (Contract)',
+    title: 'Lead Systems Administrator (Contract)',
     company: 'Tencent — Team Kaiju Studio',
-    date: 'Aug 2022 – Dec 2022',
+    date: 'Jul 2022 – Dec 2022',
     bullets: [
-      'Built a zero-to-one gaming studio IT environment in 5 months, architecting a JumpCloud/Google stack adopted as the standard for studios in LA and Montreal.',
-      'Designed the JumpCloud Go MFA implementation subsequently adopted by Tencent studios in Los Angeles and Montreal.',
+      'Built a complete gaming-studio IT environment from zero in 5 months — AWS infrastructure, JumpCloud MDM, Google Workspace SSO/MFA, office networking, and 100+ multi-OS workstations — supervising a systems administrator and a project manager ahead of studio launch.',
+      'Designed the unified JumpCloud MDM + Google Workspace SSO/MFA identity stack; the JumpCloud Go MFA rollout was adopted as the standard configuration across Tencent studios in Los Angeles and Montreal.',
     ],
   },
   {
@@ -55,19 +57,12 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Technical Consultant',
+    title: 'Lead Technical Consultant',
     company: 'Rochester Community Schools',
-    date: 'Nov 2020 – Dec 2020',
+    date: 'Aug 2019 – Nov 2020',
     bullets: [
-      'Promoted to district IT lead during COVID-19 response; coordinated 6 technicians to complete a 1:1 Chromebook rollout and asset inventory within an 8-week deadline.',
-    ],
-  },
-  {
-    title: 'Technical Assistant',
-    company: 'Rochester Community Schools',
-    date: 'Aug 2019 – Aug 2020',
-    bullets: [
-      'Developed a Google Workspace remote-learning curriculum adopted district-wide at the principal’s request; trained other IT staff to deliver it.',
+      'Promoted to district IT lead during COVID-19 response; directed 6 technicians across 7 schools to complete a 1:1 Chromebook rollout and full asset inventory for 15,000 students in 8 weeks.',
+      'Authored a Google Workspace remote-learning curriculum adopted district-wide at the principal’s request; trained IT staff across schools to deliver it.',
     ],
   },
   {
@@ -84,7 +79,7 @@ export const experience: Role[] = [
     company: 'Oakland University — Kresge Library',
     date: 'May 2018 – Jan 2020',
     bullets: [
-      'Managed and mentored student IT technicians and ran onboarding workflows, reducing ticket requests by 30%.',
+      'Managed and mentored student IT technicians and ran onboarding workflows, cutting ticket volume 40%.',
     ],
   },
   {
@@ -102,6 +97,14 @@ export const experience: Role[] = [
     bullets: [
       'Tested ShabadOS software and contributed bug fixes for software used by Gurdwaras worldwide.',
       'Worked on translations of Guru Granth Sahib Ji / Dasam Granth from Gurmukhi to English.',
+    ],
+  },
+  {
+    title: 'IT Support Specialist',
+    company: 'Oakland Community College — Athletics Dept.',
+    date: '2016 – 2018',
+    bullets: [
+      'Sole IT staff providing tier 1/2 support across hardware, networking, AV, and web systems for the athletics department.',
     ],
   },
 ];
