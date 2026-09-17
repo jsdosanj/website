@@ -7,7 +7,7 @@
 // computed font-size, then double those, leaving layout untouched.
 const { BASE, browser } = require('./lib.cjs');
 
-const PRESS_PATHS = ['/', '/work', '/about', '/products', '/contact', '/resume', '/references'];
+const PRESS_PATHS = ['/', '/work', '/about', '/products', '/contact', '/resume'];
 
 /**
  * Runs in the page. Returns the focus rule and every control lacking a press

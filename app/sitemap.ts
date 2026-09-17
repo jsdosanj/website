@@ -19,7 +19,7 @@ const PRIORITY: Record<string, number> = {
 
 const routes = [
   '/', '/work', '/about', '/skills', '/products', '/seva',
-  '/resume', '/references', '/contact', '/blog', '/ai-policy',
+  '/resume', '/contact', '/blog', '/ai-policy',
   ...essays.map((e) => `/blog/${e.slug}`),
 ];
 

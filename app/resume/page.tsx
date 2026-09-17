@@ -94,9 +94,6 @@ export default function Resume() {
               <Link href="/contact" className="link-control text-navy-700 hover:underline underline-offset-4">
                 {site.url.replace('https://', '')}
               </Link>
-              <Link href="/references" className="link-control text-navy-700 hover:underline underline-offset-4">
-                References
-              </Link>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
               {site.roles.map((r) => (

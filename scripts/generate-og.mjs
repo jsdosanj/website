@@ -51,7 +51,6 @@ const ogPages = {
   seva: { eyebrow: 'ik onkar', title: 'Parchar & Seva' },
   contact: { eyebrow: 'technical program manager', title: "Let's connect." },
   resume: { eyebrow: 'résumé', title: 'Résumé' },
-  references: { eyebrow: 'on request', title: 'References' },
   blog: { eyebrow: 'writing', title: 'Notes on AI, security & building things that last' },
   'blog-the-ai-race-just-fractured': {
     eyebrow: 'essay',

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Icon from '@/components/Icon';
 import Jali from '@/components/Jali';
 import JsonLd from '@/components/JsonLd';
@@ -100,11 +99,7 @@ export default function Contact() {
               ))}
             </div>
             <p className="reveal mt-4 text-center type-caption text-ink-500">
-              A 2-page, ATS-friendly résumé — current as of September 2026.{' '}
-              <Link href="/references" className="text-kesari-700 hover:underline underline-offset-4">
-                References are listed here
-              </Link>
-              .
+              A 2-page, ATS-friendly résumé — current as of September 2026.
             </p>
           </div>
 
