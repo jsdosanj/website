@@ -24,7 +24,7 @@ export const helpAreas = [
     blurb:
       'Hand me the escalated project — five vendors, a missed deadline, and a department that has stopped trusting IT. I scope it, sequence it, and land it without breaking anything that is already working.',
     proof: [
-      'Cut an escalated clinic’s SLA 96% (48 hours to 2) by coordinating five healthcare vendors through a HIPAA onboarding as Project Lead',
+      'Cut a clinic’s SLA 96% (48 hours to 2) by leading the program that onboarded it into central IT, rebuilding a broken faculty–IT relationship first',
       'Delivered a six-month, multi-building security migration with zero downtime by sequencing cutovers building by building',
       'Stood up a gaming studio’s entire IT environment in five months against a $750K budget by owning vendor selection and supervising two reports',
     ],

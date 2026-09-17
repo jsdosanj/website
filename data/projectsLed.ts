@@ -69,7 +69,7 @@ export const headlineProjects: LedProject[] = [
     ],
     org: 'University of Washington',
     date: '2025 – 2026',
-    text: 'Rescued an escalated clinical department’s IT service — a 96% SLA improvement (48 hours to 2) and $30,000 a year in redundant spend eliminated — by leading the clinic’s transition to centralized IT as Project Lead, running HIPAA security audits, coordinating five healthcare vendors, and rebuilding a fractured faculty–IT relationship along the way.',
+    text: 'Onboarded a clinical department into central College of Arts & Sciences IT after its own IT staff left — a 96% SLA improvement (48 hours to 2) and $30,000 a year in redundant spend eliminated — by leading the program as its lead: rebuilding the faculty–IT relationship first, over two months, then running HIPAA security audits, consolidating five healthcare vendors, and delivering the systems and server migration around the clinic’s patient schedule.',
   },
   {
     title: 'Leading a 9-person team through a vacancy',
