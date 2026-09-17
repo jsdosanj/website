@@ -1,0 +1,18 @@
+---
+// A plain, well-framed portrait. Replaces the old flashlight-reveal Spotlight,
+// which only worked as an effect on a near-black ground and hid the subject's
+// face until you moved a mouse — the wrong trade on a light, recruiter-facing
+// site where the photo should just be legible immediately.
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  /** object-position for the crop, e.g. "50% 46%" */
+  focus?: string;
+  loading?: 'eager' | 'lazy';
+}
+const { src, alt, class: className = '', focus = '50% 50%', loading = 'eager' } = Astro.props;
+---
+<div class:list={['portrait', className]}>
+  <img src={src} alt={alt} loading={loading} decoding="async" style={`object-position:${focus}`} />
+</div>

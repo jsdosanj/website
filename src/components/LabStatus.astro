@@ -1,61 +1,82 @@
 ---
-// "systemctl status"-styled panel showing real, live numbers pulled at
+// Real, live numbers pulled at
 // build time from the owner's actual public artifacts (GitHub, PyPI,
 // HuggingFace) — see src/data/live.ts. Every field is optional and simply
 // omitted if that source didn't answer; nothing here is ever fabricated.
+//
+// Previously a `systemctl status` terminal panel; now a plain release table,
+// which is what the data actually is.
 import { getLiveStats, relativeFromNow } from '../data/live';
 
 const stats = await getLiveStats();
 
 const rows = [
   {
-    name: 'gurmukhifix.service',
+    name: 'gurmukhifix',
+    kind: 'PyPI package',
     version: stats.packages.gurmukhifix?.version,
     pushedAt: stats.repos.gurmukhifix?.pushedAt,
     stars: stats.repos.gurmukhifix?.stars,
   },
   {
-    name: 'cairn-sync.service',
+    name: 'cairn-sync',
+    kind: 'PyPI package',
     version: stats.packages['cairn-sync']?.version,
     pushedAt: stats.repos.cairn?.pushedAt,
     stars: stats.repos.cairn?.stars,
   },
 ];
 const datasetDownloads = stats.datasets.SikhLibrary?.downloads;
-const anyLive = rows.some((r) => r.version || r.pushedAt) || typeof datasetDownloads === 'number';
+const live = rows.filter((r) => r.version || r.pushedAt);
+const anyLive = live.length > 0 || typeof datasetDownloads === 'number';
 ---
-<div class="term max-w-2xl mx-auto">
-  <div class="term-bar">
-    <div class="term-lights" aria-hidden="true"><span class="term-light red"></span><span class="term-light amber"></span><span class="term-light green"></span></div>
-    <span class="term-title">systemctl status — dosanjh-labs</span>
-    <span class="w-[3.4rem]" aria-hidden="true"></span>
-  </div>
-  <div class="term-body space-y-2">
-    {anyLive ? (
-      <>
-        {rows.map((r) => (
-          <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-            <span class="term-ok">●</span>
-            <span class="term-key">{r.name}</span>
-            <span class="text-mist-600">—</span>
-            <span class="term-ok">active</span>
-            {r.version && <span class="text-mist-500">· <span class="text-mist-300">v{r.version}</span></span>}
-            {r.pushedAt && <span class="text-mist-500">· <span class="term-comment">last commit {relativeFromNow(r.pushedAt)}</span></span>}
-            {typeof r.stars === 'number' && <span class="text-mist-500">· <span class="text-kesari-400">★ {r.stars}</span></span>}
-          </p>
-        ))}
-        {typeof datasetDownloads === 'number' && (
-          <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-            <span class="term-ok">●</span>
-            <span class="term-key">sikhlibrary.dataset</span>
-            <span class="text-mist-600">—</span>
-            <span class="term-ok">active</span>
-            <span class="text-mist-500">· <span class="text-mist-300">{datasetDownloads.toLocaleString()} downloads</span> (HuggingFace)</span>
-          </p>
-        )}
-      </>
-    ) : (
-      <p class="term-comment">live status temporarily unavailable — see the source links on each card below.</p>
+{anyLive ? (
+  <div class="card max-w-2xl mx-auto overflow-hidden">
+    <div class="flex items-center justify-between gap-3 px-5 py-3.5 border-b border-navy-800/10 bg-paper-200/60">
+      <p class="font-display text-sm font-semibold text-navy-900">Live from the lab</p>
+      <span class="chip chip-active">verified at build</span>
+    </div>
+
+    {live.length > 0 && (
+      <table class="w-full text-left">
+        <caption class="sr-only">Published packages, with version and last activity</caption>
+        <thead>
+          <tr class="mono text-[10px] uppercase tracking-[0.14em] text-ink-400">
+            <th scope="col" class="font-medium px-5 py-2">Package</th>
+            <th scope="col" class="font-medium px-5 py-2">Version</th>
+            <th scope="col" class="font-medium px-5 py-2">Last push</th>
+            <th scope="col" class="font-medium px-5 py-2 text-right">Stars</th>
+          </tr>
+        </thead>
+        <tbody>
+          {live.map((r) => (
+            <tr class="border-t border-navy-800/[0.08]">
+              <td class="px-5 py-3">
+                <span class="mono text-[13px] font-medium text-navy-900">{r.name}</span>
+                <span class="block text-[11px] text-ink-500">{r.kind}</span>
+              </td>
+              <td class="px-5 py-3 mono text-[13px] text-ink-700">{r.version ? `v${r.version}` : '\u2014'}</td>
+              <td class="px-5 py-3 mono text-[13px] text-ink-700">{r.pushedAt ? relativeFromNow(r.pushedAt) : '\u2014'}</td>
+              <td class="px-5 py-3 mono text-[13px] text-ink-700 text-right">{typeof r.stars === 'number' ? r.stars : '\u2014'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     )}
+
+    {typeof datasetDownloads === 'number' && (
+      <p class="px-5 py-3.5 border-t border-navy-800/[0.08] text-sm text-ink-600">
+        <span class="mono font-semibold text-navy-900">{datasetDownloads.toLocaleString()}</span> downloads of the
+        Sikh Library dataset on HuggingFace.
+      </p>
+    )}
+
+    <p class="px-5 py-3 border-t border-navy-800/[0.08] text-[11px] text-ink-500">
+      Fetched from GitHub, PyPI, and HuggingFace at build time \u2014 not hand-maintained.
+    </p>
   </div>
-</div>
+) : (
+  <p class="max-w-2xl mx-auto text-center text-sm text-ink-500">
+    Live release data is temporarily unavailable \u2014 see the source links on each card below.
+  </p>
+)}

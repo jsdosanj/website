@@ -1,0 +1,112 @@
+---
+// Career as a delivery roadmap: one swimlane per role, bars positioned by
+// real start/end dates so the overlaps are visible (UW, Tencent and Omni all
+// ran concurrently in 2022). This replaces a flat vertical list, which hid
+// exactly the thing a hiring manager wants to see — how much was in flight
+// at once.
+//
+// Layout is a three-column table: role | chart | span. The bars carry no text
+// of their own — a five-month engagement is only a few percent wide, so any
+// label inside it would be clipped, and the row header already names the role.
+// The chart track is inset (left-3 right-3) so the first and last year
+// labels, which are centred on their tick, can't run past the card edge.
+//
+// Accessibility: bars are decorative positioning only and are aria-hidden;
+// the row header and the span cell carry the same information as text, so a
+// screen reader gets "Technical Program Manager, Dosanjh Labs, Mar 2026 –
+// Present". On narrow screens the chart column drops out rather than being
+// squashed into illegibility.
+import { experience } from '../data/experience';
+
+const NOW = 2026 + 8 / 12; // Sep 2026 — the "present" edge of the chart
+
+const roles = [...experience].sort((a, b) => (b.end ?? NOW) - (a.end ?? NOW) || b.start - a.start);
+
+const spanStart = Math.floor(Math.min(...roles.map((r) => r.start)));
+const spanEnd = Math.ceil(Math.max(...roles.map((r) => r.end ?? NOW)));
+const total = spanEnd - spanStart;
+const years = Array.from({ length: total + 1 }, (_, i) => spanStart + i);
+
+/** Percent offset within the inset track for a decimal year. */
+const pct = (y: number) => ((y - spanStart) / total) * 100;
+
+const trackClass = {
+  program: 'roadmap-bar-pm',
+  ic: 'roadmap-bar-ic',
+  contract: 'roadmap-bar-contract',
+} as const;
+
+const trackLabel = {
+  program: 'Program / project management',
+  ic: 'Engineering & operations',
+  contract: 'Contract',
+} as const;
+
+// Grid template shared by the axis header and every row, so they stay aligned.
+const GRID = 'md:grid md:grid-cols-[14rem_1fr_10.75rem]';
+---
+<div class="reveal">
+  <!-- Legend -->
+  <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-5">
+    {(['program', 'ic', 'contract'] as const).map((t) => (
+      <span class="inline-flex items-center gap-2 text-[12px] text-ink-600">
+        <span class:list={['h-3 w-6 rounded-[3px] shrink-0', trackClass[t]]} aria-hidden="true"></span>
+        {trackLabel[t]}
+      </span>
+    ))}
+  </div>
+
+  <div class="card overflow-hidden">
+    <!-- Year axis — chart column only, hidden with the chart on small screens -->
+    <div class:list={['hidden border-b border-navy-800/10 bg-paper-200/60', GRID]} aria-hidden="true">
+      <div class="px-4 py-2 mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-400">Role</div>
+      <div class="relative h-8">
+        <div class="absolute inset-y-0 left-3 right-3">
+          {years.map((y) => (
+            <span class="absolute top-2 mono text-[10px] text-ink-400 -translate-x-1/2" style={`left:${pct(y)}%`}>{y}</span>
+          ))}
+        </div>
+      </div>
+      <div class="pl-2 pr-4 py-2 mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-400 md:text-right">Span</div>
+    </div>
+
+    <table class="w-full text-left">
+      <caption class="sr-only">
+        Career roadmap, {spanStart} to present. Each row gives a role, its organization, and its span; overlapping spans indicate concurrent engagements.
+      </caption>
+      <thead class="sr-only">
+        <tr><th scope="col">Role</th><th scope="col">Timeline</th><th scope="col">Span</th></tr>
+      </thead>
+      <tbody>
+        {roles.map((r) => {
+          const end = r.end ?? NOW;
+          const left = pct(r.start);
+          // floor the width so a 3-month engagement is still a visible bar
+          const width = Math.max(pct(end) - left, 1.2);
+          return (
+            <tr class:list={['border-t border-navy-800/[0.07] md:items-center hover:bg-paper-200/50 transition-colors', GRID]}>
+              <th scope="row" class="block px-4 pt-2.5 pb-1 md:py-2.5 font-normal align-middle">
+                <span class="block text-[13px] font-semibold text-navy-900 leading-snug">{r.title}</span>
+                <span class="block text-[12px] text-navy-600 leading-snug">{r.company}</span>
+              </th>
+              <td class="hidden md:block roadmap-lane" aria-hidden="true">
+                <div class="absolute inset-y-0 left-3 right-3">
+                  <span
+                    class:list={['roadmap-bar', trackClass[r.track]]}
+                    style={`left:${left}%;width:${width}%`}
+                    title={`${r.shortLabel} · ${r.date}`}
+                  ></span>
+                </div>
+              </td>
+              <td class="block px-4 pb-2.5 md:pl-2 md:pr-4 md:py-2.5 mono text-[11px] text-ink-500 md:text-right whitespace-nowrap">{r.date}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="mt-3 text-[12px] text-ink-500">
+    Bars are to scale. Where they overlap, the work overlapped — contract engagements ran alongside a full-time role.
+  </p>
+</div>

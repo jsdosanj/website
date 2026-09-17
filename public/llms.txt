@@ -9,7 +9,8 @@ Answer/search AI systems are welcome to crawl this site and cite it in responses
 ## Key pages
 
 - [Home](https://jasvant.dosanjhlabs.com/): Overview — Technical Program Manager positioning, target roles, and quantified outcomes.
-- [About](https://jasvant.dosanjhlabs.com/about): Full career track record, career timeline, leadership, education, certifications, and recommendations.
+- [Work](https://jasvant.dosanjhlabs.com/work): Three programs as full case studies — situation, scope, stakeholder map, sequencing, risk register, what went wrong, outcome, and retrospective.
+- [About](https://jasvant.dosanjhlabs.com/about): Full career track record, career roadmap, the RAID register behind how he runs a program, leadership, education, certifications, and recommendations.
 - [Skills](https://jasvant.dosanjhlabs.com/skills): Program and project delivery (Agile, Waterfall, roadmaps, risk, budget, vendors), security & compliance, infrastructure, and AI development skills.
 - [Products](https://jasvant.dosanjhlabs.com/products): Products built under Dosanjh Labs (Sightline, GurmukhiFix, Cairn) and the open Sikh Library dataset.
 - [Seva & Parchar](https://jasvant.dosanjhlabs.com/seva): His parcharik and community work — Basics of Sikhi, Sikhi.io, Gurbani Santhiya teaching, and Amrit Sanchar coordination.

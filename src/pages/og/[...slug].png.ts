@@ -10,14 +10,15 @@ import path from 'node:path';
 import { buildOgTree, OG_WIDTH, OG_HEIGHT, type OgProps } from '../../og/template';
 
 export const ogPages: Record<string, OgProps> = {
-  home: { eyebrow: 'whoami', title: 'Technical Program Manager who sprints, ships & scales.' },
-  about: { eyebrow: 'whoami', title: 'Jasvant Singh Dosanjh' },
-  skills: { eyebrow: 'man jasvant', title: 'What I bring to the table.' },
-  products: { eyebrow: 'ls ./products', title: 'Tools that turn friction into momentum.' },
+  home: { eyebrow: 'technical program manager', title: 'Programs that ship — scoped, staffed, and measured.' },
+  work: { eyebrow: 'case studies', title: 'Three programs, start to finish.' },
+  about: { eyebrow: 'background', title: 'Jasvant Singh Dosanjh' },
+  skills: { eyebrow: 'capabilities', title: 'What I bring to the table.' },
+  products: { eyebrow: 'products', title: 'Tools that turn friction into momentum.' },
   seva: { eyebrow: 'ik onkar', title: 'Parchar & Seva' },
-  contact: { eyebrow: './contact --role "Technical Program Manager"', title: "Let's connect." },
-  resume: { eyebrow: 'cat resume.md', title: 'Résumé' },
-  blog: { eyebrow: 'ls ./writing', title: 'Notes on AI, security & building things that last' },
+  contact: { eyebrow: 'technical program manager', title: "Let's connect." },
+  resume: { eyebrow: 'résumé', title: 'Résumé' },
+  blog: { eyebrow: 'writing', title: 'Notes on AI, security & building things that last' },
   'blog-the-ai-race-just-fractured': { eyebrow: 'essay', title: 'The AI race just fractured — and the US did it to itself' },
   'blog-the-future-of-ai-runs-on-your-device': { eyebrow: 'essay', title: 'AI just became a single point of failure — the fix is local' },
 };

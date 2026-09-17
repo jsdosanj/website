@@ -2,36 +2,34 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import Khanda from '../components/Khanda.astro';
+import { nav } from '../data/site';
 import { url } from '../utils';
 ---
-<Base title="Page not found" description="404 — that path doesn't exist on this site." noindex={true}>
+<Base title="Page not found" description="404 — that page doesn't exist on this site." noindex={true}>
   <section class="container-x pt-44 sm:pt-52 pb-24 text-center">
-    <Khanda size={64} class="mx-auto text-kesari-400 animate-float" />
+    <Khanda size={64} class="mx-auto text-kesari-500 animate-float" />
     <p class="mt-6 font-display text-7xl sm:text-8xl font-bold text-kesari-gradient leading-none">404</p>
-    <div class="reveal is-visible mt-8 max-w-md mx-auto term text-left">
-      <div class="term-bar">
-        <div class="term-lights" aria-hidden="true"><span class="term-light red"></span><span class="term-light amber"></span><span class="term-light green"></span></div>
-        <span class="term-title">jasvant@portfolio — zsh</span>
-        <span class="w-[3.4rem]" aria-hidden="true"></span>
-      </div>
-      <div class="term-body">
-        <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> cd {Astro.url.pathname}</p>
-        <p class="text-mac-red">cd: no such file or directory: {Astro.url.pathname}</p>
-        <p class="mt-3 term-comment">$ ls /</p>
-        <p class="mt-1">
-          <a href={url('/')} class="text-kesari-300 underline underline-offset-2 hover:text-kesari-200">home</a>{'  '}
-          <a href={url('/about')} class="text-kesari-300 underline underline-offset-2 hover:text-kesari-200">about</a>{'  '}
-          <a href={url('/products')} class="text-kesari-300 underline underline-offset-2 hover:text-kesari-200">products</a>{'  '}
-          <a href={url('/contact')} class="text-kesari-300 underline underline-offset-2 hover:text-kesari-200">contact</a>
-        </p>
-      </div>
-    </div>
-    <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={url('/')} class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-5 py-3 font-semibold hover:bg-kesari-400 transition-colors">
+    <h1 class="mt-4 font-display text-2xl sm:text-3xl font-semibold text-navy-900">This page doesn’t exist.</h1>
+    <p class="mt-3 max-w-md mx-auto text-ink-600">
+      The address <span class="mono text-[0.9em] text-navy-800 break-all">{Astro.url.pathname}</span> isn’t part of this site.
+      Everything that is, is one click away.
+    </p>
+
+    <nav class="reveal is-visible mt-9 max-w-lg mx-auto" aria-label="Site sections">
+      <ul class="flex flex-wrap justify-center gap-2" role="list">
+        {nav.map((item) => (
+          <li>
+            <a href={url(item.href)} class="inline-flex rounded-lg border border-navy-800/14 px-3.5 py-2 text-sm font-medium text-ink-700 hover:text-navy-900 hover:border-navy-800/30 transition-colors">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="mt-9 flex flex-wrap justify-center gap-3">
+      <a href={url('/')} class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-5 py-3 font-semibold hover:bg-kesari-400 transition-colors">
         <Icon name="arrow" size={18} class="rotate-180" /> Back home
       </a>
-      <a href={url('/products')} class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:border-white/20 transition-colors">View products</a>
-      <a href={url('/contact')} class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 font-semibold text-mist-200 hover:border-white/20 transition-colors">Get in touch</a>
+      <a href={url('/work')} class="inline-flex items-center gap-2 rounded-xl border border-navy-800/16 px-5 py-3 font-semibold text-ink-800 hover:border-navy-800/30 hover:text-navy-900 transition-colors">View case studies</a>
     </div>
   </section>
 </Base>

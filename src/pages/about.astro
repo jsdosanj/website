@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
-import Spotlight from '../components/Spotlight.astro';
+import Portrait from '../components/Portrait.astro';
 import JourneyTrail from '../components/JourneyTrail.astro';
-import { experience } from '../data/experience';
+import ProgramRoadmap from '../components/ProgramRoadmap.astro';
 import { leadership } from '../data/leadership';
 import { education, certifications } from '../data/education';
 import { recommendations } from '../data/recommendations';
@@ -21,14 +21,53 @@ const showcaseTabs = [
   { id: 'oss', label: 'open-source', items: ossProjects },
 ];
 
-const philosophy = [
-  { icon: 'workflow', title: 'Build with intent', text: 'I’d rather build something once, thoughtfully, than patch it forever. I assume whatever I make will be used beyond its original scope — so I document it and make it easy for the next person to pick up.' },
-  { icon: 'shield', title: 'Proactive, not reactive', text: 'Waiting for a breach to reveal the gap is a plan that has already failed. I prefer to bake protection in early and quietly, so security is a habit rather than a fire drill.' },
-  { icon: 'sparkles', title: 'Technology should amplify', text: 'The win is never “more tools.” It’s removing the friction between people and their best work, so the technology fades into the background and the team moves faster.' },
-  { icon: 'target', title: 'The date is a promise', text: 'A roadmap is worth exactly what its dates are worth. I’d rather give a later date I can hold than an early one that slips twice — and I’d rather raise the risk in week two than explain it in week ten.' },
-  { icon: 'spark', title: 'Lead with compassion', text: 'Kindness, patience, and forgiveness aren’t extras — they’re how trust gets built. I want people to walk away from working with me feeling supported rather than judged, ideally with a smile.' },
-  { icon: 'globe', title: 'Technology works for people', text: 'Not the other way around. Every decision I make starts and ends with the person on the other side of the screen.' },
+// "How I work" as the register a PM actually keeps, rather than a grid of
+// abstract values. Each entry pairs the operating rule with a real program
+// from the track record, so the claim is checkable.
+const raid = [
+  {
+    key: 'R',
+    heading: 'Risks',
+    rule: 'Surfaced in week two, not week ten.',
+    text: 'A risk raised early is a scheduling conversation; the same risk raised late is an apology. I would rather give a later date I can hold than an early one that slips twice — and I would rather be the one who names the problem.',
+    evidence: 'Sequenced a six-month, multi-building security migration building by building specifically so a failure could never take the whole college down. Zero downtime.',
+  },
+  {
+    key: 'A',
+    heading: 'Assumptions',
+    rule: 'Written down, then re-tested.',
+    text: 'Most slipped programs were scoped on an assumption nobody wrote down. I put them on the page where stakeholders can disagree with them early, and I revisit them when the ground moves.',
+    evidence: 'Forecast a $250K annual hardware program with department heads rather than for them — so the device counts were their numbers, aligned to their budgets, before a PO was raised.',
+  },
+  {
+    key: 'I',
+    heading: 'Issues',
+    rule: 'Owned by a name, not a team.',
+    text: 'Work assigned to "IT" is work nobody has picked up. Every open issue gets a person and a date, and the dispatch is visible enough that the team can hold each other to it.',
+    evidence: 'Stepping into a three-month leadership vacancy, established formal ticket-dispatch accountability across a 9-person team — including 4 union civil-service staff — and service never dropped.',
+  },
+  {
+    key: 'D',
+    heading: 'Dependencies',
+    rule: 'Mapped before the date is given.',
+    text: 'The vendor who needs four weeks, the clinician who is only free on Tuesdays, the approval that takes a committee — those set the critical path, not the engineering estimate. I find them first.',
+    evidence: 'Coordinated five healthcare vendors, clinicians, and infrastructure stakeholders through a HIPAA clinic onboarding, taking the SLA from 48 hours to 2 and cutting $30K a year.',
+  },
 ];
+
+// RAG status presentation for the program cards. "Recovered" is called out
+// separately from "Delivered" because a program that arrived escalated and
+// ended green is a different (harder) claim than one that was never red.
+const statusChip = {
+  delivered: 'chip-delivered',
+  active: 'chip-active',
+  recovered: 'chip-recovered',
+} as const;
+const statusLabel = {
+  delivered: 'Delivered',
+  active: 'In flight',
+  recovered: 'Recovered',
+} as const;
 
 const philosophyQuotes = [
   { text: 'What truly sets him apart is how approachable, patient, and generous he is with that expertise.', name: 'Kevin P. Thompson', role: 'Associate Dean for Advancement, UW' },
@@ -44,36 +83,35 @@ const philosophyQuotes = [
 >
   <!-- ===================== STORY HERO ===================== -->
   <section class="relative pt-36 sm:pt-48 pb-12 overflow-hidden">
-    <div class="starfield"></div>
-    <div class="absolute left-1/2 -translate-x-1/2 top-20 h-80 w-80 rounded-full bg-kesari-500/10 blur-[100px]"></div>
+    <div class="absolute left-1/2 -translate-x-1/2 top-20 h-80 w-80 rounded-full bg-kesari-500/12 blur-[100px]"></div>
     <!-- orbit rings -->
     <div class="absolute left-1/2 top-44 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] orbit-ring opacity-40 animate-spin-slow hidden sm:block"></div>
     <div class="absolute left-1/2 top-44 -translate-x-1/2 -translate-y-1/2 w-[24rem] h-[24rem] orbit-ring opacity-60 hidden sm:block"></div>
 
     <div class="container-x relative text-center">
-      <p class="reveal is-visible mono text-xs uppercase tracking-[0.28em] text-kesari-400">$ whoami</p>
-      <h1 class="mt-5 font-display text-4xl sm:text-6xl font-bold tracking-tight text-mist-100 leading-[1.05]" data-kinetic>
+      <p class="reveal is-visible eyebrow eyebrow-center">Background</p>
+      <h1 class="mt-5 font-display text-4xl sm:text-6xl font-bold tracking-tight text-navy-900 leading-[1.05]" data-kinetic>
         <span class="kin-line"><span class="kin-inner">Jasvant Singh Dosanjh</span></span>
       </h1>
       <p class="reveal is-visible mt-5 text-lg sm:text-xl text-gradient font-display font-medium">
         Problem-solver by instinct. Solutions-driven by choice.
       </p>
-      <p class="reveal is-visible mt-4 mono text-sm text-mist-400">
-        Open to <span class="text-mist-200">Technical Program Manager</span> · <span class="text-mist-200">Technical Project Manager</span> · <span class="text-mist-200">IT Program Manager</span> roles
+      <p class="reveal is-visible mt-4 text-sm text-ink-600">
+        Open to <span class="text-ink-800">Technical Program Manager</span> · <span class="text-ink-800">Technical Project Manager</span> · <span class="text-ink-800">IT Program Manager</span> roles
       </p>
-      <p class="reveal is-visible mt-6 max-w-2xl mx-auto text-mist-400 leading-relaxed">
+      <p class="reveal is-visible mt-6 max-w-2xl mx-auto text-ink-600 leading-relaxed">
         The settings have changed a lot over ten years — healthcare, higher ed, gaming, big tech — but the job hasn’t. I
         take the program nobody can see the end of, break it into work people can actually schedule, and land it on a date
         I gave them up front.
       </p>
       <div class="reveal is-visible mt-8 flex flex-wrap justify-center gap-2.5">
         {journeyCreed.values.map((v) => (
-          <span class="rounded-full glass px-4 py-1.5 text-sm text-kesari-200">{v}</span>
+          <span class="rounded-full glass px-4 py-1.5 text-sm text-kesari-700">{v}</span>
         ))}
       </div>
       <div class="reveal is-visible mt-9 flex flex-wrap justify-center gap-2.5">
         {site.resumes.map((r) => (
-          <a href={r.href} download data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={16} /> {r.short} Résumé</a>
+          <a href={r.href} download data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 text-sm font-medium text-ink-800 hover:border-navy-800/25 transition-colors"><Icon name="file" size={16} /> {r.short} Résumé</a>
         ))}
       </div>
     </div>
@@ -83,23 +121,23 @@ const philosophyQuotes = [
   <section class="container-x mt-28">
     <div class="reveal card border-glow p-8 sm:p-10">
       <div class="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-center">
-        <div class="relative rounded-2xl overflow-hidden border border-white/10 border-glow max-w-xs" data-parallax="0.05">
-          <Spotlight src={url('/images/headshot-spotlight.jpg')} alt="Jasvant Singh Dosanjh" class="aspect-[4/5]" focus="50% 46%" />
-          <span class="pointer-events-none absolute bottom-3 left-3.5 mono text-[10px] tracking-[0.25em] text-mist-300/70">EST. 2016</span>
+        <div class="relative rounded-2xl overflow-hidden border border-navy-800/12 border-glow max-w-xs" data-parallax="0.05">
+          <Portrait src={url('/images/headshot-spotlight.jpg')} alt="Jasvant Singh Dosanjh" class="aspect-[4/5]" focus="50% 46%" />
+          <span class="pointer-events-none absolute bottom-3 left-3.5 rounded bg-paper-50/90 px-2 py-1 mono text-[10px] tracking-[0.2em] text-ink-600">EST. 2016</span>
         </div>
         <div>
-          <h2 class="font-display text-2xl sm:text-3xl font-semibold text-mist-100">The pattern behind every chapter</h2>
-          <p class="mt-4 text-mist-400 leading-relaxed">
+          <h2 class="font-display text-2xl sm:text-3xl font-semibold text-navy-900">The pattern behind every chapter</h2>
+          <p class="mt-4 text-ink-600 leading-relaxed">
             Most problems aren’t really technical problems. They’re coordination problems, trust problems, or gaps in
             knowledge that eventually surface in the work. What Jasvant does well is spot those gaps and then work with the
             team to close them for good. Over 10+ years across education, healthcare, gaming, and big tech, a lot of the
             frameworks he built outlived his involvement, picked up by other teams, departments, and studios.
           </p>
-          <p class="mt-4 text-mist-400 leading-relaxed">
-            He builds with one assumption — <span class="text-kesari-300">that what he makes will be used far beyond its original scope</span> —
+          <p class="mt-4 text-ink-600 leading-relaxed">
+            He builds with one assumption — <span class="text-kesari-700">that what he makes will be used far beyond its original scope</span> —
             and serves with one belief: that something valuable should never stay locked away where only one person can reach it.
           </p>
-          <p class="mt-4 text-sm text-mist-500">
+          <p class="mt-4 text-sm text-ink-500">
             Fluent in English and Punjabi, conversational in Hindi and Urdu. Plays harmonium, tabla, and dholki.
             Loyal to Manchester United through every challenge.
           </p>
@@ -111,7 +149,7 @@ const philosophyQuotes = [
   <!-- ===================== THE TRAJECTORY ===================== -->
   <section class="container-x mt-28">
     <SectionHeading eyebrow="Origin story" title="The trajectory" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">Same instinct, five very different rooms — from a schoolyard in Michigan to a global stage.</p>
+      <p class="reveal mt-4 max-w-2xl mx-auto text-ink-600">Same instinct, five very different rooms — from a schoolyard in Michigan to a global stage.</p>
     </SectionHeading>
     <div class="mt-12 max-w-2xl mx-auto">
       <JourneyTrail />
@@ -120,19 +158,29 @@ const philosophyQuotes = [
 
   <!-- ===================== PHILOSOPHY ===================== -->
   <section class="container-x mt-28">
-    <SectionHeading eyebrow="Philosophy" title="How I work" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">
-        A program manager who knows the technology deeply is useful. One who holds that depth and still makes it
-        approachable for everyone in the room is the one teams trust with a deadline. Here’s what I try to bring.
+    <SectionHeading eyebrow="How I run a program" title="The register I keep" align="center">
+      <p class="reveal mt-4 max-w-2xl mx-auto text-ink-600">
+        Risks, assumptions, issues, dependencies. Every program I have run came down to how honestly these four were
+        tracked — so rather than list values, here is the operating rule for each one and the program that proves it.
       </p>
     </SectionHeading>
 
-    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {philosophy.map((p) => (
-        <div class="reveal card card-hover p-6">
-          <span class="grid place-items-center h-11 w-11 rounded-xl bg-ink-800 border border-white/10 text-kesari-400"><Icon name={p.icon} size={20} /></span>
-          <h3 class="mt-4 font-display text-base font-semibold text-mist-100">{p.title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-mist-400">{p.text}</p>
+    <div class="mt-12 card overflow-hidden divide-y divide-navy-800/[0.08]">
+      {raid.map((r) => (
+        <div class="reveal grid gap-x-6 gap-y-3 p-6 sm:p-7 md:grid-cols-[3.5rem_1fr_1fr] md:items-start hover:bg-paper-200/40 transition-colors">
+          <span
+            class="grid place-items-center h-12 w-12 rounded-xl bg-kesari-500/14 border border-kesari-500/35 font-display text-xl font-bold text-kesari-700 shrink-0"
+            aria-hidden="true"
+          >{r.key}</span>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-navy-900">{r.heading}</h3>
+            <p class="mt-1 text-sm font-semibold text-kesari-700">{r.rule}</p>
+            <p class="mt-2.5 text-sm leading-relaxed text-ink-600">{r.text}</p>
+          </div>
+          <figure class="rounded-xl bg-paper-200/70 border border-navy-800/[0.08] p-4">
+            <figcaption class="mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-400">In practice</figcaption>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-ink-700">{r.evidence}</p>
+          </figure>
         </div>
       ))}
     </div>
@@ -142,8 +190,8 @@ const philosophyQuotes = [
       <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-kesari-500/10 blur-3xl"></div>
       <div class="relative grid lg:grid-cols-[1.25fr_1fr] gap-8 items-center">
         <div>
-          <h3 class="font-display text-xl sm:text-2xl font-semibold text-mist-100">Depth you can trust — explained so everyone gets it</h3>
-          <p class="mt-4 text-mist-400 leading-relaxed">
+          <h3 class="font-display text-xl sm:text-2xl font-semibold text-navy-900">Depth you can trust — explained so everyone gets it</h3>
+          <p class="mt-4 text-ink-600 leading-relaxed">
             The part I take most seriously is understanding a system well enough to explain it simply. I’m not trying to
             sound like the smartest person in the room. I’m trying to make something complex feel approachable, for engineers
             and executives alike. When people understand the “why,” they trust the plan — and a plan people trust is the
@@ -152,9 +200,9 @@ const philosophyQuotes = [
         </div>
         <div class="space-y-4">
           {philosophyQuotes.map((q) => (
-            <figure class="rounded-xl bg-ink-800/60 border border-white/[0.06] p-5">
-              <blockquote class="text-sm leading-relaxed text-mist-300">“{q.text}”</blockquote>
-              <figcaption class="mt-3 text-xs text-mist-500">— {q.name}, <span class="text-mist-400">{q.role}</span></figcaption>
+            <figure class="rounded-xl bg-paper-200/60 border border-navy-800/[0.10] p-5">
+              <blockquote class="text-sm leading-relaxed text-ink-700">“{q.text}”</blockquote>
+              <figcaption class="mt-3 text-xs text-ink-500">— {q.name}, <span class="text-ink-600">{q.role}</span></figcaption>
             </figure>
           ))}
         </div>
@@ -165,44 +213,59 @@ const philosophyQuotes = [
   <!-- ===================== PROJECTS I'VE LED ===================== -->
   <section class="container-x mt-28">
     <SectionHeading eyebrow="Selected work" title="Programs & projects I’ve led" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">A decade of programs and projects across education, healthcare, gaming, and big tech — each one shipped on a date, and many adopted well beyond their original scope.</p>
+      <p class="reveal mt-4 max-w-2xl mx-auto text-ink-600">A decade of programs and projects across education, healthcare, gaming, and big tech — each one shipped on a date, and many adopted well beyond their original scope.</p>
     </SectionHeading>
 
     <!-- Headline projects -->
     <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {headlineProjects.map((p) => (
-        <div class="reveal card card-hover border-glow p-6 flex flex-col">
-          <span class="mono text-[11px] uppercase tracking-wider text-kesari-400">{p.date}</span>
-          <h3 class="mt-2 font-display text-base font-semibold text-mist-100 leading-snug">{p.title}</h3>
-          <p class="text-azure-300 text-xs font-medium mt-1.5">{p.org}</p>
-          <p class="mt-3 text-sm leading-relaxed text-mist-400 flex-1">{p.text}</p>
-        </div>
+        <article class="reveal card card-hover flex flex-col overflow-hidden">
+          <header class="flex items-center justify-between gap-3 px-5 py-2.5 border-b border-navy-800/[0.08] bg-paper-200/50">
+            <span class:list={['chip', statusChip[p.status]]}>{statusLabel[p.status]}</span>
+            <span class="mono text-[11px] text-ink-500">{p.date}</span>
+          </header>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="font-display text-base font-semibold text-navy-900 leading-snug">{p.title}</h3>
+            <p class="text-navy-600 text-xs font-medium mt-1">{p.org}</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-600 flex-1">{p.text}</p>
+            {p.facts && (
+              <dl class="mt-5 pt-4 hairline grid grid-cols-2 gap-x-4 gap-y-2.5">
+                {p.facts.map((f) => (
+                  <div>
+                    <dt class="mono text-[10px] uppercase tracking-[0.12em] text-ink-400">{f.label}</dt>
+                    <dd class="text-[13px] font-semibold text-navy-900 mt-0.5">{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </div>
+        </article>
       ))}
     </div>
 
     <!-- More work (compact) -->
-    <h3 class="reveal mt-12 mono text-xs uppercase tracking-[0.22em] text-mist-500 text-center">More work</h3>
-    <div class="reveal mt-5 max-w-4xl mx-auto grid sm:grid-cols-2 gap-x-8 gap-y-px rounded-2xl overflow-hidden border border-white/[0.06]">
+    <h3 class="reveal mt-12 eyebrow eyebrow-center">More work</h3>
+    <div class="reveal mt-5 max-w-4xl mx-auto grid sm:grid-cols-2 gap-x-8 gap-y-px rounded-2xl overflow-hidden border border-navy-800/[0.10]">
       {moreProjects.map((m) => (
-        <div class="bg-ink-850/60 px-5 py-3.5">
+        <div class="bg-paper-200/60 px-5 py-3.5">
           <div class="flex items-baseline justify-between gap-3">
-            <span class="text-sm font-medium text-mist-200">{m.title}</span>
-            <span class="mono text-[11px] text-mist-500 shrink-0">{m.date}</span>
+            <span class="text-sm font-medium text-ink-800">{m.title}</span>
+            <span class="mono text-[11px] text-ink-500 shrink-0">{m.date}</span>
           </div>
-          <p class="text-xs text-azure-300/90 mt-0.5">{m.org}{m.note && <span class="text-mist-500"> · {m.note}</span>}</p>
+          <p class="text-xs text-navy-600 mt-0.5">{m.org}{m.note && <span class="text-ink-500"> · {m.note}</span>}</p>
         </div>
       ))}
     </div>
 
     <!-- Personal / open-source — tabbed premium showcase -->
-    <h3 class="reveal mt-14 mono text-xs uppercase tracking-[0.22em] text-kesari-400 text-center">Things I build</h3>
-    <p class="reveal mt-3 text-center text-sm text-mist-500 max-w-xl mx-auto">Two threads of the same work: preserving Sikh heritage, and open-sourcing tools for IT &amp; security teams. Browse both, or see the <a href={url('/products')} class="text-kesari-300 hover:underline underline-offset-4">products page</a>.</p>
+    <h3 class="reveal mt-14 eyebrow eyebrow-center">Things I build</h3>
+    <p class="reveal mt-3 text-center text-sm text-ink-500 max-w-xl mx-auto">Two threads of the same work: preserving Sikh heritage, and open-sourcing tools for IT &amp; security teams. Browse both, or see the <a href={url('/products')} class="text-kesari-700 hover:underline underline-offset-4">products page</a>.</p>
 
     <div class="reveal mt-7 max-w-4xl mx-auto" data-tabs>
       <div role="tablist" aria-label="Project type" class="flex justify-center gap-1.5">
         {showcaseTabs.map((t, i) => (
           <button type="button" role="tab" id={`tab-${t.id}`} class="tab-btn" data-tab={t.id} aria-controls={`panel-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'}>
-            <span class="text-mist-600">#</span> {t.label}
+            <span class="text-ink-400">#</span> {t.label}
           </button>
         ))}
       </div>
@@ -216,17 +279,17 @@ const philosophyQuotes = [
               class="group card card-hover border-glow p-6 flex flex-col"
             >
               <div class="flex items-center gap-3">
-                <span class:list={['grid place-items-center h-11 w-11 rounded-xl bg-ink-800 border border-white/10 shrink-0', p.accent === 'kesari' ? 'text-kesari-400' : 'text-azure-400']}>
+                <span class:list={['grid place-items-center h-11 w-11 rounded-xl bg-paper-200 border border-navy-800/12 shrink-0', p.accent === 'kesari' ? 'text-kesari-700' : 'text-navy-600']}>
                   {p.gurmukhi ? <span class="gurmukhi text-xl leading-none" lang="pa">{p.gurmukhi}</span> : <span class="font-display font-bold text-lg">{p.name.charAt(0)}</span>}
                 </span>
                 <div class="min-w-0">
-                  <h4 class="font-display text-base font-semibold text-mist-100 leading-tight">{p.name}</h4>
-                  <p class="mono text-[10px] uppercase tracking-wider text-mist-500 mt-0.5">{p.category}</p>
+                  <h4 class="font-display text-base font-semibold text-navy-900 leading-tight">{p.name}</h4>
+                  <p class="mono text-[10px] uppercase tracking-wider text-ink-500 mt-0.5">{p.category}</p>
                 </div>
-                {p.openSource && <span class="ml-auto shrink-0 mono text-[10px] text-phos-300 border border-phos-400/25 rounded-md px-2 py-0.5">OSS</span>}
+                {p.openSource && <span class="ml-auto shrink-0 mono text-[10px] text-status-green border border-status-green/25 rounded-md px-2 py-0.5">OSS</span>}
               </div>
-              <p class:list={['mt-4 text-sm font-medium', p.accent === 'kesari' ? 'text-kesari-300' : 'text-azure-300']}>{p.tagline}</p>
-              <p class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-mist-400 group-hover:text-kesari-300 transition-colors"><Icon name="arrow" size={15} class="group-hover:translate-x-0.5 transition-transform" /> {p.links[0]?.label ?? 'Learn more'}</p>
+              <p class:list={['mt-4 text-sm font-medium', p.accent === 'kesari' ? 'text-kesari-700' : 'text-navy-600']}>{p.tagline}</p>
+              <p class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-ink-600 group-hover:text-kesari-700 transition-colors"><Icon name="arrow" size={15} class="group-hover:translate-x-0.5 transition-transform" /> {p.links[0]?.label ?? 'Learn more'}</p>
             </a>
           ))}
         </div>
@@ -236,23 +299,11 @@ const philosophyQuotes = [
 
   <!-- ===================== CAREER TIMELINE ===================== -->
   <section class="container-x mt-28">
-    <SectionHeading eyebrow="Experience" title="Career at a glance" />
-    <div class="mt-10 relative">
-      <div class="absolute left-[6px] top-2 bottom-2 w-px bg-gradient-to-b from-kesari-500/50 via-white/10 to-transparent"></div>
-      <div class="space-y-2.5">
-        {experience.map((role) => (
-          <div class="reveal relative pl-8">
-            <span class="absolute left-0 top-[15px] h-[13px] w-[13px] rounded-full border-2 border-kesari-500 bg-ink-900"></span>
-            <div class="card px-5 py-3.5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
-              <p class="text-mist-100">
-                <span class="font-display font-semibold">{role.title}</span>
-                <span class="text-kesari-300"> · {role.company}</span>
-              </p>
-              <span class="mono text-xs text-mist-500 shrink-0">{role.date}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+    <SectionHeading eyebrow="Experience" title="Career roadmap">
+      <p class="reveal mt-4 max-w-2xl text-ink-600">Ten years of roles, to scale — including the stretches where a contract engagement ran alongside a full-time one.</p>
+    </SectionHeading>
+    <div class="mt-10">
+      <ProgramRoadmap />
     </div>
   </section>
 
@@ -263,13 +314,13 @@ const philosophyQuotes = [
       {leadership.map((item) => (
         <div class="reveal card card-hover p-6">
           <div class="flex items-baseline justify-between gap-3">
-            <h3 class="font-display text-base font-semibold text-mist-100">{item.title}</h3>
-            <span class="mono text-[11px] text-mist-500 shrink-0">{item.date}</span>
+            <h3 class="font-display text-base font-semibold text-navy-900">{item.title}</h3>
+            <span class="mono text-[11px] text-ink-500 shrink-0">{item.date}</span>
           </div>
-          <p class="text-azure-300 text-sm font-medium mt-0.5">{item.org}</p>
+          <p class="text-navy-600 text-sm font-medium mt-0.5">{item.org}</p>
           <ul class="mt-4 space-y-2">
             {item.bullets.map((b) => (
-              <li class="flex gap-2.5 text-sm text-mist-400 leading-relaxed"><span class="mt-1.5 h-1 w-1 rounded-full bg-azure-500 shrink-0"></span><span>{b}</span></li>
+              <li class="flex gap-2.5 text-sm text-ink-600 leading-relaxed"><span class="mt-1.5 h-1 w-1 rounded-full bg-navy-600 shrink-0"></span><span>{b}</span></li>
             ))}
           </ul>
         </div>
@@ -285,19 +336,19 @@ const philosophyQuotes = [
         {education.map((e) => (
           <div class="reveal card p-6">
             <div class="flex items-baseline justify-between gap-3">
-              <h3 class="font-display text-base font-semibold text-mist-100">{e.credential}</h3>
-              {e.date && <span class="mono text-[11px] text-mist-500 shrink-0">{e.date}</span>}
+              <h3 class="font-display text-base font-semibold text-navy-900">{e.credential}</h3>
+              {e.date && <span class="mono text-[11px] text-ink-500 shrink-0">{e.date}</span>}
             </div>
-            <p class="text-kesari-300 text-sm font-medium mt-0.5">{e.school}</p>
-            {e.detail && <p class="mt-2 text-sm text-mist-400">{e.detail}</p>}
+            <p class="text-kesari-700 text-sm font-medium mt-0.5">{e.school}</p>
+            {e.detail && <p class="mt-2 text-sm text-ink-600">{e.detail}</p>}
           </div>
         ))}
       </div>
       <div class="reveal card p-6 h-max">
-        <h3 class="mono text-xs uppercase tracking-widest text-kesari-400">Key Certifications · 2023–2026</h3>
+        <h3 class="eyebrow">Key certifications · 2023–2026</h3>
         <ul class="mt-5 space-y-3">
           {certifications.map((c) => (
-            <li class="flex gap-3 text-sm text-mist-300"><Icon name="shield" size={16} class="text-kesari-500/80 shrink-0 mt-0.5" /><span>{c}</span></li>
+            <li class="flex gap-3 text-sm text-ink-700"><Icon name="shield" size={16} class="text-kesari-600/90 shrink-0 mt-0.5" /><span>{c}</span></li>
           ))}
         </ul>
       </div>
@@ -310,12 +361,12 @@ const philosophyQuotes = [
     <div class="mt-10 grid gap-5 md:grid-cols-3">
       {recommendations.map((r) => (
         <figure class="reveal card p-6 flex flex-col">
-          <div class="text-kesari-500/40 font-display text-5xl leading-none">“</div>
-          <blockquote class="-mt-3 text-sm leading-relaxed text-mist-300 flex-1">{r.text}</blockquote>
+          <div class="text-kesari-500/55 font-display text-5xl leading-none">“</div>
+          <blockquote class="-mt-3 text-sm leading-relaxed text-ink-700 flex-1">{r.text}</blockquote>
           <figcaption class="mt-5 pt-5 hairline">
-            <p class="font-display text-sm font-semibold text-mist-100">{r.name}</p>
-            <p class="text-xs text-mist-500 mt-0.5">{r.title}</p>
-            <a href={r.link} target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs text-azure-300 hover:underline underline-offset-4"><Icon name="linkedin" size={13} /> LinkedIn</a>
+            <p class="font-display text-sm font-semibold text-navy-900">{r.name}</p>
+            <p class="text-xs text-ink-500 mt-0.5">{r.title}</p>
+            <a href={r.link} target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs text-navy-600 hover:underline underline-offset-4"><Icon name="linkedin" size={13} /> LinkedIn</a>
           </figcaption>
         </figure>
       ))}
@@ -325,8 +376,8 @@ const philosophyQuotes = [
   <!-- ===================== CTA ===================== -->
   <section class="container-x mt-28">
     <div class="reveal text-center">
-      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-mist-100">The next program could be yours.</h2>
-      <a href={url('/contact')} data-magnetic="0.35" class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Let’s talk <Icon name="arrow" size={18} /></a>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-navy-900">The next program could be yours.</h2>
+      <a href={url('/contact')} data-magnetic="0.35" class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Let’s talk <Icon name="arrow" size={18} /></a>
     </div>
   </section>
 </Base>

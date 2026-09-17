@@ -6,15 +6,14 @@ import Logo from './Logo.astro';
 const year = new Date().getFullYear();
 ---
 <footer class="relative mt-28">
-  <!-- terminal status strip -->
+  <!-- availability strip -->
   <div class="container-x">
-    <div class="mono text-[11px] sm:text-xs text-mist-500 border-y border-white/[0.07] py-2.5 flex flex-wrap items-center gap-x-5 gap-y-1">
-      <span class="inline-flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-phos-400 animate-pulse-glow"></span><span class="text-phos-400">●</span> status: open to work</span>
-      <span class="hidden sm:inline text-mist-600">·</span>
-      <span>role: <span class="text-kesari-400">{site.targetRole}</span></span>
-      <span class="hidden sm:inline text-mist-600">·</span>
-      <span class="hidden md:inline">loc: {site.location}</span>
-      <span class="ml-auto hidden lg:inline text-mist-600">uptime: 10 yrs · zsh</span>
+    <div class="text-[12px] sm:text-[13px] text-ink-600 border-y border-navy-800/[0.11] py-3 flex flex-wrap items-center gap-x-5 gap-y-1.5">
+      <span class="chip chip-delivered">open to work</span>
+      <span>Seeking <span class="font-medium text-navy-900">{site.targetRole}</span> roles</span>
+      <span class="hidden sm:inline text-ink-400">·</span>
+      <span class="hidden sm:inline">{site.location}</span>
+      <span class="ml-auto hidden lg:inline mono text-[11px] text-ink-400">10 years delivering technical programs</span>
     </div>
   </div>
 
@@ -22,43 +21,43 @@ const year = new Date().getFullYear();
     <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
       <div>
         <Logo emblemSize={34} textClass="text-lg" />
-        <p class="mt-4 max-w-sm text-sm leading-relaxed text-mist-400">{site.tagline}</p>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-600">{site.tagline}</p>
         <a
           href={`${url('/contact')}#resumes`}
           data-magnetic="0.3"
-          class="mt-5 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-4 py-2.5 text-sm font-semibold hover:bg-kesari-400 transition-colors"
+          class="mt-5 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-4 py-2.5 text-sm font-semibold hover:bg-kesari-400 transition-colors"
         >
           <Icon name="file" size={16} /> Download résumé
         </a>
-        <a href={url('/resume')} class="mt-3 block text-xs text-mist-500 hover:text-kesari-300 transition-colors">or view it online →</a>
+        <a href={url('/resume')} class="mt-3 block text-xs text-ink-500 hover:text-kesari-700 transition-colors">or view it online →</a>
       </div>
 
       <div>
-        <h3 class="mono text-xs uppercase tracking-widest text-mist-500">Navigate</h3>
+        <h3 class="mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500">Navigate</h3>
         <ul class="mt-4 space-y-2.5">
           {nav.map((item) => (
-            <li><a href={url(item.href)} class="mono text-sm text-mist-400 hover:text-kesari-300 transition-colors"><span class="text-mist-600">/</span>{item.label.toLowerCase()}</a></li>
+            <li><a href={url(item.href)} class="text-sm text-ink-600 hover:text-navy-900 transition-colors">{item.label}</a></li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h3 class="mono text-xs uppercase tracking-widest text-mist-500">Connect</h3>
+        <h3 class="mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500">Connect</h3>
         <ul class="mt-4 space-y-2.5">
-          <li><a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a></li>
-          <li><a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="github" size={16} /> GitHub</a></li>
-          <li><a href={url('/contact')} class="inline-flex items-center gap-2 text-sm text-mist-400 hover:text-kesari-300 transition-colors"><Icon name="arrow" size={16} /> Contact form</a></li>
+          <li><a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-ink-600 hover:text-kesari-700 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a></li>
+          <li><a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-ink-600 hover:text-kesari-700 transition-colors"><Icon name="github" size={16} /> GitHub</a></li>
+          <li><a href={url('/contact')} class="inline-flex items-center gap-2 text-sm text-ink-600 hover:text-kesari-700 transition-colors"><Icon name="arrow" size={16} /> Contact form</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-12 pt-6 hairline flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="mono text-xs text-mist-500 flex items-center gap-3 flex-wrap justify-center">
-        <span>© {year} {site.founder} · exit 0</span>
-        <span class="text-mist-700">·</span>
-        <a href={url('/ai-policy')} class="hover:text-kesari-300 transition-colors">AI &amp; content policy</a>
+      <p class="text-xs text-ink-500 flex items-center gap-3 flex-wrap justify-center">
+        <span>© {year} {site.founder}</span>
+        <span class="text-ink-400">·</span>
+        <a href={url('/ai-policy')} class="hover:text-navy-900 underline underline-offset-4 transition-colors">AI &amp; content policy</a>
       </p>
-      <p class="gurmukhi text-sm text-mist-400"><span lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</span> — <span class="font-sans not-italic text-mist-500">built in chardi kala</span></p>
+      <p class="gurmukhi text-sm text-ink-600"><span lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</span> — <span class="font-sans not-italic text-ink-500">built in chardi kala</span></p>
     </div>
   </div>
 </footer>

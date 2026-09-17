@@ -22,7 +22,7 @@ export default defineConfig({
       serialize(item) {
         // Home and key conversion pages get top priority
         if (/jasvant\.dosanjhlabs\.com\/?$/.test(item.url)) item.priority = 1.0;
-        else if (/\/(about|products|contact)\/?$/.test(item.url)) item.priority = 0.9;
+        else if (/\/(work|about|products|contact)\/?$/.test(item.url)) item.priority = 0.9;
         else if (/\/ai-policy\/?$/.test(item.url)) item.priority = 0.3;
         else item.priority = 0.7;
         return item;

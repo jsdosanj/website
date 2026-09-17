@@ -45,22 +45,22 @@ const articleJsonld = {
 
     <!-- Back link -->
     <div class="relative max-w-[72ch] mx-auto">
-      <a href={url('/blog')} class="inline-flex items-center gap-2 text-sm font-medium text-mist-400 hover:text-kesari-300 transition-colors">
+      <a href={url('/blog')} class="inline-flex items-center gap-2 text-sm font-medium text-ink-600 hover:text-kesari-700 transition-colors">
         <span class="rotate-180 inline-flex"><Icon name="arrow" size={15} /></span> All writing
       </a>
     </div>
 
     <!-- Header -->
     <header class="relative max-w-[72ch] mx-auto mt-8 reveal is-visible">
-      <p class="mono text-xs uppercase tracking-[0.22em] text-kesari-400">Essay</p>
-      <h1 class="mt-4 font-display text-3xl sm:text-5xl font-bold tracking-tight text-mist-100 leading-[1.08]">
+      <p class="eyebrow">Essay</p>
+      <h1 class="mt-4 font-display text-3xl sm:text-5xl font-bold tracking-tight text-navy-900 leading-[1.08]">
         AI just became a single point of failure — the fix is local
       </h1>
-      <p class="mt-6 text-lg sm:text-xl text-mist-300 leading-relaxed">
+      <p class="mt-6 text-lg sm:text-xl text-ink-700 leading-relaxed">
         Last week the U.S. government switched off the most powerful AI model on Earth — for everyone, overnight.
         Here’s why that’s the strongest argument yet for running AI you actually own.
       </p>
-      <p class="mt-6 text-sm text-mist-500">
+      <p class="mt-6 text-sm text-ink-500">
         By Jasvant Singh Dosanjh · June 13, 2026
       </p>
       <div class="mt-8 hairline"></div>
@@ -162,12 +162,12 @@ const articleJsonld = {
     <!-- Sources -->
     <div class="relative max-w-[72ch] mx-auto mt-14">
       <div class="card border-glow p-6 sm:p-8">
-        <h2 class="mono text-xs uppercase tracking-[0.22em] text-kesari-400">Sources</h2>
+        <h2 class="eyebrow">Sources</h2>
         <ul class="mt-5 space-y-2.5" role="list">
           {sources.map((s) => (
-            <li class="flex gap-2.5 text-sm leading-relaxed text-mist-400">
+            <li class="flex gap-2.5 text-sm leading-relaxed text-ink-600">
               <span class="mt-1.5 h-1 w-1 rounded-full bg-kesari-500/70 shrink-0"></span>
-              <a href={s.href} target="_blank" rel="noopener noreferrer" class="text-azure-300 hover:text-kesari-300 hover:underline underline-offset-4 break-words">{s.label}</a>
+              <a href={s.href} target="_blank" rel="noopener noreferrer" class="text-navy-600 hover:text-kesari-700 hover:underline underline-offset-4 break-words">{s.label}</a>
             </li>
           ))}
         </ul>
@@ -178,13 +178,13 @@ const articleJsonld = {
 
 <style>
   .prose-jsd {
-    color: var(--color-mist-300, #c7cedb);
+    color: var(--color-ink-700, #c7cedb);
     font-size: 1.0625rem;
     line-height: 1.8;
   }
   .prose-jsd :global(h2) {
     font-family: var(--font-display);
-    color: var(--color-mist-100, #eef1f6);
+    color: var(--color-navy-900, #eef1f6);
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 1.25;
@@ -194,7 +194,7 @@ const articleJsonld = {
   }
   .prose-jsd :global(h3) {
     font-family: var(--font-display);
-    color: var(--color-mist-100, #eef1f6);
+    color: var(--color-navy-900, #eef1f6);
     font-weight: 600;
     font-size: 1.25rem;
     margin-top: 2rem;
@@ -205,11 +205,11 @@ const articleJsonld = {
     margin-bottom: 1.25rem;
   }
   .prose-jsd :global(strong) {
-    color: var(--color-mist-100, #eef1f6);
+    color: var(--color-navy-900, #eef1f6);
     font-weight: 600;
   }
   .prose-jsd :global(em) {
-    color: var(--color-mist-200, #dde2ec);
+    color: var(--color-ink-800, #dde2ec);
   }
   .prose-jsd :global(ul) {
     margin: 0 0 1.5rem;
@@ -249,7 +249,7 @@ const articleJsonld = {
     border-left: 3px solid var(--color-kesari-500, #f59e0b);
     border-radius: 0 0.75rem 0.75rem 0;
     background: rgba(255, 255, 255, 0.03);
-    color: var(--color-mist-200, #dde2ec);
+    color: var(--color-ink-800, #dde2ec);
     font-family: var(--font-display);
     font-size: 1.15rem;
     line-height: 1.6;
@@ -257,7 +257,7 @@ const articleJsonld = {
   }
   .prose-jsd :global(.signoff) {
     margin-top: 2rem;
-    color: var(--color-mist-400, #98a2b3);
+    color: var(--color-ink-600, #98a2b3);
     font-style: italic;
     font-size: 0.975rem;
   }

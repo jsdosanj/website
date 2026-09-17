@@ -11,10 +11,10 @@ interface Props {
 const { class: className = '', emblemSize = 30, showText = true, textClass = 'text-[15px]' } = Astro.props;
 ---
 <span class:list={['inline-flex items-center gap-2.5', className]}>
-  <Khanda size={emblemSize} class="text-kesari-400 shrink-0" strokeWidth={2.4} />
+  <Khanda size={emblemSize} class="text-kesari-600 shrink-0" strokeWidth={2.4} />
   {showText && (
-    <span class:list={['font-display font-semibold tracking-tight text-mist-100 leading-none', textClass]}>
-      Jasvant<span class="text-kesari-400"> Dosanjh</span>
+    <span class:list={['font-display font-semibold tracking-tight text-navy-900 leading-none', textClass]}>
+      Jasvant<span class="text-kesari-700"> Dosanjh</span>
     </span>
   )}
 </span>

@@ -1,33 +1,25 @@
 // Shared visual template for build-time OG images — satori renders this
 // plain VNode tree (no React needed) to SVG, then resvg rasterizes to PNG.
-// Mirrors the site's own "term window" motif: ink-950 ground, traffic-light
-// dots, kesari headline, a real prompt line — so a shared link looks like it
-// came from this specific site, not a generic template.
+//
+// Matches the site's light "delivery" surface: paper ground, a kesari rule
+// above a mono eyebrow, navy display type, and a footer byline — so a shared
+// link looks like it came from this specific site rather than a generic
+// template. (Previously mirrored the terminal-window motif, which the site
+// no longer uses.)
 export type OgProps = {
   eyebrow: string;
   title: string;
 };
 
-const INK_950 = '#07080a';
-const INK_800 = '#14161b';
-const INK_850 = '#0e0f13';
-const MIST_100 = '#eef2f8';
-const MIST_500 = '#7c8593';
-const KESARI_400 = '#f7c25a';
-const KESARI_500 = '#f0a93c';
-const AZURE_300 = '#8fb4ff';
-const MAC_RED = '#ff5f57';
-const MAC_AMBER = '#febc2e';
-const MAC_GREEN = '#28c840';
-
-function dot(color: string) {
-  return {
-    type: 'div',
-    props: {
-      style: { width: 15, height: 15, borderRadius: 9999, background: color },
-    },
-  };
-}
+const PAPER_50 = '#ffffff';
+const PAPER_100 = '#fbfcfd';
+const PAPER_300 = '#eaeef3';
+const NAVY_900 = '#10203a';
+const NAVY_600 = '#35598f';
+const INK_500 = '#5d6e88';
+const INK_400 = '#7b8aa0';
+const KESARI_500 = '#e09c22';
+const KESARI_700 = '#94620d';
 
 export function buildOgTree({ eyebrow, title }: OgProps) {
   return {
@@ -38,9 +30,11 @@ export function buildOgTree({ eyebrow, title }: OgProps) {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        background: INK_950,
-        backgroundImage: `radial-gradient(58% 58% at 14% -10%, rgba(240,169,60,0.12), rgba(0,0,0,0)), radial-gradient(48% 55% at 96% 6%, rgba(65,105,225,0.14), rgba(0,0,0,0))`,
-        padding: 64,
+        background: PAPER_100,
+        // the same two ambient washes the site's .bg-page uses
+        backgroundImage:
+          'radial-gradient(52% 58% at 6% -12%, rgba(224,156,34,0.16), rgba(255,255,255,0)), radial-gradient(48% 55% at 98% 2%, rgba(53,89,143,0.16), rgba(255,255,255,0))',
+        padding: 56,
         fontFamily: 'Hanken Grotesk',
       },
       children: [
@@ -51,37 +45,16 @@ export function buildOgTree({ eyebrow, title }: OgProps) {
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
-              borderRadius: 22,
-              background: `linear-gradient(180deg, ${INK_850}, ${INK_800})`,
-              border: `1px solid rgba(238,242,248,0.09)`,
+              borderRadius: 24,
+              background: PAPER_50,
+              border: `1px solid ${PAPER_300}`,
               overflow: 'hidden',
             },
             children: [
-              // term bar
+              // top rule — the kesari accent as a full-bleed hairline
               {
                 type: 'div',
-                props: {
-                  style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 10,
-                    padding: '20px 28px',
-                    borderBottom: '1px solid rgba(238,242,248,0.08)',
-                    background: INK_800,
-                  },
-                  children: [
-                    dot(MAC_RED),
-                    dot(MAC_AMBER),
-                    dot(MAC_GREEN),
-                    {
-                      type: 'div',
-                      props: {
-                        style: { flex: 1, display: 'flex', justifyContent: 'center', color: MIST_500, fontSize: 20, fontFamily: 'JetBrains Mono' },
-                        children: 'jasvant.dosanjhlabs.com',
-                      },
-                    },
-                  ],
-                },
+                props: { style: { display: 'flex', height: 6, background: KESARI_500 } },
               },
               // body
               {
@@ -92,14 +65,23 @@ export function buildOgTree({ eyebrow, title }: OgProps) {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    padding: '0 60px',
+                    padding: '0 62px',
                   },
                   children: [
                     {
                       type: 'div',
                       props: {
-                        style: { display: 'flex', alignItems: 'center', gap: 10, color: KESARI_400, fontSize: 26, fontFamily: 'JetBrains Mono' },
-                        children: `$ ${eyebrow}`,
+                        style: {
+                          display: 'flex',
+                          alignItems: 'center',
+                          color: KESARI_700,
+                          fontSize: 22,
+                          fontWeight: 500,
+                          letterSpacing: 3,
+                          textTransform: 'uppercase',
+                          fontFamily: 'JetBrains Mono',
+                        },
+                        children: eyebrow,
                       },
                     },
                     {
@@ -107,13 +89,13 @@ export function buildOgTree({ eyebrow, title }: OgProps) {
                       props: {
                         style: {
                           display: 'flex',
-                          marginTop: 22,
-                          color: MIST_100,
-                          fontSize: title.length > 34 ? 56 : 68,
+                          marginTop: 24,
+                          color: NAVY_900,
+                          fontSize: title.length > 34 ? 58 : 70,
                           fontWeight: 700,
-                          lineHeight: 1.08,
+                          lineHeight: 1.06,
                           fontFamily: 'Bricolage Grotesque',
-                          letterSpacing: -1,
+                          letterSpacing: -1.5,
                           maxWidth: 980,
                         },
                         children: title,
@@ -122,23 +104,24 @@ export function buildOgTree({ eyebrow, title }: OgProps) {
                   ],
                 },
               },
-              // footer prompt line
+              // footer byline
               {
                 type: 'div',
                 props: {
                   style: {
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 10,
-                    padding: '22px 60px 30px',
-                    color: MIST_500,
-                    fontSize: 22,
+                    gap: 12,
+                    padding: '20px 62px 26px',
+                    borderTop: `1px solid ${PAPER_300}`,
+                    fontSize: 21,
                     fontFamily: 'JetBrains Mono',
                   },
                   children: [
-                    { type: 'span', props: { style: { color: '#4ade80' }, children: 'jasvant@portfolio' } },
-                    { type: 'span', props: { style: { color: AZURE_300 }, children: '~ %' } },
-                    { type: 'span', props: { children: 'open — a portfolio worth reading' } },
+                    { type: 'span', props: { style: { color: NAVY_900, fontWeight: 500 }, children: 'Jasvant Singh Dosanjh' } },
+                    { type: 'span', props: { style: { color: INK_400 }, children: '·' } },
+                    { type: 'span', props: { style: { color: NAVY_600 }, children: 'Technical Program Manager' } },
+                    { type: 'span', props: { style: { color: INK_500, marginLeft: 'auto' }, children: 'jasvant.dosanjhlabs.com' } },
                   ],
                 },
               },
