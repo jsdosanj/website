@@ -6,7 +6,7 @@
   // Server Action, and the live GitHub/PyPI/HuggingFace figures revalidate on
   // a timer instead of being frozen into the HTML at build.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "jasvant-site",
+  "name": "website",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-09-01",
   // nodejs_compat for the Node built-ins the adapter needs;
@@ -32,4 +32,15 @@
   "observability": {
     "enabled": true
   }
+{
+  // ...
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  },
+  // ...
+}
 }
