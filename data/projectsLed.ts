@@ -111,7 +111,7 @@ export const headlineProjects: LedProject[] = [
     ],
     org: 'Rochester Community Schools',
     date: '2019 – 2020',
-    text: 'Equipped 15,000 students with 1:1 Chromebooks and a full asset inventory in eight weeks, in the middle of a district-wide closure, by serving as operational IT lead and running the whole rollout out of a single distribution site with six technical assistants, on a fixed deadline nobody could move.',
+    text: 'Put a Chromebook in the hands of every one of 15,000 students and inventoried every machine in all 31 schools in eight weeks, in the middle of a district-wide closure, by serving as operational IT lead — staging distribution from one district site with six technical assistants while personally leading the inventory and decommissioning sweep in 10 schools, on a fixed deadline nobody could move.',
   },
   {
     title: 'Zero-touch endpoint enrollment pipeline',
