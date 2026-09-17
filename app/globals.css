@@ -1049,12 +1049,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .rm-lanes { position: relative; padding-top: 0.875rem; }
 .rm-lane {
-  /* Tall enough for the worst-case label: a two-line title over a two-line
+  /* Tall enough for the worst-case label: a three-line title over a two-line
      organization over the date line, plus the 1.6rem drop below the bar.
-     Shorter than this and that label overflows into the next lane's bar —
-     which it did at 5.5rem, striking through the Chef Koochooloo dates. */
+     Shorter and that label overflows into the next lane's bar — at 5.5rem it
+     struck through the Chef Koochooloo dates. The three-line allowance is for
+     the phone, where the label is ~157px and "Senior Computer Specialist —
+     Infrastructure" does not fit in two. */
   position: relative;
-  height: 7.25rem;
+  height: 8.25rem;
 }
 .rm-role {
   position: absolute;
@@ -1094,10 +1096,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--color-navy-900);
   line-height: 1.25;
-  /* Two lines is enough for every current title; a third would collide with
-     the next lane. */
+  /* Three lines: the longest title needs all three at phone label widths.
+     .rm-lane is sized for exactly this worst case. */
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

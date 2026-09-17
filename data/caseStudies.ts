@@ -165,7 +165,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'district-rollout',
     title: '15,000 students to 1:1 devices in eight weeks',
     org: 'Rochester Community Schools',
-    role: 'Operational IT lead · directed six technical assistants',
+    role: 'Lead Technical Consultant · operational IT lead',
     date: '2020',
     status: 'delivered',
     summary:

@@ -35,7 +35,7 @@ export const MONTH = {
 
 export const experience: Role[] = [
   {
-    title: 'Technical Program Manager',
+    title: 'Founder & Technical Program Manager',
     company: 'Dosanjh Labs',
     date: 'Mar 2026 – Present',
     start: 2026 + MONTH.mar,
@@ -118,7 +118,7 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Lead Technical Assistant',
+    title: 'Lead Technical Consultant',
     company: 'Rochester Community Schools',
     date: 'Aug 2019 – Nov 2020',
     start: 2019 + MONTH.aug,
