@@ -26,7 +26,7 @@ export const posts: Post[] = [
     date: 'Jun 2026',
     category: 'AI & Heritage',
     excerpt:
-      'The SikhLibrarian project found a permanent home at sikharchive.net: thousands of digitized texts from 50+ scholars, a 758-million-word corpus, restored with AI and free for the world.',
+      'The SikhLibrarian project found a permanent home at sikharchive.net: thousands of digitized texts from 50+ scholars, a 758-million-word corpus at the time of that launch, restored with AI and free for the world.',
     url: 'https://www.linkedin.com/posts/jasvantsd_sikhiio-read-guru-granth-sahib-free-in-share-7466552659274022913-jA5I',
     tags: ['AI', 'Heritage', 'Open Access'],
     featured: true,
@@ -66,7 +66,7 @@ export const posts: Post[] = [
     date: 'May 2026',
     category: 'AI & Heritage',
     excerpt:
-      'A fully local RAG pipeline over 758 million words across five languages, with Research and Learn modes and Chicago-style citations — making manuscripts modern OCR couldn’t read finally searchable.',
+      'A fully local RAG pipeline over a billion-word corpus across 26 languages, with Research and Learn modes and Chicago-style citations — making manuscripts modern OCR couldn’t read finally searchable.',
     url: 'https://www.linkedin.com/posts/activity-7456884362802778112-tp6P',
     tags: ['RAG', 'NLP', 'Multilingual'],
     featured: false,

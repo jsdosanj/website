@@ -148,7 +148,7 @@ export const skillGroups: SkillGroup[] = [
     title: 'Development with AI',
     icon: 'sparkles',
     blurb:
-      'Shipping real products with AI as a force multiplier — from RAG pipelines over a 758M-word corpus to OCR repair engines and agentic coding workflows.',
+      'Shipping real products with AI as a force multiplier — from RAG pipelines over a 1.07-billion-word corpus to OCR repair engines and agentic coding workflows.',
     skills: [
       'RAG Architecture',
       'LLM Application Design',

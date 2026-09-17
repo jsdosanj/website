@@ -34,7 +34,7 @@ export const engagements: SevaEngagement[] = [
     date: 'Ongoing',
     icon: 'book',
     description:
-      'Lead the engineering behind the digital preservation and accessibility of Sikh historical texts and manuscripts — bridging my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable and available to researchers and the global Sangat.',
+      'Lead the engineering behind the digital preservation and accessibility of Sikh historical texts and manuscripts — now serving over 50,000 views a month. Sikhi.io is the production home of the Sikh Library corpus: ~1.07 billion words across 3,616+ catalogued works, 115 collections and 26 languages, bridging my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable for researchers and the global Sangat.',
     link: { label: 'Sikhi.io', href: 'https://sikhi.io/' },
     tags: ['Digital Preservation', 'Manuscripts', 'Open Access'],
   },

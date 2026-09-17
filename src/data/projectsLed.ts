@@ -154,7 +154,7 @@ export const personalProjects: PersonalProject[] = [
     status: 'active',
     org: 'Personal · open-source',
     date: '2024 – present',
-    text: 'Launched the largest open-source multilingual dataset in the Sikh community — a 758M+ word corpus of manuscripts and scripture now used by 13+ independent projects worldwide, and the source behind a 558-course learning platform — by building a custom OCR pipeline for scripts no off-the-shelf engine handles and publishing the result openly on HuggingFace.',
+    text: 'Built the largest open-source Sikh text corpus, measured by ~1.07 billion words across 3,616+ catalogued works, 115 collections and 26 languages — now the production backend for Sikhi.io, which serves 50,000+ views a month — by running a custom OCR pipeline over scans that off-the-shelf engines fail on and publishing the result on HuggingFace under CC BY-NC-ND 4.0.',
     href: 'https://huggingface.co/datasets/jsdosanj/SikhLibrary',
     linkLabel: 'HuggingFace',
   },
