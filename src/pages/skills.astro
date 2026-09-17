@@ -5,13 +5,15 @@ import Icon from '../components/Icon.astro';
 import { skillGroups } from '../data/skills';
 import { url } from '../utils';
 
-const aiGroup = skillGroups.find((g) => g.wide)!;
+// The `wide` group is the one the page features as "where I go deep" —
+// currently Program & Delivery Management, matching the roles being targeted.
+const leadGroup = skillGroups.find((g) => g.wide)!;
 const rest = skillGroups.filter((g) => !g.wide);
 ---
 <Base
-  title="Skills — AI, Cloud & IT Leadership"
-  description="Jasvant Dosanjh's skills: AI development (RAG, OCR, LLMs), cloud & DevOps (Docker, Cloudflare, CI/CD), security & compliance (NIST, HIPAA), endpoint infrastructure."
-  keywords={["AI development", "RAG", "LLM applications", "agentic coding", "Docker", "Cloudflare", "CI/CD", "GitHub Actions", "Jamf Pro", "Microsoft Intune", "JumpCloud", "NIST CSF", "CMMC", "HIPAA", "DevSecOps", "program management skills"]}
+  title="Skills — Program Delivery, Security & Cloud"
+  description="Jasvant Dosanjh's skills: technical program and project management (Agile, Waterfall, roadmaps, risk, budget, vendors), security & compliance (NIST, HIPAA), infrastructure, and AI development."
+  keywords={["technical program management", "technical project management", "Agile", "Waterfall", "Lean", "SDLC", "roadmapping", "risk management", "budget management", "vendor management", "Jira", "Azure DevOps", "NIST CSF", "CMMC", "HIPAA", "Jamf Pro", "Microsoft Intune", "JumpCloud", "RAG", "CI/CD"]}
   ogImage="/og/skills.png"
 >
   <section class="container-x pt-36 sm:pt-44">
@@ -23,36 +25,36 @@ const rest = skillGroups.filter((g) => !g.wide);
         <span class="kin-line"><span class="kin-inner">What I bring to the table.</span></span>
       </h1>
       <p class="reveal is-visible mt-5 text-lg text-mist-400 leading-relaxed">
-        A decade of running real infrastructure and leading programs, and lately building products with AI.
-        I pair the discipline of compliance and delivery with the appetite to ship things that didn’t exist yesterday.
+        A decade of delivering technical programs — and enough time in the infrastructure underneath them to scope the work
+        honestly. I pair the discipline of compliance and delivery with the appetite to ship things that didn’t exist yesterday.
       </p>
     </div>
   </section>
 
-  <!-- Featured: Development with AI -->
+  <!-- Featured: the `wide` skill group -->
   <section class="container-x mt-14">
     <div class="reveal card border-glow relative overflow-hidden p-8 sm:p-10">
       <div class="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-kesari-500/10 blur-3xl"></div>
       <div class="relative">
         <div class="flex items-center gap-3">
-          <span class="grid place-items-center h-12 w-12 rounded-xl bg-kesari-500/15 border border-kesari-500/30 text-kesari-400"><Icon name="sparkles" size={24} /></span>
+          <span class="grid place-items-center h-12 w-12 rounded-xl bg-kesari-500/15 border border-kesari-500/30 text-kesari-400"><Icon name={leadGroup.icon} size={24} /></span>
           <div>
-            <h2 class="font-display text-2xl font-semibold text-mist-100">{aiGroup.title}</h2>
+            <h2 class="font-display text-2xl font-semibold text-mist-100">{leadGroup.title}</h2>
             <p class="mono text-[11px] uppercase tracking-wider text-kesari-400">where I go deep</p>
           </div>
         </div>
-        <p class="mt-5 max-w-2xl text-mist-300 leading-relaxed">{aiGroup.blurb}</p>
+        <p class="mt-5 max-w-2xl text-mist-300 leading-relaxed">{leadGroup.blurb}</p>
         <div class="mt-6 flex flex-wrap gap-2">
-          {aiGroup.skills.map((s) => (
+          {leadGroup.skills.map((s) => (
             <span class="rounded-lg bg-kesari-500/10 border border-kesari-500/25 text-kesari-200 px-3 py-1.5 text-sm font-medium">{s}</span>
           ))}
         </div>
         <div class="mt-7 pt-6 hairline grid sm:grid-cols-3 gap-4 text-sm">
-          <p class="text-mist-400"><span class="text-mist-100 font-medium">758M+ words</span> — corpus I built a custom OCR + RAG pipeline over.</p>
-          <p class="text-mist-400"><span class="text-mist-100 font-medium">5 scripts</span> — Gurmukhi, Punjabi, Hindi, Urdu, Farsi handled end-to-end.</p>
-          <p class="text-mist-400"><span class="text-mist-100 font-medium">Shipped and in use</span> — live on HuggingFace, used by real people.</p>
+          <p class="text-mist-400"><span class="text-mist-100 font-medium">12 products</span> — shipped end to end, requirements through CI/CD.</p>
+          <p class="text-mist-400"><span class="text-mist-100 font-medium">$250K &amp; $750K</span> — annual hardware and studio-buildout budgets owned.</p>
+          <p class="text-mist-400"><span class="text-mist-100 font-medium">Zero downtime</span> — across a 6-month, multi-building migration.</p>
         </div>
-        <a href={url('/products')} class="mt-7 inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">See it in the products <Icon name="arrow" size={16} /></a>
+        <a href={url('/about')} class="mt-7 inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">See the programs behind these numbers <Icon name="arrow" size={16} /></a>
       </div>
     </div>
   </section>
@@ -81,7 +83,7 @@ const rest = skillGroups.filter((g) => !g.wide);
   <section class="container-x mt-24">
     <div class="reveal text-center">
       <h2 class="font-display text-3xl font-semibold text-mist-100">Curious how this maps to your team?</h2>
-      <p class="mt-3 max-w-lg mx-auto text-mist-400">Let’s talk about where I can drive the most value.</p>
+      <p class="mt-3 max-w-lg mx-auto text-mist-400">Let’s talk about the program you need landed, and where I’d start.</p>
       <a href={url('/contact')} data-magnetic="0.35" class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Get in touch <Icon name="arrow" size={18} /></a>
     </div>
   </section>

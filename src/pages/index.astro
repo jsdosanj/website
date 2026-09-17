@@ -16,26 +16,26 @@ import { recommendations } from '../data/recommendations';
 import { url } from '../utils';
 
 const stackTop = [
-  'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'Google Workspace', 'Windows Server',
-  'AWS', 'Azure', 'Cloudflare', 'CrowdStrike', 'Snipe-IT',
+  'Jira', 'Confluence', 'Azure DevOps', 'Microsoft Project', 'Workday',
+  'Agile / Scrum', 'Waterfall', 'Lean', 'SAFe', 'Kanban',
 ];
 const stackBottom = [
-  'Agile / Scrum', 'SAFe', 'Jira', 'Confluence', 'Workday', 'Azure DevOps',
-  'NIST CSF', 'HIPAA', 'FERPA', 'CMMC', 'Python', 'Bash', 'CI/CD',
+  'NIST CSF', 'NIST SP 800-53', 'HIPAA', 'FERPA', 'CMMC', 'SOC 2',
+  'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'AWS', 'Azure', 'GCP', 'CI/CD',
 ];
 
 const featured = products.filter((p) => p.featured);
 
 const principles = [
-  { icon: 'workflow', title: 'Run it like a program', text: 'Matrixed teams, vendors, and budgets aligned to outcomes. I own the SDLC end to end, run Agile delivery that ships, and keep a roadmap stakeholders actually trust.' },
-  { icon: 'shield', title: 'Compliant & secure by default', text: 'A decade across healthcare, education, and big tech taught me to build with NIST, HIPAA, and FERPA baked in — not bolted on.' },
-  { icon: 'sparkles', title: 'AI that earns its keep', text: 'A hands-on practitioner. I ship real tools with AI, from a 12-product compliance suite to OCR repair for endangered scripts, that help teams move faster.' },
-  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: tools and teams that uplift people and help them do their best work.' },
+  { icon: 'workflow', title: 'Run it like a program', text: 'Matrixed teams, vendors, and budgets aligned to one roadmap. I own the SDLC end to end, hold the delivery cadence that actually ships, and keep a plan stakeholders can still trust two months out.' },
+  { icon: 'shield', title: 'Compliant & secure by default', text: 'A decade across healthcare, education, and big tech taught me to plan around NIST, HIPAA, and FERPA from the first sprint — not to discover them halfway through an audit.' },
+  { icon: 'sparkles', title: 'Estimates from someone who builds', text: 'I still ship real products — a 12-product compliance suite, OCR repair for endangered scripts — which is exactly why my scoping holds up when engineering pushes back on it.' },
+  { icon: 'globe', title: 'Technology for human good', text: 'The throughline from infrastructure to heritage preservation: programs and teams that uplift people and help them do their best work.' },
 ];
 ---
 <Base
-  description="Jasvant Singh Dosanjh — IT Manager, open to relocating. 10 years leading teams across healthcare, education, gaming, and big tech: SDLC, Agile, GRC, hands-on AI."
-  keywords={["IT Program Manager", "IT Project Manager", "helpdesk manager", "Jamf Pro", "Intune", "JumpCloud", "NIST", "HIPAA", "FERPA", "vendor management", "Agile", "open to work"]}
+  description="Jasvant Singh Dosanjh — Technical Program Manager, open to relocating. 10 years delivering technical programs across healthcare, education, gaming, and big tech: roadmaps, budgets, vendors, SDLC, and GRC."
+  keywords={["Technical Program Manager", "Technical Project Manager", "IT Program Manager", "TPM", "program management", "roadmap", "SDLC", "Agile", "Waterfall", "risk management", "budget management", "vendor management", "stakeholder management", "NIST", "HIPAA", "FERPA", "PMP", "open to work"]}
   preloadImage="/images/headshot-spotlight.jpg"
   ogImage="/og/home.png"
 >
@@ -65,14 +65,20 @@ const principles = [
       <div class="mt-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
         <!-- Left: headline + CTAs -->
         <div class="order-2 lg:order-1">
-          <h1 class="font-display text-[2.7rem] sm:text-6xl lg:text-[4.4rem] font-bold leading-[0.96] tracking-tight text-mist-100" data-kinetic>
-            <span class="kin-line"><span class="kin-inner">IT Manager who</span></span>
-            <span class="kin-line"><span class="kin-inner text-gradient">sprints, ships &amp; scales.</span></span>
+          <!-- Sizes are tuned so no kinetic line wraps at any breakpoint: the
+               widest line ("Manager who sprints,") is 10.58em in Bricolage
+               Bold, and the text column narrows at lg when the two-column
+               grid kicks in before widening again at xl/2xl. -->
+          <h1 class="font-display text-[2rem] sm:text-[3.4rem] lg:text-[2.7rem] xl:text-[3.5rem] 2xl:text-[3.9rem] font-bold leading-[0.96] tracking-tight text-mist-100" data-kinetic>
+            <span class="kin-line"><span class="kin-inner">Technical Program</span></span>
+            <span class="kin-line"><span class="kin-inner">Manager who sprints,</span></span>
+            <span class="kin-line"><span class="kin-inner text-gradient">ships &amp; scales.</span></span>
           </h1>
           <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-mist-400">
-            I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — 10 years leading matrixed,
-            cross-functional teams across higher ed, healthcare, gaming, and big tech. I own the SDLC, run Agile
-            delivery, automate the busywork, manage vendors and budgets, and keep it all audit-ready.
+            I’m <span class="text-mist-200 font-medium">Jasvant Singh Dosanjh</span> — 10 years delivering technical
+            programs across higher ed, healthcare, gaming, and big tech. I own the roadmap, the budget, the vendors,
+            and the SDLC behind them: 12 products shipped, a $750K studio buildout, and a six-month security migration
+            with zero downtime.
           </p>
 
           <!-- target roles -->
@@ -106,12 +112,12 @@ const principles = [
           <div class="relative rounded-[1.6rem] border border-white/10 overflow-hidden border-glow shadow-[0_44px_100px_-50px_rgba(0,0,0,0.95)]" data-parallax="0.05">
             <Spotlight
               src={url('/images/headshot-spotlight.jpg')}
-              alt="Jasvant Singh Dosanjh, IT Manager"
+              alt="Jasvant Singh Dosanjh, Technical Program Manager"
               class="aspect-[4/5]"
               focus="50% 46%"
             />
             <!-- corner labels -->
-            <span class="pointer-events-none absolute top-4 left-4 mono text-[10px] tracking-[0.28em] text-mist-300/80">IT&nbsp;MANAGER</span>
+            <span class="pointer-events-none absolute top-4 left-4 mono text-[10px] tracking-[0.28em] text-mist-300/80">PROGRAM&nbsp;MANAGER</span>
             <span class="pointer-events-none absolute top-3.5 right-4 gurmukhi text-kesari-300/90 text-lg leading-none" lang="pa">ੴ</span>
             <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] mono text-[10px] tracking-[0.3em] text-mist-400/60">EST. 2016 · AVAILABLE</span>
             <!-- desktop reveal hint -->
@@ -161,7 +167,7 @@ const principles = [
   <!-- ===================== HOW I HELP ===================== -->
   <section class="container-x mt-28">
     <SectionHeading eyebrow="What I bring to your team" title="Three ways I add value on day one" align="center">
-      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">I’ve worn each of these hats — often at the same time. Whichever role you’re hiring for, here’s where I’d start.</p>
+      <p class="reveal mt-4 max-w-2xl mx-auto text-mist-400">These are the three reqs I map to, and I’ve held all three at once. Whichever one you’re hiring for, here’s where I’d start.</p>
     </SectionHeading>
     <div class="mt-12 grid gap-6 lg:grid-cols-3">
       {helpAreas.map((a) => (
@@ -178,7 +184,7 @@ const principles = [
       ))}
     </div>
     <p class="reveal mt-10 text-center text-sm sm:text-base text-mist-400 max-w-2xl mx-auto">
-      Most candidates are strong in one of these lanes. Finding someone credible across <span class="text-mist-200">all three</span> — the people-manager, the hands-on engineer, and the compliance practitioner — is the rare part. That combination is what I bring.
+      Plenty of program managers can run the ceremony. Fewer can write the runbook, read the audit control, and still hold the roadmap — <span class="text-mist-200">all three</span>. That’s the combination that makes an estimate survive contact with engineering, and it’s what I bring.
     </p>
   </section>
 
@@ -206,7 +212,7 @@ const principles = [
   <section class="container-x mt-28">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <SectionHeading eyebrow="I stay close to the work" title="Products from the lab">
-        <p class="reveal mt-4 max-w-xl text-mist-400">I build the tools I’d want as a manager. It keeps me hands-on, honest about what I ask teams to do, and grounded in how the work actually feels.</p>
+        <p class="reveal mt-4 max-w-xl text-mist-400">I build the tools I’d want as a program manager. It keeps me honest about what I’m asking engineers to do, and it’s why my scoping survives contact with the actual work.</p>
       </SectionHeading>
       <a href={url('/products')} class="reveal mono inline-flex items-center gap-2 text-sm font-medium text-kesari-300 hover:gap-3 transition-all">ls ./products <Icon name="arrow" size={16} /></a>
     </div>
@@ -264,9 +270,9 @@ const principles = [
         <span class="w-[3.4rem]" aria-hidden="true"></span>
       </div>
       <div class="term-body text-center py-12 sm:py-16">
-        <p class="mono text-sm text-mist-500">$ ./contact --role "IT Manager"</p>
-        <h2 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-mist-100 leading-tight">Hiring an IT Manager?</h2>
-        <p class="mt-4 max-w-xl mx-auto text-mist-400 font-sans">Let’s talk about how I can lead your teams, deliver your programs, harden your posture, and run infrastructure that scales.</p>
+        <p class="mono text-sm text-mist-500">$ ./contact --role "Technical Program Manager"</p>
+        <h2 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-mist-100 leading-tight">Hiring a Technical Program Manager?</h2>
+        <p class="mt-4 max-w-xl mx-auto text-mist-400 font-sans">Let’s talk about the program you need landed — the roadmap, the vendors, the budget, and the engineering work underneath it.</p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
           <a href={url('/contact')} data-magnetic="0.35" class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-ink-950 px-6 py-3.5 font-semibold mono hover:bg-kesari-400 transition-colors">./hire-me <Icon name="arrow" size={18} /></a>
           <a href={`${url('/contact')}#resumes`} data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3.5 font-semibold mono text-mist-200 hover:border-white/20 transition-colors"><Icon name="file" size={18} /> résumé.pdf</a>

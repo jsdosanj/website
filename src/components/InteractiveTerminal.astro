@@ -4,11 +4,15 @@
 // terminal as something to learn and enjoy, not a wall. Fully keyboard- and
 // tap-driven; degrades to readable static text without JS.
 import { commands as rawCommands } from '../data/commands';
+import { site } from '../data/site';
 import { url } from '../utils';
 
 const chips = ['help', 'whoami', 'skills', 'experience', 'projects', 'contact'];
 // Shared with the ⌘K command palette — `open <name>` fuzzy-matches this list
 // and actually navigates, instead of the terminal only describing things.
+// The `resume` command links the one current PDF — read from site.resumes so
+// swapping the file never leaves a dead link behind in here.
+const primaryResume = site.resumes[0];
 const openTargets = rawCommands.map((c) => ({
   id: c.id,
   label: c.label,
@@ -27,7 +31,7 @@ const openTargets = rawCommands.map((c) => ({
     <div id="iterm-out" aria-live="polite">
       <noscript>
         <p><span class="term-user">jasvant@portfolio</span> <span class="term-prompt-sym">~ %</span> whoami</p>
-        <p class="text-mist-100">Jasvant Singh Dosanjh · IT Manager · open to relocating — 10 years leading cross-functional IT teams.</p>
+        <p class="text-mist-100">Jasvant Singh Dosanjh · Technical Program Manager · open to relocating — 10 years delivering technical programs.</p>
         <p class="mt-2 term-comment">Enable JavaScript to run commands, or explore the nav above.</p>
       </noscript>
     </div>
@@ -49,8 +53,9 @@ const openTargets = rawCommands.map((c) => ({
   </div>
 </div>
 
-<script define:vars={{ openTargets }}>
+<script define:vars={{ openTargets, primaryResume }}>
   window.__openTargets = openTargets;
+  window.__primaryResume = primaryResume;
 </script>
 
 <script>
@@ -61,6 +66,7 @@ const openTargets = rawCommands.map((c) => ({
     | { type: 'download'; href: string };
   type OpenTarget = { id: string; label: string; action: OpenAction };
   const openTargets = (window as any).__openTargets as OpenTarget[];
+  const primaryResume = (window as any).__primaryResume as { label: string; href: string };
   const A = (href: string, label: string) => `<a href="${href}" class="text-kesari-300 underline underline-offset-2 hover:text-kesari-200">${label}</a>`;
 
   const COMMANDS: Record<string, Cmd> = {
@@ -76,30 +82,32 @@ const openTargets = rawCommands.map((c) => ({
       `  <span class="term-key">open &lt;name&gt;</span>  jump to any page, product, or link — try <span class="term-key">open bastion</span>\n` +
       `  <span class="term-key">clear</span>       clear the screen`,
     whoami: () =>
-      `Jasvant Singh Dosanjh — <span class="text-mist-100">IT Manager</span>, open to relocating.\n` +
-      `10 years leading matrixed, cross-functional teams across higher ed, healthcare, gaming, and big tech.`,
+      `Jasvant Singh Dosanjh — <span class="text-mist-100">Technical Program Manager</span>, open to relocating.\n` +
+      `10 years delivering technical programs across higher ed, healthcare, gaming, and big tech.`,
     skills: () =>
-      `I lead IT teams and programs and translate the technical for everyone in the room:\n` +
-      `• SDLC ownership · Agile / Scrum delivery · vendor & budget management\n` +
-      `• Security & GRC — HIPAA · FERPA · NIST\n` +
-      `• Hands-on: Jamf · Intune · JumpCloud · cloud · AI tooling\n` +
+      `I run technical programs end to end and translate between engineering and the exec room:\n` +
+      `• roadmaps · budgets · vendors · risk — Agile, Waterfall, and the hybrid in between\n` +
+      `• SDLC ownership from requirements through CI/CD\n` +
+      `• security & GRC — HIPAA · FERPA · NIST CSF · SP 800-53 · CMMC\n` +
+      `• still hands-on: Jamf · Intune · JumpCloud · cloud · AI tooling\n` +
       `→ more at ${A('/skills', 'cd ./skills')}`,
     experience: () =>
       `A few results:\n` +
-      `<span class="term-ok">✔</span> led 9 staff as interim helpdesk manager @ UW\n` +
-      `<span class="term-ok">✔</span> cut an escalated SLA 48h → 2h, saved $30k/yr\n` +
-      `<span class="term-ok">✔</span> ran a 6-month, zero-downtime security migration\n` +
-      `<span class="term-ok">✔</span> built a 12-product security & compliance suite\n` +
+      `<span class="term-ok">✔</span> shipped 12 live security & compliance products, requirements → CI/CD\n` +
+      `<span class="term-ok">✔</span> cut an escalated clinic's SLA 48h → 2h, saved $30k/yr\n` +
+      `<span class="term-ok">✔</span> built a studio's IT from zero in 5 months on a $750K budget\n` +
+      `<span class="term-ok">✔</span> ran a 6-month, multi-building security migration with zero downtime\n` +
+      `<span class="term-ok">✔</span> led 9 staff through a 3-month leadership vacancy\n` +
       `→ full story at ${A('/about', 'cd ./about')}`,
     projects: () =>
       `Things I've built: Sikhi University, Sightline, Bastion, and open-source\n` +
       `Cairn / Ledger / Lookout — plus a 758M-word AI dataset.\n` +
       `→ browse ${A('/products', 'ls ./products')}`,
     certs: () =>
-      `PMI (2026): CPMAI™ · Agile PM · Predictive PM. PMP & CompTIA Security+ in progress.\n` +
+      `PMI: CPMAI™ · Agile PM · Predictive PM. PMP exam scheduled Sept 2026; Security+ in progress.\n` +
       `Also: Jamf Pro · Google Cloud · NIST RMF · Harvard CS50 Cybersecurity.`,
     resume: () =>
-      `Here's my IT Manager résumé (PDF): ${A('/resumes/JSD IT Manager Resume Aug 2026.pdf', 'download résumé.pdf')}`,
+      `Here's my ${primaryResume.label} résumé (PDF): ${A(primaryResume.href, 'download résumé.pdf')}`,
     contact: () =>
       `Easiest is the contact form — I read every message.\n` +
       `→ ${A('/contact', './hire-me')} · ${A('https://linkedin.com/in/jasvantsd', 'LinkedIn')} · ${A('https://github.com/jsdosanj', 'GitHub')}`,

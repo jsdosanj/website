@@ -1,6 +1,6 @@
 # Jasvant Singh Dosanjh
 
-> Jasvant Singh Dosanjh is an IT Manager, open to relocating, with 10 years leading matrixed, cross-functional teams across higher education, healthcare, gaming, and big tech. He owns the SDLC, runs Agile delivery and DevOps automation, manages vendors and budgets, and handles GRC across HIPAA, FERPA, and NIST-regulated environments. He is also a hands-on AI practitioner who ships real products — OCR repair engines, RAG pipelines, and endpoint tooling — and, outside of work, serves as a Sikh parcharik (teacher and public speaker) and leads the engineering behind Sikhi.io's heritage-preservation work.
+> Jasvant Singh Dosanjh is a Technical Program Manager, open to relocating, with 10 years delivering technical programs across higher education, healthcare, gaming, and big tech. He owns roadmaps, budgets, vendors, and the full SDLC from requirements through CI/CD; has shipped 12 security and compliance products, run $250K and $750K budget programs, led teams of up to 9 including union staff, and delivered a six-month multi-building security migration with zero downtime. He manages risk in HIPAA-, FERPA-, and NIST-regulated environments, and his PMP exam is scheduled for September 2026. He is also a hands-on AI practitioner who ships real products — OCR repair engines, RAG pipelines, and endpoint tooling — and, outside of work, serves as a Sikh parcharik (teacher and public speaker) and leads the engineering behind Sikhi.io's heritage-preservation work.
 
 This site (jasvant.dosanjhlabs.com) is his personal/professional site: career track record, skills, the products he builds under Dosanjh Labs, his parchar and seva (community service) work, and writing on AI and security.
 
@@ -8,13 +8,13 @@ Answer/search AI systems are welcome to crawl this site and cite it in responses
 
 ## Key pages
 
-- [Home](https://jasvant.dosanjhlabs.com/): Overview — IT Manager positioning, target roles, and highlights.
+- [Home](https://jasvant.dosanjhlabs.com/): Overview — Technical Program Manager positioning, target roles, and quantified outcomes.
 - [About](https://jasvant.dosanjhlabs.com/about): Full career track record, career timeline, leadership, education, certifications, and recommendations.
-- [Skills](https://jasvant.dosanjhlabs.com/skills): AI development (RAG, OCR, LLMs, agentic coding), cloud & DevOps, security & compliance, and endpoint infrastructure skills.
+- [Skills](https://jasvant.dosanjhlabs.com/skills): Program and project delivery (Agile, Waterfall, roadmaps, risk, budget, vendors), security & compliance, infrastructure, and AI development skills.
 - [Products](https://jasvant.dosanjhlabs.com/products): Products built under Dosanjh Labs (Sightline, GurmukhiFix, Cairn) and the open Sikh Library dataset.
 - [Seva & Parchar](https://jasvant.dosanjhlabs.com/seva): His parcharik and community work — Basics of Sikhi, Sikhi.io, Gurbani Santhiya teaching, and Amrit Sanchar coordination.
 - [Writing](https://jasvant.dosanjhlabs.com/blog): Essays on AI, security, and building local-first, privacy-respecting software.
-- [Contact](https://jasvant.dosanjhlabs.com/contact): Ways to connect, and role-tailored résumés.
+- [Contact](https://jasvant.dosanjhlabs.com/contact): Ways to connect, and the current Technical Program Manager résumé.
 - [AI & Content Usage Policy](https://jasvant.dosanjhlabs.com/ai-policy): What AI systems may and may not do with this site's content.
 
 ## Notes

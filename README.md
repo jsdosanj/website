@@ -2,7 +2,7 @@
 
 > Turning technology that hinders into technology that helps you succeed.
 
-The website of **Dosanjh Labs** — the independent studio of [Jasvant Singh Dosanjh](https://linkedin.com/in/jasvantsd), an IT Manager and builder, open to relocating. It showcases the studio's products (Sightline, GurmukhiFix, Cairn, SikhLibrarian, and more), Jasvant's experience and skills, and his parchar & seva work.
+The website of **Dosanjh Labs** — the independent studio of [Jasvant Singh Dosanjh](https://linkedin.com/in/jasvantsd), a Technical Program Manager and builder, open to relocating. It showcases the studio's products (Sightline, GurmukhiFix, Cairn, SikhLibrarian, and more), Jasvant's program-management track record and skills, and his parchar & seva work.
 
 **Live:** https://jasvant.dosanjhlabs.com
 

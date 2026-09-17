@@ -1,49 +1,53 @@
 // Recruiter-facing positioning: how Jasvant maps to each target role,
-// and the quantified outcomes that prove it.
+// and the quantified outcomes that prove it. The three lanes here mirror
+// site.roles exactly — Technical Program Manager, Technical Project Manager,
+// IT Program Manager — so a hiring manager sees their own req described back
+// to them. Proof lines use the XYZ formula in compact form: outcome, metric,
+// method.
 
 export const helpAreas = [
   {
-    icon: 'headset',
-    role: 'IT Operations & Service Delivery',
-    blurb:
-      'I run service-delivery operations end to end — leading help desk and infrastructure teams, owning hardware and budget programs, and keeping SLAs tight and environments audit-ready, even through leadership gaps.',
-    proof: [
-      'Stepped in as Interim Helpdesk Manager for a 9-person team, including union staff, during a leadership vacancy',
-      'Cut department SLA 96% (48 hrs → 2 hrs) and standardized Jamf Pro across 300+ devices',
-      'Owned a $250K annual hardware lifecycle program as sole Workday-certified buyer, negotiating directly with Dell and Apple',
-    ],
-  },
-  {
     icon: 'workflow',
-    role: 'Technical Program Management',
+    role: 'Technical Program Manager',
     blurb:
-      'I lead complex, cross-functional programs end to end, aligning engineering, vendors, and leadership behind a roadmap people can actually trust. Technical debt becomes a plan, not a surprise.',
+      'I run multi-workstream programs end to end — strategy, roadmap, budget, and the SDLC underneath them — so engineering, vendors, and leadership all work off one plan they can actually trust.',
     proof: [
-      'Cut an escalated department’s SLA from 48 hours to 2',
-      'Zero unplanned downtime across a 6-month, multi-building security migration',
-      'Secured $2M in funding through technical product strategy',
+      'Shipped 12 live security and compliance products by owning strategy, roadmap, and the SDLC from requirements through CI/CD',
+      'Unified 22+ compliance frameworks into one dashboard by building Sightline over the tools an organization already runs',
+      'Helped secure $2M+ from Nestlé and the Chilean government by defining MVP requirements and managing stakeholders through launch',
     ],
   },
   {
-    icon: 'server',
-    role: 'Senior Systems & Endpoint Engineering',
+    icon: 'target',
+    role: 'Technical Project Manager',
     blurb:
-      'I run and harden real fleets, hands-on with Jamf, Intune, JumpCloud, automation, and cloud — under NIST- and HIPAA-grade compliance. The standards I build tend to get adopted across the whole org.',
+      'Hand me the escalated project — five vendors, a missed deadline, and a department that has stopped trusting IT. I scope it, sequence it, and land it without breaking anything that is already working.',
     proof: [
-      'Built a 100+ device gaming-studio environment from zero in 5 months, supervising a sysadmin and a PM',
-      'JumpCloud Go MFA rollout adopted as the standard across Tencent studios in LA and Montreal',
-      'Authored Linux porting documentation BeyondTrust adopted as their first-party solution for 5,000+ engineers',
+      'Cut an escalated clinic’s SLA 96% (48 hours to 2) by coordinating five healthcare vendors through a HIPAA onboarding as Project Lead',
+      'Delivered a six-month, multi-building security migration with zero downtime by sequencing cutovers building by building',
+      'Stood up a gaming studio’s entire IT environment in five months against a $750K budget by owning vendor selection and supervising two reports',
+    ],
+  },
+  {
+    icon: 'shield',
+    role: 'IT Program Manager',
+    blurb:
+      'The programs that never finish — hardware lifecycle, endpoint fleet, audit readiness, and the team keeping them moving. I own the budget, the compliance posture, and the people side of all three.',
+    proof: [
+      'Held a $250K annual hardware program on budget as sole Workday buyer by forecasting with department heads and negotiating with Dell and Apple',
+      'Kept a 9-person team delivering through a 3-month leadership vacancy by establishing formal ticket-dispatch accountability',
+      'Assessed 40 servers and delivered gap-remediation plans to department heads by leading the college’s NIST SP 800-53 audits',
     ],
   },
 ];
 
 export const outcomes = [
-  { value: '96%', label: 'SLA cut (48 hrs → 2 hrs) rescuing an escalated department' },
-  { value: '9', label: 'person team led as Interim Helpdesk Manager, incl. union staff' },
-  { value: '$250K', label: 'annual hardware program owned as sole Workday-certified buyer' },
-  { value: '$30K/yr', label: 'redundant spend eliminated at the University of Washington' },
-  { value: 'Zero', label: 'unplanned downtime across a 6-month security migration' },
-  { value: '300+', label: 'Apple devices standardized on Jamf Pro — now the UW standard' },
-  { value: '5,000+', label: 'engineers unblocked by a Linux fix I ported at Meta' },
-  { value: '$2M', label: 'in funding secured through technical product strategy' },
+  { value: '12', label: 'live security & compliance products shipped end to end' },
+  { value: '96%', label: 'SLA cut (48 hrs → 2 hrs) rescuing an escalated clinic' },
+  { value: '$250K', label: 'annual hardware program owned as sole Workday buyer' },
+  { value: '$750K', label: 'budget managed building a gaming studio’s IT from zero' },
+  { value: 'Zero', label: 'downtime across a 6-month, multi-building security migration' },
+  { value: '9', label: 'person team led through a 3-month leadership vacancy' },
+  { value: '22+', label: 'compliance frameworks unified in one dashboard' },
+  { value: '$2M+', label: 'raised by an ed-tech startup after MVP scoping & vendor management' },
 ];

@@ -59,11 +59,13 @@ for (const s of segments) {
 const extraJsonld = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
 
 const baseKeywords = [
-  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'IT Manager',
-  'IT Program Manager', 'IT Project Manager', 'Technical Program Manager', 'IT leadership',
+  'Jasvant Dosanjh', 'Jasvant Singh Dosanjh', 'Technical Program Manager', 'TPM',
+  'Technical Project Manager', 'IT Program Manager', 'program management', 'project management',
+  'roadmap', 'risk management', 'budget management', 'vendor management', 'stakeholder management',
+  'Agile', 'Waterfall', 'Scrum', 'SDLC', 'Jira', 'Azure DevOps', 'PMP',
   'problem solver', 'AI practitioner', 'Sightline', 'Bastion', 'Cairn',
-  'Jamf Pro', 'Intune', 'JumpCloud', 'NIST', 'HIPAA', 'FERPA', 'GRC', 'vendor management',
-  'Agile', 'SDLC', 'Systems Engineering', 'open to work', 'open to relocating',
+  'Jamf Pro', 'Intune', 'JumpCloud', 'NIST', 'HIPAA', 'FERPA', 'GRC',
+  'open to work', 'open to relocating',
 ];
 const allKeywords = [...new Set([...baseKeywords, ...keywords])].join(', ');
 
@@ -87,11 +89,11 @@ const ldGraph = {
       url: site.url,
       image: new URL('/images/headshot-v2.jpg', site.url).href,
       description: site.description,
-      jobTitle: 'IT Manager',
+      jobTitle: 'Technical Program Manager',
       worksFor: { '@id': 'https://dosanjhlabs.com/#organization' },
       address: { '@type': 'PostalAddress', addressCountry: 'US' },
       knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
-      knowsAbout: ['AI', 'NLP', 'OCR', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'NIST CSF', 'HIPAA', 'IT Security', 'GRC', 'Technical Program Management', 'Systems Engineering', 'Endpoint Management', 'Gurmukhi OCR', 'Sikh Heritage Preservation', 'Gurmat Education'],
+      knowsAbout: ['Technical Program Management', 'Technical Project Management', 'Agile Delivery', 'SDLC', 'Roadmapping', 'Risk Management', 'Budget Management', 'Vendor Management', 'Stakeholder Management', 'NIST CSF', 'HIPAA', 'FERPA', 'GRC', 'IT Security', 'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'Endpoint Management', 'AI', 'NLP', 'OCR', 'Gurmukhi OCR', 'Sikh Heritage Preservation', 'Gurmat Education'],
       hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
       seeks: site.roles.map((r) => ({ '@type': 'Demand', name: `${r} role` })),
       sameAs: [site.socials.linkedin, site.socials.github, site.socials.huggingface],

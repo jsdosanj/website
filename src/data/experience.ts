@@ -1,3 +1,11 @@
+// Career history, written for a Technical Program Manager audience.
+//
+// Every bullet follows Google's XYZ formula — "accomplished [X], as measured
+// by [Y], by doing [Z]" — so a recruiter gets the outcome, the number that
+// proves it, and the method, in that order. Facts come from the Sept 2026
+// Technical Program Manager résumé; roles the two-page résumé had to trim
+// (Omni Group, Oakland University, Shabad OS, OCC) are kept here because
+// the site has room for the full record.
 export type Role = {
   title: string;
   company: string;
@@ -7,35 +15,44 @@ export type Role = {
 
 export const experience: Role[] = [
   {
-    title: 'Founder & Program Manager',
+    title: 'Technical Program Manager',
     company: 'Dosanjh Labs',
     date: 'Mar 2026 – Present',
     bullets: [
-      'Own product strategy, roadmap, and full SDLC for a 12-product IT security and compliance suite, applying Agile sprints and AI-assisted development to ship GRC, HIPAA risk, vendor risk, policy management, and incident-response tooling from requirements through CI/CD deployment.',
-      'Built Sightline, a GRC platform mapping compliance posture across 22+ frameworks — NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA, and GDPR.',
-      'Built Bastion, a CMMC Level 2 / NIST SP 800-171 self-assessment tool that computes a live DoD SPRS score and auto-generates an audit-ready SSP and POA&M.',
+      'Took a security and compliance suite from zero to market, measured by 12 live products shipped and an early-stage release pipeline still expanding, by owning product strategy, the roadmap, and the end-to-end SDLC from requirements through CI/CD deployment.',
+      'Replaced framework-by-framework spreadsheet audits with a single compliance view, measured by 22+ frameworks — NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA, and GDPR — mapped in one dashboard, by building Sightline to integrate data from the tools and systems an organization already runs.',
+      'Cut CMMC Level 2 readiness from a consultant engagement to a self-service workflow, measured by a live DoD SPRS score plus an auto-generated, audit-ready SSP and POA&M, by building Bastion as a NIST SP 800-171 self-assessment tool.',
     ],
   },
   {
-    title: 'Senior Computer Specialist — Infrastructure · Interim Helpdesk Manager (3 mo.)',
-    company: 'University of Washington',
-    date: 'Jan 2023 – Mar 2026',
+    title: 'Technical Project Manager',
+    company: 'University of Washington — College of Arts & Sciences',
+    date: 'Jan 2025 – Mar 2026',
     bullets: [
-      'Managed a 9-person infrastructure and help desk team, including 4 union civil-service staff, as Interim Helpdesk Manager for 3 months during an extended leadership vacancy — established formal ticket-dispatch accountability and sustained uninterrupted service college-wide.',
-      'Cut department SLA 96% (48 hours to 2 hours) and eliminated $30,000/year in redundant IT spend as primary project lead onboarding the Speech and Hearing Sciences Clinic into centralized IT, coordinating 5 clinical vendors and enforcing HIPAA compliance.',
-      'Managed a $250,000 annual hardware lifecycle program as the team’s sole Workday-certified buyer — advising departments on budget-aligned device counts, then procuring, imaging, and deploying hardware college-wide while negotiating pricing directly with Dell and Apple.',
-      'Closed the college’s endpoint-management gap by standardizing Jamf Pro across 300+ Apple devices ahead of executive deadlines; the enrollment and compliance framework was later adopted across additional university departments.',
-      'Delivered a 6-month, zero-downtime network security migration across CAS buildings, producing a reusable framework later adopted by peer CAS IT teams.',
-      'Served as System Security Officer and CIO for CSSCR — ran NIST CSF, SP 800-53, and HIPAA audits and delivered gap-remediation plans to department heads under multi-state (WA/CA) and federal IES compliance requirements.',
+      'Rescued an escalated clinical department’s IT service, measured by a 96% SLA reduction (48 hours to 2) and $30,000 in annual spend eliminated, by leading the Speech and Hearing Sciences Clinic’s transition to centralized IT as Project Lead — running HIPAA security audits and coordinating five healthcare vendors, clinicians, and infrastructure stakeholders to closure.',
+      'Held college-wide IT service steady through a three-month leadership vacancy, measured by a 9-person infrastructure and help desk team — including 4 union civil-service staff — delivering uninterrupted service, by operationally leading the team, owning work assignments, and establishing formal ticket-dispatch accountability.',
+      'Kept a $250,000 annual hardware lifecycle program on budget as the team’s sole Workday buyer, measured by device forecasts aligned to every departmental budget across the college, by forecasting demand with department heads and negotiating pricing directly with Dell and Apple.',
+      'Carried personal accountability for restricted research and healthcare data as CIO and System Security Officer of UW’s Center for Social Science Computation & Research, measured by certified secure destruction of every restricted dataset under multi-state (WA/CA) and federal IES requirements, by managing the center’s data servers and personally executing and certifying each destruction.',
+      'Turned an unaudited server estate into a documented remediation plan, measured by 40 servers across multiple campus locations assessed and control gaps delivered to department heads with remediation steps, by leading NIST SP 800-53 security audits for the College of Arts & Sciences.',
+    ],
+  },
+  {
+    title: 'Senior Computer Specialist — Infrastructure',
+    company: 'University of Washington — College of Arts & Sciences',
+    date: 'Jan 2023 – Jan 2025',
+    bullets: [
+      'Enabled zero-touch device enrollment at college-wide scale, measured by 2,000+ devices deployed and provisioned across the College of Arts & Sciences — including 400+ Macs and iPads standardized on Jamf Pro across 40+ departments ahead of executive deadlines — by designing and administering the Windows Autopilot and Jamf enrollment and lifecycle pipeline, whose compliance framework other university departments later adopted.',
+      'Modernized network security across College of Arts & Sciences buildings without disrupting research or instruction, measured by zero downtime across six months and a migration framework later adopted by IT teams at other UW colleges, by sequencing building-by-building cutovers and documenting each step as a reusable playbook.',
+      'Ended the college’s reliance on tribal knowledge, measured by a runbook and guide library adopted as the shared reference for IT staff across the entire college rather than just the Dean’s Office team, by building its documentation hub from scratch and writing the runbooks behind it.',
     ],
   },
   {
     title: 'Lead Systems Administrator (Contract)',
     company: 'Tencent — Team Kaiju Studio',
-    date: 'Jul 2022 – Dec 2022',
+    date: 'Aug 2022 – Dec 2022',
     bullets: [
-      'Built a complete gaming-studio IT environment from zero in 5 months — AWS infrastructure, JumpCloud MDM, Google Workspace SSO/MFA, office networking, and 100+ multi-OS workstations — supervising a systems administrator and a project manager ahead of studio launch.',
-      'Designed the unified JumpCloud MDM + Google Workspace SSO/MFA identity stack; the JumpCloud Go MFA rollout was adopted as the standard configuration across Tencent studios in Los Angeles and Montreal.',
+      'Delivered a new gaming studio’s entire IT environment ahead of its launch date, measured by AWS infrastructure, identity and endpoint management, office networking, and 100+ multi-OS workstations live in five months against a $750,000 budget, by owning vendor selection across Google, JumpCloud, AWS, Cisco, and 1Password while supervising a systems administrator and a project manager.',
+      'Set the identity standard for Tencent’s North American studios, measured by adoption as the default configuration across studios in Los Angeles and Montreal, by designing and implementing a unified JumpCloud MDM and Google Workspace SSO/MFA architecture, including the JumpCloud Go MFA rollout.',
     ],
   },
   {
@@ -43,26 +60,26 @@ export const experience: Role[] = [
     company: 'Omni Group',
     date: 'Feb 2022 – May 2022',
     bullets: [
-      'Automated macOS server imaging, volume mounting, and API configuration via shell scripting — reducing per-server ramp-up from 4 hours to 1 and enabling horizontal scaling without added headcount.',
+      'Removed the manual bottleneck in server provisioning, measured by per-server ramp-up cut 75% (4 hours to 1) and horizontal scaling achieved with no added headcount, by automating macOS server imaging, volume mounting, and API configuration in shell.',
     ],
   },
   {
-    title: 'Apprentice Systems Technician',
+    title: 'Lead Apprentice Systems Tech',
     company: 'Meta',
     date: 'Aug 2020 – Feb 2022',
     bullets: [
-      'Authored Linux porting documentation for BeyondTrust that was incorporated into a first-party solution serving 5,000+ engineers.',
-      'Coordinated cross-functional escalations across engineering, policy, and trust-and-safety to address platform accessibility for international users.',
-      'Mentored 20 YearUp externs and 10 enterprise support technicians — helping 5 externs convert to full-time. PNW Enterprise Support ranked first nationally in ticket resolution.',
+      'Built the Pacific Northwest enterprise support bench, measured by 30 technicians and externs mentored, five Year Up externs converted to full-time roles, and the PNW Enterprise Support team ranked #1 nationally in ticket resolution, by running hands-on mentorship and onboarding for 20 externs and 10 enterprise support technicians.',
+      'Resolved a privileged-access compatibility gap that blocked Linux users, measured by 5,000+ AR/VR engineers unblocked and the write-up adopted by Meta’s Director of Enterprise Operations and by BeyondTrust as a first-party supported solution, by authoring the Bomgar-on-Linux porting documentation from the failures the Oculus teams kept hitting.',
+      'Unstalled platform-accessibility issues affecting international users, measured by resolution paths established across three functions — engineering, policy, and trust and safety — by owning the cross-functional escalation and driving each issue to an accountable team.',
     ],
   },
   {
-    title: 'Lead Technical Consultant',
+    title: 'Lead Technical Assistant',
     company: 'Rochester Community Schools',
     date: 'Aug 2019 – Nov 2020',
     bullets: [
-      'Promoted to district IT lead during COVID-19 response; directed 6 technicians across 7 schools to complete a 1:1 Chromebook rollout and full asset inventory for 15,000 students in 8 weeks.',
-      'Authored a Google Workspace remote-learning curriculum adopted district-wide at the principal’s request; trained IT staff across schools to deliver it.',
+      'Kept a district teaching through the COVID-19 closure, measured by a 1:1 Chromebook rollout and full asset inventory delivered for 15,000 students across 31 schools in eight weeks, by serving as operational IT lead and directing six technical assistants across seven schools.',
+      'Got teachers and students productive on remote instruction instead of waiting on IT, measured by a curriculum adopted district-wide at the principal’s request and delivered by trained IT staff at every school, by developing a Google Workspace remote-learning curriculum and training the trainers.',
     ],
   },
   {
@@ -70,16 +87,8 @@ export const experience: Role[] = [
     company: 'Oakland University UTS',
     date: 'Jan 2020 – Apr 2020',
     bullets: [
-      'Processed Shares Access tickets for university employees, closing over 18% of all cases.',
-      'Built self-service portal features in PowerShell that cut over 40% of incoming tickets.',
-    ],
-  },
-  {
-    title: 'Technology Services Mentor',
-    company: 'Oakland University — Kresge Library',
-    date: 'May 2018 – Jan 2020',
-    bullets: [
-      'Managed and mentored student IT technicians and ran onboarding workflows, cutting ticket volume 40%.',
+      'Cleared the university’s Shares Access backlog as a single intern, measured by over 18% of all cases closed, by processing employee access tickets end to end.',
+      'Cut the ticket queue at its source, measured by over 40% of incoming requests eliminated, by building self-service portal features in PowerShell.',
     ],
   },
   {
@@ -87,7 +96,15 @@ export const experience: Role[] = [
     company: 'Chef Koochooloo',
     date: 'Aug 2019 – Nov 2019',
     bullets: [
-      'Led development teams and product strategy to secure $2M in funding from the Chilean government and Nestlé.',
+      'Positioned an early-stage ed-tech startup to raise, measured by $2M+ in funding from Nestlé and the Chilean government and a launch across multiple Mountain View schools, by defining MVP requirements, overseeing development, coordinating game-development vendors and developers, and managing stakeholders through launch.',
+    ],
+  },
+  {
+    title: 'Technology Services Mentor',
+    company: 'Oakland University — Kresge Library',
+    date: 'May 2018 – Jan 2020',
+    bullets: [
+      'Reduced the library’s support load while growing its student staff, measured by a 40% drop in ticket volume, by managing and mentoring student IT technicians and standardizing their onboarding workflows.',
     ],
   },
   {
@@ -95,8 +112,7 @@ export const experience: Role[] = [
     company: 'Shabad OS',
     date: 'Aug 2017 – Jul 2019',
     bullets: [
-      'Tested ShabadOS software and contributed bug fixes for software used by Gurdwaras worldwide.',
-      'Worked on translations of Guru Granth Sahib Ji / Dasam Granth from Gurmukhi to English.',
+      'Improved the reliability of software Gurdwaras depend on worldwide, measured by bug fixes accepted upstream into ShabadOS and Gurmukhi-to-English translation work delivered for Guru Granth Sahib Ji and the Dasam Granth, by testing releases against real congregation-facing use and contributing fixes back.',
     ],
   },
   {
@@ -104,7 +120,7 @@ export const experience: Role[] = [
     company: 'Oakland Community College — Athletics Dept.',
     date: '2016 – 2018',
     bullets: [
-      'Sole IT staff providing tier 1/2 support across hardware, networking, AV, and web systems for the athletics department.',
+      'Covered an entire department’s technology needs as its only technologist, measured by sustained tier 1 and tier 2 support across hardware, networking, AV, and web systems plus a facility reservation system delivered into daily use, by owning every request end to end for the athletics department.',
     ],
   },
 ];
