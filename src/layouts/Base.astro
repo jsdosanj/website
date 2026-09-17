@@ -9,14 +9,17 @@ import { url } from '../utils';
 // Self-hosted fonts — plain side-effect imports so Vite runs its normal CSS
 // asset pipeline (hashing + copying every referenced woff2/woff) instead of
 // the broken relative paths a CSS-level @import produces. See global.css.
-import '@fontsource-variable/bricolage-grotesque';
+// The `opsz` cut carries Bricolage's optical-size axis (opsz[12..96])
+// alongside weight, so `font-optical-sizing: auto` in global.css has an
+// axis to act on. The default entry point ships weight only.
+import '@fontsource-variable/bricolage-grotesque/opsz.css';
 import '@fontsource-variable/hanken-grotesk';
 import '@fontsource-variable/jetbrains-mono';
 import '@fontsource/noto-serif-gurmukhi/400.css';
 import '@fontsource/noto-serif-gurmukhi/500.css';
 import '@fontsource/noto-serif-gurmukhi/600.css';
 // Preload the two render-critical latin subsets to tame FOUT on the kinetic hero.
-import bricolageWoff2 from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
+import bricolageWoff2 from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2?url';
 import hankenWoff2 from '@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url';
 
 interface Props {

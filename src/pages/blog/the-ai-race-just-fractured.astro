@@ -19,8 +19,8 @@ const sources = [
 const description = "The US banned its own best AI models, Japan matched frontier performance without one, and China's open-weight stack is closing fast — what the fracture means.";
 
 const articleJsonld = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
   headline: "The AI race just fractured — and the US did it to itself",
   description,
   url: postUrl,
@@ -44,7 +44,7 @@ const articleJsonld = {
 
     <!-- Back link -->
     <div class="relative max-w-[72ch] mx-auto">
-      <a href={url('/blog')} class="inline-flex items-center gap-2 text-sm font-medium text-ink-600 hover:text-kesari-700 transition-colors">
+      <a href={url('/blog')} class="link-control type-subhead font-medium text-ink-600 hover:text-navy-900">
         <span class="rotate-180 inline-flex"><Icon name="arrow" size={15} /></span> All writing
       </a>
     </div>
@@ -52,14 +52,14 @@ const articleJsonld = {
     <!-- Header -->
     <header class="relative max-w-[72ch] mx-auto mt-8 reveal is-visible">
       <p class="eyebrow">Essay</p>
-      <h1 class="mt-4 font-display text-3xl sm:text-5xl font-bold tracking-tight text-navy-900 leading-[1.08]">
+      <h1 class="mt-4 type-display-2 text-navy-900">
         The AI race just fractured — and the US did it to itself
       </h1>
-      <p class="mt-6 text-lg sm:text-xl text-ink-700 leading-relaxed">
+      <p class="mt-6 type-title-4 font-normal text-ink-700">
         The US banned its own best models, Japan matched frontier benchmarks without a single frontier model,
         and China's open-weight stack is closing fast. The AI landscape that existed two weeks ago is already gone.
       </p>
-      <p class="mt-6 text-sm text-ink-500">
+      <p class="mt-6 type-subhead text-ink-500">
         By Jasvant Singh Dosanjh · June 22, 2026
       </p>
       <div class="mt-8 hairline"></div>
@@ -244,14 +244,14 @@ const articleJsonld = {
     </div>
 
     <!-- Sources -->
-    <div class="relative max-w-[72ch] mx-auto mt-14">
+    <div class="relative max-w-[72ch] mx-auto mt-16">
       <div class="card border-glow p-6 sm:p-8">
         <h2 class="eyebrow">Sources</h2>
         <ul class="mt-5 space-y-2.5" role="list">
           {sources.map((s) => (
-            <li class="flex gap-2.5 text-sm leading-relaxed text-ink-600">
+            <li class="flex gap-2.5 type-subhead leading-relaxed text-ink-600">
               <span class="mt-1.5 h-1 w-1 rounded-full bg-kesari-500/70 shrink-0"></span>
-              <a href={s.href} target="_blank" rel="noopener noreferrer" class="text-navy-600 hover:text-kesari-700 hover:underline underline-offset-4 break-words">{s.label}</a>
+              <a href={s.href} target="_blank" rel="noopener noreferrer" class="text-navy-600 hover:link-control text-navy-700 hover:underline underline-offset-4 break-words">{s.label}</a>
             </li>
           ))}
         </ul>

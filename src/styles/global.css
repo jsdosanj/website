@@ -10,6 +10,19 @@
    JASVANT DOSANJH — Design System
    "Delivery" — light, structured, professional.
 
+   Built against Apple's Human Interface Guidelines:
+   · Typography — the ramp below is derived from Apple's iOS text
+     styles, with per-size optical tracking and a live opsz axis.
+   · Layout — an 8pt spatial grid; controls meet the 44pt minimum
+     target with >=12pt separation (HIG § Accessibility).
+   · Materials — translucency is reserved for the functional layer
+     (navigation floating over content). The content layer uses
+     opaque surfaces, per "Don't use Liquid Glass in the content
+     layer."
+   · Motion — purposeful, brief, interruptible, and fully optional
+     under prefers-reduced-motion. Every control has a press state.
+   · Color — semantic tokens; never the sole carrier of meaning.
+
    Built for a Technical Program Manager portfolio: a paper-white
    ground, navy/slate for structure and hierarchy, and kesari gold
    kept as a small, deliberate accent rather than the hero colour.
@@ -78,9 +91,58 @@
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', 'Fira Code', monospace;
   --font-gurmukhi: 'Noto Serif Gurmukhi', serif;
 
-  /* — Motion — */
+  /* — Spatial grid — 8pt, with 4pt for fine detail (HIG § Layout) — */
+  --space-1: 0.25rem;   /*  4 */
+  --space-2: 0.5rem;    /*  8 */
+  --space-3: 0.75rem;   /* 12 — HIG's recommended gap between controls */
+  --space-4: 1rem;      /* 16 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+  --space-28: 7rem;     /* 112 — section rhythm */
+
+  /* — Controls — 44pt minimum target, 12pt minimum separation — */
+  --control-min: 2.75rem;
+  --control-gap: 0.75rem;
+
+  /* — Motion —
+     `--ease-spring` is a real spring solved into a linear() ramp: it
+     overshoots ~1.7% and settles, which is what makes a press feel
+     mechanical rather than animated. Durations stay short because the
+     HIG asks feedback animation to be "brief and precise". — */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: linear(
+    0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%,
+    0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%,
+    1.015 55%, 1.017 63.9%, 1.001
+  );
+  --dur-press: 110ms;
+  --dur-fast: 180ms;
+  --dur-base: 280ms;
+  --dur-slow: 520ms;
+
+  /* — Elevation — ambient + direct pair, tinted with the surface's own
+     navy rather than flat black, so shadows read as light falling on
+     paper instead of a grey halo. — */
+  --shadow-1:
+    0 1px 1px -0.5px color-mix(in srgb, var(--color-navy-950) 8%, transparent),
+    0 2px 4px -2px color-mix(in srgb, var(--color-navy-950) 6%, transparent);
+  --shadow-2:
+    0 1px 1px -0.5px color-mix(in srgb, var(--color-navy-950) 7%, transparent),
+    0 6px 12px -4px color-mix(in srgb, var(--color-navy-950) 10%, transparent),
+    0 12px 28px -12px color-mix(in srgb, var(--color-navy-950) 12%, transparent);
+  --shadow-3:
+    0 1px 1px -0.5px color-mix(in srgb, var(--color-navy-950) 6%, transparent),
+    0 10px 20px -6px color-mix(in srgb, var(--color-navy-950) 12%, transparent),
+    0 24px 48px -16px color-mix(in srgb, var(--color-navy-950) 16%, transparent);
+  --shadow-nav:
+    0 1px 0 0 color-mix(in srgb, var(--color-paper-50) 60%, transparent) inset,
+    0 2px 6px -2px color-mix(in srgb, var(--color-navy-950) 8%, transparent),
+    0 12px 32px -12px color-mix(in srgb, var(--color-navy-950) 14%, transparent);
 }
 
 /* ---------- Base ---------- */
@@ -99,19 +161,42 @@ body {
   background-color: var(--color-paper-100);
   color: var(--color-ink-700);
   font-family: var(--font-sans);
+  font-size: 1.0625rem;      /* Apple's 17pt default body size */
+  line-height: 1.6875rem;
   font-feature-settings: 'cv11', 'ss01';
+  /* Let the variable fonts pick the drawing cut for the rendered size
+     — Bricolage carries opsz[12..96]. This is the web equivalent of
+     the HIG's "dynamic optical sizes". */
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  /* Punctuation hangs into the margin so the text block's left edge
+     reads as optically straight. */
+  hanging-punctuation: first last;
 }
 
+/* Headings never carry the body's prose leading. */
+h1, h2, h3, h4, h5, h6 {
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+/* The HIG calls motion optional, not decorative: everything below is
+   removed rather than merely shortened, including the press scale and
+   the parallax/reveal transforms, so nothing moves for someone who
+   asked for nothing to move. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
+  .btn:active, [data-magnetic] { transform: none !important; }
+  .card-hover:hover { transform: none; }
 }
 
 ::selection {
@@ -144,12 +229,257 @@ body {
   mask-image: radial-gradient(75% 60% at 50% 0%, #000, transparent 75%);
 }
 
+/* ============================================================
+   TYPE SYSTEM
+   Derived from Apple's iOS text styles (HIG § Typography):
+   Large Title 34/41 · Title1 28/34 · Title2 22/28 · Title3 20/25
+   Headline 17/22 · Body 17/22 · Callout 16/21 · Subhead 15/20
+   Footnote 13/18 · Caption1 12/16 · Caption2 11/13
+
+   Two deliberate departures, both for reading on a screen at arm's
+   length rather than a phone at 30cm:
+   · body leading is opened from 22 to 27 (1.59) — iOS body is set for
+     short strings in a list, not the multi-line prose on these pages;
+   · the ramp is extended upward past Large Title for page heroes,
+     keeping the same leading discipline (ratio tightens as size grows).
+
+   Tracking follows the shape of Apple's SF tracking table: strongly
+   positive at caption sizes, crossing zero around body, negative
+   through the display sizes. The absolute values are retuned for
+   Bricolage/Hanken rather than copied from SF, whose numbers assume
+   SF's own optical cuts.
+
+   Bricolage Grotesque carries a real opsz[12..96] axis, so display
+   type is *drawn* for its size rather than scaled from one master —
+   font-optical-sizing below turns that on. Hanken has no opsz axis,
+   which is why the tracking curve does more work at body sizes.
+
+   Display-level styles set their own weight (they are always used the
+   same way); body-level styles deliberately do not, so an explicit
+   weight at the call site can never lose a specificity race here.
+
+   Every step sets `min-width: 0`. Flex and grid items default to
+   min-width:auto, which refuses to shrink below their own content — so
+   without this, one long string widens its whole row and overflow-wrap
+   never gets a chance to break it. That is what makes the layout hold
+   when someone doubles their text size.
+   ============================================================ */
+
+@utility type-display-1 {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4rem);   /* 40 → 64 */
+  line-height: 1.04;
+  letter-spacing: -0.026em;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+@utility type-display-2 {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.4rem + 3vw, 3rem);       /* 32 → 48 */
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+/* Apple Large Title — 34/41 */
+@utility type-title-1 {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-display);
+  font-size: 2.125rem;
+  line-height: 2.5625rem;
+  letter-spacing: -0.019em;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+/* Apple Title 1 — 28/34 */
+@utility type-title-2 {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  letter-spacing: -0.016em;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+/* Apple Title 2 — 22/28 */
+@utility type-title-3 {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.012em;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+/* Apple Title 3 — 20/25 */
+@utility type-title-4 {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
+  letter-spacing: -0.008em;
+  font-weight: 600;
+  font-optical-sizing: auto;
+}
+/* Apple Headline — 17/22 semibold */
+@utility type-headline {
+  min-width: 0;
+  font-size: 1.0625rem;
+  line-height: 1.375rem;
+  letter-spacing: -0.004em;
+  font-weight: 600;
+}
+/* Apple Body — 17, leading opened for prose */
+@utility type-body {
+  min-width: 0;
+  font-size: 1.0625rem;
+  line-height: 1.6875rem;
+  letter-spacing: -0.003em;
+  text-wrap: pretty;
+}
+/* Apple Callout — 16/21 */
+@utility type-callout {
+  min-width: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+/* Apple Subhead — 15/20 */
+@utility type-subhead {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  letter-spacing: 0.002em;
+  text-wrap: pretty;
+}
+/* Apple Footnote — 13/18 */
+@utility type-footnote {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.006em;
+}
+/* Apple Caption 1 — 12/16 */
+@utility type-caption {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.011em;
+}
+/* Apple Caption 2 — 11/13. The floor: HIG puts iOS minimum at 11pt,
+   and notes thin weights need to go larger, so this one is medium. */
+@utility type-caption-2 {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 0.6875rem;
+  line-height: 0.9375rem;
+  letter-spacing: 0.016em;
+}
+/* Monospaced label — dates, metrics, table headers. Mono is optically
+   larger than the grotesk at the same nominal size, so each step runs
+   one notch smaller with extra tracking to stay even beside it. */
+@utility type-label {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.055em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+@utility type-mono-sm {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.008em;
+  font-variant-numeric: tabular-nums;
+}
+@utility type-mono {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+/* Inline monospace inside prose. Sized in `em`, not a fixed step: the mono
+   face is optically larger than the grotesk at the same nominal size, so it
+   has to shrink *relative to whatever text surrounds it* to sit level. */
+@utility type-mono-inline {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The home hero. Deliberately not monotonic: the two-column grid starts at
+   `lg`, which narrows the text column from 589px to 474px before `xl` widens
+   it again to 601px. Sizes are set from the measured column width at each
+   breakpoint so the three kinetic lines never wrap — the widest line
+   ("Manager who sprints,") is 10.58em in Bricolage Bold. */
+@utility type-hero {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: min(2rem, 8.5vw);
+  line-height: 0.96;
+  letter-spacing: -0.028em;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  @media (width >= 40rem)  { font-size: min(3.4rem, 9vw); }
+  @media (width >= 64rem)  { font-size: min(2.7rem, 5.5vw); }
+  @media (width >= 80rem)  { font-size: min(3.5rem, 5.5vw); }
+  @media (width >= 96rem)  { font-size: min(3.9rem, 5.5vw); }
+}
+
+/* Metric readout — tabular so columns of figures align on the decimal */
+@utility type-metric {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ---------- Reusable utilities ---------- */
 @utility container-x {
   width: 100%;
   max-width: 88rem;
   margin-inline: auto;
-  padding-inline: clamp(1.15rem, 4vw, 3.5rem);
+  /* px floor, not rem: a larger text preference should grow the type,
+     not eat the content column with wider gutters. */
+  padding-inline: clamp(18px, 4vw, 3.5rem);
 }
 
 /* Reads as ink with a warm gold finish — not a neon gradient */
@@ -167,31 +497,61 @@ body {
   color: transparent;
 }
 
-/* Higher opacity than the old dark theme needed: dark glass hid whatever
-   scrolled under it, light glass does not, and the nav sits over a moving
-   marquee. */
+/* ============================================================
+   MATERIALS
+   The HIG reserves translucent material for the functional layer —
+   navigation and controls that float above content — and says
+   explicitly not to use it in the content layer, where it buys
+   nothing and costs legibility. `glass` is therefore used by the
+   nav and nothing else; content surfaces use `card`.
+
+   Saturation is boosted along with the blur so colour passing
+   through the material stays vivid rather than going milky, which
+   is the "allowing color to pass through from background to
+   foreground" behaviour the HIG describes.
+   ============================================================ */
 @utility glass {
-  background: color-mix(in srgb, var(--color-paper-50) 93%, transparent);
-  backdrop-filter: blur(16px) saturate(130%);
-  -webkit-backdrop-filter: blur(16px) saturate(130%);
-  border: 1px solid color-mix(in srgb, var(--color-navy-800) 12%, transparent);
+  background: color-mix(in srgb, var(--color-paper-50) 82%, transparent);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--color-navy-800) 10%, transparent);
+  box-shadow: var(--shadow-nav);
+}
+/* Fallback: without backdrop-filter the material must go opaque, or
+   the nav becomes unreadable over scrolling content. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--color-paper-50); }
 }
 
+/* Content-layer surface. Opaque by design — see MATERIALS above.
+   The radius is on the 8pt grid's curve: 12px reads as "panel",
+   which is what these are. */
 @utility card {
   position: relative;
-  border-radius: 0.9rem;
+  /* A card is almost always a grid or flex item, and those default to
+     min-width:auto — which refuses to shrink below the card's own content.
+     One wide child then drags the card past the viewport. */
+  min-width: 0;
+  border-radius: 0.75rem;
   background: var(--color-paper-50);
   border: 1px solid color-mix(in srgb, var(--color-navy-800) 11%, transparent);
-  box-shadow: 0 1px 2px -1px color-mix(in srgb, var(--color-navy-950) 8%, transparent);
-  transition: transform 0.45s var(--ease-out-expo), border-color 0.35s, box-shadow 0.35s;
+  box-shadow: var(--shadow-1);
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-base) var(--ease-out-expo);
 }
 @utility card-hover {
   &:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--color-navy-600) 34%, transparent);
-    box-shadow:
-      0 18px 40px -22px color-mix(in srgb, var(--color-navy-950) 28%, transparent),
-      0 2px 6px -2px color-mix(in srgb, var(--color-navy-950) 10%, transparent);
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--color-navy-600) 30%, transparent);
+    box-shadow: var(--shadow-2);
+  }
+  /* A card that is itself a link gets a press state, like any control. */
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-1);
+    transition-duration: var(--dur-press);
   }
 }
 
@@ -223,6 +583,110 @@ body {
     mask-composite: exclude;
     pointer-events: none;
   }
+}
+
+/* ============================================================
+   CONTROLS
+   Apple asks for a 44pt minimum target with about 12pt between
+   adjacent controls, and says a custom control must always have a
+   press state or it "can feel unresponsive, making people wonder if
+   it's accepting their input".
+
+   `btn` supplies the target size and the press feedback; the visual
+   style (`btn-primary` / `btn-secondary` / `btn-quiet`) is layered on
+   top, because the HIG distinguishes the preferred action by *style*,
+   not by size.
+   ============================================================ */
+@utility btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-min);
+  padding-inline: var(--space-5, 1.25rem);
+  border-radius: 0.625rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.002em;
+  /* Deliberately wrapping, not nowrap: at 200% text a fixed label is wider
+     than a phone column, and a button on two lines is far better than a
+     label running off the page (HIG § Accessibility, larger text sizes). */
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  padding-block: 0.5rem;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease,
+    transform var(--dur-base) var(--ease-spring);
+  /* The press: a scale rather than a colour flip, so it reads as the
+     surface physically giving under the finger. */
+  &:active {
+    transform: scale(0.97);
+    transition-duration: var(--dur-press);
+    transition-timing-function: ease-out;
+  }
+}
+@utility btn-primary {
+  background: var(--color-kesari-500);
+  color: var(--color-navy-950);
+  box-shadow: var(--shadow-1);
+  &:hover { background: var(--color-kesari-400); box-shadow: var(--shadow-2); }
+  &:active { box-shadow: var(--shadow-1); }
+}
+@utility btn-secondary {
+  background: var(--color-paper-50);
+  color: var(--color-ink-800);
+  border: 1px solid color-mix(in srgb, var(--color-navy-800) 16%, transparent);
+  box-shadow: var(--shadow-1);
+  &:hover {
+    color: var(--color-navy-900);
+    border-color: color-mix(in srgb, var(--color-navy-800) 30%, transparent);
+    box-shadow: var(--shadow-2);
+  }
+  &:active { box-shadow: var(--shadow-1); }
+}
+@utility btn-quiet {
+  color: var(--color-ink-600);
+  &:hover { color: var(--color-navy-900); background: color-mix(in srgb, var(--color-navy-900) 5%, transparent); }
+}
+
+/* Press feedback for controls that bring their own visual style —
+   the HIG requires a press state on every custom control. */
+@utility btn-press {
+  transition: transform var(--dur-base) var(--ease-spring),
+              background-color var(--dur-fast) ease,
+              box-shadow var(--dur-fast) ease;
+  &:active { transform: scale(0.97); transition-duration: var(--dur-press); }
+}
+
+/* A text link that is also a control: still needs the 44pt target,
+   which it gets from vertical padding rather than a visible box. */
+@utility link-control {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--control-min);
+  /* A bare URL has no break opportunities, so at a doubled text size it
+     would run past the column with nowhere to wrap. */
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-fast) ease, gap var(--dur-base) var(--ease-out-expo);
+  &:active { transition-duration: var(--dur-press); }
+}
+
+/* Row of controls — enforces the HIG's ~12pt separation in one place
+   instead of a different gap value at each call site. */
+@utility control-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--control-gap);
 }
 
 /* ============================================================
@@ -265,7 +729,7 @@ body {
   letter-spacing: 0.1em;
   padding: 0.22rem 0.55rem;
   border-radius: 0.35rem;
-  white-space: nowrap;
+  max-width: 100%;
 }
 .chip::before {
   content: '';
@@ -452,8 +916,8 @@ body {
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: var(--control-min);
+  height: var(--control-min);
   border-radius: 9999px;
   background: var(--color-paper-50);
   border: 1px solid color-mix(in srgb, var(--color-navy-800) 16%, transparent);
@@ -466,6 +930,7 @@ body {
 .marquee:focus-within .marquee__toggle,
 .marquee__toggle:focus-visible { opacity: 1; }
 .marquee__toggle:hover { color: var(--color-kesari-700); }
+.marquee__toggle:active { transform: translateY(-50%) scale(0.92); transition-duration: var(--dur-press); }
 /* pause on hover or keyboard focus (WCAG 2.2.2: moving content is stoppable) */
 .marquee:hover .marquee__track,
 .marquee:focus-within .marquee__track,
@@ -566,12 +1031,17 @@ body {
   @page { margin: 1.4cm; }
 }
 
-/* Focus visibility */
+/* ---------- Focus ----------
+   One treatment sitewide. The halo underneath keeps the ring legible
+   where it crosses a dark control (the gold button) as well as paper. */
 :focus-visible {
   outline: 2px solid var(--color-navy-700);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 0.375rem;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-paper-50) 85%, transparent);
 }
+/* Pointer users never see the ring; keyboard users always do. */
+:focus:not(:focus-visible) { outline: none; }
 
 /* Thin scrollbar */
 * {

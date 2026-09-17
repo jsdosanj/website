@@ -44,48 +44,48 @@ const declarations = [
     <div class="container-x relative text-center">
       <Khanda size={48} class="mx-auto text-kesari-600 animate-float" />
       <p class="reveal is-visible mt-5 eyebrow eyebrow-center">AI &amp; content policy</p>
-      <h1 class="reveal is-visible mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-navy-900">
+      <h1 class="reveal is-visible mt-4 type-display-2 text-navy-900">
         AI &amp; Content Usage Policy
       </h1>
-      <p class="reveal is-visible mt-6 max-w-2xl mx-auto text-lg text-ink-600 leading-relaxed">
+      <p class="reveal is-visible mt-6 max-w-2xl mx-auto type-body text-ink-600 leading-relaxed">
         This site welcomes AI answer and search engines — they may crawl and cite it, and that traffic is welcome.
         Its content is reserved against use for AI/ML training, fine-tuning, or dataset creation without a license.
       </p>
-      <p class="reveal is-visible mt-4 mono text-xs text-ink-500">Last updated {lastUpdated}</p>
+      <p class="reveal is-visible mt-4 type-mono-sm text-ink-500">Last updated {lastUpdated}</p>
     </div>
   </section>
 
   <!-- The two lanes -->
   <section class="container-x mt-16">
     <div class="grid gap-5 lg:grid-cols-2">
-      <div class="reveal card card-hover border-glow p-7 sm:p-8">
-        <div class="flex items-center gap-3">
+      <div class="reveal card card-hover border-glow p-6 sm:p-8">
+        <div class="flex items-center gap-3 min-w-0">
           <span class="grid place-items-center h-11 w-11 rounded-xl bg-status-green/10 border border-status-green/25 text-status-green"><Icon name="globe" size={20} /></span>
-          <h2 class="font-display text-lg sm:text-xl font-semibold text-navy-900">Crawl &amp; cite — welcome</h2>
+          <h2 class="type-title-4 text-navy-900">Crawl &amp; cite — welcome</h2>
         </div>
-        <p class="mt-4 text-sm leading-relaxed text-ink-600">
+        <p class="mt-4 type-subhead leading-relaxed text-ink-600">
           Answer engines and search assistants may crawl this site and cite it when responding to a question.
           That's exactly the kind of traffic a personal site is built for.
         </p>
         <div class="mt-5 flex flex-wrap gap-1.5">
           {welcome.map((bot) => (
-            <span class="mono text-[11px] text-status-green border border-status-green/25 rounded-md px-2 py-1">{bot}</span>
+            <span class="type-mono-sm text-status-green border border-status-green/25 rounded-md px-2 py-1">{bot}</span>
           ))}
         </div>
       </div>
 
-      <div class="reveal card card-hover border-glow p-7 sm:p-8">
-        <div class="flex items-center gap-3">
+      <div class="reveal card card-hover border-glow p-6 sm:p-8">
+        <div class="flex items-center gap-3 min-w-0">
           <span class="grid place-items-center h-11 w-11 rounded-xl bg-paper-200 border border-navy-800/12 text-kesari-600"><Icon name="shield" size={20} /></span>
-          <h2 class="font-display text-lg sm:text-xl font-semibold text-navy-900">Training &amp; datasets — reserved</h2>
+          <h2 class="type-title-4 text-navy-900">Training &amp; datasets — reserved</h2>
         </div>
-        <p class="mt-4 text-sm leading-relaxed text-ink-600">
+        <p class="mt-4 type-subhead leading-relaxed text-ink-600">
           Automated collection of this site's content for AI/ML training, fine-tuning, RAG-corpus construction,
           or dataset creation is not permitted without a license. This content is TDM-reserved.
         </p>
         <div class="mt-5 flex flex-wrap gap-1.5">
           {reserved.map((bot) => (
-            <span class="mono text-[11px] text-ink-600 border border-navy-800/12 rounded-md px-2 py-1">{bot}</span>
+            <span class="type-mono-sm text-ink-600 border border-navy-800/12 rounded-md px-2 py-1">{bot}</span>
           ))}
         </div>
       </div>
@@ -106,16 +106,16 @@ const declarations = [
           <a href={d.href} class="reveal card card-hover p-5 flex items-start gap-4 group">
             <span class="grid place-items-center h-10 w-10 rounded-lg bg-paper-200 border border-navy-800/12 text-navy-600 shrink-0"><Icon name={d.icon} size={18} /></span>
             <div class="min-w-0">
-              <p class="mono text-sm font-medium text-navy-900 group-hover:text-kesari-700 transition-colors">{d.label}</p>
-              <p class="mt-1 text-sm text-ink-600 leading-relaxed">{d.text}</p>
+              <p class="type-mono font-medium text-navy-900 group-hover:text-kesari-700 transition-colors">{d.label}</p>
+              <p class="mt-1 type-subhead text-ink-600 leading-relaxed">{d.text}</p>
             </div>
           </a>
         ) : (
           <div class="reveal card p-5 flex items-start gap-4">
             <span class="grid place-items-center h-10 w-10 rounded-lg bg-paper-200 border border-navy-800/12 text-navy-600 shrink-0"><Icon name={d.icon} size={18} /></span>
             <div class="min-w-0">
-              <p class="mono text-sm font-medium text-navy-900">{d.label}</p>
-              <p class="mt-1 text-sm text-ink-600 leading-relaxed">{d.text}</p>
+              <p class="type-mono font-medium text-navy-900">{d.label}</p>
+              <p class="mt-1 type-subhead text-ink-600 leading-relaxed">{d.text}</p>
             </div>
           </div>
         )
@@ -126,8 +126,8 @@ const declarations = [
   <!-- Why -->
   <section class="container-x mt-24">
     <div class="reveal card border-glow overflow-hidden p-8 sm:p-10 text-center">
-      <p class="gurmukhi text-3xl text-kesari-600" lang="pa">ੴ</p>
-      <h2 class="mt-4 font-display text-2xl sm:text-3xl font-semibold text-navy-900 max-w-2xl mx-auto">Why the split policy</h2>
+      <p class="gurmukhi type-title-2 text-kesari-600" lang="pa">ੴ</p>
+      <h2 class="mt-4 type-title-2 text-navy-900 max-w-2xl mx-auto">Why the split policy</h2>
       <p class="mt-4 max-w-2xl mx-auto text-ink-600 leading-relaxed">
         Search and answer traffic is a two-way exchange — the same one this site has always relied on with
         traditional search engines. Model training is different: it's a one-way extraction with no attribution
@@ -140,9 +140,9 @@ const declarations = [
   <!-- Licensing / contact -->
   <section class="container-x mt-24 mb-8">
     <div class="reveal text-center">
-      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-navy-900">Want to license this content for training?</h2>
+      <h2 class="type-title-2 text-navy-900">Want to license this content for training?</h2>
       <p class="mt-3 max-w-lg mx-auto text-ink-600">Reach out and let's talk terms.</p>
-      <a href={url('/contact')} class="mt-7 inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Get in touch <Icon name="arrow" size={18} /></a>
+      <a href={url('/contact')} class="mt-6 btn btn-primary">Get in touch <Icon name="arrow" size={18} /></a>
     </div>
   </section>
 </Base>

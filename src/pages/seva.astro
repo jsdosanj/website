@@ -17,23 +17,23 @@ import { sevaIntro, engagements, sevaValues } from '../data/seva';
     <Jali class="absolute inset-0 text-kesari-500/[0.09]" opacity={1} />
     <div class="absolute left-1/2 -translate-x-1/2 top-24 h-72 w-72 rounded-full bg-kesari-500/10 blur-[100px]"></div>
     <div class="container-x relative text-center">
-      <p class="gurmukhi text-5xl sm:text-6xl text-kesari-600 reveal is-visible animate-pulse-glow" lang="pa">{sevaIntro.gurmukhi}</p>
-      <p class="reveal is-visible mt-3 mono text-xs uppercase tracking-[0.25em] text-ink-500">{sevaIntro.mool}</p>
-      <h1 class="mt-6 font-display text-4xl sm:text-5xl font-bold tracking-tight text-navy-900" data-kinetic>
+      <p class="gurmukhi type-display-1 text-kesari-600 reveal is-visible animate-pulse-glow" lang="pa">{sevaIntro.gurmukhi}</p>
+      <p class="reveal is-visible mt-3 type-mono-sm uppercase tracking-[0.25em] text-ink-500">{sevaIntro.mool}</p>
+      <h1 class="mt-6 type-display-2 text-navy-900" data-kinetic>
         <span class="kin-line"><span class="kin-inner">{sevaIntro.heading}</span></span>
       </h1>
-      <p class="reveal is-visible mt-6 max-w-2xl mx-auto text-lg text-ink-600 leading-relaxed">{sevaIntro.lead}</p>
+      <p class="reveal is-visible mt-6 max-w-2xl mx-auto type-body text-ink-600 leading-relaxed">{sevaIntro.lead}</p>
     </div>
   </section>
 
   <!-- Values -->
-  <section class="container-x mt-14">
+  <section class="container-x mt-16">
     <div class="grid gap-5 sm:grid-cols-3">
       {sevaValues.map((v) => (
-        <div class="reveal card card-hover border-glow p-7 text-center">
-          <p class="gurmukhi text-3xl text-kesari-600" lang="pa">{v.gurmukhi}</p>
-          <h3 class="mt-3 font-display text-lg font-semibold text-navy-900">{v.title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-600">{v.text}</p>
+        <div class="reveal card card-hover border-glow p-6 text-center">
+          <p class="gurmukhi type-title-2 text-kesari-600" lang="pa">{v.gurmukhi}</p>
+          <h3 class="mt-3 font-display type-body font-semibold text-navy-900">{v.title}</h3>
+          <p class="mt-2 type-subhead leading-relaxed text-ink-600">{v.text}</p>
         </div>
       ))}
     </div>
@@ -45,23 +45,23 @@ import { sevaIntro, engagements, sevaValues } from '../data/seva';
     <div class="mt-10 space-y-5">
       {engagements.map((e, i) => (
         <div class="reveal card card-hover p-6 sm:p-8">
-          <div class="grid lg:grid-cols-[auto_1fr] gap-5 sm:gap-7 items-start">
+          <div class="grid lg:grid-cols-[auto_1fr] gap-5 sm:gap-6 items-start">
             <span class="grid place-items-center h-14 w-14 rounded-2xl bg-paper-200 border border-kesari-500/20 text-kesari-600">
               <Icon name={e.icon} size={26} />
             </span>
             <div>
               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 class="font-display text-lg font-semibold text-navy-900">{e.org}</h3>
-                <span class="mono text-xs text-ink-500 shrink-0">{e.date}</span>
+                <h3 class="font-display type-body font-semibold text-navy-900">{e.org}</h3>
+                <span class="type-mono-sm text-ink-500 shrink-0">{e.date}</span>
               </div>
-              <p class="text-kesari-700 text-sm font-medium mt-0.5">{e.role}</p>
-              <p class="mt-3 text-sm leading-relaxed text-ink-600">{e.description}</p>
+              <p class="text-kesari-700 type-subhead font-medium mt-0.5">{e.role}</p>
+              <p class="mt-3 type-subhead leading-relaxed text-ink-600">{e.description}</p>
               <div class="mt-4 flex flex-wrap items-center gap-2">
                 {e.tags.map((t) => (
-                  <span class="mono text-[11px] text-ink-600 border border-navy-800/12 rounded-md px-2 py-1">{t}</span>
+                  <span class="type-mono-sm text-ink-600 border border-navy-800/12 rounded-md px-2 py-1">{t}</span>
                 ))}
                 {e.link && (
-                  <a href={e.link.href} target="_blank" rel="noopener noreferrer" class="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-kesari-700 hover:underline underline-offset-4">
+                  <a href={e.link.href} target="_blank" rel="noopener noreferrer" class="ml-auto link-control type-subhead font-medium link-control text-navy-700 hover:underline underline-offset-4">
                     <Icon name="external" size={14} /> {e.link.label}
                   </a>
                 )}
@@ -79,13 +79,13 @@ import { sevaIntro, engagements, sevaValues } from '../data/seva';
       <Jali class="absolute inset-0 text-navy-500/[0.055]" opacity={1} />
       <div class="relative">
         <Khanda size={64} class="mx-auto text-kesari-600 animate-float" />
-        <h2 class="mt-6 font-display text-2xl sm:text-3xl font-semibold text-navy-900 max-w-2xl mx-auto">Where the seva meets the science</h2>
+        <h2 class="mt-6 type-title-2 text-navy-900 max-w-2xl mx-auto">Where the seva meets the science</h2>
         <p class="mt-4 max-w-2xl mx-auto text-ink-600 leading-relaxed">
           The parchar and the products serve the same mission. The open dataset and OCR engines I build
           exist so that 758 million+ words of Sikh heritage — manuscripts, scripture, and history — can be searched, understood,
           and shared by the global Sangat. Preservation is seva. Access is seva. Building the tools is seva.
         </p>
-        <p class="mt-6 gurmukhi text-xl text-kesari-700" lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</p>
+        <p class="mt-6 gurmukhi type-title-4 text-kesari-700" lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</p>
       </div>
     </div>
   </section>

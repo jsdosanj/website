@@ -42,21 +42,14 @@ const principles = [
   <section class="relative pt-32 sm:pt-40 pb-12 overflow-hidden">
     <Jali class="absolute -top-24 right-[-10%] w-[42rem] h-[42rem] text-navy-500/[0.06] pointer-events-none" opacity={1} />
     <div class="container-x relative">
-      <!-- eyebrow path + auto-scrolling status banner -->
-      <div class="reveal mono text-xs sm:text-sm text-ink-500 flex items-center gap-2 max-w-full">
-        <div class="marquee min-w-0 flex-1" data-marquee style="--marquee-dur:22s">
-          <div class="marquee__viewport">
-            <div class="marquee__track">
-              <span class="inline-flex items-center gap-1.5 text-status-green pr-10"><span class="h-1.5 w-1.5 rounded-full bg-status-green animate-pulse-glow shrink-0"></span>open to work · in-person / hybrid / remote · open to relocating</span>
-            </div>
-            <div class="marquee__track" aria-hidden="true">
-              <span class="inline-flex items-center gap-1.5 text-status-green pr-10"><span class="h-1.5 w-1.5 rounded-full bg-status-green animate-pulse-glow shrink-0"></span>open to work · in-person / hybrid / remote · open to relocating</span>
-            </div>
-          </div>
-          <button type="button" class="marquee__toggle" data-marquee-toggle aria-label="Pause scrolling">
-            <span aria-hidden="true">❙❙</span>
-          </button>
-        </div>
+      <!-- Availability, stated once and held still. This was a scrolling
+           marquee, which meant the line was almost always caught mid-word and
+           read as broken text — and perpetual decorative motion in a hero is
+           exactly what the HIG means by motion that doesn't support the
+           experience. -->
+      <div class="reveal flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span class="chip chip-delivered">Open to work</span>
+        <span class="type-footnote text-ink-600">In-person, hybrid, or remote · open to relocating</span>
       </div>
 
       <div class="mt-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
@@ -66,12 +59,12 @@ const principles = [
                widest line ("Manager who sprints,") is 10.58em in Bricolage
                Bold, and the text column narrows at lg when the two-column
                grid kicks in before widening again at xl/2xl. -->
-          <h1 class="font-display text-[2rem] sm:text-[3.4rem] lg:text-[2.7rem] xl:text-[3.5rem] 2xl:text-[3.9rem] font-bold leading-[0.96] tracking-tight text-navy-900" data-kinetic>
+          <h1 class="type-hero text-navy-900" data-kinetic>
             <span class="kin-line"><span class="kin-inner">Technical Program</span></span>
             <span class="kin-line"><span class="kin-inner">Manager who sprints,</span></span>
             <span class="kin-line"><span class="kin-inner text-gradient">ships &amp; scales.</span></span>
           </h1>
-          <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-ink-600">
+          <p class="reveal mt-6 max-w-xl type-body leading-relaxed text-ink-600">
             I’m <span class="text-ink-800 font-medium">Jasvant Singh Dosanjh</span> — 10 years delivering technical
             programs across higher ed, healthcare, gaming, and big tech. I own the roadmap, the budget, the vendors,
             and the SDLC behind them: 12 products shipped, a $750K studio buildout, and a six-month security migration
@@ -81,26 +74,26 @@ const principles = [
           <!-- target roles -->
           <div class="reveal mt-6 flex flex-wrap gap-2">
             {site.roles.map((r) => (
-              <span class="mono rounded-lg bg-navy-900/[0.04] border border-navy-800/12 text-ink-800 px-3 py-1.5 text-[13px]">{r}</span>
+              <span class="type-mono-sm max-w-full rounded-lg bg-navy-900/[0.04] border border-navy-800/12 text-ink-800 px-3 py-1.5">{r}</span>
             ))}
           </div>
 
           <!-- CTAs -->
           <div class="reveal mt-8 flex flex-wrap gap-3">
-            <a href={url('/contact')} data-magnetic="0.4" class="group inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-5 py-3 font-semibold hover:bg-kesari-400 transition-colors">
+            <a href={url('/contact')} data-magnetic="0.4" class="group btn btn-primary">
               Let’s talk
               <Icon name="arrow" size={18} class="group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <a href={url('/work')} data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl card card-hover px-5 py-3 font-semibold text-ink-800 hover:text-navy-900 transition-colors">
+            <a href={url('/work')} data-magnetic="0.3" class="btn btn-secondary">
               See the case studies
             </a>
           </div>
 
           <!-- quick links (contact happens via the form — no inbox/phone exposed) -->
-          <div class="reveal mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-ink-600 hover:text-kesari-700 transition-colors"><Icon name="linkedin" size={16} /> LinkedIn</a>
-            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-ink-600 hover:text-kesari-700 transition-colors"><Icon name="github" size={16} /> GitHub</a>
-            <a href={url('/contact')} class="inline-flex items-center gap-2 text-ink-600 hover:text-kesari-700 transition-colors"><Icon name="arrow" size={15} /> Get in touch</a>
+          <div class="reveal mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 type-subhead">
+            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="link-control text-ink-600 hover:text-navy-900"><Icon name="linkedin" size={16} /> LinkedIn</a>
+            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="link-control text-ink-600 hover:text-navy-900"><Icon name="github" size={16} /> GitHub</a>
+            <a href={url('/contact')} class="link-control text-ink-600 hover:text-navy-900"><Icon name="arrow" size={15} /> Get in touch</a>
           </div>
         </div>
 
@@ -115,14 +108,14 @@ const principles = [
             />
             <div class="flex items-start justify-between gap-3 px-5 py-4 border-t border-navy-800/10">
               <div>
-                <p class="font-display text-base font-semibold text-navy-900 leading-tight">Jasvant Singh Dosanjh</p>
-                <p class="mono text-[11px] text-ink-500 mt-1">Technical Program Manager · 10 yrs</p>
+                <p class="font-display type-callout font-semibold text-navy-900 leading-tight">Jasvant Singh Dosanjh</p>
+                <p class="type-mono-sm text-ink-500 mt-1">Technical Program Manager · 10 yrs</p>
               </div>
-              <span class="gurmukhi text-kesari-600 text-xl leading-none shrink-0" lang="pa" aria-hidden="true">ੴ</span>
+              <span class="gurmukhi text-kesari-600 type-title-4 leading-none shrink-0" lang="pa" aria-hidden="true">ੴ</span>
             </div>
             <div class="flex items-center gap-2 px-5 py-2.5 border-t border-navy-800/10 bg-paper-200/70">
               <span class="chip chip-delivered">open to work</span>
-              <span class="mono text-[11px] text-ink-500">open to relocating</span>
+              <span class="type-mono-sm text-ink-500">open to relocating</span>
             </div>
           </div>
           <Khanda size={48} class="absolute -top-4 -right-3 text-kesari-500 animate-float" />
@@ -132,7 +125,7 @@ const principles = [
   </section>
 
   <!-- ===================== STACK MARQUEE (counter-scrolling rows) ===================== -->
-  <section class="mt-14 sm:mt-20 py-6 border-y border-navy-800/[0.11] bg-paper-300/40 space-y-3" aria-label="Tools, platforms, and frameworks I work with">
+  <section class="mt-16 sm:mt-20 py-6 border-y border-navy-800/[0.11] bg-paper-300/40 space-y-3" aria-label="Tools, platforms, and frameworks I work with">
     <Marquee items={stackTop} dur={52} label="Platforms and tools, row 1" />
     <Marquee items={stackBottom} dur={58} reverse label="Methods and frameworks, row 2" />
   </section>
@@ -142,9 +135,9 @@ const principles = [
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
         <p class="reveal eyebrow">Delivery record</p>
-        <h2 class="reveal mt-3 font-display text-3xl sm:text-4xl font-semibold tracking-tight text-navy-900">The numbers, and where they came from</h2>
+        <h2 class="reveal mt-3 type-title-1 text-navy-900">The numbers, and where they came from</h2>
       </div>
-      <a href={url('/work')} class="reveal inline-flex items-center gap-2 text-sm font-semibold text-navy-700 hover:text-navy-900 hover:gap-3 transition-all">Read the case studies <Icon name="arrow" size={16} /></a>
+      <a href={url('/work')} class="reveal link-control type-subhead font-semibold text-navy-700 hover:text-navy-900 hover:gap-3">Read the case studies <Icon name="arrow" size={16} /></a>
     </div>
     <div class="mt-8">
       <MetricsDashboard />
@@ -158,19 +151,19 @@ const principles = [
     </SectionHeading>
     <div class="mt-12 grid gap-6 lg:grid-cols-3">
       {helpAreas.map((a) => (
-        <div class="reveal card card-hover border-glow p-7 flex flex-col">
+        <div class="reveal card card-hover border-glow p-6 flex flex-col">
           <span class="grid place-items-center h-12 w-12 rounded-xl bg-paper-200 border border-navy-800/12 text-kesari-600"><Icon name={a.icon} size={22} /></span>
-          <h3 class="mt-5 font-display text-lg font-semibold text-navy-900">{a.role}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-600">{a.blurb}</p>
+          <h3 class="mt-5 font-display type-body font-semibold text-navy-900">{a.role}</h3>
+          <p class="mt-2 type-subhead leading-relaxed text-ink-600">{a.blurb}</p>
           <ul class="mt-5 space-y-2.5 flex-1">
             {a.proof.map((p) => (
-              <li class="flex gap-2.5 text-sm text-ink-700"><Icon name="arrow" size={14} class="mt-1 text-kesari-600 shrink-0" /><span>{p}</span></li>
+              <li class="flex gap-2.5 type-subhead text-ink-700"><Icon name="arrow" size={14} class="mt-1 text-kesari-600 shrink-0" /><span>{p}</span></li>
             ))}
           </ul>
         </div>
       ))}
     </div>
-    <p class="reveal mt-10 text-center text-sm sm:text-base text-ink-600 max-w-2xl mx-auto">
+    <p class="reveal mt-10 text-center type-callout text-ink-600 max-w-2xl mx-auto">
       Plenty of program managers can run the ceremony. Fewer can write the runbook, read the audit control, and still hold the roadmap — <span class="text-ink-800">all three</span>. That’s the combination that makes an estimate survive contact with engineering, and it’s what I bring.
     </p>
   </section>
@@ -181,17 +174,17 @@ const principles = [
     <div class="mt-10 grid gap-5 md:grid-cols-3">
       {recommendations.map((r) => (
         <figure class="reveal card p-6 flex flex-col">
-          <div class="text-kesari-500/55 font-display text-4xl leading-none">“</div>
-          <blockquote class="-mt-2 text-sm leading-relaxed text-ink-700 flex-1">{r.text}</blockquote>
+          <div class="text-kesari-500/55 font-display type-title-1 leading-none">“</div>
+          <blockquote class="-mt-2 type-subhead leading-relaxed text-ink-700 flex-1">{r.text}</blockquote>
           <figcaption class="mt-5 pt-5 hairline">
-            <a href={r.link} target="_blank" rel="noopener noreferrer" class="font-display text-sm font-semibold text-navy-900 hover:text-kesari-700 transition-colors">{r.name}</a>
-            <p class="text-xs text-ink-500 mt-0.5">{r.title}</p>
+            <a href={r.link} target="_blank" rel="noopener noreferrer" class="link-control font-display type-subhead font-semibold text-navy-900 hover:text-navy-700">{r.name}</a>
+            <p class="type-caption text-ink-500 mt-0.5">{r.title}</p>
           </figcaption>
         </figure>
       ))}
     </div>
     <div class="reveal mt-6 text-center">
-      <a href={url('/about')} class="inline-flex items-center gap-2 text-sm font-semibold text-navy-700 hover:text-navy-900 hover:gap-3 transition-all">Full story &amp; track record <Icon name="arrow" size={16} /></a>
+      <a href={url('/about')} class="link-control type-subhead font-semibold text-navy-700 hover:text-navy-900 hover:gap-3">Full story &amp; track record <Icon name="arrow" size={16} /></a>
     </div>
   </section>
 
@@ -201,7 +194,7 @@ const principles = [
       <SectionHeading eyebrow="I stay close to the work" title="Products from the lab">
         <p class="reveal mt-4 max-w-xl text-ink-600">I build the tools I’d want as a program manager. It keeps me honest about what I’m asking engineers to do, and it’s why my scoping survives contact with the actual work.</p>
       </SectionHeading>
-      <a href={url('/products')} class="reveal inline-flex items-center gap-2 text-sm font-semibold text-navy-700 hover:text-navy-900 hover:gap-3 transition-all">All products <Icon name="arrow" size={16} /></a>
+      <a href={url('/products')} class="reveal link-control type-subhead font-semibold text-navy-700 hover:text-navy-900 hover:gap-3">All products <Icon name="arrow" size={16} /></a>
     </div>
     <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {featured.map((p) => <ProductCard product={p} />)}
@@ -213,13 +206,13 @@ const principles = [
     <SectionHeading eyebrow="How I work" title="Principles that hold across everything" align="center" />
     <div class="mt-12 grid gap-5 sm:grid-cols-2">
       {principles.map((p) => (
-        <div class="reveal card card-hover p-7 flex gap-5">
+        <div class="reveal card card-hover p-6 flex gap-5">
           <span class="shrink-0 grid place-items-center h-12 w-12 rounded-xl bg-paper-200 border border-navy-800/12 text-kesari-600">
             <Icon name={p.icon} size={22} />
           </span>
           <div>
-            <h3 class="font-display text-lg font-semibold text-navy-900">{p.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-600">{p.text}</p>
+            <h3 class="font-display type-body font-semibold text-navy-900">{p.title}</h3>
+            <p class="mt-2 type-subhead leading-relaxed text-ink-600">{p.text}</p>
           </div>
         </div>
       ))}
@@ -232,14 +225,14 @@ const principles = [
       <Jali class="absolute inset-0 text-kesari-500/[0.08]" opacity={1} />
       <div class="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
         <div>
-          <p class="gurmukhi text-3xl text-kesari-600" lang="pa">ੴ</p>
-          <h2 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-navy-900">The character behind the résumé</h2>
+          <p class="gurmukhi type-title-2 text-kesari-600" lang="pa">ੴ</p>
+          <h2 class="mt-3 type-title-2 text-navy-900">The character behind the résumé</h2>
           <p class="mt-4 max-w-2xl text-ink-600 leading-relaxed">
             Beyond the work, I serve as a parcharik — speaking at community events worldwide and preserving Sikh heritage with
             <span class="text-ink-800"> Basics of Sikhi</span> and <span class="text-ink-800">Sikhi.io</span>.
             The code and the seva come from the same place: leadership rooted in service, resilience, and putting people first.
           </p>
-          <a href={url('/seva')} class="mt-6 inline-flex items-center gap-2 rounded-xl card card-hover px-5 py-3 font-semibold text-navy-800 transition-colors">
+          <a href={url('/seva')} class="mt-6 btn btn-secondary">
             Read about the seva <Icon name="arrow" size={18} />
           </a>
         </div>
@@ -253,11 +246,11 @@ const principles = [
     <div class="turn card border-glow overflow-hidden">
       <div class="text-center px-6 py-12 sm:px-10 sm:py-16">
         <p class="eyebrow eyebrow-center">Currently interviewing</p>
-        <h2 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-navy-900 leading-tight">Hiring a Technical Program Manager?</h2>
+        <h2 class="mt-4 type-title-1 text-navy-900">Hiring a Technical Program Manager?</h2>
         <p class="mt-4 max-w-xl mx-auto text-ink-600">Let’s talk about the program you need landed — the roadmap, the vendors, the budget, and the engineering work underneath it.</p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={url('/contact')} data-magnetic="0.35" class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-6 py-3.5 font-semibold hover:bg-kesari-400 transition-colors">Let’s talk <Icon name="arrow" size={18} /></a>
-          <a href={`${url('/contact')}#resumes`} data-magnetic="0.3" class="inline-flex items-center gap-2 rounded-xl border border-navy-800/16 px-5 py-3.5 font-semibold text-ink-800 hover:border-navy-800/30 hover:text-navy-900 transition-colors"><Icon name="file" size={18} /> Download résumé</a>
+          <a href={url('/contact')} data-magnetic="0.35" class="btn btn-primary">Let’s talk <Icon name="arrow" size={18} /></a>
+          <a href={`${url('/contact')}#resumes`} data-magnetic="0.3" class="btn btn-secondary"><Icon name="file" size={18} /> Download résumé</a>
         </div>
       </div>
     </div>

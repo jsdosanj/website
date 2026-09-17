@@ -33,7 +33,7 @@ const anyLive = live.length > 0 || typeof datasetDownloads === 'number';
 {anyLive ? (
   <div class="card max-w-2xl mx-auto overflow-hidden">
     <div class="flex items-center justify-between gap-3 px-5 py-3.5 border-b border-navy-800/10 bg-paper-200/60">
-      <p class="font-display text-sm font-semibold text-navy-900">Live from the lab</p>
+      <p class="font-display type-subhead font-semibold text-navy-900">Live from the lab</p>
       <span class="chip chip-active">verified at build</span>
     </div>
 
@@ -41,7 +41,7 @@ const anyLive = live.length > 0 || typeof datasetDownloads === 'number';
       <table class="w-full text-left">
         <caption class="sr-only">Published packages, with version and last activity</caption>
         <thead>
-          <tr class="mono text-[10px] uppercase tracking-[0.14em] text-ink-400">
+          <tr class="type-label text-ink-400">
             <th scope="col" class="font-medium px-5 py-2">Package</th>
             <th scope="col" class="font-medium px-5 py-2">Version</th>
             <th scope="col" class="font-medium px-5 py-2">Last push</th>
@@ -52,12 +52,12 @@ const anyLive = live.length > 0 || typeof datasetDownloads === 'number';
           {live.map((r) => (
             <tr class="border-t border-navy-800/[0.08]">
               <td class="px-5 py-3">
-                <span class="mono text-[13px] font-medium text-navy-900">{r.name}</span>
-                <span class="block text-[11px] text-ink-500">{r.kind}</span>
+                <span class="type-mono font-medium text-navy-900">{r.name}</span>
+                <span class="block type-caption-2 text-ink-500">{r.kind}</span>
               </td>
-              <td class="px-5 py-3 mono text-[13px] text-ink-700">{r.version ? `v${r.version}` : '\u2014'}</td>
-              <td class="px-5 py-3 mono text-[13px] text-ink-700">{r.pushedAt ? relativeFromNow(r.pushedAt) : '\u2014'}</td>
-              <td class="px-5 py-3 mono text-[13px] text-ink-700 text-right">{typeof r.stars === 'number' ? r.stars : '\u2014'}</td>
+              <td class="px-5 py-3 type-mono text-ink-700">{r.version ? `v${r.version}` : '\u2014'}</td>
+              <td class="px-5 py-3 type-mono text-ink-700">{r.pushedAt ? relativeFromNow(r.pushedAt) : '\u2014'}</td>
+              <td class="px-5 py-3 type-mono text-ink-700 text-right">{typeof r.stars === 'number' ? r.stars : '\u2014'}</td>
             </tr>
           ))}
         </tbody>
@@ -65,18 +65,18 @@ const anyLive = live.length > 0 || typeof datasetDownloads === 'number';
     )}
 
     {typeof datasetDownloads === 'number' && (
-      <p class="px-5 py-3.5 border-t border-navy-800/[0.08] text-sm text-ink-600">
+      <p class="px-5 py-3.5 border-t border-navy-800/[0.08] type-subhead text-ink-600">
         <span class="mono font-semibold text-navy-900">{datasetDownloads.toLocaleString()}</span> downloads of the
         Sikh Library dataset on HuggingFace.
       </p>
     )}
 
-    <p class="px-5 py-3 border-t border-navy-800/[0.08] text-[11px] text-ink-500">
+    <p class="px-5 py-3 border-t border-navy-800/[0.08] type-caption-2 text-ink-500">
       Fetched from GitHub, PyPI, and HuggingFace at build time \u2014 not hand-maintained.
     </p>
   </div>
 ) : (
-  <p class="max-w-2xl mx-auto text-center text-sm text-ink-500">
+  <p class="max-w-2xl mx-auto text-center type-subhead text-ink-500">
     Live release data is temporarily unavailable \u2014 see the source links on each card below.
   </p>
 )}

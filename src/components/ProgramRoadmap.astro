@@ -49,7 +49,7 @@ const GRID = 'md:grid md:grid-cols-[14rem_1fr_10.75rem]';
   <!-- Legend -->
   <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-5">
     {(['program', 'ic', 'contract'] as const).map((t) => (
-      <span class="inline-flex items-center gap-2 text-[12px] text-ink-600">
+      <span class="inline-flex items-center gap-2 type-caption text-ink-600">
         <span class:list={['h-3 w-6 rounded-[3px] shrink-0', trackClass[t]]} aria-hidden="true"></span>
         {trackLabel[t]}
       </span>
@@ -59,15 +59,15 @@ const GRID = 'md:grid md:grid-cols-[14rem_1fr_10.75rem]';
   <div class="card overflow-hidden">
     <!-- Year axis — chart column only, hidden with the chart on small screens -->
     <div class:list={['hidden border-b border-navy-800/10 bg-paper-200/60', GRID]} aria-hidden="true">
-      <div class="px-4 py-2 mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-400">Role</div>
+      <div class="px-4 py-2 type-label font-semibold text-ink-400">Role</div>
       <div class="relative h-8">
         <div class="absolute inset-y-0 left-3 right-3">
           {years.map((y) => (
-            <span class="absolute top-2 mono text-[10px] text-ink-400 -translate-x-1/2" style={`left:${pct(y)}%`}>{y}</span>
+            <span class="absolute top-2 type-mono-sm text-ink-400 -translate-x-1/2" style={`left:${pct(y)}%`}>{y}</span>
           ))}
         </div>
       </div>
-      <div class="pl-2 pr-4 py-2 mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-400 md:text-right">Span</div>
+      <div class="pl-2 pr-4 py-2 type-label font-semibold text-ink-400 md:text-right">Span</div>
     </div>
 
     <table class="w-full text-left">
@@ -86,8 +86,8 @@ const GRID = 'md:grid md:grid-cols-[14rem_1fr_10.75rem]';
           return (
             <tr class:list={['border-t border-navy-800/[0.07] md:items-center hover:bg-paper-200/50 transition-colors', GRID]}>
               <th scope="row" class="block px-4 pt-2.5 pb-1 md:py-2.5 font-normal align-middle">
-                <span class="block text-[13px] font-semibold text-navy-900 leading-snug">{r.title}</span>
-                <span class="block text-[12px] text-navy-600 leading-snug">{r.company}</span>
+                <span class="block type-footnote font-semibold text-navy-900 leading-snug">{r.title}</span>
+                <span class="block type-caption text-navy-600 leading-snug">{r.company}</span>
               </th>
               <td class="hidden md:block roadmap-lane" aria-hidden="true">
                 <div class="absolute inset-y-0 left-3 right-3">
@@ -98,7 +98,7 @@ const GRID = 'md:grid md:grid-cols-[14rem_1fr_10.75rem]';
                   ></span>
                 </div>
               </td>
-              <td class="block px-4 pb-2.5 md:pl-2 md:pr-4 md:py-2.5 mono text-[11px] text-ink-500 md:text-right whitespace-nowrap">{r.date}</td>
+              <td class="block px-4 pb-2.5 md:pl-2 md:pr-4 md:py-2.5 type-mono-sm text-ink-500 md:text-right md:whitespace-nowrap">{r.date}</td>
             </tr>
           );
         })}
@@ -106,7 +106,7 @@ const GRID = 'md:grid md:grid-cols-[14rem_1fr_10.75rem]';
     </table>
   </div>
 
-  <p class="mt-3 text-[12px] text-ink-500">
+  <p class="mt-3 type-caption text-ink-500">
     Bars are to scale. Where they overlap, the work overlapped — contract engagements ran alongside a full-time role.
   </p>
 </div>

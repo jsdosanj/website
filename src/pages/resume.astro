@@ -36,12 +36,12 @@ const jsonld = {
     <div class="no-print reveal is-visible flex flex-wrap items-end justify-between gap-4 max-w-[62rem] mx-auto mb-8">
       <div>
         <p class="eyebrow">Résumé</p>
-        <h1 class="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-navy-900" data-kinetic>
+        <h1 class="mt-3 type-title-1 font-bold text-navy-900" data-kinetic>
           <span class="kin-line"><span class="kin-inner">Résumé</span></span>
         </h1>
       </div>
       <div class="flex flex-wrap gap-2">
-        <button type="button" id="resume-print" data-magnetic="0.25" class="inline-flex items-center gap-2 rounded-xl bg-kesari-500 text-navy-950 px-4 py-2.5 text-sm font-semibold hover:bg-kesari-400 transition-colors">
+        <button type="button" id="resume-print" data-magnetic="0.25" class="btn btn-primary type-subhead">
           <Icon name="file" size={16} /> Print / Save as PDF
         </button>
       </div>
@@ -49,7 +49,7 @@ const jsonld = {
 
     <!-- PDF download — same content as the page below, in a 2-page ATS layout -->
     <div class="no-print reveal max-w-[62rem] mx-auto mb-8" data-role-tabs>
-      <p class="mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500 mb-2.5">Prefer the PDF?</p>
+      <p class="type-label font-semibold text-ink-500 mb-2.5">Prefer the PDF?</p>
       <div role="tablist" aria-label="Résumé variant" class="flex flex-wrap gap-1.5">
         {site.resumes.map((r, i) => (
           <a
@@ -69,18 +69,18 @@ const jsonld = {
     <!-- The résumé document itself -->
     <article class="resume-doc max-w-[62rem] mx-auto card border-glow p-8 sm:p-12">
       <header class="pb-8 hairline">
-        <h2 class="font-display text-2xl sm:text-3xl font-bold text-navy-900">{site.founder}</h2>
+        <h2 class="type-title-2 font-bold text-navy-900">{site.founder}</h2>
         <p class="mt-1.5 text-kesari-700 font-medium">{site.tagline}</p>
-        <p class="mt-4 text-sm leading-relaxed text-ink-600 max-w-3xl">{site.positioning}</p>
-        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        <p class="mt-4 type-subhead leading-relaxed text-ink-600 max-w-3xl">{site.positioning}</p>
+        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 type-subhead">
           <span class="text-ink-600">{site.location}</span>
-          <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="text-kesari-700 hover:underline underline-offset-4">linkedin.com/in/jasvantsd</a>
-          <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="text-kesari-700 hover:underline underline-offset-4">github.com/jsdosanj</a>
-          <a href={url('/contact')} class="text-kesari-700 hover:underline underline-offset-4">{site.url.replace('https://', '')}</a>
+          <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="link-control text-navy-700 hover:underline underline-offset-4">linkedin.com/in/jasvantsd</a>
+          <a href={site.socials.github} target="_blank" rel="noopener noreferrer" class="link-control text-navy-700 hover:underline underline-offset-4">github.com/jsdosanj</a>
+          <a href={url('/contact')} class="link-control text-navy-700 hover:underline underline-offset-4">{site.url.replace('https://', '')}</a>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
           {site.roles.map((r) => (
-            <span class="mono rounded-lg bg-navy-900/[0.04] border border-navy-800/12 text-ink-800 px-2.5 py-1 text-[12px]">{r}</span>
+            <span class="mono rounded-lg bg-navy-900/[0.04] border border-navy-800/12 text-ink-800 px-2.5 py-1 type-caption">{r}</span>
           ))}
         </div>
       </header>
@@ -90,13 +90,13 @@ const jsonld = {
         <div class="mt-5 space-y-6">
           {experience.map((role) => (
             <div class="resume-entry">
-              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
-                <h4 class="font-display text-base font-semibold text-navy-900">{role.title} <span class="text-kesari-700 font-normal">· {role.company}</span></h4>
-                <span class="mono text-xs text-ink-500 shrink-0">{role.date}</span>
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h4 class="font-display type-callout font-semibold text-navy-900">{role.title} <span class="text-kesari-700 font-normal">· {role.company}</span></h4>
+                <span class="type-mono-sm text-ink-500 shrink-0">{role.date}</span>
               </div>
               <ul class="mt-2 space-y-1.5">
                 {role.bullets.map((b) => (
-                  <li class="flex gap-2.5 text-sm text-ink-600 leading-relaxed"><span class="mt-1.5 h-1 w-1 rounded-full bg-navy-600 shrink-0"></span><span>{b}</span></li>
+                  <li class="flex gap-2.5 type-subhead text-ink-600 leading-relaxed"><span class="mt-1.5 h-1 w-1 rounded-full bg-navy-600 shrink-0"></span><span>{b}</span></li>
                 ))}
               </ul>
             </div>
@@ -110,12 +110,12 @@ const jsonld = {
           <div class="mt-5 space-y-4">
             {education.map((e) => (
               <div class="resume-entry">
-                <div class="flex items-baseline justify-between gap-3">
-                  <h4 class="font-display text-sm font-semibold text-navy-900">{e.credential}</h4>
-                  {e.date && <span class="mono text-[11px] text-ink-500 shrink-0">{e.date}</span>}
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                  <h4 class="font-display type-subhead font-semibold text-navy-900">{e.credential}</h4>
+                  {e.date && <span class="type-mono-sm text-ink-500 shrink-0">{e.date}</span>}
                 </div>
-                <p class="text-kesari-700 text-sm">{e.school}</p>
-                {e.detail && <p class="mt-1 text-xs text-ink-600">{e.detail}</p>}
+                <p class="text-kesari-700 type-subhead">{e.school}</p>
+                {e.detail && <p class="mt-1 type-caption text-ink-600">{e.detail}</p>}
               </div>
             ))}
           </div>
@@ -124,7 +124,7 @@ const jsonld = {
           <h3 class="eyebrow">Certifications</h3>
           <ul class="mt-5 space-y-1.5">
             {certifications.map((c) => (
-              <li class="flex gap-2.5 text-sm text-ink-700"><Icon name="shield" size={14} class="text-kesari-600/90 shrink-0 mt-0.5" /><span>{c}</span></li>
+              <li class="flex gap-2.5 type-subhead text-ink-700"><Icon name="shield" size={14} class="text-kesari-600/90 shrink-0 mt-0.5" /><span>{c}</span></li>
             ))}
           </ul>
         </div>
@@ -135,15 +135,15 @@ const jsonld = {
         <div class="mt-5 space-y-4">
           {skillGroups.map((g) => (
             <div class="resume-entry">
-              <p class="text-sm font-semibold text-navy-900">{g.title}</p>
-              <p class="mt-1 text-sm text-ink-600">{g.skills.join(' · ')}</p>
+              <p class="type-subhead font-semibold text-navy-900">{g.title}</p>
+              <p class="mt-1 type-subhead text-ink-600">{g.skills.join(' · ')}</p>
             </div>
           ))}
         </div>
       </section>
     </article>
 
-    <p class="no-print reveal mt-8 text-center text-xs text-ink-500 max-w-[62rem] mx-auto">
+    <p class="no-print reveal mt-8 text-center type-caption text-ink-500 max-w-[62rem] mx-auto">
       This page is generated from the same source data as the rest of the site — it will never drift out of date. The PDF above is the 2-page, ATS-friendly version, current as of September 2026.
     </p>
   </section>

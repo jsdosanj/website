@@ -13,17 +13,17 @@ import { metricGroups } from '../data/value';
         <span class="grid place-items-center h-7 w-7 rounded-lg bg-paper-50 border border-navy-800/12 text-kesari-600">
           <Icon name={g.icon} size={15} />
         </span>
-        <h3 id={`kpi-${g.title.toLowerCase().replace(/\s+/g, '-')}`} class="mono text-[11px] font-semibold uppercase tracking-[0.16em] text-navy-800">{g.title}</h3>
+        <h3 id={`kpi-${g.title.toLowerCase().replace(/\s+/g, '-')}`} class="type-label font-semibold text-navy-800">{g.title}</h3>
       </header>
       <dl class="divide-y divide-navy-800/[0.07]">
         {g.metrics.map((m) => (
           <div class="flex items-baseline gap-4 px-5 py-3.5">
-            <dd class="metric-value text-2xl sm:text-[1.7rem] shrink-0 tabular-nums">
-              {m.value}{m.unit && <span class="text-base font-semibold text-kesari-700">{m.unit}</span>}
+            <dd class="type-metric shrink-0">
+              {m.value}{m.unit && <span class="type-callout font-semibold text-kesari-700">{m.unit}</span>}
             </dd>
             <dt class="min-w-0">
-              <span class="block text-[13px] leading-snug text-ink-700">{m.label}</span>
-              <span class="block mono text-[10.5px] leading-snug text-ink-400 mt-0.5">{m.source}</span>
+              <span class="block type-footnote leading-snug text-ink-700">{m.label}</span>
+              <span class="block type-mono-sm leading-snug text-ink-400 mt-0.5">{m.source}</span>
             </dt>
           </div>
         ))}
