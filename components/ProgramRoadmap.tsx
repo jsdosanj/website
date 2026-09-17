@@ -6,18 +6,26 @@ import { experience, type Role } from '@/data/experience';
  *
  * WHY HORIZONTAL, AND WHY LANES
  *
- * The previous version gave every role its own row. Twelve roles meant a chart
- * taller than the viewport, so reading the bottom of it scrolled the year axis
- * off the top — the reader lost the one piece of context that made the bars
- * mean anything. Stacking more roles made it worse, which is the wrong
- * direction for a chart that gains a row per job.
+ * The previous version gave every role its own row. A dozen roles meant a
+ * chart taller than the viewport, so reading the bottom of it scrolled the
+ * year axis off the top — the reader lost the one piece of context that made
+ * the bars mean anything. Stacking more roles made it worse, which is the
+ * wrong direction for a chart that gains a row per job.
  *
  * So time runs along the x-axis and the reader scrolls the decade instead of
  * scrolling a list. Roles are then packed into the fewest lanes that keep them
- * from colliding — twelve roles collapse to three lanes, because most of them
- * did not overlap. That makes the chart short enough to sit entirely on screen
- * (no vertical cutoff, at any breakpoint) while keeping the thing a flat list
- * hid: where two bars share a column, the work genuinely ran concurrently.
+ * from colliding, because most of them did not overlap. That makes the chart
+ * short enough to sit entirely on screen (no vertical cutoff, at any
+ * breakpoint) while keeping the thing a flat list hid: where two bars share a
+ * column, the work genuinely ran concurrently.
+ *
+ * ONE ROLE CAN DRAW MORE THAN ONE BAR
+ *
+ * A role with `sections` held one official title across materially different
+ * jobs — the UW entry does — so it draws a segment per section in that
+ * section's own track colour. The bar changes colour where the job changed
+ * while staying one labelled role, which is the honest picture: the scope
+ * moved, the title did not.
  *
  * PACKING BY LABEL, NOT BY BAR
  *
@@ -70,6 +78,19 @@ const LABEL_YEARS = 1.05;
 /** A role's footprint on the axis: its bar, or its label if that runs longer. */
 function extent(r: Role) {
   return Math.max(r.end ?? NOW, r.start + LABEL_YEARS);
+}
+
+/**
+ * The bar pieces a role draws. A role that held one official title across two
+ * different jobs (`sections`) gets one segment per section, each in its own
+ * track colour, so the bar changes colour where the job changed while staying
+ * a single labelled role. Everything else is one segment.
+ */
+function segmentsOf(r: Role) {
+  const src = r.sections?.length
+    ? r.sections.map((sec) => ({ start: sec.start, end: sec.end ?? NOW, track: sec.track, label: sec.label }))
+    : [{ start: r.start, end: r.end ?? NOW, track: r.track, label: r.date }];
+  return src.sort((a, b) => a.start - b.start);
 }
 
 /**
@@ -167,11 +188,33 @@ export default function ProgramRoadmap() {
                         className="rm-role"
                         style={{ left: `${from * 100}%`, width: `${width * 100}%` }}
                       >
-                        <span
-                          className={`roadmap-bar rm-bar ${trackClass[r.track]}`}
-                          style={{ '--from': from, '--inv': 1 / width } as React.CSSProperties}
-                          title={`${r.shortLabel} · ${r.date}`}
-                        />
+                        {segmentsOf(r).map((seg) => {
+                          // Positioned within the role box, but --from/--inv
+                          // stay AXIS fractions: --play is an axis position,
+                          // so a segment's fill must be derived against the
+                          // axis, not against its parent.
+                          const segFrom = frac(seg.start);
+                          const segWidth = Math.max(frac(seg.end) - segFrom, 0.004);
+                          const left = ((segFrom - from) / width) * 100;
+                          const w = (segWidth / width) * 100;
+                          return (
+                            <span
+                              key={seg.label}
+                              className={`roadmap-bar rm-bar ${trackClass[seg.track]}`}
+                              style={
+                                {
+                                  left: `${left}%`,
+                                  // 2px short so abutting segments, and the
+                                  // next role, stay visually separate.
+                                  width: `calc(${w}% - 2px)`,
+                                  '--from': segFrom,
+                                  '--inv': 1 / segWidth,
+                                } as React.CSSProperties
+                              }
+                              title={`${r.shortLabel} · ${seg.label}`}
+                            />
+                          );
+                        })}
                         <span className="rm-label">
                           <span className="rm-label__title type-footnote">{r.title}</span>
                           <span className="rm-label__org type-caption">{r.company}</span>

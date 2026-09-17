@@ -121,14 +121,40 @@ export default function Resume() {
                     </h4>
                     <span className="type-mono-sm text-ink-500 shrink-0">{role.date}</span>
                   </div>
-                  <ul className="mt-2 space-y-1.5" role="list">
-                    {role.bullets.map((b) => (
-                      <li key={b} className="flex gap-2.5 type-subhead text-ink-600 leading-relaxed">
-                        <span className="mt-1.5 h-1 w-1 rounded-full bg-navy-600 shrink-0" aria-hidden="true" />
-                        <span className="min-w-0">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {role.note && <p className="mt-1.5 type-caption text-ink-500">{role.note}</p>}
+
+                  {/* One official title, more than one job: the sections keep
+                      the title as UW would confirm it while giving each scope
+                      its own dates and bullets. */}
+                  {role.sections?.map((section) => (
+                    <div key={section.label} className="mt-4">
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                        <h5 className="font-display type-subhead font-semibold text-navy-700">
+                          {section.label}
+                        </h5>
+                        <span className="type-mono-sm text-ink-500 shrink-0">{section.date}</span>
+                      </div>
+                      <ul className="mt-2 space-y-1.5" role="list">
+                        {section.bullets.map((b) => (
+                          <li key={b} className="flex gap-2.5 type-subhead text-ink-600 leading-relaxed">
+                            <span className="mt-1.5 h-1 w-1 rounded-full bg-navy-600 shrink-0" aria-hidden="true" />
+                            <span className="min-w-0">{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+
+                  {role.bullets && (
+                    <ul className="mt-2 space-y-1.5" role="list">
+                      {role.bullets.map((b) => (
+                        <li key={b} className="flex gap-2.5 type-subhead text-ink-600 leading-relaxed">
+                          <span className="mt-1.5 h-1 w-1 rounded-full bg-navy-600 shrink-0" aria-hidden="true" />
+                          <span className="min-w-0">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>

@@ -1069,15 +1069,15 @@ h1, h2, h3, h4, h5, h6 {
    (::before scaled by --play/--from/--inv) and the colours come from
    .roadmap-bar and .roadmap-bar-* unchanged. */
 .rm-bar {
+  /* `left` and `width` are set inline per segment, because a role can draw
+     more than one bar: the UW entry is a single title whose scope changed, so
+     it renders as two abutting segments in different track colours. Each
+     segment's width is calc(n% - 2px), which is what keeps abutting segments
+     — and consecutive roles, three of which abut to the month in lane one —
+     from reading as one continuous bar. At 150–200px per year that hairline
+     is about four days, against dates quoted to the month. */
   position: absolute;
   top: 0;
-  left: 0;
-  /* 2px short of the role's true right edge. Consecutive roles in a lane often
-     abut to the month — three of them do in lane one — and without this gap
-     they render as one continuous bar with no visible boundary. At 150–200px
-     per year that hairline is about four days, against dates quoted to the
-     month. */
-  right: 2px;
   translate: none;
   height: 1.15rem;
   border-radius: 0.3rem;
