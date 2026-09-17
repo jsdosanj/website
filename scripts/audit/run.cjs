@@ -24,6 +24,7 @@ const CHECKS = [
   ['hit-targets', '44pt minimum control size'],
   ['text-scaling', '200% text with layout untouched'],
   ['motion', 'reduced motion, focus ring, press states'],
+  ['roadmap', 'career roadmap geometry: packing invariant, no overlap'],
 ];
 
 /**

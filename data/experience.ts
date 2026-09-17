@@ -37,7 +37,13 @@ export type Role = {
    * Newest first, like the role list itself.
    */
   sections?: RoleSection[];
-  /** Shown under the title where the sections need a word of explanation. */
+  /**
+   * Shown under the title where the sections need a word of explanation.
+   * Describes the scopes, not the title history: the PDF résumé presents
+   * this period differently, and the site should not contradict it in
+   * prose. The section headings and their date ranges carry the shape of
+   * the role on their own.
+   */
   note?: string;
 };
 
@@ -92,7 +98,7 @@ export const experience: Role[] = [
     // carries its own, so the roadmap bar changes colour where the job did.
     track: 'ic',
     shortLabel: 'UW · Sr Computer Specialist',
-    note: 'One official title for the whole period. In January 2025 the scope changed to running programs and projects end to end; the title did not.',
+    note: 'Two scopes under the same role — infrastructure and security, then program and project delivery from January 2025.',
     sections: [
       {
         label: 'Program & project delivery',

@@ -104,8 +104,8 @@ export const headlineProjects: LedProject[] = [
     mark: 'rollout',
     status: 'delivered',
     facts: [
-      { label: 'Students', value: '15,000' },
-      { label: 'Schools', value: '31' },
+      { label: 'Devices', value: '15,000' },
+      { label: 'Schools inventoried', value: '31' },
       { label: 'Team', value: '6' },
       { label: 'Delivered', value: '8 weeks' },
     ],
