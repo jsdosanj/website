@@ -20,7 +20,7 @@ export type ReferenceGroup = {
 export const referenceGroups: ReferenceGroup[] = [
   {
     org: 'University of Washington — Speech & Hearing Sciences Clinic',
-    context: 'The clinical IT recovery — the clinicians on the other side of it.',
+    context: 'The clinic’s onboarding into central IT — the clinicians on the other side of it.',
     people: [
       { name: 'Susan J. Anderson', role: 'Director, Audiology Clinic' },
       { name: 'Cara Sauder', role: 'Assistant Teaching Professor' },

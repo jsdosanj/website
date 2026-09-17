@@ -37,24 +37,25 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'clinic-onboarding',
-    title: 'Rescuing an escalated clinical IT service',
+    title: 'Onboarding a clinic into central IT after its IT team left',
     org: 'University of Washington — Speech & Hearing Sciences Clinic',
-    role: 'Project Lead · Technical Project Manager',
+    role: 'Program lead · department onboarding & technical projects',
     date: '2025 – 2026',
     status: 'recovered',
     summary:
-      'A healthcare clinic running its own shadow IT, a 48-hour response time, and a faculty–IT relationship that had broken down. The trust problem was the first thing visible and the first thing fixed — the technical work only became possible after it.',
+      'A clinical department whose own IT staff had left, arriving at central IT with years of distrust aimed at the function itself. Onboarding them was a program of several projects; rebuilding the trust was the first, and nothing else could start until it was done.',
     metrics: [
       { value: '48h → 2h', label: 'SLA, a 96% reduction' },
       { value: '$30K/yr', label: 'redundant spend eliminated' },
       { value: '5', label: 'healthcare vendors coordinated' },
-      { value: 'HIPAA', label: 'audited and enforced' },
+      { value: '2 months', label: 'to rebuild the relationship' },
     ],
     situation:
-      'The Speech and Hearing Sciences Clinic sat outside centralized IT, running its own systems and servers with its own vendor contracts. Response times had drifted to roughly 48 hours, tickets went unanswered often enough that clinical staff had stopped filing them at all, and the equipment itself had been configured around IT’s convenience rather than the way clinicians actually work. That had been accumulating for years, and the relationship between the faculty and central IT was openly adversarial because of it. Because the clinic handles patient data, every one of those gaps was also a HIPAA exposure. The technical debt was real, but the first thing apparent on walking in was that it was not the blocker: nobody on either side trusted the other enough to start. That was the read taken up front, and rebuilding it was where the work began.',
+      'The Speech and Hearing Sciences Clinic ran its own IT — its own staff, systems, servers and vendor contracts — outside the college’s central function. That relationship had broken down over years: response times had drifted to roughly 48 hours, tickets went unanswered often enough that clinical staff stopped filing them at all, and equipment had been configured around IT’s convenience rather than the way clinicians actually work. Then the department’s IT staff left, and the clinic came under the College of Arts & Sciences central IT with no departmental IT of its own. What transferred was not only the systems but the distrust — and by then it was aimed at IT as a function, not at the individuals who had gone. Because the clinic handles patient data, every unaddressed gap was also a HIPAA exposure. The technical debt was real, but it was not the blocker: a department that had stopped believing IT would answer was never going to hand over its systems on the strength of a plan. That was the read taken up front, and rebuilding the relationship was the first project of the program.',
     scope: {
       inScope: [
-        'Migrate the clinic into centralized IT support, systems, and servers',
+        'Rebuild the working relationship between clinical staff and IT — the first project in the program',
+        'Migrate the clinic into centralized IT support, systems, and servers, with no departmental IT staff left to hand over from',
         'HIPAA security audit of the clinic’s existing environment, with remediation',
         'Consolidate and renegotiate five overlapping clinical vendor relationships',
         'Establish a response-time commitment the clinical staff would actually rely on',
@@ -74,31 +75,32 @@ export const caseStudies: CaseStudy[] = [
       { group: 'College finance', need: 'The duplicate spend identified and removed' },
     ],
     plan: [
-      { phase: '1 · Rebuild the relationship first', detail: 'Before proposing anything, met the clinicians on their terms and in their language and fixed several long-standing complaints immediately, with nothing asked in return — so the first thing they saw from IT was work delivered rather than a plan to approve. It took two months to get from adversarial to cooperative, and nothing else below could start until it did.' },
+      { phase: '1 · Rebuild the relationship first', detail: 'Before proposing anything, met the clinicians on their terms and in their language and fixed several long-standing complaints immediately, with nothing asked in return — so the first thing they saw from central IT was work delivered rather than a plan to approve. The distrust had been earned by the departmental team that left, which meant it could not be argued away, only outlasted. Two months to get from adversarial to cooperative, and nothing else below could start until it did.' },
       { phase: '2 · Audit before promising', detail: 'With cooperation in hand, ran the HIPAA security audit and documented every finding, so the scope was based on the real environment rather than on what either side believed was there.' },
       { phase: '3 · Vendor consolidation', detail: 'Mapped which of the five vendors owned which system, cut the overlaps, and established single-threaded ownership for each remaining contract.' },
       { phase: '4 · Migrate in clinical downtime', detail: 'Sequenced the systems and server cutover around the clinic’s patient schedule so no appointment was affected.' },
       { phase: '5 · Commit to the SLA', detail: 'Published a response-time commitment and the dispatch process behind it, so the 2-hour figure was a process rather than a promise.' },
     ],
     risks: [
-      { risk: 'Clinicians refuse to cooperate, having been burned before', mitigation: 'Delivered visible early fixes with no strings attached, before asking for anything' },
+      { risk: 'Clinicians refuse to cooperate, having been burned by the IT team that just left', mitigation: 'Delivered visible early fixes with no strings attached, before asking for anything' },
       { risk: 'A HIPAA finding surfaces mid-migration and halts everything', mitigation: 'Audited up front so findings were known and planned for, not discovered' },
       { risk: 'Vendor boundaries stay ambiguous and faults ping-pong between them', mitigation: 'Documented ownership per system and made one vendor accountable for each' },
       { risk: 'Patient appointments disrupted by a cutover', mitigation: 'Scheduled all work against the clinic’s own calendar, in their downtime' },
     ],
     wentWrong:
-      'Leading with the relationship was the right call, but two months is a long time to report nothing shippable. There were no migrated systems and no closed findings to show for that stretch — only goodwill, which does not fit on a status report — while the schedule kept running and the pressure to start cutting over early kept building. Holding that line was the hardest part of the program, and it would have been easier with the trust-building written into the plan as named deliverables with dates rather than as the thing happening before the plan officially started.',
+      'Leading with the relationship was the right call, but two months is a long time to report nothing shippable. There were no migrated systems and no closed findings to show for that stretch — only goodwill, which does not fit on a status report — while the schedule ran and the clinic had no IT of its own in the meantime. Holding that line against the pressure to start cutting over early was the hardest part of the program, and it would have been easier with the trust-building written into the plan as a named project with its own deliverables and dates, rather than as the thing happening before the plan officially started.',
     outcome: [
       'Response time cut from roughly 48 hours to 2 — a 96% improvement, sustained by a published dispatch process',
       '$30,000 a year in redundant IT spend eliminated',
       'Five vendor relationships consolidated with clear technical ownership',
       'HIPAA audit findings remediated and compliance enforced under centralized IT',
+      'A department with no IT staff of its own running wholly on central IT, by design rather than by default',
       'Two months from adversarial to cooperative — the precondition for every other line here',
       'Multiple IT projects running concurrently in a department that had previously blocked single ones',
       'Clinical staff filing tickets again, and expecting an answer inside two hours',
     ],
     retro:
-      'Reading the stakeholder map before the systems diagram is what made this one work — the technical scope was never the hard part, the trust deficit was, and it was visible in the first conversation. What I would change is how it was planned rather than how it was sequenced: credibility-building was real work on the critical path, and treating it as a named phase with its own deliverables from the start would have spared me weeks of explaining why the Gantt looked empty.',
+      'Reading the stakeholder map before the systems diagram is what made this one work — the technical scope was never the hard part, the trust deficit was, and it was visible in the first conversation. The part worth carrying forward is that the deficit was inherited: it was earned by the team that left, and it still transferred to whoever showed up next wearing the same label. An onboarding inherits the outgoing team’s reputation along with its servers, so I now plan for that as a workstream. What I would change is the planning, not the sequencing: credibility-building was real work on the critical path, and treating it as a named project with deliverables and dates from the start would have spared me weeks of explaining why the Gantt looked empty.',
   },
   {
     slug: 'studio-buildout',
