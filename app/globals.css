@@ -984,11 +984,47 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: -3px;
 }
 
+/* The roadmap's two pan controls. 44pt targets per the HIG, and a disabled
+   state that is visibly inert rather than merely unresponsive — the reader can
+   tell from the button whether there is more chart in that direction. */
+.rm-nav {
+  display: grid;
+  place-items: center;
+  width: var(--control-min);
+  height: var(--control-min);
+  border-radius: 0.625rem;
+  border: 1px solid color-mix(in srgb, var(--color-navy-800) 14%, transparent);
+  background: var(--color-paper-50);
+  color: var(--color-navy-700);
+  box-shadow: var(--shadow-1);
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.rm-nav:hover:not(:disabled) {
+  background: var(--color-paper-200);
+  color: var(--color-kesari-700);
+  border-color: color-mix(in srgb, var(--color-navy-800) 24%, transparent);
+}
+.rm-nav:disabled {
+  color: var(--color-ink-400);
+  background: color-mix(in srgb, var(--color-paper-200) 70%, transparent);
+  box-shadow: none;
+  cursor: default;
+}
+
 .rm-canvas {
   --rm-year: 150px;
   --rm-label: calc(var(--rm-year) * 1.05);
   position: relative;
-  width: calc(var(--rm-year) * var(--rm-years));
+  /* Tailwind's reset sets box-sizing: border-box globally, so a declared width
+     INCLUDES the padding below. --rm-label has to be added back, or the axis
+     content box comes out --rm-label narrower than --rm-year * --rm-years and
+     the real scale drops to ~180px/year against a 200px assumption. That
+     silently breaks the packing invariant: LABEL_YEARS in ProgramRoadmap.tsx
+     is --rm-label expressed in years at --rm-year, so a label that measured
+     1.05 years would actually occupy 1.165, and packLanes would under-reserve
+     by about 11%. Keeping the content box exactly --rm-year * --rm-years is
+     what makes LABEL_YEARS = 1.05 true. */
+  width: calc(var(--rm-year) * var(--rm-years) + var(--rm-label));
   /* The label of the last role would otherwise be clipped by the canvas edge. */
   padding-right: var(--rm-label);
   padding-bottom: 0.75rem;
@@ -1056,7 +1092,7 @@ h1, h2, h3, h4, h5, h6 {
      the phone, where the label is ~157px and "Senior Computer Specialist —
      Infrastructure" does not fit in two. */
   position: relative;
-  height: 8.25rem;
+  height: 8.75rem;
 }
 .rm-role {
   position: absolute;

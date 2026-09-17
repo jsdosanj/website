@@ -1,3 +1,4 @@
+import RoadmapScroller from '@/components/RoadmapScroller';
 import { experience, type Role } from '@/data/experience';
 
 /**
@@ -36,15 +37,21 @@ import { experience, type Role } from '@/data/experience';
  *
  * THE PLAYBACK
  *
- * Bars still fill left to right as the section enters the viewport, driven by
- * the single `--play` custom property that Motion.tsx tweens on [data-roadmap]
- * (see the @property block in globals.css). Each bar derives its own progress
- * in CSS from --from and --inv, precomputed here because CSS division by a
- * custom property is not portable. `--play` rests at 1, so with no JS or under
- * reduced motion the chart renders fully drawn. The moving playhead line that
- * used to accompany it is gone: on a canvas wider than its viewport it spent
- * most of its sweep off-screen, where a cursor is worse than no cursor. The
- * fixed "today" edge marker carries that meaning instead.
+ * Bars fill left to right as the reader scrolls the chart sideways: Motion.tsx
+ * sets the single `--play` custom property on [data-roadmap] from .rm-scroll's
+ * horizontal scrollLeft, so the reader's own gesture is the playhead. It used
+ * to be a vertical-scroll ScrollTrigger tween, which settled around 0.69 and
+ * left the current role drawn as an empty outline for anyone who scrolled
+ * right to reach the present.
+ *
+ * Each bar derives its own progress in CSS from --from and --inv, precomputed
+ * here because CSS division by a custom property is not portable. Both are
+ * AXIS fractions, not fractions of the bar's own box, because --play is an
+ * axis position. `--play` rests at 1, so with no JS or under reduced motion
+ * the chart renders fully drawn. The moving playhead line is gone: on a canvas
+ * wider than its viewport it spent most of its sweep off-screen, where a
+ * cursor is worse than no cursor. The fixed "today" edge marker carries that
+ * meaning instead.
  *
  * ACCESSIBILITY
  *
@@ -131,24 +138,19 @@ export default function ProgramRoadmap() {
 
   return (
     <div className="reveal">
-      {/* Legend */}
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-4">
-        {(['program', 'ic', 'contract'] as const).map((t) => (
-          <span key={t} className="inline-flex items-center gap-2 type-caption text-ink-600">
-            <span className={`h-3 w-6 rounded-[3px] shrink-0 ${trackClass[t]}`} aria-hidden="true" />
-            {trackLabel[t]}
-          </span>
-        ))}
-      </div>
-
-      <div className="card overflow-hidden roadmap-chart" data-roadmap>
+      <RoadmapScroller
+        legend={
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {(['program', 'ic', 'contract'] as const).map((t) => (
+              <span key={t} className="inline-flex items-center gap-2 type-caption text-ink-600">
+                <span className={`h-3 w-6 rounded-[3px] shrink-0 ${trackClass[t]}`} aria-hidden="true" />
+                {trackLabel[t]}
+              </span>
+            ))}
+          </div>
+        }
+      >
         <div
-          className="rm-scroll"
-          tabIndex={0}
-          role="region"
-          aria-label="Career roadmap, scrollable horizontally"
-        >
-          <div
             className="rm-canvas"
             style={{ '--rm-years': total } as React.CSSProperties}
             aria-hidden="true"
@@ -227,21 +229,21 @@ export default function ProgramRoadmap() {
               ))}
             </div>
           </div>
-        </div>
+      </RoadmapScroller>
 
-        {/* The same data, in order, for screen readers and for print. */}
-        <ol className="sr-only">
-          {roles.map((r) => (
-            <li key={`sr-${r.company}-${r.title}`}>
-              {r.title}, {r.company}, {r.date}
-            </li>
-          ))}
-        </ol>
-      </div>
+      {/* The same data, in order, for screen readers and for print. */}
+      <ol className="sr-only">
+        {roles.map((r) => (
+          <li key={`sr-${r.company}-${r.title}`}>
+            {r.title}, {r.company}, {r.date}
+          </li>
+        ))}
+      </ol>
 
       <p className="mt-3 type-caption text-ink-500">
-        Scroll the roadmap sideways to move through the decade. Bars are to scale, and where two
-        share a column the work overlapped — contract engagements ran alongside a full-time role.
+        Pan the roadmap sideways — with the arrows above, a swipe, or the arrow keys — to move
+        through the decade. Bars are to scale, and where two share a column the work overlapped:
+        contract engagements ran alongside a full-time role.
       </p>
     </div>
   );

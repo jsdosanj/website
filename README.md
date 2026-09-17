@@ -60,6 +60,7 @@ greenfield build, a rollout), not its subject.
 | `/resume` | The live web résumé, generated from the same data as everything else |
 | `/blog` | Essays, plus recent LinkedIn posts |
 | `/contact` | Ways to connect, the PDF résumé, and the message form |
+| `/references` | Professional references — name, role and organization only, no contact details |
 | `/ai-policy` | Crawl-and-cite welcome; AI/ML training reserved |
 
 ## Develop
@@ -114,6 +115,8 @@ All content lives in `data/` as plain TypeScript — no template surgery:
 - `value.ts` — the three role lanes and the grouped KPIs, each metric carrying its source
 - `products.ts`, `skills.ts`, `education.ts`, `leadership.ts`, `seva.ts`, `journey.ts`,
   `recommendations.ts`, `posts.ts`
+- `references.ts` — professional references, grouped by organization; names, roles and
+  organizations only, deliberately no emails or phone numbers
 - `live.ts` — the fetchers behind the live release figures
 
 Images live in `public/images/`, résumés in `public/resumes/`. Open Graph images are
