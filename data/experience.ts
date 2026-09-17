@@ -24,6 +24,40 @@ export type Role = {
   track: 'program' | 'ic' | 'contract';
   /** Short label for the roadmap bar, where the full title won't fit. */
   shortLabel: string;
+  /**
+   * Bullets for a role with a single scope. A role with `sections` carries
+   * its bullets inside those instead, so this is absent — the renderers
+   * handle one or the other, and TypeScript makes them say which.
+   */
+  bullets?: string[];
+  /**
+   * Set when one official title covered materially different jobs. The
+   * roadmap draws a bar segment per section, in that section's own track
+   * colour; the résumé lists them as sections under the single title.
+   * Newest first, like the role list itself.
+   */
+  sections?: RoleSection[];
+  /** Shown under the title where the sections need a word of explanation. */
+  note?: string;
+};
+
+/**
+ * A distinct scope held under the same official title.
+ *
+ * This exists because of the UW entry: one title from Jan 2023 to Mar 2026,
+ * two substantially different jobs inside it. Splitting it into two role
+ * entries would have claimed a title that was never conferred — which an
+ * employment verification returns as a discrepancy — and merging it into one
+ * flat list of bullets would have buried the program work in the middle of an
+ * infrastructure role. Sections keep the title honest and the scope visible.
+ */
+export type RoleSection = {
+  /** Short name for the scope, e.g. 'Program & project delivery'. */
+  label: string;
+  date: string;
+  start: number;
+  end: number | null;
+  track: 'program' | 'ic' | 'contract';
   bullets: string[];
 };
 
@@ -49,33 +83,43 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Technical Project Manager',
+    title: 'Senior Computer Specialist',
     company: 'University of Washington — College of Arts & Sciences',
-    date: 'Jan 2025 – Mar 2026',
-    start: 2025 + MONTH.jan,
-    end: 2026 + MONTH.mar,
-    track: 'program',
-    shortLabel: 'UW · Technical Project Mgr',
-    bullets: [
-      'Rescued an escalated clinical department’s IT service, measured by a 96% SLA reduction (48 hours to 2) and $30,000 in annual spend eliminated, by leading the Speech and Hearing Sciences Clinic’s transition to centralized IT as Project Lead — running HIPAA security audits and coordinating five healthcare vendors, clinicians, and infrastructure stakeholders to closure.',
-      'Held college-wide IT service steady through a three-month leadership vacancy, measured by a 9-person infrastructure and help desk team — including 4 union civil-service staff — delivering uninterrupted service, by operationally leading the team, owning work assignments, and establishing formal ticket-dispatch accountability.',
-      'Kept a $250,000 annual hardware lifecycle program on budget as the team’s sole Workday buyer, measured by device forecasts aligned to every departmental budget across the college, by forecasting demand with department heads and negotiating pricing directly with Dell and Apple.',
-      'Carried personal accountability for restricted research and healthcare data as CIO and System Security Officer of UW’s Center for Social Science Computation & Research, measured by certified secure destruction of every restricted dataset under multi-state (WA/CA) and federal IES requirements, by managing the center’s data servers and personally executing and certifying each destruction.',
-      'Turned an unaudited server estate into a documented remediation plan, measured by 40 servers across multiple campus locations assessed and control gaps delivered to department heads with remediation steps, by leading NIST SP 800-53 security audits for the College of Arts & Sciences.',
-    ],
-  },
-  {
-    title: 'Senior Computer Specialist — Infrastructure',
-    company: 'University of Washington — College of Arts & Sciences',
-    date: 'Jan 2023 – Jan 2025',
+    date: 'Jan 2023 – Mar 2026',
     start: 2023 + MONTH.jan,
-    end: 2025 + MONTH.jan,
+    end: 2026 + MONTH.mar,
+    // The role's own track is the scope it started in; each section below
+    // carries its own, so the roadmap bar changes colour where the job did.
     track: 'ic',
     shortLabel: 'UW · Sr Computer Specialist',
-    bullets: [
-      'Enabled zero-touch device enrollment at college-wide scale, measured by 2,000+ devices deployed and provisioned across the College of Arts & Sciences — including 400+ Macs and iPads standardized on Jamf Pro across 40+ departments ahead of executive deadlines — by designing and administering the Windows Autopilot and Jamf enrollment and lifecycle pipeline, whose compliance framework other university departments later adopted.',
-      'Modernized network security across College of Arts & Sciences buildings without disrupting research or instruction, measured by zero downtime across six months and a migration framework later adopted by IT teams at other UW colleges, by sequencing building-by-building cutovers and documenting each step as a reusable playbook.',
-      'Ended the college’s reliance on tribal knowledge, measured by a runbook and guide library adopted as the shared reference for IT staff across the entire college rather than just the Dean’s Office team, by building its documentation hub from scratch and writing the runbooks behind it.',
+    note: 'One official title for the whole period. In January 2025 the scope changed to running programs and projects end to end; the title did not.',
+    sections: [
+      {
+        label: 'Program & project delivery',
+        date: 'Jan 2025 – Mar 2026',
+        start: 2025 + MONTH.jan,
+        end: 2026 + MONTH.mar,
+        track: 'program',
+        bullets: [
+          'Took on a clinical department that had lost its own IT staff and its trust in the function, measured by a 96% SLA reduction (48 hours to 2), $30,000 in annual spend eliminated, and clinical staff filing tickets again, by leading the program that onboarded the Speech and Hearing Sciences Clinic into central College of Arts & Sciences IT — rebuilding the faculty–IT relationship as the first project, then running HIPAA security audits and coordinating five healthcare vendors, clinicians, and infrastructure stakeholders to closure.',
+          'Held college-wide IT service steady through a three-month leadership vacancy, measured by a 9-person infrastructure and help desk team — including 4 union civil-service staff — delivering uninterrupted service, by operationally leading the team, owning work assignments, and establishing formal ticket-dispatch accountability.',
+          'Kept a $250,000 annual hardware lifecycle program on budget as the team’s sole Workday buyer, measured by device forecasts aligned to every departmental budget across the college, by forecasting demand with department heads and negotiating pricing directly with Dell and Apple.',
+          'Carried personal accountability for restricted research and healthcare data as CIO and System Security Officer of UW’s Center for Social Science Computation & Research, measured by certified secure destruction of every restricted dataset under multi-state (WA/CA) and federal IES requirements, by managing the center’s data servers and personally executing and certifying each destruction.',
+          'Turned an unaudited server estate into a documented remediation plan, measured by 40 servers across multiple campus locations assessed and control gaps delivered to department heads with remediation steps, by leading NIST SP 800-53 security audits for the College of Arts & Sciences.',
+        ],
+      },
+      {
+        label: 'Infrastructure & security',
+        date: 'Jan 2023 – Jan 2025',
+        start: 2023 + MONTH.jan,
+        end: 2025 + MONTH.jan,
+        track: 'ic',
+        bullets: [
+          'Enabled zero-touch device enrollment at college-wide scale, measured by 2,000+ devices deployed and provisioned across the College of Arts & Sciences — including 400+ Macs and iPads standardized on Jamf Pro across 40+ departments ahead of executive deadlines — by designing and administering the Windows Autopilot and Jamf enrollment and lifecycle pipeline, whose compliance framework other university departments later adopted.',
+          'Modernized network security across College of Arts & Sciences buildings without disrupting research or instruction, measured by zero downtime across six months and a migration framework later adopted by IT teams at other UW colleges, by sequencing building-by-building cutovers and documenting each step as a reusable playbook.',
+          'Ended the college’s reliance on tribal knowledge, measured by a runbook and guide library adopted as the shared reference for IT staff across the entire college rather than just the Dean’s Office team, by building its documentation hub from scratch and writing the runbooks behind it.',
+        ],
+      },
     ],
   },
   {
