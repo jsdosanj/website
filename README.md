@@ -130,25 +130,47 @@ Cloudflare **Workers**, via OpenNext — not Pages. The old setup was a git-conn
 Pages project that built Astro's `dist/`; there is no `dist/` any more.
 
 `wrangler.jsonc` holds the Worker config and `open-next.config.ts` the adapter config.
-`.github/workflows/deploy.yml` deploys on every merge to `main`, and does nothing until
-two repository secrets exist:
 
-| Secret | What it is |
+### Git-connected builds (Workers Builds)
+
+A Next app on Workers is a two-stage build: `next build` produces `.next/`, and then
+OpenNext compiles that into `.open-next/worker.js`, which is what `main` in
+`wrangler.jsonc` points at. `npm run build` only does the first stage, so it is **not**
+a valid build command here — the deploy step would find no worker module.
+
+Set these in the dashboard (Workers &amp; Pages → the Worker → Settings → Build):
+
+| Setting | Value |
 |---|---|
-| `CLOUDFLARE_API_TOKEN` | A token with the **Edit Cloudflare Workers** template |
-| `CLOUDFLARE_ACCOUNT_ID` | The account the Worker lives in |
+| Build command | `npm run build:worker` |
+| Deploy command | `npx wrangler deploy` |
+| Node version | 22 |
 
-First-time setup, once:
+`build:worker` runs the OG generation and both build stages. Note that the build needs
+`devDependencies` — `@opennextjs/cloudflare`, `tailwindcss`, `typescript`, `satori` and
+`@resvg/resvg-js` all live there — so the builder must not run with
+`NODE_ENV=production`, which would make `npm ci` skip them.
+
+### Deploying by hand
 
 ```bash
 npx wrangler login
-npm run deploy                      # creates the Worker and ships the first build
+npm run deploy      # builds both stages and deploys
 ```
 
-Then point `jasvant.dosanjhlabs.com` at the Worker (Cloudflare dashboard → Workers &
-Pages → jasvant-site → Settings → Domains & Routes → Add custom domain). A hostname can
-only be attached to one project at a time, so remove it from the old Pages project first,
-and delete or disconnect that project so it stops building on push.
+Then point `jasvant.dosanjhlabs.com` at the Worker (Settings → Domains &amp; Routes → Add
+custom domain). A hostname can only be attached to one project at a time, so remove it
+from the old Pages project first, and delete or disconnect that project so it stops
+building on push.
+
+### One deploy path, not two
+
+`.github/workflows/deploy.yml` also deploys on merge to `main`, gated on
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. If you are using git-connected
+Workers Builds, leave those secrets unset (the workflow then reports a notice and
+passes) or delete the workflow — otherwise both paths deploy the same commit.
+
+### Incremental cache
 
 Optional: `npx wrangler kv namespace create NEXT_INC_CACHE_KV`, then uncomment the
 `kv_namespaces` block in `wrangler.jsonc` and paste in the id. That gives the incremental

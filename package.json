@@ -8,6 +8,8 @@
     "og": "node scripts/generate-og.mjs",
     "prebuild": "npm run og",
     "build": "next build",
+    "prebuild:worker": "npm run og",
+    "build:worker": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
