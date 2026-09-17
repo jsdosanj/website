@@ -5,9 +5,20 @@ on:
   pull_request:
 permissions:
   contents: read
+
+# A superseded run has nothing left to tell us, and letting it finish just
+# queues the one that matters behind it.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
     runs-on: ubuntu-latest
+    # The audit takes about two minutes. Anything near this is a hang, and a
+    # hang should fail rather than hold a runner for six hours — which is what
+    # happened when the audit's server held onto the step's stderr.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

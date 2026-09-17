@@ -101,11 +101,19 @@ function portBusy() {
   // group: `npx next start` puts two wrapper processes between us and
   // next-server, and a SIGTERM to the wrapper leaves next-server orphaned and
   // still bound to the port.
+  //
+  // stdio is fully ignored, NOT inherited. A GitHub Actions step does not
+  // finish until every file descriptor it handed out is closed, so a detached
+  // server holding the step's stderr hangs the job indefinitely even after the
+  // command itself returns — which is exactly what it did, for fifteen minutes,
+  // on a run that passes in seconds locally. unref() detaches it from this
+  // process's event loop for the same reason.
   const server = spawn(path.join('node_modules', '.bin', 'next'), ['start', '--port', PORT], {
-    stdio: ['ignore', 'ignore', 'inherit'],
+    stdio: 'ignore',
     env: process.env,
     detached: true,
   });
+  server.unref();
 
   let stopped = false;
   const stop = () => {
@@ -114,13 +122,27 @@ function portBusy() {
     // Negative pid = the whole process group, so nothing survives us.
     try { process.kill(-server.pid, 'SIGTERM'); } catch {}
   };
+
+  /** Give the server a moment to actually die before this process exits. */
+  const stopAndWait = async () => {
+    stop();
+    for (let i = 0; i < 20; i++) {
+      try {
+        process.kill(server.pid, 0); // throws once the process is gone
+      } catch {
+        return;
+      }
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    try { process.kill(-server.pid, 'SIGKILL'); } catch {}
+  };
   process.on('exit', stop);
   process.on('SIGINT', () => { stop(); process.exit(130); });
   process.on('SIGTERM', () => { stop(); process.exit(143); });
 
   if (!(await waitForServer())) {
     console.error(`server never came up on ${BASE}`);
-    stop();
+    await stopAndWait();
     process.exit(1);
   }
 
@@ -129,7 +151,7 @@ function portBusy() {
     console.log(`preflight: ${BASE} serving ${sheets.length} stylesheet(s), all resolvable`);
   } catch (err) {
     console.error(`\npreflight FAILED: ${err.message}\n`);
-    stop();
+    await stopAndWait();
     process.exit(1);
   }
 
@@ -143,7 +165,7 @@ function portBusy() {
     if (r.status !== 0) failed++;
   }
 
-  stop();
+  await stopAndWait();
   console.log(`\n${failed ? `${failed} check(s) reported failures` : 'all checks clean'}`);
   process.exit(failed ? 1 : 0);
 })();
