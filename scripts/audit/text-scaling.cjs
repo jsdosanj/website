@@ -46,7 +46,7 @@ const { BASE, PATHS, VIEWPORTS, browser } = require('./lib.cjs');
       return { clipped: out, doc };
     });
     tot += r.clipped.length; worst = Math.max(worst, r.doc);
-    console.log('  ' + path.padEnd(11) + (r.clipped.length ? r.clipped.length + ' clipped' : 'ok').padEnd(12) + 'doc overflow ' + r.doc + 'px');
+    console.log('  ' + path.padEnd(12) + (r.clipped.length ? r.clipped.length + ' clipped' : 'ok').padEnd(12) + 'doc overflow ' + r.doc + 'px');
     r.clipped.slice(0, 3).forEach(x => console.log('      ' + x));
     await p.close();
   }

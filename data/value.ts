@@ -83,7 +83,7 @@ export const metricGroups: MetricGroup[] = [
     icon: 'server',
     metrics: [
       { value: '9', label: 'person team led through a vacancy', source: 'UW · incl. 4 union civil-service staff' },
-      { value: '15,000', label: 'students equipped 1:1', source: 'Rochester · across 31 schools' },
+      { value: '15,000', label: 'students equipped 1:1', source: 'Rochester · one device per student, 31 schools inventoried' },
       { value: '2,000+', label: 'devices on zero-touch enrollment', source: 'UW · Autopilot + Jamf pipeline' },
       { value: '5,000+', label: 'engineers unblocked on Linux', source: 'Meta · BeyondTrust porting docs' },
     ],

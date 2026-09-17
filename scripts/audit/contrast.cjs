@@ -147,7 +147,7 @@ const PAGE_FN = () => {
         if (!gradText.has(k)) gradText.set(k, { ...g, where: path });
       }
       console.log(
-        path.padEnd(11),
+        path.padEnd(12),
         String(w).padStart(5),
         ('overflow ' + r.of + 'px').padEnd(15),
         ('contrast fails: ' + r.fails.length).padEnd(20),

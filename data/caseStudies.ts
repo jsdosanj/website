@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     date: '2025 – 2026',
     status: 'recovered',
     summary:
-      'A healthcare clinic running its own shadow IT, a 48-hour response time, and a faculty–IT relationship that had broken down. Centralizing it meant fixing the trust problem before the technical one.',
+      'A healthcare clinic running its own shadow IT, a 48-hour response time, and a faculty–IT relationship that had broken down. The trust problem was the first thing visible and the first thing fixed — the technical work only became possible after it.',
     metrics: [
       { value: '48h → 2h', label: 'SLA, a 96% reduction' },
       { value: '$30K/yr', label: 'redundant spend eliminated' },
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
       { value: 'HIPAA', label: 'audited and enforced' },
     ],
     situation:
-      'The Speech and Hearing Sciences Clinic sat outside centralized IT, running its own systems and servers with its own vendor contracts. Response times had drifted to roughly 48 hours, clinical staff had stopped filing tickets because filing them had stopped working, and the relationship between the faculty and central IT was openly adversarial. Because the clinic handles patient data, every one of those gaps was also a HIPAA exposure. The technical debt was real, but the reason nothing had been fixed for years was that nobody on either side trusted the other enough to start.',
+      'The Speech and Hearing Sciences Clinic sat outside centralized IT, running its own systems and servers with its own vendor contracts. Response times had drifted to roughly 48 hours, tickets went unanswered often enough that clinical staff had stopped filing them at all, and the equipment itself had been configured around IT’s convenience rather than the way clinicians actually work. That had been accumulating for years, and the relationship between the faculty and central IT was openly adversarial because of it. Because the clinic handles patient data, every one of those gaps was also a HIPAA exposure. The technical debt was real, but the first thing apparent on walking in was that it was not the blocker: nobody on either side trusted the other enough to start. That was the read taken up front, and rebuilding it was where the work began.',
     scope: {
       inScope: [
         'Migrate the clinic into centralized IT support, systems, and servers',
@@ -74,8 +74,8 @@ export const caseStudies: CaseStudy[] = [
       { group: 'College finance', need: 'The duplicate spend identified and removed' },
     ],
     plan: [
-      { phase: '1 · Audit before promising', detail: 'Ran the HIPAA security audit first and documented every finding, so the scope was based on the real environment rather than on what either side believed was there.' },
-      { phase: '2 · Rebuild the relationship', detail: 'Met the clinicians on their terms and in their language, fixed several long-standing complaints immediately, and used those as proof that the migration was worth their cooperation.' },
+      { phase: '1 · Rebuild the relationship first', detail: 'Before proposing anything, met the clinicians on their terms and in their language and fixed several long-standing complaints immediately, with nothing asked in return — so the first thing they saw from IT was work delivered rather than a plan to approve. It took two months to get from adversarial to cooperative, and nothing else below could start until it did.' },
+      { phase: '2 · Audit before promising', detail: 'With cooperation in hand, ran the HIPAA security audit and documented every finding, so the scope was based on the real environment rather than on what either side believed was there.' },
       { phase: '3 · Vendor consolidation', detail: 'Mapped which of the five vendors owned which system, cut the overlaps, and established single-threaded ownership for each remaining contract.' },
       { phase: '4 · Migrate in clinical downtime', detail: 'Sequenced the systems and server cutover around the clinic’s patient schedule so no appointment was affected.' },
       { phase: '5 · Commit to the SLA', detail: 'Published a response-time commitment and the dispatch process behind it, so the 2-hour figure was a process rather than a promise.' },
@@ -87,16 +87,18 @@ export const caseStudies: CaseStudy[] = [
       { risk: 'Patient appointments disrupted by a cutover', mitigation: 'Scheduled all work against the clinic’s own calendar, in their downtime' },
     ],
     wentWrong:
-      'The first mistake was treating it as a migration project. The initial plan was technically sound and went nowhere, because it asked a department that had lost faith in IT to hand over its systems on trust it did not have. The plan had to be re-sequenced to put relationship repair ahead of the technical work — fixing smaller irritations first, with nothing asked in return, to earn the standing to do the migration at all. That cost weeks that a better read of the stakeholder map would have saved.',
+      'Leading with the relationship was the right call, but two months is a long time to report nothing shippable. There were no migrated systems and no closed findings to show for that stretch — only goodwill, which does not fit on a status report — while the schedule kept running and the pressure to start cutting over early kept building. Holding that line was the hardest part of the program, and it would have been easier with the trust-building written into the plan as named deliverables with dates rather than as the thing happening before the plan officially started.',
     outcome: [
       'Response time cut from roughly 48 hours to 2 — a 96% improvement, sustained by a published dispatch process',
       '$30,000 a year in redundant IT spend eliminated',
       'Five vendor relationships consolidated with clear technical ownership',
       'HIPAA audit findings remediated and compliance enforced under centralized IT',
-      'A working faculty–IT relationship, which is what made the rest hold',
+      'Two months from adversarial to cooperative — the precondition for every other line here',
+      'Multiple IT projects running concurrently in a department that had previously blocked single ones',
+      'Clinical staff filing tickets again, and expecting an answer inside two hours',
     ],
     retro:
-      'Read the stakeholder map before the systems diagram. The technical scope was never the hard part; the trust deficit was, and it was visible from the first conversation if I had been listening for it. On anything inherited and escalated, I now budget the first phase for credibility rather than delivery.',
+      'Reading the stakeholder map before the systems diagram is what made this one work — the technical scope was never the hard part, the trust deficit was, and it was visible in the first conversation. What I would change is how it was planned rather than how it was sequenced: credibility-building was real work on the critical path, and treating it as a named phase with its own deliverables from the start would have spared me weeks of explaining why the Gantt looked empty.',
   },
   {
     slug: 'studio-buildout',
@@ -165,26 +167,27 @@ export const caseStudies: CaseStudy[] = [
     slug: 'district-rollout',
     title: '15,000 students to 1:1 devices in eight weeks',
     org: 'Rochester Community Schools',
-    role: 'Operational IT lead · directed six technical assistants',
+    role: 'Lead Technical Consultant · operational IT lead',
     date: '2020',
     status: 'delivered',
     summary:
-      'A district-wide closure, no remote-learning capability, and a deadline set by the school calendar. Thirty-one schools had to go 1:1 and teachers had to be able to actually teach on it.',
+      'A district-wide closure, no remote-learning capability, and a deadline set by the school calendar. Every one of 15,000 students needed a device, every machine already in 31 schools needed counting, and teachers had to be able to actually teach on it.',
     metrics: [
       { value: '15,000', label: 'students equipped 1:1' },
-      { value: '31', label: 'schools covered' },
+      { value: '31', label: 'schools inventoried' },
       { value: '8 weeks', label: 'from start to complete' },
       { value: 'District-wide', label: 'curriculum adoption' },
     ],
     situation:
-      'COVID-19 closed the district with no remote-learning capability in place. Fifteen thousand students across thirty-one schools needed devices, the asset inventory was incomplete enough that nobody knew what the district already owned, and teachers had no training on the tools they were about to depend on entirely. The deadline was the school calendar, which does not move. The team was six technical assistants across seven school sites, and the work had to happen while buildings were closed.',
+      'COVID-19 closed the district with no remote-learning capability in place. All 15,000 students needed a Chromebook each, the asset inventory was incomplete enough that nobody knew what the district already owned, and teachers had no training on the tools they were about to depend on entirely. The deadline was the school calendar, which does not move. The two halves of the job pulled against each other: with buildings closed, distribution had to run out of a single district staging site rather than school by school — one queue, one staging area, six technical assistants, every device passing through it — while the inventory had to reach into all 31 schools, every cart, lab and classroom, to count what was there and pull what was dead.',
     scope: {
       inScope: [
-        '1:1 Chromebook rollout to 15,000 students across 31 schools',
-        'Full district asset inventory, built while distributing',
+        '1:1 Chromebook rollout — a device for every one of 15,000 students, staged from a single district site',
+        'Asset inventory of every computer and laptop in all 31 schools — every cart, lab and classroom',
+        'Decommissioning and recycling end-of-life desktops and laptops as the count went',
         'Google Workspace remote-learning curriculum for teachers',
         'Train-the-trainer so IT staff at each school could deliver it',
-        'Directing six technical assistants across seven sites',
+        'Directing six technical assistants, and personally leading the work in 10 of the 31 schools',
       ],
       outOfScope: [
         'Academic curriculum and instructional design — owned by teaching staff',
@@ -197,29 +200,30 @@ export const caseStudies: CaseStudy[] = [
       { group: 'Teachers', need: 'Training that worked for non-technical staff under time pressure' },
       { group: 'Families', need: 'Devices in hand, with the handover working around closure restrictions' },
       { group: 'District administration', need: 'An accurate asset inventory and accountability for 15,000 devices' },
-      { group: 'Six technical assistants', need: 'Clear assignments across seven sites with no ambiguity about ownership' },
+      { group: 'Six technical assistants', need: 'An owned stage on the staging line and an owned set of schools, with no ambiguity either way' },
     ],
     plan: [
-      { phase: '1 · Inventory as you go', detail: 'Built the asset inventory during distribution rather than before it — waiting for a clean inventory would have cost weeks the calendar did not have.' },
-      { phase: '2 · Parallelize by site', detail: 'Assigned each technical assistant a defined set of schools with end-to-end ownership, so thirty-one schools progressed concurrently instead of serially.' },
-      { phase: '3 · Train the trainers', detail: 'Wrote the Google Workspace remote-learning curriculum once, then trained IT staff at each school to deliver it locally — the only way to reach every teacher inside the window.' },
-      { phase: '4 · Escalation path', detail: 'Kept a single point of escalation so a blocked site could be unblocked in hours rather than waiting for a weekly check-in.' },
+      { phase: '1 · Inventory as you go', detail: 'Ran the count alongside distribution rather than before it — waiting for a clean inventory would have cost weeks the calendar did not have. Each new Chromebook was recorded to its student at handover, so distribution was its own audit trail.' },
+      { phase: '2 · Parallelize inside one site', detail: 'Split the staging line into owned stages — unboxing, enrollment, asset tagging, cart build, handout — so six people worked concurrently on different batches instead of walking each device through end to end.' },
+      { phase: '3 · Walk every room in all 31 schools', detail: 'Counted every computer and laptop in every cart, lab and classroom across the district and pulled end-of-life machines for recycling as the count went. Personally led that sweep in 10 of the 31 schools.' },
+      { phase: '4 · Train the trainers', detail: 'Wrote the Google Workspace remote-learning curriculum once, then trained IT staff at each school to deliver it locally — the only way to reach every teacher inside the window.' },
+      { phase: '5 · Escalation path', detail: 'Kept a single point of escalation so a blocked site could be unblocked in hours rather than waiting for a weekly check-in.' },
     ],
     risks: [
       { risk: 'Incomplete inventory means devices go unaccounted for', mitigation: 'Recorded each device to a student at the point of handover, making distribution the inventory' },
-      { risk: 'Six people cannot cover thirty-one schools serially', mitigation: 'Gave each assistant full ownership of a site group so the work ran in parallel' },
+      { risk: 'One distribution site becomes the throughput ceiling for the whole district', mitigation: 'Ran the staging line in parallel stages and sequenced handout by school and grade band' },
       { risk: 'Teachers receive devices they cannot teach on', mitigation: 'Built and delivered the curriculum alongside the rollout, not after it' },
       { risk: 'Closure restrictions block physical distribution', mitigation: 'Structured handover around the access the closure permitted, school by school' },
     ],
     wentWrong:
-      'The first week ran as a single centralized queue, which was the wrong shape for thirty-one sites and immediately became the bottleneck — everything waited on one dispatcher. Breaking it into site-owned workstreams fixed the throughput, but the restructure cost most of that first week. Teacher training was also underscoped at the start: the original plan trained teachers directly, which could not scale to a whole district inside eight weeks, and had to be rebuilt as train-the-trainer once that became obvious.',
+      'Teacher training was underscoped at the start. The original plan trained teachers directly, which could not scale to a whole district inside eight weeks, and had to be rebuilt as train-the-trainer once that became obvious — IT staff at each school delivering the curriculum locally instead of one team delivering it everywhere. The logistics had a second trap: distribution from one site was the right call with buildings closed, but it made that site the only place throughput could stall, while the 31-school inventory sweep pulled the same six people in the opposite direction. Sequencing handout by school and grade band, and keeping the sweep off the critical path, mattered more than it would have school by school.',
     outcome: [
-      '15,000 students across 31 schools equipped 1:1 within eight weeks',
-      'Full district asset inventory completed as a by-product of distribution',
+      '15,000 students equipped 1:1 within eight weeks — one device each, all staged from a single site',
+      'Every computer and laptop in all 31 schools inventoried, with end-of-life machines decommissioned and recycled',
       'Google Workspace remote-learning curriculum adopted district-wide at the principal’s request',
       'IT staff at every school trained to deliver the curriculum locally',
     ],
     retro:
-      'Decide the work’s shape before starting it. A centralized queue and a distributed queue are not a small difference across thirty-one sites, and the cost of guessing wrong was a week I could not get back. I also learned to scope training as delivery capacity rather than content: the question is never "is the material good" but "how many people can deliver it."',
+      'Scope training as delivery capacity rather than content. The question is never "is the material good" but "how many people can deliver it" — and answering that late cost a rebuild of the training plan mid-rollout. On the logistics, running everything through one site was right for a closed district, but it means throughput is set by the slowest stage on the line, so I would instrument the stages from day one rather than after the first backlog.',
   },
 ];

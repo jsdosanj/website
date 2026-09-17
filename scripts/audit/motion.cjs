@@ -7,7 +7,7 @@
 // computed font-size, then double those, leaving layout untouched.
 const { BASE, browser } = require('./lib.cjs');
 
-const PRESS_PATHS = ['/', '/work', '/about', '/products', '/contact', '/resume'];
+const PRESS_PATHS = ['/', '/work', '/about', '/products', '/contact', '/resume', '/references'];
 
 /**
  * Runs in the page. Returns the focus rule and every control lacking a press
@@ -125,7 +125,7 @@ function inspectMotion() {
     await p.waitForTimeout(1000);
     const r = await p.evaluate(inspectControls);
     console.log(
-      `  ${path.padEnd(11)} controls ${String(r.total).padStart(3)}   no press state: ${r.missing.length}` +
+      `  ${path.padEnd(12)} controls ${String(r.total).padStart(3)}   no press state: ${r.missing.length}` +
         `   focus ring: ${r.focus || 'MISSING'}`
     );
     [...new Set(r.missing)].slice(0, 6).forEach((m) => console.log('      ' + m));

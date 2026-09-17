@@ -167,38 +167,40 @@ export default function Motion() {
 
       // ---- THE SIGNATURE INTERACTION: the roadmap plays back ----
       //
-      // A playhead sweeps the decade left to right as the chart scrolls, bars
-      // filling as it passes and a year readout tracking underneath it — the
-      // career runs like a plan being played, not a chart appearing.
+      // The roadmap is a horizontally scrolled timeline, so the reader's own
+      // sideways scroll is the playhead: bars fill as they come into view and
+      // stay filled behind them, which makes scrolling the decade feel like
+      // playing it back rather than panning an image.
       //
-      // One animated variable does all of it. `--play` (0 → 1) drives the
-      // playhead's x position, and each bar derives its own fill from it in CSS
-      // using the --from/--inv constants the server rendered. So a
-      // sixteen-bar chart costs one tween, and the resting CSS value of --play
-      // is 1, which is why a reader with no JS sees the chart fully drawn.
+      // It used to be driven by vertical page scroll via ScrollTrigger. That
+      // broke when the chart went horizontal — `--play` settled around 0.69,
+      // so a reader who scrolled right to reach the present found the current
+      // role drawn as an empty dashed outline. Tying the fill to the gesture
+      // that reveals the bars is both correct and cheaper: one scroll
+      // listener, one custom property, no tween.
+      //
+      // `--play` is a fraction of the AXIS, so it is measured against a lane's
+      // content width — .rm-scroll's own scrollWidth includes the label
+      // padding on the canvas and would run the fill a fifth of a year late.
       const chart = document.querySelector<HTMLElement>('[data-roadmap]');
-      if (chart && !reduce) {
-        const yearEl = chart.querySelector<HTMLElement>('[data-roadmap-year]');
-        const labels = [...chart.querySelectorAll<HTMLElement>('[data-roadmap] .type-mono-sm')];
-        // Read the axis span back off the DOM rather than duplicating the data.
-        const axisYears = labels
-          .map((l) => Number(l.textContent))
-          .filter((n) => Number.isInteger(n) && n > 1900);
-        const first = Math.min(...axisYears);
-        const last = Math.max(...axisYears);
-        const state = { play: 0 };
-        gsap.set(chart, { '--play': 0 });
-        gsap.to(state, {
-          play: 1,
-          ease: 'none',
-          scrollTrigger: { trigger: chart, start: 'top 80%', end: 'bottom 60%', scrub: 0.5 },
-          onUpdate: () => {
-            chart.style.setProperty('--play', String(state.play));
-            if (yearEl && Number.isFinite(first) && Number.isFinite(last)) {
-              yearEl.textContent = String(Math.round(first + (last - first) * state.play));
-            }
-          },
-        });
+      const scroller = chart?.querySelector<HTMLElement>('.rm-scroll');
+      const lane = scroller?.querySelector<HTMLElement>('.rm-lane');
+      let detachRoadmap: (() => void) | undefined;
+      if (chart && scroller && lane && !reduce) {
+        const onRoadmapScroll = () => {
+          const axis = lane.clientWidth;
+          if (!axis) return;
+          // Everything left of the viewport's right edge has been seen.
+          const seen = (scroller.scrollLeft + scroller.clientWidth) / axis;
+          chart.style.setProperty('--play', String(Math.min(1, Math.max(0, seen))));
+        };
+        onRoadmapScroll();
+        scroller.addEventListener('scroll', onRoadmapScroll, { passive: true });
+        window.addEventListener('resize', onRoadmapScroll);
+        detachRoadmap = () => {
+          scroller.removeEventListener('scroll', onRoadmapScroll);
+          window.removeEventListener('resize', onRoadmapScroll);
+        };
       }
 
       // ---- In-page anchors route through Lenis while it owns scroll ----
@@ -220,6 +222,7 @@ export default function Motion() {
 
       cleanup = () => {
         anchors.forEach((a) => a.removeEventListener('click', onAnchor));
+        detachRoadmap?.();
         ScrollTrigger.getAll().forEach((t) => t.kill());
       };
     })();
