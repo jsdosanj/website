@@ -17,7 +17,7 @@ const BASE = process.env.AUDIT_BASE || 'http://localhost:4321';
 
 const PATHS = [
   '/', '/work', '/about', '/skills', '/products', '/blog', '/seva',
-  '/contact', '/resume', '/references', '/ai-policy', '/404',
+  '/contact', '/resume', '/ai-policy', '/404',
 ];
 
 /** Phone and desktop. The two widths where the layout decisions differ most. */
