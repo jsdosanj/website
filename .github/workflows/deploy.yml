@@ -10,7 +10,14 @@ name: Deploy
 #   CLOUDFLARE_ACCOUNT_ID  — the account the Worker lives in
 #
 # Without them the job reports a notice and passes, so merging never shows a
-# red X for a deploy that was never configured.
+# red X for a deploy that was never configured. The flip side: a revoked token
+# deploys nothing and still reports green, so check this job's log when a merge
+# looks deployed but the site has not changed.
+#
+# This is the only deploy path. Cloudflare's own git integration is left
+# disconnected on purpose — connected, it builds the same commit in parallel,
+# and its auto-detected `npm run build` skips the OpenNext stage and fails.
+# README's "The alternative: git-connected Workers Builds" has the details.
 on:
   push:
     branches: [main]

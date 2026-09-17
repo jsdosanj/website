@@ -131,25 +131,30 @@ Pages project that built Astro's `dist/`; there is no `dist/` any more.
 
 `wrangler.jsonc` holds the Worker config and `open-next.config.ts` the adapter config.
 
-### Git-connected builds (Workers Builds)
+### Automatic: the GitHub Actions workflow
 
-A Next app on Workers is a two-stage build: `next build` produces `.next/`, and then
-OpenNext compiles that into `.open-next/worker.js`, which is what `main` in
-`wrangler.jsonc` points at. `npm run build` only does the first stage, so it is **not**
-a valid build command here — the deploy step would find no worker module.
+`.github/workflows/deploy.yml` is the live deploy path. It runs on every push to
+`main` — which includes every PR merge — and on manual dispatch, and it needs two
+repository secrets:
 
-Set these in the dashboard (Workers &amp; Pages → the Worker → Settings → Build):
-
-| Setting | Value |
+| Secret | What it is |
 |---|---|
-| Build command | `npm run build:worker` |
-| Deploy command | `npx wrangler deploy` |
-| Node version | 22 |
+| `CLOUDFLARE_API_TOKEN` | a token with **Edit Cloudflare Workers** |
+| `CLOUDFLARE_ACCOUNT_ID` | the account the Worker lives in |
 
-`build:worker` runs the OG generation and both build stages. Note that the build needs
-`devDependencies` — `@opennextjs/cloudflare`, `tailwindcss`, `typescript`, `satori` and
-`@resvg/resvg-js` all live there — so the builder must not run with
-`NODE_ENV=production`, which would make `npm ci` skip them.
+It runs `npm run deploy`, which is both build stages plus the upload:
+`opennextjs-cloudflare build && opennextjs-cloudflare deploy`. A successful run ends
+with `Uploaded website` and a `Current Version ID`.
+
+If the secrets are absent the job reports a `::notice` and passes rather than failing,
+so a fork or a fresh clone does not show a red X for a deploy it was never configured
+to do. That also means a **revoked or mistyped token deploys nothing while still
+reporting green** — if a merge looks deployed but the site has not changed, check that
+step's log first.
+
+Cloudflare's own git integration must stay **disconnected** (the Worker → Settings →
+Build → disconnect repository). Leaving it connected gives you two paths deploying the
+same commit; see the alternative below.
 
 ### Deploying by hand
 
@@ -163,12 +168,37 @@ custom domain). A hostname can only be attached to one project at a time, so rem
 from the old Pages project first, and delete or disconnect that project so it stops
 building on push.
 
-### One deploy path, not two
+### The alternative: git-connected Workers Builds
 
-`.github/workflows/deploy.yml` also deploys on merge to `main`, gated on
-`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. If you are using git-connected
-Workers Builds, leave those secrets unset (the workflow then reports a notice and
-passes) or delete the workflow — otherwise both paths deploy the same commit.
+**Not in use.** Documented because it is the obvious thing to reach for, and because it
+fails in a way that is easy to misread.
+
+A Next app on Workers is a two-stage build: `next build` produces `.next/`, and then
+OpenNext compiles that into `.open-next/worker.js`, which is what `main` in
+`wrangler.jsonc` points at. `npm run build` only does the first stage, so it is **not**
+a valid build command here. Cloudflare auto-detects Next and sets exactly that, and the
+deploy step then fails with:
+
+```
+Could not find compiled Open Next config, did you run the build command?
+```
+
+which is `retrieveCompiledConfig()` failing to find `.open-next/.build/open-next.config.edge.mjs`
+— a file only the OpenNext stage writes. To use this path instead, set:
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build:worker` |
+| Deploy command | `npx wrangler deploy` |
+| Node version | 22 |
+
+`build:worker` runs the OG generation and both build stages. The build also needs
+`devDependencies` — `@opennextjs/cloudflare`, `tailwindcss`, `typescript`, `satori` and
+`@resvg/resvg-js` all live there — so the builder must not run with
+`NODE_ENV=production`, which would make `npm ci` skip them.
+
+Switching to this path means deleting `.github/workflows/deploy.yml` or unsetting its
+two secrets, or both paths will deploy every merge.
 
 ### Incremental cache
 
