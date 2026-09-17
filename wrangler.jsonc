@@ -29,18 +29,15 @@
   // "kv_namespaces": [
   //   { "binding": "NEXT_INC_CACHE_KV", "id": "<paste the id here>" }
   // ],
+  // Observability. `enabled` turns on metrics; the `logs` block persists
+  // invocation logs, which is what makes a failed Server Action or a bad
+  // revalidate visible after the fact rather than only while tailing.
   "observability": {
-    "enabled": true
-  }
-{
-  // ...
-  "observability": {
+    "enabled": true,
     "logs": {
       "enabled": true,
       "invocation_logs": true,
       "persist": true
     }
-  },
-  // ...
-}
+  }
 }
