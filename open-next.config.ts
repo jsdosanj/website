@@ -1,16 +1,25 @@
 import { defineCloudflareConfig } from '@opennextjs/cloudflare';
-import incrementalCache from '@opennextjs/cloudflare/overrides/incremental-cache/kv-incremental-cache';
 
 /**
  * OpenNext on Cloudflare Workers.
  *
- * The incremental cache is backed by Workers KV, which is what makes the live
- * figures in data/live.ts actually revalidate in production: without a shared
- * cache each isolate would refetch on its own schedule, and the six-hour
- * window would mean nothing. Bind a KV namespace as NEXT_INC_CACHE_KV before
- * deploying — without it the adapter falls back to no caching, which still
- * works but refetches per render.
+ * No incremental cache override, so every render of a page that reads
+ * data/live.ts refetches the GitHub / PyPI / HuggingFace figures instead of
+ * sharing the six-hour revalidate window across isolates. Those are three
+ * cheap GETs behind ISR, and the pages render fine either way.
+ *
+ * Backing the cache with Workers KV is a two-part change and both parts have
+ * to land together:
+ *
+ *   1. `npx wrangler kv namespace create NEXT_INC_CACHE_KV`, then uncomment
+ *      the `kv_namespaces` block in wrangler.jsonc with the id it prints.
+ *   2. Re-add the override here:
+ *        import incrementalCache from '@opennextjs/cloudflare/overrides/incremental-cache/kv-incremental-cache';
+ *        export default defineCloudflareConfig({ incrementalCache });
+ *
+ * Doing only (2) breaks deploys. A missing binding is survivable at runtime —
+ * the adapter treats the lookup as a miss — but `opennextjs-cloudflare deploy`
+ * runs a populateCache step first, and that step throws
+ * `No KV binding "NEXT_INC_CACHE_KV" found!` and never reaches the upload.
  */
-export default defineCloudflareConfig({
-  incrementalCache,
-});
+export default defineCloudflareConfig();

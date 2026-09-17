@@ -172,10 +172,18 @@ passes) or delete the workflow — otherwise both paths deploy the same commit.
 
 ### Incremental cache
 
-Optional: `npx wrangler kv namespace create NEXT_INC_CACHE_KV`, then uncomment the
-`kv_namespaces` block in `wrangler.jsonc` and paste in the id. That gives the incremental
-cache somewhere shared to live; without it the live release figures refetch per render
-rather than sharing the six-hour window.
+Off by default, so the live release figures refetch per render rather than sharing the
+six-hour revalidate window across isolates. To back it with Workers KV, change both
+places together:
+
+1. `npx wrangler kv namespace create NEXT_INC_CACHE_KV`, then uncomment the
+   `kv_namespaces` block in `wrangler.jsonc` with the id it prints.
+2. Re-add the `incrementalCache` override in `open-next.config.ts` (the file shows the
+   two lines).
+
+Only step 2 breaks deploys: a missing binding degrades to a cache miss at runtime, but
+`opennextjs-cloudflare deploy` populates the cache *before* uploading and throws
+`No KV binding "NEXT_INC_CACHE_KV" found!` when the override has nowhere to write.
 
 ## AI-crawler & SEO policy
 
