@@ -126,7 +126,7 @@ export const experience: Role[] = [
     track: 'program',
     shortLabel: 'Rochester · IT Lead',
     bullets: [
-      'Kept a district teaching through the COVID-19 closure, measured by a 1:1 Chromebook rollout and full asset inventory delivered for 15,000 students across 31 schools in eight weeks, by serving as operational IT lead and directing six technical assistants across seven schools.',
+      'Kept a district teaching through the COVID-19 closure, measured by a 1:1 Chromebook rollout and full asset inventory delivered for 15,000 students in eight weeks, by serving as operational IT lead and running the rollout from a single distribution site with six technical assistants.',
       'Got teachers and students productive on remote instruction instead of waiting on IT, measured by a curriculum adopted district-wide at the principal’s request and delivered by trained IT staff at every school, by developing a Google Workspace remote-learning curriculum and training the trainers.',
     ],
   },

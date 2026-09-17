@@ -30,7 +30,7 @@ export const engagements: SevaEngagement[] = [
   },
   {
     org: 'Sikhi.io',
-    role: 'CTO & Lead Engineer',
+    role: 'Senior Technical Program Manager',
     date: 'Ongoing',
     icon: 'book',
     description:

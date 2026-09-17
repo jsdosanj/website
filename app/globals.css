@@ -908,43 +908,8 @@ h1, h2, h3, h4, h5, h6 {
   --track-inset: 0.75rem;
 }
 
-.roadmap-playhead-track {
-  position: absolute;
-  /* Starts below the 2rem year axis: over the bars, not a second gridline. */
-  inset: 2rem var(--track-inset) 0;
-  pointer-events: none;
-}
 
-.roadmap-playhead {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--play) * 100%);
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--color-kesari-600) 85%, transparent),
-    color-mix(in srgb, var(--color-kesari-600) 20%, transparent)
-  );
-  /* No transition: the position is scrubbed, so the scroll is the timing
-     function. A transition on top of a scrub reads as lag. */
-}
 
-.roadmap-playhead__year {
-  position: absolute;
-  top: -1.55rem;
-  left: 50%;
-  translate: -50% 0;
-  padding-inline: 0.3rem;
-  border-radius: 0.25rem;
-  background: var(--color-kesari-600);
-  color: var(--color-navy-950);
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  font-weight: 600;
-  line-height: 1.35rem;
-  font-variant-numeric: tabular-nums;
-}
 
 /* Each bar fills as the playhead crosses it. Its own progress is
      clamp(0, (--play − --from) × --inv, 1)
@@ -988,7 +953,165 @@ h1, h2, h3, h4, h5, h6 {
   /* Belt and braces: Motion already skips the tween, but if --play were ever
      set by anything else, the chart still reads fully drawn. */
   .roadmap-chart { --play: 1; }
-  .roadmap-playhead { display: none; }
+}
+
+/* ---- The roadmap as a horizontal, scrollable timeline -------------------
+   Time is the x-axis and the reader scrolls the decade. --rm-year is the only
+   scale knob: everything else, including the label width, derives from it, so
+   the label footprint stays exactly LABEL_YEARS wide at every breakpoint and
+   the lane packing done in ProgramRoadmap.tsx stays valid. */
+.rm-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Don't let a horizontal fling at the end of the track turn into a browser
+     back-swipe or hand the scroll up to the page. */
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-navy-800) 24%, transparent) transparent;
+}
+.rm-scroll::-webkit-scrollbar { height: 0.5rem; }
+.rm-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-navy-800) 24%, transparent);
+  border-radius: 999px;
+}
+/* The scroller is focusable so it can be panned with the arrow keys; give it
+   the same ring as every other focusable thing rather than the UA default. */
+.rm-scroll:focus-visible {
+  /* Same ring as the global :focus-visible rule, but drawn inside the card —
+     an outer ring on a full-width scroller would sit over the card's edge. */
+  outline: 2px solid var(--color-navy-700);
+  outline-offset: -3px;
+}
+
+.rm-canvas {
+  --rm-year: 150px;
+  --rm-label: calc(var(--rm-year) * 1.05);
+  position: relative;
+  width: calc(var(--rm-year) * var(--rm-years));
+  /* The label of the last role would otherwise be clipped by the canvas edge. */
+  padding-right: var(--rm-label);
+  padding-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+  .rm-canvas { --rm-year: 200px; }
+}
+
+.rm-axis {
+  position: relative;
+  height: 2rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-navy-800) 10%, transparent);
+  background: color-mix(in srgb, var(--color-paper-200) 60%, transparent);
+}
+.rm-tick {
+  position: absolute;
+  top: 0.55rem;
+  color: var(--color-ink-400);
+  font-variant-numeric: tabular-nums;
+  /* The first tick sits on the canvas edge, so nudge rather than centre it. */
+  translate: 0.25rem 0;
+}
+
+.rm-grid {
+  position: absolute;
+  /* The right inset matters: absolute percentages resolve against the
+     containing block's PADDING box, and .rm-canvas carries a --rm-label
+     padding-right so the last role's label is not clipped. Without this the
+     grid was 210px wider than the axis, which put every gridline and the
+     today marker a fifth of a year to the right of the bars they annotate. */
+  inset: 2rem var(--rm-label) 0 0;
+  pointer-events: none;
+}
+.rm-gridline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed color-mix(in srgb, var(--color-navy-800) 12%, transparent);
+}
+/* Today's edge: the fixed marker that replaced the sweeping playhead. */
+.rm-now {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid color-mix(in srgb, var(--color-kesari-600) 70%, transparent);
+}
+.rm-now__label {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.3rem;
+  padding-inline: 0.3rem;
+  border-radius: 0.25rem;
+  background: var(--color-kesari-600);
+  color: var(--color-navy-950);
+  line-height: 1.1rem;
+  white-space: nowrap;
+}
+
+.rm-lanes { position: relative; padding-top: 0.875rem; }
+.rm-lane {
+  /* Tall enough for the worst-case label: a two-line title over a two-line
+     organization over the date line, plus the 1.6rem drop below the bar.
+     Shorter than this and that label overflows into the next lane's bar —
+     which it did at 5.5rem, striking through the Chef Koochooloo dates. */
+  position: relative;
+  height: 7.25rem;
+}
+.rm-role {
+  position: absolute;
+  top: 0;
+  min-width: 0.5rem;
+}
+
+/* Override the vertical chart's bar geometry: here the bar is the top edge of
+   a role block rather than a centred item in a lane row. The fill machinery
+   (::before scaled by --play/--from/--inv) and the colours come from
+   .roadmap-bar and .roadmap-bar-* unchanged. */
+.rm-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 2px short of the role's true right edge. Consecutive roles in a lane often
+     abut to the month — three of them do in lane one — and without this gap
+     they render as one continuous bar with no visible boundary. At 150–200px
+     per year that hairline is about four days, against dates quoted to the
+     month. */
+  right: 2px;
+  translate: none;
+  height: 1.15rem;
+  border-radius: 0.3rem;
+}
+
+.rm-label {
+  position: absolute;
+  top: 1.6rem;
+  left: 0;
+  width: var(--rm-label);
+  display: flex;
+  flex-direction: column;
+  gap: 0.0625rem;
+}
+.rm-label__title {
+  font-weight: 600;
+  color: var(--color-navy-900);
+  line-height: 1.25;
+  /* Two lines is enough for every current title; a third would collide with
+     the next lane. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.rm-label__org {
+  color: var(--color-navy-600);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.rm-label__date {
+  color: var(--color-ink-500);
+  margin-top: 0.125rem;
 }
 
 /* ---- Snap rail: a card row designed for a thumb ------------------------
@@ -1034,37 +1157,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 0;
   }
   .snap-rail > * { flex: initial; }
-}
-
-/* ---- Phone layout: the same spans as a vertical timeline ----------------
-   Not the desktop chart shrunk. A Gantt needs horizontal room a 390pt screen
-   does not have, so the phone gets a rail whose length is proportional to the
-   role's duration — the one thing the chart communicates that a list cannot —
-   and concurrency is stated in words instead of drawn as overlap. */
-.roadmap-stack {
-  position: relative;
-  padding-left: 1.125rem;
-  border-left: 1px solid color-mix(in srgb, var(--color-navy-800) 12%, transparent);
-  gap: var(--space-6);
-  /* NOTE: deliberately does not set `display`. Everything in this file is
-     unlayered, and unlayered CSS beats every @layer — including Tailwind's
-     utilities. A `display: flex` here silently defeated the `md:hidden` on
-     this element, and the phone timeline rendered on desktop underneath the
-     Gantt chart. Layout that a responsive utility also controls belongs in
-     the class list (`flex flex-col md:hidden`), not here. */
-}
-.roadmap-stack__item {
-  position: relative;
-  min-width: 0;
-}
-.roadmap-stack__rail {
-  position: absolute;
-  left: -1.1875rem;
-  top: 0.35rem;
-  width: 3px;
-  height: var(--len, 20%);
-  min-height: 0.75rem;
-  border-radius: 999px;
 }
 
 /* ============================================================

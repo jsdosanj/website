@@ -19,10 +19,10 @@ export const education = [
     detail: 'Completed Harvard’s CS50 Cybersecurity course.',
   },
   {
-    credential: 'A.A.S. Arts & Sciences',
+    credential: 'Coursework — Political Science & Government',
     school: 'Oakland Community College',
     date: '2016 – 2018',
-    detail: '54 credits · Political Science & Government.',
+    detail: '54 credits toward the Michigan Transfer Agreement. No degree awarded.',
   },
 ];
 

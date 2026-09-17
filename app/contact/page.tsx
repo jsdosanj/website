@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Icon from '@/components/Icon';
 import Jali from '@/components/Jali';
 import JsonLd from '@/components/JsonLd';
@@ -77,7 +78,11 @@ export default function Contact() {
           {/* Résumé — role-tailored, 2-page, ATS-friendly */}
           <div id="resumes" className="mt-16 max-w-3xl mx-auto scroll-mt-28">
             <p className="reveal eyebrow eyebrow-center w-full">Résumé</p>
-            <div className="reveal mt-5 grid gap-3 sm:grid-cols-2">
+            <div
+              className={`reveal mt-5 grid gap-3 ${
+                site.resumes.length > 1 ? 'sm:grid-cols-2' : 'max-w-sm mx-auto'
+              }`}
+            >
               {site.resumes.map((r) => (
                 <a key={r.href} href={r.href} download className="card card-hover p-4 flex items-center gap-3 group btn-press">
                   <span className="grid place-items-center h-10 w-10 rounded-lg bg-paper-200 border border-navy-800/12 text-kesari-600 shrink-0">
@@ -95,7 +100,11 @@ export default function Contact() {
               ))}
             </div>
             <p className="reveal mt-4 text-center type-caption text-ink-500">
-              A 2-page, ATS-friendly résumé — current as of September 2026.
+              A 2-page, ATS-friendly résumé — current as of September 2026.{' '}
+              <Link href="/references" className="text-kesari-700 hover:underline underline-offset-4">
+                References are listed here
+              </Link>
+              .
             </p>
           </div>
 
