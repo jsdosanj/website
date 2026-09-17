@@ -1,6 +1,8 @@
 # build output
 .next/
 .open-next/
+# generated Open Graph images (scripts/generate-og.mjs, run by prebuild)
+public/og/
 # generated types
 next-env.d.ts
 cloudflare-env.d.ts

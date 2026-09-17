@@ -17,6 +17,18 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  // Shared incremental cache. Optional: without it the adapter treats every
+  // lookup as a miss, so the site still works and the live GitHub / PyPI /
+  // HuggingFace figures simply refetch per render instead of sharing the
+  // six-hour window across isolates. To turn it on:
+  //
+  //   npx wrangler kv namespace create NEXT_INC_CACHE_KV
+  //
+  // then uncomment the block below and paste in the id it prints.
+  //
+  // "kv_namespaces": [
+  //   { "binding": "NEXT_INC_CACHE_KV", "id": "<paste the id here>" }
+  // ],
   "observability": {
     "enabled": true
   }

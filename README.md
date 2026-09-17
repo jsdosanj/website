@@ -70,9 +70,13 @@ npm run dev        # http://localhost:3000
 npm run build
 npm run typecheck
 npm run audit      # clean build + the full design audit (see below)
-npm run preview    # build for Workers and preview locally
+npm run preview    # build for Workers and run it in workerd locally
 npm run deploy     # build for Workers and deploy
 ```
+
+`npm run og` regenerates the Open Graph images into `public/og/`. It runs
+automatically before `build`, `preview` and `deploy`, and fails the build if a page
+asks for an `ogSlug` the generator has no entry for.
 
 ## Verifying the design system
 
@@ -112,15 +116,44 @@ All content lives in `data/` as plain TypeScript — no template surgery:
   `recommendations.ts`, `posts.ts`
 - `live.ts` — the fetchers behind the live release figures
 
-Images live in `public/images/`, résumés in `public/resumes/`. Open Graph images are generated
-per route by `app/og/[slug]/route.tsx` from the shared template in `lib/og-template.tsx`.
+Images live in `public/images/`, résumés in `public/resumes/`. Open Graph images are
+generated into `public/og/` at build time by `scripts/generate-og.mjs` — they are plain
+static files, not a route. A prerendered route handler's body lives in the incremental
+cache rather than in the static assets, so on Workers the request reached the server
+function, which re-rendered the image and tried to read fonts out of `node_modules` that
+a Worker bundle does not contain. Generating real PNGs means link previews cost no worker
+invocation and depend on no cache binding.
 
 ## Deploying
 
-Cloudflare Workers, via OpenNext. `wrangler.jsonc` holds the worker config and
-`open-next.config.ts` the adapter config. The incremental cache is backed by Workers KV — bind a
-namespace as `NEXT_INC_CACHE_KV` before deploying, or the live figures refetch per render instead
-of sharing the six-hour window.
+Cloudflare **Workers**, via OpenNext — not Pages. The old setup was a git-connected
+Pages project that built Astro's `dist/`; there is no `dist/` any more.
+
+`wrangler.jsonc` holds the Worker config and `open-next.config.ts` the adapter config.
+`.github/workflows/deploy.yml` deploys on every merge to `main`, and does nothing until
+two repository secrets exist:
+
+| Secret | What it is |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | A token with the **Edit Cloudflare Workers** template |
+| `CLOUDFLARE_ACCOUNT_ID` | The account the Worker lives in |
+
+First-time setup, once:
+
+```bash
+npx wrangler login
+npm run deploy                      # creates the Worker and ships the first build
+```
+
+Then point `jasvant.dosanjhlabs.com` at the Worker (Cloudflare dashboard → Workers &
+Pages → jasvant-site → Settings → Domains & Routes → Add custom domain). A hostname can
+only be attached to one project at a time, so remove it from the old Pages project first,
+and delete or disconnect that project so it stops building on push.
+
+Optional: `npx wrangler kv namespace create NEXT_INC_CACHE_KV`, then uncomment the
+`kv_namespaces` block in `wrangler.jsonc` and paste in the id. That gives the incremental
+cache somewhere shared to live; without it the live release figures refetch per render
+rather than sharing the six-hour window.
 
 ## AI-crawler & SEO policy
 
