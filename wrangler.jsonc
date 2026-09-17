@@ -1,0 +1,23 @@
+{
+  // Cloudflare Workers config for the OpenNext adapter.
+  //
+  // The site moved from Astro's static output on Pages to Next on Workers,
+  // because two pieces of it are no longer static: the contact form is a
+  // Server Action, and the live GitHub/PyPI/HuggingFace figures revalidate on
+  // a timer instead of being frozen into the HTML at build.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jasvant-site",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-01",
+  // nodejs_compat for the Node built-ins the adapter needs;
+  // global_fetch_strictly_public so a fetch to this site's own URL from
+  // inside a render goes back out through the edge rather than short-circuiting.
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
