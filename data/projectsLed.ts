@@ -58,6 +58,19 @@ export const headlineProjects: LedProject[] = [
     text: 'Took a security and compliance suite from zero to market — 12 live products spanning GRC, HIPAA risk, vendor risk, policy management, and incident response — by owning product strategy, the roadmap, and the end-to-end SDLC from requirements through CI/CD deployment, using Agile sprints and AI-assisted development to keep release cadence up.',
   },
   {
+    title: 'Departmental onboarding program',
+    mark: 'rollout',
+    status: 'delivered',
+    facts: [
+      { label: 'Departments', value: '8' },
+      { label: 'Duration', value: '14 months' },
+      { label: 'Role', value: 'Program Manager' },
+    ],
+    org: 'University of Washington — College of Arts & Sciences Dean’s Office',
+    date: 'Feb 2025 – Mar 2026',
+    text: 'Turned one-off department migrations into a repeatable onboarding program, and used it to bring eight departments into central College of Arts & Sciences IT — Speech & Hearing Sciences, Music, Anthropology, Statistics, Mathematics, the Jackson School of International Studies, Political Science, and Biology — by serving as program manager for every departmental onboarding and building the repeatable process each one followed.',
+  },
+  {
     title: 'Speech & Hearing Sciences Clinic onboarding',
     mark: 'recovery',
     status: 'recovered',
