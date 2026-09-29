@@ -59,7 +59,7 @@ export async function sendMessage(_prev: ContactState, data: FormData): Promise<
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       cache: 'no-store',
       body: JSON.stringify({
-        _subject: 'New message from jasvant.dosanjhlabs.com',
+        _subject: 'New message from jasvant.me',
         _template: 'table',
         _captcha: 'false',
         name,

@@ -34,7 +34,7 @@ const sources = [
 ];
 
 export default function Post() {
-  const url = new URL(page.path, 'https://jasvant.dosanjhlabs.com').href;
+  const url = new URL(page.path, 'https://jasvant.me').href;
   const posting = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -43,8 +43,8 @@ export default function Post() {
     url,
     datePublished: essay.published,
     dateModified: essay.published,
-    author: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.dosanjhlabs.com' },
-    publisher: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.dosanjhlabs.com' },
+    author: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.me' },
+    publisher: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.me' },
     mainEntityOfPage: url,
   };
 

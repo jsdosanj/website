@@ -37,12 +37,12 @@ export default function Post() {
     '@type': 'BlogPosting',
     headline: essay.title,
     description: page.description,
-    url: new URL(page.path, 'https://jasvant.dosanjhlabs.com').href,
+    url: new URL(page.path, 'https://jasvant.me').href,
     datePublished: essay.published,
     dateModified: essay.published,
-    author: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.dosanjhlabs.com' },
-    publisher: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.dosanjhlabs.com' },
-    mainEntityOfPage: new URL(page.path, 'https://jasvant.dosanjhlabs.com').href,
+    author: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.me' },
+    publisher: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.me' },
+    mainEntityOfPage: new URL(page.path, 'https://jasvant.me').href,
   };
 
   return (

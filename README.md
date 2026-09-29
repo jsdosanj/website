@@ -1,4 +1,4 @@
-# jasvant.dosanjhlabs.com
+# jasvant.me
 
 > Technical Program Manager. Programs that ship — scoped, staffed, and measured.
 
@@ -7,7 +7,7 @@ Program Manager, open to relocating. It carries the delivery record (case studie
 depth, a career roadmap to scale, a live web résumé), the products built alongside it, and the
 parchar & seva work.
 
-**Live:** https://jasvant.dosanjhlabs.com
+**Live:** https://jasvant.me
 
 ## Stack
 
@@ -163,7 +163,7 @@ npx wrangler login
 npm run deploy      # builds both stages and deploys
 ```
 
-Then point `jasvant.dosanjhlabs.com` at the Worker (Settings → Domains &amp; Routes → Add
+Then point `jasvant.me` at the Worker (Settings → Domains &amp; Routes → Add
 custom domain). A hostname can only be attached to one project at a time, so remove it
 from the old Pages project first, and delete or disconnect that project so it stops
 building on push.

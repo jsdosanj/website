@@ -1,11 +1,11 @@
-# ai.txt — AI & content-usage policy for jasvant.dosanjhlabs.com
+# ai.txt — AI & content-usage policy for jasvant.me
 # Human-readable summary; see /.well-known/tdmrep.json for the machine-
 # readable W3C TDM Reservation Protocol declaration, and /ai-policy for
 # the full policy page.
 
-Site: https://jasvant.dosanjhlabs.com
+Site: https://jasvant.me
 Owner: Jasvant Singh Dosanjh / Dosanjh Labs
-Contact: https://jasvant.dosanjhlabs.com/contact
+Contact: https://jasvant.me/contact
 
 # Answer & search AI (crawl + cite welcome)
 # These systems may crawl this site to answer questions and cite it as a
@@ -58,5 +58,5 @@ Disallow-Agent: Timpibot
 Disallow-Agent: Scrapy
 Usage: train-ai=n
 
-Policy: https://jasvant.dosanjhlabs.com/ai-policy
-TDM-Reservation: https://jasvant.dosanjhlabs.com/.well-known/tdmrep.json
+Policy: https://jasvant.me/ai-policy
+TDM-Reservation: https://jasvant.me/.well-known/tdmrep.json

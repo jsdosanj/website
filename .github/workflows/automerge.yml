@@ -1,7 +1,9 @@
 name: Auto-merge
 # Free-tier-friendly auto-merge: when CI finishes successfully on a PR, find that
 # PR and squash-merge it. No branch-protection / GitHub Pro required — the merge
-# step only runs after CI's `success` conclusion, so CI is the gate.
+# step only runs after CI's `success` conclusion, so CI is the gate. It is also
+# limited to same-repo PRs from the owner or Dependabot, so a PR from a fork or
+# a stranger can never be merged just by passing CI.
 on:
   workflow_run:
     workflows: ["CI"]
@@ -13,6 +15,9 @@ jobs:
   automerge:
     if: >
       github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      (github.event.workflow_run.actor.login == github.repository_owner ||
+       github.event.workflow_run.actor.login == 'dependabot[bot]') &&
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
