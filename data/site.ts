@@ -8,7 +8,7 @@ export const site = {
   location: 'Open to Relocating',
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
-  url: 'https://jasvant.dosanjhlabs.com',
+  url: 'https://jasvant.me',
   // Hire-me positioning
   openToWork: true,
   targetRole: 'Technical Program Manager',

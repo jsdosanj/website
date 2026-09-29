@@ -31,14 +31,30 @@
   // "kv_namespaces": [
   //   { "binding": "NEXT_INC_CACHE_KV", "id": "<paste the id here>" }
   // ],
-  // Observability. `enabled` turns on metrics; the `logs` block persists
-  // invocation logs, which is what makes a failed Server Action or a bad
-  // revalidate visible after the fact rather than only while tailing.
+  // Domains. jasvant.me is the main domain and the one every canonical URL,
+  // sitemap entry and OG tag points at; jasvant.dosanjhlabs.com stays attached
+  // as the fallback and serves the same Worker. Declared here so a deploy
+  // keeps them attached rather than depending on the dashboard state.
+  "routes": [
+    { "pattern": "jasvant.me", "custom_domain": true },
+    { "pattern": "jasvant.dosanjhlabs.com", "custom_domain": true }
+  ],
+  // Observability: metrics, persisted invocation logs and traces, all sampled
+  // at 100% — which is what makes a failed Server Action or a bad revalidate
+  // visible after the fact rather than only while tailing.
   "observability": {
     "enabled": true,
+    "head_sampling_rate": 1,
+    "redact_query_string": false,
     "logs": {
       "enabled": true,
+      "head_sampling_rate": 1,
       "invocation_logs": true,
+      "persist": true
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 1,
       "persist": true
     }
   }

@@ -10,7 +10,7 @@ const page: PageDescriptor = {
   path: '/ai-policy',
   title: 'AI & Content Usage Policy',
   description:
-    'How AI systems may use jasvant.dosanjhlabs.com: answer engines may crawl and cite this site; AI/ML training on its content is reserved and requires a license.',
+    'How AI systems may use jasvant.me: answer engines may crawl and cite this site; AI/ML training on its content is reserved and requires a license.',
   keywords: ['AI content policy', 'TDM reservation', 'AI training opt-out', 'robots.txt AI', 'content licensing', 'llms.txt'],
 };
 

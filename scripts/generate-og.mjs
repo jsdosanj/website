@@ -171,7 +171,7 @@ function card({ eyebrow, title }) {
               el('span', { style: { color: NAVY_900, fontWeight: 500 } }, 'Jasvant Singh Dosanjh'),
               el('span', { style: { color: INK_400 } }, '·'),
               el('span', { style: { color: NAVY_600 } }, 'Technical Program Manager'),
-              el('span', { style: { color: INK_500, marginLeft: 'auto' } }, 'jasvant.dosanjhlabs.com'),
+              el('span', { style: { color: INK_500, marginLeft: 'auto' } }, 'jasvant.me'),
             ]
           ),
         ]
