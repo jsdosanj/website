@@ -20,7 +20,7 @@ jobs:
     # happened when the audit's server held onto the step's stderr.
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: actions/setup-node@v4
