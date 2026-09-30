@@ -2,6 +2,7 @@ import Icon from '@/components/Icon';
 import Jali from '@/components/Jali';
 import JsonLd from '@/components/JsonLd';
 import Khanda from '@/components/Khanda';
+import Portrait from '@/components/Portrait';
 import SectionHeading from '@/components/SectionHeading';
 import { engagements, sevaIntro, sevaValues } from '@/data/seva';
 import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadata';
@@ -56,6 +57,28 @@ export default function Seva() {
               <p className="gurmukhi type-title-2 text-kesari-600" lang="pa">{v.gurmukhi}</p>
               <h3 className="mt-3 font-display type-body font-semibold text-navy-900">{v.title}</h3>
               <p className="mt-2 type-subhead leading-relaxed text-ink-600">{v.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* In the room — photographs from speaking engagements. */}
+      <section className="container-x mt-28">
+        <SectionHeading eyebrow="In the room" title="Parchar, in person" />
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {[
+            { src: '/images/speaking-banner.webp', alt: 'Jasvant speaking into a microphone at a Vaisakhi community event, in front of an illustrated banner', focus: '50% 40%' },
+            { src: '/images/speaking-audience.webp', alt: 'Jasvant presenting to a seated audience, gesturing as he speaks', focus: '50% 45%' },
+            { src: '/images/speaking-profile.webp', alt: 'Jasvant in profile, holding a microphone and speaking', focus: '50% 35%' },
+          ].map((ph) => (
+            <div key={ph.src} className="reveal overflow-hidden rounded-2xl border border-paper-400">
+              <Portrait
+                src={ph.src}
+                alt={ph.alt}
+                className="aspect-[3/4]"
+                focus={ph.focus}
+                sizes="(max-width: 640px) 90vw, 30vw"
+              />
             </div>
           ))}
         </div>

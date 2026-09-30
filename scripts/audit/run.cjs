@@ -43,7 +43,7 @@ const CHECKS = [
  */
 async function assertStyled() {
   const html = await (await fetch(BASE + '/')).text();
-  const hrefs = [...new Set([...html.matchAll(/href="(\/_next\/static\/css\/[^"\\]+)"/g)].map((m) => m[1]))];
+  const hrefs = [...new Set([...html.matchAll(/href="(\/_next\/static\/(?:css|chunks)\/[^"\\]+\.css)"/g)].map((m) => m[1]))];
   if (!hrefs.length) throw new Error('the page links no stylesheet at all');
   for (const href of hrefs) {
     const res = await fetch(BASE + href);

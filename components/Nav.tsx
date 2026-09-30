@@ -68,10 +68,10 @@ export default function Nav() {
                   href={item.href}
                   aria-current={isActive(item.href) ? 'page' : undefined}
                   className={[
-                    'inline-flex items-center min-h-11 px-3 rounded-lg type-subhead font-medium tracking-tight transition-colors btn-press',
+                    'inline-flex items-center min-h-11 px-3 rounded-xl type-subhead font-medium tracking-tight transition-colors btn-press',
                     isActive(item.href)
-                      ? 'text-navy-900 bg-navy-900/[0.06]'
-                      : 'text-ink-600 hover:text-navy-900 hover:bg-navy-900/[0.035]',
+                      ? 'text-white bg-white/10'
+                      : 'text-white/75 hover:text-white hover:bg-white/[0.06]',
                   ].join(' ')}
                 >
                   {item.label}
@@ -83,14 +83,14 @@ export default function Nav() {
           <div className="flex items-center gap-2 shrink-0">
             <Link
               href="/resume"
-              className="hidden lg:inline-flex items-center min-h-11 gap-1.5 rounded-lg border border-navy-800/14 px-4 type-footnote font-medium text-ink-600 hover:text-navy-900 hover:border-navy-800/28 transition-colors btn-press"
+              className="hidden lg:inline-flex items-center min-h-11 gap-1.5 rounded-xl border border-white/20 px-4 type-footnote font-medium text-white/80 hover:text-white hover:border-white/40 transition-colors btn-press"
             >
               Résumé
             </Link>
             <Link
               href="/contact"
               data-magnetic="0.25"
-              className="hidden sm:inline-flex items-center min-h-11 gap-2 rounded-lg bg-kesari-500 text-navy-950 px-4 type-footnote font-semibold hover:bg-kesari-400 transition-colors btn-press"
+              className="hidden sm:inline-flex items-center min-h-11 gap-2 rounded-xl bg-kesari-400 text-navy-950 px-4 type-footnote font-semibold hover:bg-kesari-300 transition-colors btn-press"
             >
               Let’s talk
             </Link>
@@ -98,7 +98,7 @@ export default function Nav() {
               ref={toggleRef}
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden grid place-items-center h-11 w-11 rounded-lg text-ink-800 hover:bg-navy-900/5 transition-colors"
+              className="md:hidden grid place-items-center h-11 w-11 rounded-xl text-white hover:bg-white/10 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={open}
               aria-controls="mobile-menu"
@@ -124,8 +124,8 @@ export default function Nav() {
                 <Link
                   href={item.href}
                   className={[
-                    'flex items-center min-h-11 px-4 rounded-lg type-subhead font-medium transition-colors btn-press',
-                    isActive(item.href) ? 'text-navy-900 bg-navy-900/[0.06]' : 'text-ink-700 hover:bg-navy-900/5',
+                    'flex items-center min-h-11 px-4 rounded-xl type-subhead font-medium transition-colors btn-press',
+                    isActive(item.href) ? 'text-white bg-white/10' : 'text-white/80 hover:bg-white/10',
                   ].join(' ')}
                 >
                   {item.label}
@@ -135,7 +135,7 @@ export default function Nav() {
             <li className="p-2">
               <Link
                 href="/contact"
-                className="flex items-center justify-center min-h-11 rounded-lg bg-kesari-500 text-navy-950 px-4 font-semibold btn-press"
+                className="flex items-center justify-center min-h-11 rounded-xl bg-kesari-400 text-navy-950 px-4 font-medium btn-press"
               >
                 Let’s talk
               </Link>

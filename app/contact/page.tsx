@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import Icon from '@/components/Icon';
 import Jali from '@/components/Jali';
 import JsonLd from '@/components/JsonLd';
-import Khanda from '@/components/Khanda';
 import { site } from '@/data/site';
 import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadata';
 import ContactForm from './ContactForm';
@@ -30,7 +30,15 @@ export default function Contact() {
         <Jali className="absolute inset-0 text-navy-500/[0.055]" opacity={1} />
         <div className="container-x relative">
           <div className="text-center max-w-2xl mx-auto">
-            <Khanda size={56} className="mx-auto text-kesari-600 animate-float" />
+            <div className="relative mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full border-2 border-kesari-400">
+              <Image
+                src="/images/portrait-blossom.webp"
+                alt="Jasvant smiling in a white turban in front of a cherry blossom tree"
+                fill
+                sizes="112px"
+                style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
+              />
+            </div>
             <span className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-status-green/30 bg-status-green/10 px-3.5 py-1.5 type-caption font-semibold text-status-green">
               <span className="h-2 w-2 rounded-full bg-status-green animate-pulse-glow" aria-hidden="true" />
               open to work · remote / open to relocating

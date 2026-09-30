@@ -189,10 +189,10 @@ export default function About() {
               data-parallax="0.05"
             >
               <Portrait
-                src="/images/headshot-spotlight.jpg"
-                alt="Jasvant Singh Dosanjh"
+                src="/images/portrait-violet.webp"
+                alt="Jasvant Singh Dosanjh smiling, in a violet turban, in front of a green hedge"
                 className="aspect-[4/5]"
-                focus="50% 46%"
+                focus="50% 30%"
                 priority
                 sizes="(max-width: 1024px) 80vw, 20rem"
               />

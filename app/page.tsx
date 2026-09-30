@@ -59,49 +59,41 @@ export default function Home() {
   return (
     <>
       {/* ===================== HERO ===================== */}
-      <section className="relative pt-32 sm:pt-40 pb-12 overflow-hidden">
-        <Jali
-          className="absolute -top-24 right-[-10%] w-[42rem] h-[42rem] text-navy-500/[0.06] pointer-events-none"
-          opacity={1}
-        />
+      {/* Dark, photographic hero over the light editorial page below. The
+          portrait carries the emotion; the two glass cards float over it the
+          way Superhuman composites product UI over photography — translucent
+          white, 16px radius, no drop shadow, depth from the photo behind. */}
+      <section className="hero-dark relative isolate overflow-hidden text-white pt-32 sm:pt-40 pb-20 sm:pb-28">
         <div className="container-x relative">
-          {/* Availability, stated once and held still. This was a scrolling
-              marquee, which meant the line was almost always caught mid-word
-              and read as broken text — and perpetual decorative motion in a
-              hero is exactly what the HIG means by motion that doesn't support
-              the experience. */}
           <div className="reveal flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="chip chip-delivered">Open to work</span>
-            <span className="type-footnote text-ink-600">
+            <span className="type-footnote text-white/75">
               In-person, hybrid, or remote · open to relocating
             </span>
           </div>
 
           <div className="mt-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
-            {/* Left: headline + CTAs */}
             <div className="order-2 lg:order-1">
-              {/* Sizes are tuned so no kinetic line wraps at any breakpoint: the
-                  widest line ("Manager who sprints,") is 10.58em in Bricolage
-                  Bold, and the text column narrows at lg when the two-column
-                  grid kicks in before widening again at xl/2xl. */}
-              <h1 className="type-hero text-navy-900" data-kinetic>
+              {/* Sizes are tuned so no kinetic line wraps at any breakpoint —
+                  see type-hero in globals.css. */}
+              <h1 className="type-hero text-white" data-kinetic>
                 <span className="kin-line"><span className="kin-inner">Technical Program</span></span>
                 <span className="kin-line"><span className="kin-inner">Manager who sprints,</span></span>
                 <span className="kin-line"><span className="kin-inner text-gradient">ships &amp; scales.</span></span>
               </h1>
-              <p className="reveal mt-6 max-w-xl type-body leading-relaxed text-ink-600">
-                I’m <span className="text-ink-800 font-medium">Jasvant Singh Dosanjh</span> — 10 years
+              <p className="reveal mt-6 max-w-xl type-body leading-relaxed text-white/80">
+                I’m <span className="text-white font-medium">Jasvant Singh Dosanjh</span> — 10 years
                 delivering technical programs across higher ed, healthcare, gaming, and big tech. I own
-                the roadmap, the budget, the vendors, and the SDLC behind them: 12 products shipped, a
-                $750K studio buildout, and a six-month security migration with zero downtime.
+                the roadmap, the budget, the vendors, and the SDLC behind them: 12 products shipped, eight
+                university departments onboarded through a program I built, a $750K studio buildout, and a
+                six-month security migration with zero downtime.
               </p>
 
-              {/* Target roles */}
               <div className="reveal mt-6 flex flex-wrap gap-2">
                 {site.roles.map((r) => (
                   <span
                     key={r}
-                    className="type-mono-sm max-w-full rounded-lg bg-navy-900/[0.04] border border-navy-800/12 text-ink-800 px-3 py-1.5"
+                    className="type-mono-sm max-w-full rounded-xl bg-white/[0.06] border border-white/15 text-white/90 px-3 py-1.5"
                   >
                     {r}
                   </span>
@@ -109,22 +101,29 @@ export default function Home() {
               </div>
 
               <div className="reveal mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" data-magnetic="0.4" className="group btn btn-primary">
+                <Link
+                  href="/contact"
+                  data-magnetic="0.4"
+                  className="group btn bg-kesari-400 text-navy-950 hover:bg-kesari-300"
+                >
                   Let’s talk
                   <Icon name="arrow" size={18} className="group-hover:translate-x-0.5 transition-transform" />
                 </Link>
-                <Link href="/work" data-magnetic="0.3" className="btn btn-secondary">
+                <Link
+                  href="/work"
+                  data-magnetic="0.3"
+                  className="btn border border-white/30 text-white hover:bg-white/10"
+                >
                   See the case studies
                 </Link>
               </div>
 
-              {/* Quick links — contact happens via the form, no inbox exposed */}
               <div className="reveal mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 type-subhead">
                 <a
                   href={site.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-control text-ink-600 hover:text-navy-900"
+                  className="link-control text-white/75 hover:text-white"
                 >
                   <Icon name="linkedin" size={16} /> LinkedIn
                 </a>
@@ -132,50 +131,42 @@ export default function Home() {
                   href={site.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-control text-ink-600 hover:text-navy-900"
+                  className="link-control text-white/75 hover:text-white"
                 >
                   <Icon name="github" size={16} /> GitHub
                 </a>
-                <Link href="/contact" className="link-control text-ink-600 hover:text-navy-900">
+                <Link href="/contact" className="link-control text-white/75 hover:text-white">
                   <Icon name="arrow" size={15} /> Get in touch
                 </Link>
               </div>
             </div>
 
-            {/* Right: portrait + credential plate */}
-            <div className="reveal order-1 lg:order-2 relative mx-auto w-full max-w-[20rem] sm:max-w-[22rem] lg:max-w-none">
-              <div
-                className="card overflow-hidden shadow-[0_28px_60px_-34px_rgba(10,22,40,0.32)]"
-                data-parallax="0.05"
-              >
+            <div className="reveal order-1 lg:order-2 relative mx-auto w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-none">
+              <div className="relative" data-parallax="0.05">
+              <div className="overflow-hidden rounded-3xl border border-white/15">
                 <Portrait
-                  src="/images/headshot-spotlight.jpg"
-                  alt="Jasvant Singh Dosanjh, Technical Program Manager"
-                  className="aspect-[4/5]"
-                  focus="50% 46%"
+                  src="/images/hero-hall.webp"
+                  alt="Jasvant Singh Dosanjh in profile, in a gilded hall, wearing a royal-blue turban and saffron shawl"
+                  className="aspect-[4/5] lg:aspect-[5/6]"
+                  focus="50% 62%"
                   priority
                 />
-                <div className="flex items-start justify-between gap-3 px-5 py-4 border-t border-navy-800/10">
-                  <div>
-                    <p className="font-display type-callout font-semibold text-navy-900 leading-tight">
-                      Jasvant Singh Dosanjh
-                    </p>
-                    <p className="type-mono-sm text-ink-500 mt-1">Technical Program Manager · 10 yrs</p>
+              </div>
+                {/* Below the photo on phones so the face is never covered;
+                    floating over it from `sm` up. */}
+                <div className="mt-3 flex flex-col gap-2 sm:absolute sm:inset-x-3 sm:bottom-3 sm:mt-0 sm:flex-row">
+                  <div className="flex-1 min-w-0 rounded-2xl bg-white/85 backdrop-blur-md border border-white/20 p-4 text-ink-900">
+                    <p className="type-label text-ink-600">Program Manager · UW</p>
+                    <p className="mt-1 font-display type-title-3">8 departments onboarded</p>
+                    <p className="type-caption text-ink-600">Feb 2025 – Mar 2026 · one repeatable program</p>
                   </div>
-                  <span
-                    className="gurmukhi text-kesari-600 type-title-4 leading-none shrink-0"
-                    lang="pa"
-                    aria-hidden="true"
-                  >
-                    ੴ
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-5 py-2.5 border-t border-navy-800/10 bg-paper-200/70">
-                  <span className="chip chip-delivered">open to work</span>
-                  <span className="type-mono-sm text-ink-500">open to relocating</span>
+                  <div className="flex-1 min-w-0 rounded-2xl bg-white/85 backdrop-blur-md border border-white/20 p-4 text-ink-900">
+                    <p className="type-label text-ink-600">Clinic help desk</p>
+                    <p className="mt-1 font-display type-title-3">48h → 2h response</p>
+                    <p className="type-caption text-ink-600">$30K/yr in spend removed</p>
+                  </div>
                 </div>
               </div>
-              <Khanda size={48} className="absolute -top-4 -right-3 text-kesari-500 animate-float" />
             </div>
           </div>
         </div>

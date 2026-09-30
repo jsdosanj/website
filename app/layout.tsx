@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono, Noto_Serif_Gurmukhi } from 'next/font/google';
+import { Inter, JetBrains_Mono, Noto_Serif_Gurmukhi } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -10,20 +10,13 @@ import { personGraph } from '@/lib/site-metadata';
 import { site } from '@/data/site';
 
 /**
- * next/font self-hosts and preloads these, and — critically for the type
- * system — Bricolage is requested with its optical-size axis so
- * `font-optical-sizing: auto` in globals.css has an axis to act on. The
- * display face is drawn for its rendered size rather than scaled from one
- * master, which is the web equivalent of the HIG's dynamic optical sizes.
+ * next/font self-hosts and preloads these. Inter's variable weight axis is
+ * what lets headlines sit at weight 460 — the Superhuman "quiet display" voice
+ * — rather than snapping to 400 or 500. It stands in for Super Sans VF, the
+ * proprietary face the reference system uses; the same family serves display
+ * and body so the two never drift apart.
  */
-const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  axes: ['opsz'],
-  weight: 'variable',
-  display: 'swap',
-  variable: '--font-display-src',
-});
-const body = Hanken_Grotesk({
+const sans = Inter({
   subsets: ['latin'],
   weight: 'variable',
   display: 'swap',
@@ -54,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#fbfcfd',
+  themeColor: '#f2f0eb',
   width: 'device-width',
   initialScale: 1,
 };
@@ -63,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} ${gurmukhi.variable}`}
+      className={`${sans.variable} ${mono.variable} ${gurmukhi.variable}`}
     >
       <body>
         <JsonLd data={personGraph()} />
