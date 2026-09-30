@@ -16,7 +16,7 @@ const fs = require('node:fs');
 const BASE = process.env.AUDIT_BASE || 'http://localhost:4321';
 
 const PATHS = [
-  '/', '/work', '/about', '/skills', '/products', '/blog', '/seva',
+  '/', '/technical-program-manager', '/work', '/about', '/skills', '/products', '/blog', '/seva',
   '/contact', '/resume', '/ai-policy', '/404',
 ];
 

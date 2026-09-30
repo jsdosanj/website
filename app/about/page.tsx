@@ -589,6 +589,13 @@ export default function About() {
           <Link href="/contact" data-magnetic="0.35" className="mt-6 btn btn-primary">
             Let’s talk <Icon name="arrow" size={18} />
           </Link>
+          <p className="mt-4 type-subhead text-ink-600">
+            Curious what the job looks like day to day?{' '}
+            <Link href="/technical-program-manager" className="text-navy-700 font-medium underline underline-offset-4">
+              See what a technical program manager delivers
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </>

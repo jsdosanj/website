@@ -1,0 +1,41 @@
+# Jasvant Singh Dosanjh: full profile
+
+> Technical Program Manager in Seattle, WA. Open to hybrid or onsite roles in Seattle, WA and San Francisco, CA, and to remote roles anywhere in the USA. Last updated October 2026. Canonical site: https://jasvant.me
+
+## Summary
+
+Jasvant Singh Dosanjh is a Technical Program Manager with 10+ years of experience in higher education, healthcare, gaming and big tech. He owns roadmaps, budgets, vendors and the full software lifecycle, from requirements to deployment. He is open to Technical Program Manager, Technical Project Manager and IT Program Manager roles.
+
+## Results
+
+- Moved 8 University of Washington departments (Speech & Hearing Sciences, Music, Anthropology, Statistics, Mathematics, the Jackson School of International Studies, Political Science and Biology) onto the College of Arts & Sciences Dean's Office IT team, each with a 2-hour response and 48-hour resolution target, by building one repeatable onboarding process (Feb 2025 to Mar 2026).
+- Cut a clinic's IT response time from 48 hours to 2 and its resolution time from 7 days to 48 hours, and removed $30,000 a year in duplicate spend, by leading the clinic's move to central IT and combining five healthcare vendors.
+- Built a new gaming studio's whole IT environment (AWS, identity, networking, 100+ workstations) in five months on a $750K budget as Technical Program Manager at Tencent. The identity setup became the standard for the Los Angeles and Montreal studios.
+- Put a Chromebook in the hands of 15,000 students and counted every machine in 31 schools in eight weeks during the COVID-19 closure (Rochester Community Schools).
+- Finished a six-month, multi-building network security migration with zero downtime. IT teams at other UW colleges adopted the framework.
+- Brought 2,000+ devices onto zero-touch enrollment (Windows Autopilot and Jamf Pro) across the college.
+- Shipped 12 security and compliance products at Dosanjh Labs, including Sightline (22+ compliance frameworks in one dashboard) and Bastion (CMMC Level 2 self-assessment).
+- Built the Sikh Library, the largest known open Sikh text corpus (about 1.07 billion words), and translated 4,000+ Punjabi texts into English with Claude Code, GitHub Copilot and OpenRouter.
+- Lead Technical Program Manager for Sikhi.io, an open Sikh heritage archive, which has had over 2 million visits in the last 30 days.
+
+## Experience
+
+- Technical Program Manager, Dosanjh Labs, Seattle, WA (Mar 2026 to present).
+- University of Washington, College of Arts & Sciences (Jan 2023 to Mar 2026). HR title: Senior Computer Specialist. Job title: Technical Project Manager (Jan 2023 to Jan 2025), then Technical Program Manager (Jan 2025 to Mar 2026).
+- Technical Program Manager (Contract), Tencent, Team Kaiju Studio (Jul 2022 to Dec 2022).
+- Lead Apprentice Systems Tech, Meta (Aug 2020 to Feb 2022).
+- Lead Technical Consultant, Rochester Community Schools (Aug 2019 to Nov 2020).
+- Technical Project Manager (Contract), Chef Koochooloo (Aug 2019 to Nov 2019).
+- Earlier: Oakland University (Shares Administrator intern, Kresge Library mentor) and Oakland Community College (Front Desk Coordinator, Athletics).
+
+## Skills
+
+Program and project management: technical program management, Agile, Scrum, Waterfall, Lean, SDLC, roadmaps, risk, budget, vendor and stakeholder management, Jira, Confluence, Azure DevOps, Microsoft Project. Security and compliance: NIST CSF, NIST SP 800-53, HIPAA, FERPA, security audits, incident response, IAM, SSO and MFA. Infrastructure: AWS, Azure, Google Cloud, Jamf Pro, Microsoft Intune, JumpCloud, Windows Autopilot, Active Directory. Automation and AI: PowerShell, Bash, Power Automate, GitHub Actions, CI/CD, RAG, Claude Code, GitHub Copilot.
+
+## Education and certifications
+
+Bachelor's in Interdisciplinary Studies with a minor in Information Technology, Oakland University. Jamf Pro Certified Technician. Google Cloud Digital Leader. PMI CPMAI micro-credential. PMP exam scheduled for October 2026 (not yet held).
+
+## Contact
+
+https://jasvant.me/contact and https://linkedin.com/in/jasvantsd. Best single page for a summary: https://jasvant.me/technical-program-manager
