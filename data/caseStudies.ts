@@ -1,16 +1,15 @@
-// Three flagship programs told at interview depth.
+// Four flagship programs, told at interview depth.
 //
-// PM screening turns on how a candidate narrates a program, and a one-paragraph
-// card can't carry that. Each study below follows the shape an interviewer
-// probes for: the situation inherited, what was in and out of scope, who had to
-// be moved, how it was sequenced, what was actually at risk, what went wrong,
-// and the measured outcome.
+// A one-paragraph card can't show how a program was run, so each study below
+// follows the order an interviewer asks in: the situation, what was in and out
+// of scope, who had to be moved, how the work was sequenced, what was at risk,
+// what went wrong, and the measured result.
 //
-// Everything here is drawn from the Sept 2026 résumé and the facts already on
-// this site. The `wentWrong` sections are the honest reading of the same facts
-// — a study with no friction in it reads as marketing, and the recovery is the
-// part worth interviewing about — but they do not assert incidents beyond what
-// the record supports.
+// Everything here comes from the résumé and from facts Jasvant supplied. The
+// `wentWrong` sections say what actually happened. A study with no friction in
+// it reads like marketing, and the recovery is the part worth talking about.
+// Copy is plain English on purpose: short sentences, no em dashes, and results
+// stated as "did X, measured by Y, by doing Z".
 
 export type CaseStudy = {
   slug: string;
@@ -24,208 +23,270 @@ export type CaseStudy = {
   /** Headline figures for the study's metric strip. */
   metrics: { value: string; label: string }[];
   situation: string;
+  /** `outOfScope` may be empty; the page then shows only the in-scope list. */
   scope: { inScope: string[]; outOfScope: string[] };
   stakeholders: { group: string; need: string }[];
   plan: { phase: string; detail: string }[];
   risks: { risk: string; mitigation: string }[];
   wentWrong: string;
   outcome: string[];
-  /** What Jasvant would do differently — the question every panel asks. */
+  /** What Jasvant would do differently. Every panel asks this. */
   retro: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: 'department-onboarding-program',
+    title: 'One repeatable process to move eight departments onto central IT',
+    org: 'University of Washington, College of Arts & Sciences Dean’s Office',
+    role: 'Program manager, departmental onboarding',
+    date: 'Feb 2025 – Mar 2026',
+    status: 'delivered',
+    summary:
+      'Eight departments ran their own IT. I built one process and used it to move each of them onto the Dean’s Office IT team, with a 2-hour response and 48-hour resolution target.',
+    metrics: [
+      { value: '8', label: 'departments moved onto central IT' },
+      { value: '1–2 months', label: 'per department after the first' },
+      { value: '3–4 months', label: 'for the first, the clinic' },
+      { value: '2h / 48h', label: 'response and resolution target for every department' },
+    ],
+    situation:
+      'Each department ran its own IT, and the Dean’s Office IT team (CAS IT) did not have a full picture of any of them. The eight departments were Speech and Hearing Sciences, Music, Anthropology, Statistics, Mathematics, the Jackson School of International Studies, Political Science and Biology. Each move involved the same groups: the dean, the chair, administrators, faculty, staff, UW-IT and facilities. Eight one-off migrations would have meant learning the same lessons eight times. So I built one process that could be reused, and ran every onboarding through it.',
+    scope: {
+      inScope: [
+        'Move each department from its own IT onto the Dean’s Office IT team (CAS IT)',
+        'Take a full inventory of the department’s equipment, software and infrastructure',
+        'Record the department’s IT budget',
+        'Find out what the department needs from IT, such as help desk, systems administration and web development',
+        'Put the department on the CAS IT targets: 2-hour response, 48-hour resolution',
+        'Build the reusable kit: workflows, Power Automate automations, a checklist, phases, a kickoff, a handoff, a runbook and documentation guidelines',
+      ],
+      outOfScope: [],
+    },
+    stakeholders: [
+      { group: 'Dean', need: 'A clear plan and a clear result for each department' },
+      { group: 'Department chair and co-chair', need: 'A say in what the department needs from IT' },
+      { group: 'Administrators', need: 'Clear answers on IT budget and equipment' },
+      { group: 'Faculty', need: 'Support they can count on' },
+      { group: 'Staff', need: 'A help desk that answers quickly' },
+      { group: 'UW-IT', need: 'Complete access requests in a standard format' },
+      { group: 'Facilities', need: 'Clear requests for access to physical spaces' },
+    ],
+    plan: [
+      { phase: '1 · Kickoff', detail: 'Start every department with the same kickoff, so each stakeholder group hears the same plan and knows what is coming.' },
+      { phase: '2 · Investigate', detail: 'Work through a checklist of what to look into: inventory, IT budget, infrastructure, vendors to keep in mind, and what the department needs from IT.' },
+      { phase: '3 · Get access', detail: 'Send UW-IT the access requests for IT, faculty, staff, the chair and the dean, as soon as UW-IT confirms onboarding can begin.' },
+      { phase: '4 · Move to CAS IT', detail: 'Move help desk, systems administration and any other services the department needs onto CAS IT, and put the department on the 2-hour and 48-hour targets. Power Automate workflows handle the steps that repeat.' },
+      { phase: '5 · Hand off and document', detail: 'Hand the department over with a runbook, using the same documentation guidelines every time.' },
+    ],
+    risks: [
+      { risk: 'CAS IT cannot get into the department’s physical spaces, software or hardware', mitigation: 'A standard access plan, sent to UW-IT as soon as onboarding can start' },
+      { risk: 'The former IT staff have left, so nobody can explain how things are set up', mitigation: 'A checklist of specific things to investigate, so the inventory, budget and infrastructure are found directly' },
+      { risk: 'Each department gets a different process, and quality varies', mitigation: 'One kickoff, checklist, runbook and set of documentation guidelines used for all eight' },
+    ],
+    wentWrong:
+      'The same problem came up in each department: making sure CAS IT had proper access to the physical spaces, software and hardware. After the first onboarding, the clinic, we wrote a standard plan for the access that IT, faculty, staff, the chair and the dean each needed. From then on we sent those requests to UW-IT as soon as we were told onboarding could begin. The two hardest departments were Speech and Hearing Sciences and Anthropology. In both, the former IT staff had already left, so we could not ask them for information or access.',
+    outcome: [
+      'All eight departments moved from their own IT to the Dean’s Office IT team',
+      'For each one, a full picture of its inventory, IT budget and infrastructure, and a clear list of what it needs from IT',
+      'Every department on the same targets: 2-hour response and 48-hour resolution',
+      'The first onboarding, the clinic, took 3 to 4 months. The rest took 1 to 2 months each',
+      'A reusable kit: workflows, Power Automate automations, checklist, phases, kickoff, handoff, runbook and documentation guidelines',
+    ],
+    retro:
+      'The access problem came back in every department, and I only wrote the standard plan after the first one. Next time I would write it before the first onboarding starts. I would also put the most time into the investigation checklist when the old IT staff are already gone, as at the clinic and in Anthropology, because there is nobody to ask.',
+  },
+  {
     slug: 'clinic-onboarding',
-    title: 'Onboarding a clinic into central IT after its IT team left',
-    org: 'University of Washington — Speech & Hearing Sciences Clinic',
-    role: 'Program lead · department onboarding & technical projects',
+    title: 'Onboarding a clinic onto central IT after its IT team left',
+    org: 'University of Washington, Speech & Hearing Sciences Clinic',
+    role: 'Program lead, department onboarding and technical projects',
     date: '2025 – 2026',
     status: 'recovered',
     summary:
-      'A clinical department whose own IT staff had left, arriving at central IT with years of distrust aimed at the function itself. Onboarding them was a program of several projects; rebuilding the trust was the first, and nothing else could start until it was done.',
+      'A clinic lost its own IT staff and had little trust left in IT. Moving it to central IT took several projects. Rebuilding that trust was the first one, and nothing else could start until it was done.',
     metrics: [
-      { value: '48h → 2h', label: 'SLA, a 96% reduction' },
-      { value: '$30K/yr', label: 'redundant spend eliminated' },
+      { value: '48h → 2h', label: 'response time, a 96% cut' },
+      { value: '$30K/yr', label: 'duplicate spend removed' },
       { value: '5', label: 'healthcare vendors coordinated' },
       { value: '2 months', label: 'to rebuild the relationship' },
     ],
     situation:
-      'The Speech and Hearing Sciences Clinic ran its own IT — its own staff, systems, servers and vendor contracts — outside the college’s central function. That relationship had broken down over years: response times had drifted to roughly 48 hours, tickets went unanswered often enough that clinical staff stopped filing them at all, and equipment had been configured around IT’s convenience rather than the way clinicians actually work. Then the department’s IT staff left, and the clinic came under the College of Arts & Sciences central IT with no departmental IT of its own. What transferred was not only the systems but the distrust — and by then it was aimed at IT as a function, not at the individuals who had gone. Because the clinic handles patient data, every unaddressed gap was also a HIPAA exposure. The technical debt was real, but it was not the blocker: a department that had stopped believing IT would answer was never going to hand over its systems on the strength of a plan. That was the read taken up front, and rebuilding the relationship was the first project of the program.',
+      'The Speech and Hearing Sciences Clinic ran its own IT: its own staff, systems, servers and vendor contracts. The relationship with the college’s central IT had broken down over the years. Response times had drifted to about 48 hours. Tickets went unanswered so often that clinical staff stopped filing them. Equipment was set up for IT’s convenience, not for how clinicians work. Then the clinic’s IT staff left, and the clinic came under central IT with no IT of its own. The systems moved over, and so did the distrust, which was now aimed at IT as a whole. Because the clinic holds patient data, every gap was also a HIPAA risk. The technical problems were real, but they were not the blocker. A department that no longer believed IT would answer was not going to hand over its systems because of a plan. So rebuilding the relationship became the first project.',
     scope: {
       inScope: [
-        'Rebuild the working relationship between clinical staff and IT — the first project in the program',
-        'Migrate the clinic into centralized IT support, systems, and servers, with no departmental IT staff left to hand over from',
-        'HIPAA security audit of the clinic’s existing environment, with remediation',
-        'Consolidate and renegotiate five overlapping clinical vendor relationships',
-        'Establish a response-time commitment the clinical staff would actually rely on',
-        'Resolve the outstanding systems and server faults the clinic had been living with',
+        'Rebuild the working relationship between clinical staff and IT, as the first project',
+        'Move the clinic onto central IT support, systems and servers, with no clinic IT staff left to hand over',
+        'Run a HIPAA security audit of the clinic’s environment and fix what it finds',
+        'Combine and renegotiate five overlapping clinical vendor relationships',
+        'Set a response time the clinical staff can rely on',
+        'Fix the systems and server faults the clinic had been living with',
       ],
       outOfScope: [
-        'Clinical software selection — owned by the clinicians, not IT',
+        'Choosing clinical software, which belongs to the clinicians',
         'Patient scheduling and records workflows',
         'Building renovation and physical plant',
       ],
     },
     stakeholders: [
-      { group: 'Clinicians & clinical staff', need: 'Support that responds inside a patient appointment window, not the next day' },
-      { group: 'Department faculty leadership', need: 'Assurance that centralizing would not mean losing control or responsiveness' },
-      { group: 'Five healthcare vendors', need: 'Clear technical ownership boundaries and a single point of contact' },
-      { group: 'Central IT infrastructure team', need: 'A supportable environment, not an inherited pile of exceptions' },
-      { group: 'College finance', need: 'The duplicate spend identified and removed' },
+      { group: 'Clinicians and clinical staff', need: 'Support that answers inside a patient appointment window, not the next day' },
+      { group: 'Department faculty leadership', need: 'Proof that moving to central IT would not cost them control or speed' },
+      { group: 'Five healthcare vendors', need: 'Clear technical ownership and one point of contact' },
+      { group: 'Central IT infrastructure team', need: 'An environment they can support, not a pile of exceptions' },
+      { group: 'College finance', need: 'The duplicate spend found and removed' },
     ],
     plan: [
-      { phase: '1 · Rebuild the relationship first', detail: 'Before proposing anything, met the clinicians on their terms and in their language and fixed several long-standing complaints immediately, with nothing asked in return — so the first thing they saw from central IT was work delivered rather than a plan to approve. The distrust had been earned by the departmental team that left, which meant it could not be argued away, only outlasted. Two months to get from adversarial to cooperative, and nothing else below could start until it did.' },
-      { phase: '2 · Audit before promising', detail: 'With cooperation in hand, ran the HIPAA security audit and documented every finding, so the scope was based on the real environment rather than on what either side believed was there.' },
-      { phase: '3 · Vendor consolidation', detail: 'Mapped which of the five vendors owned which system, cut the overlaps, and established single-threaded ownership for each remaining contract.' },
-      { phase: '4 · Migrate in clinical downtime', detail: 'Sequenced the systems and server cutover around the clinic’s patient schedule so no appointment was affected.' },
-      { phase: '5 · Commit to the SLA', detail: 'Published a response-time commitment and the dispatch process behind it, so the 2-hour figure was a process rather than a promise.' },
+      { phase: '1 · Rebuild the relationship first', detail: 'Before proposing anything, I met the clinicians on their terms and in their language. I fixed several long-standing complaints right away and asked for nothing in return. The first thing they saw from central IT was work delivered, not a plan to approve. The distrust had been earned by the team that left, so it could not be argued away, only outlasted. It took two months to go from hostile to cooperative, and nothing below could start until it did.' },
+      { phase: '2 · Audit before promising', detail: 'With the clinic on board, I ran the HIPAA security audit and wrote down every finding. The scope was based on the real environment, not on what either side believed was there.' },
+      { phase: '3 · Combine vendors', detail: 'I mapped which of the five vendors owned which system, cut the overlaps, and gave each remaining contract one owner.' },
+      { phase: '4 · Migrate in clinical downtime', detail: 'I planned the systems and server cutover around the clinic’s patient schedule, so no appointment was affected.' },
+      { phase: '5 · Commit to a response time', detail: 'I published a response-time commitment and the dispatch process behind it, so the 2-hour figure was a process and not just a promise.' },
     ],
     risks: [
-      { risk: 'Clinicians refuse to cooperate, having been burned by the IT team that just left', mitigation: 'Delivered visible early fixes with no strings attached, before asking for anything' },
-      { risk: 'A HIPAA finding surfaces mid-migration and halts everything', mitigation: 'Audited up front so findings were known and planned for, not discovered' },
-      { risk: 'Vendor boundaries stay ambiguous and faults ping-pong between them', mitigation: 'Documented ownership per system and made one vendor accountable for each' },
-      { risk: 'Patient appointments disrupted by a cutover', mitigation: 'Scheduled all work against the clinic’s own calendar, in their downtime' },
+      { risk: 'Clinicians refuse to cooperate because the last IT team let them down', mitigation: 'Deliver visible fixes early, with no strings attached, before asking for anything' },
+      { risk: 'A HIPAA finding appears mid-migration and stops the work', mitigation: 'Audit first, so findings are known and planned for' },
+      { risk: 'Vendor boundaries stay unclear and faults bounce between vendors', mitigation: 'Write down who owns each system and make one vendor accountable for each' },
+      { risk: 'A cutover disrupts patient appointments', mitigation: 'Schedule all work against the clinic’s own calendar, in its downtime' },
     ],
     wentWrong:
-      'Leading with the relationship was the right call, but two months is a long time to report nothing shippable. There were no migrated systems and no closed findings to show for that stretch — only goodwill, which does not fit on a status report — while the schedule ran and the clinic had no IT of its own in the meantime. Holding that line against the pressure to start cutting over early was the hardest part of the program, and it would have been easier with the trust-building written into the plan as a named project with its own deliverables and dates, rather than as the thing happening before the plan officially started.',
+      'Putting the relationship first was the right call, but two months is a long time with nothing to show. There were no migrated systems and no closed findings, only goodwill, and goodwill does not fit on a status report. The schedule kept running and the clinic had no IT of its own in the meantime. Holding the line against pressure to start cutting over early was the hardest part. It would have been easier if the trust-building had been a named project in the plan, with its own deliverables and dates, and not something that happened before the plan officially began.',
     outcome: [
-      'Response time cut from roughly 48 hours to 2 — a 96% improvement, sustained by a published dispatch process',
-      '$30,000 a year in redundant IT spend eliminated',
-      'Five vendor relationships consolidated with clear technical ownership',
-      'HIPAA audit findings remediated and compliance enforced under centralized IT',
-      'A department with no IT staff of its own running wholly on central IT, by design rather than by default',
-      'Two months from adversarial to cooperative — the precondition for every other line here',
-      'Multiple IT projects running concurrently in a department that had previously blocked single ones',
-      'Clinical staff filing tickets again, and expecting an answer inside two hours',
+      'Response time cut from about 48 hours to 2, a 96% improvement, kept in place by a published dispatch process',
+      '$30,000 a year in duplicate IT spend removed',
+      'Five vendor relationships combined, each with clear technical ownership',
+      'HIPAA audit findings fixed and compliance kept up under central IT',
+      'A department with no IT staff of its own now runs fully on central IT, by design',
+      'Two months from hostile to cooperative, which every other result depended on',
+      'Several IT projects running at once in a department that had blocked single ones before',
+      'Clinical staff filing tickets again and expecting an answer within two hours',
     ],
     retro:
-      'Reading the stakeholder map before the systems diagram is what made this one work — the technical scope was never the hard part, the trust deficit was, and it was visible in the first conversation. The part worth carrying forward is that the deficit was inherited: it was earned by the team that left, and it still transferred to whoever showed up next wearing the same label. An onboarding inherits the outgoing team’s reputation along with its servers, so I now plan for that as a workstream. What I would change is the planning, not the sequencing: credibility-building was real work on the critical path, and treating it as a named project with deliverables and dates from the start would have spared me weeks of explaining why the Gantt looked empty.',
+      'Reading the stakeholder map before the systems diagram is what made this work. The technical scope was never the hard part. The trust gap was, and it showed in the first conversation. The gap was inherited: the team that left earned it, and it passed to whoever showed up next with the same label. An onboarding takes on the old team’s reputation along with its servers, so I now plan for that as its own workstream. What I would change is the planning, not the order. Trust-building was real work on the critical path. Naming it as a project with deliverables and dates would have saved me weeks of explaining why the Gantt chart looked empty.',
   },
   {
     slug: 'studio-buildout',
     title: 'A gaming studio’s IT, from zero to launch in five months',
-    org: 'Tencent — Team Kaiju Studio',
-    role: 'Lead Systems Administrator (Contract) · buildout owner',
+    org: 'Tencent, Team Kaiju Studio',
+    role: 'Lead Systems Administrator (Contract), buildout owner',
     date: '2022',
     status: 'delivered',
     summary:
-      'An empty office, a fixed launch date, a $750K budget, and no existing IT of any kind. Everything — cloud, identity, network, and 100+ workstations — had to exist and work on day one.',
+      'An empty office, a fixed launch date, a $750K budget and no IT of any kind. Cloud, identity, network and 100+ workstations all had to exist and work on day one.',
     metrics: [
-      { value: '5 months', label: 'zero to fully operational' },
+      { value: '5 months', label: 'from zero to fully working' },
       { value: '$750K', label: 'budget owned' },
       { value: '100+', label: 'multi-OS workstations delivered' },
-      { value: '2 studios', label: 'later adopted the identity stack' },
+      { value: '2 studios', label: 'later adopted the identity setup' },
     ],
     situation:
-      'Tencent was standing up a new games studio and the launch date was fixed by hiring, not by IT readiness. There was no infrastructure, no identity provider, no network, no device fleet, and no IT staff — and a studio full of engineers and artists who would arrive expecting high-end workstations that worked. The budget was $750,000, the team was a systems administrator and a project manager, and the sequencing mattered more than any individual decision: identity had to exist before devices could be enrolled, and the network had to exist before either.',
+      'Tencent was opening a new games studio, and hiring set the launch date, not IT. There was no infrastructure, no identity provider, no network, no devices and no IT staff. A studio of engineers and artists would arrive expecting high-end workstations that worked. The budget was $750,000 and the team was one systems administrator and one project manager. Order mattered more than any single decision: identity had to exist before devices could be enrolled, and the network had to exist before either.',
     scope: {
       inScope: [
         'AWS cloud infrastructure for the studio',
-        'Identity: MDM, SSO, and MFA across every platform',
-        'Office networking end to end',
-        '100+ custom high-end multi-OS workstations, specified through to deployment',
-        'Vendor selection and negotiation across the full stack',
+        'Identity: MDM, single sign-on and multi-factor login across every platform',
+        'Office networking from end to end',
+        '100+ custom high-end multi-OS workstations, from spec to deployment',
+        'Vendor selection and negotiation across the whole stack',
         'Supervising a systems administrator and a project manager',
       ],
       outOfScope: [
-        'Game engine and content pipeline tooling — owned by the studio’s technical directors',
+        'Game engine and content pipeline tools, which belong to the studio’s technical directors',
         'Studio hiring and org design',
-        'Physical office fit-out beyond network and workstation provisioning',
+        'Office fit-out beyond network and workstation setup',
       ],
     },
     stakeholders: [
-      { group: 'Studio leadership', need: 'Everything operational on the launch date, inside budget' },
-      { group: 'Engineers & artists', need: 'Workstations powerful enough for real production work, ready on arrival' },
-      { group: 'Tencent corporate IT', need: 'A configuration consistent enough to support across studios' },
-      { group: 'Vendors (Google, JumpCloud, AWS, Cisco, 1Password)', need: 'Clear requirements and realistic delivery windows' },
-      { group: 'Finance / procurement', need: 'Spend tracked against the $750K envelope' },
+      { group: 'Studio leadership', need: 'Everything working on launch day, inside budget' },
+      { group: 'Engineers and artists', need: 'Workstations strong enough for real production work, ready when they arrive' },
+      { group: 'Tencent corporate IT', need: 'A setup consistent enough to support across studios' },
+      { group: 'Vendors (Google, JumpCloud, AWS, Cisco, 1Password)', need: 'Clear requirements and realistic delivery dates' },
+      { group: 'Finance and procurement', need: 'Spend tracked against the $750K limit' },
     ],
     plan: [
-      { phase: '1 · Identity first', detail: 'Chose and stood up the JumpCloud MDM plus Google Workspace SSO/MFA stack before anything else, because every later decision depended on having one identity source.' },
-      { phase: '2 · Network and cloud in parallel', detail: 'Built out office networking and AWS infrastructure concurrently, since neither blocked the other and both blocked devices.' },
-      { phase: '3 · Vendor bake-off', detail: 'Vetted Google, JumpCloud, AWS, Cisco, and 1Password against studio requirements rather than defaulting to corporate standards.' },
-      { phase: '4 · Workstation pipeline', detail: 'Specified, ordered, imaged, and enrolled 100+ multi-OS machines through the MDM built in phase one — zero-touch by design, not by retrofit.' },
-      { phase: '5 · Handover', detail: 'Documented the stack so the studio’s own administrator could run it after the contract ended.' },
+      { phase: '1 · Identity first', detail: 'I chose and set up JumpCloud MDM and Google Workspace single sign-on with MFA before anything else, because every later decision depended on one source of identity.' },
+      { phase: '2 · Network and cloud in parallel', detail: 'I built the office network and the AWS infrastructure at the same time. Neither blocked the other, and both blocked devices.' },
+      { phase: '3 · Vendor comparison', detail: 'I compared Google, JumpCloud, AWS, Cisco and 1Password against the studio’s needs, and did not just default to corporate standards.' },
+      { phase: '4 · Workstation pipeline', detail: 'I specified, ordered, imaged and enrolled 100+ multi-OS machines through the MDM from phase one. They were zero-touch by design, not by retrofit.' },
+      { phase: '5 · Handover', detail: 'I documented the setup so the studio’s own administrator could run it after my contract ended.' },
     ],
     risks: [
-      { risk: 'Hardware lead times slip past the launch date', mitigation: 'Ordered workstations against the identity milestone, not the launch date, buying float' },
-      { risk: 'Identity choice locks the studio into a stack it outgrows', mitigation: 'Selected against studio requirements and documented the rationale for corporate review' },
-      { risk: 'Two reports and a fixed date leaves no capacity for rework', mitigation: 'Sequenced so each phase’s output was the next phase’s prerequisite — no speculative work' },
-      { risk: 'Budget consumed by workstations before infrastructure is complete', mitigation: 'Held infrastructure spend first; workstation specs were the adjustable line' },
+      { risk: 'Hardware lead times slip past the launch date', mitigation: 'Order workstations against the identity milestone, not the launch date, to build in slack' },
+      { risk: 'The identity choice locks the studio into a setup it outgrows', mitigation: 'Choose against the studio’s needs and write down the reasons for corporate review' },
+      { risk: 'Two reports and a fixed date leave no room for rework', mitigation: 'Order the phases so each one’s output is the next one’s starting point, with no speculative work' },
+      { risk: 'Workstations use up the budget before infrastructure is done', mitigation: 'Fund infrastructure first and treat workstation specs as the adjustable line' },
     ],
     wentWrong:
-      'Hardware lead times were the constant threat, and the original plan had workstation orders placed too late in the sequence — they were treated as the last step because they were the most visible one. Re-ordering against the identity milestone rather than the launch date recovered the float, but it meant committing to workstation specifications before every requirement conversation had finished, and a few specs were more machine than the role needed. Inside a fixed launch date that was the right trade; with more float I would have run the spec conversations earlier in parallel rather than accepting the overshoot.',
+      'Hardware lead times were the constant threat. My first plan put workstation orders too late in the sequence, because they were the most visible step and I treated them as the last one. Re-ordering them against the identity milestone, not the launch date, won back the slack. But it meant fixing workstation specs before every requirements conversation was finished, and a few machines were more than their role needed. With a fixed launch date that was the right trade. With more time, I would have run the spec conversations earlier, in parallel.',
     outcome: [
-      'Studio fully operational on its launch date — cloud, identity, network, and 100+ workstations',
+      'Studio fully working on its launch date: cloud, identity, network and 100+ workstations',
       'Delivered in five months against a $750,000 budget',
-      'The unified JumpCloud MDM + Google Workspace SSO/MFA architecture, including the JumpCloud Go MFA rollout, was adopted as the standard across Tencent studios in Los Angeles and Montreal',
-      'Handed over documented and supportable to the studio’s own administrator',
+      'The JumpCloud MDM and Google Workspace single sign-on and MFA setup, including the JumpCloud Go MFA rollout, became the standard for Tencent studios in Los Angeles and Montreal',
+      'Handed over documented, so the studio’s own administrator could support it',
     ],
     retro:
-      'Order long-lead hardware against the dependency that gates it, not against the date it is needed. The other lesson held up: choosing identity first made every subsequent decision cheaper, and it is why the stack was reusable enough for two other studios to adopt it.',
+      'Order long-lead hardware against the dependency that gates it, not against the date you need it. The other lesson held up too: choosing identity first made every later decision cheaper, and it is why two other studios could reuse the setup.',
   },
   {
     slug: 'district-rollout',
-    title: '15,000 students to 1:1 devices in eight weeks',
+    title: '15,000 students on 1:1 devices in eight weeks',
     org: 'Rochester Community Schools',
-    role: 'Lead Technical Consultant · operational IT lead',
+    role: 'Lead Technical Consultant, operational IT lead',
     date: '2020',
     status: 'delivered',
     summary:
-      'A district-wide closure, no remote-learning capability, and a deadline set by the school calendar. Every one of 15,000 students needed a device, every machine already in 31 schools needed counting, and teachers had to be able to actually teach on it.',
+      'The whole district closed, remote learning was not set up, and the school calendar set the deadline. Every one of 15,000 students needed a device. Every machine in 31 schools needed counting. Teachers had to be able to teach on it all.',
     metrics: [
-      { value: '15,000', label: 'students equipped 1:1' },
+      { value: '15,000', label: 'students given a device' },
       { value: '31', label: 'schools inventoried' },
-      { value: '8 weeks', label: 'from start to complete' },
+      { value: '8 weeks', label: 'from start to finish' },
       { value: 'District-wide', label: 'curriculum adoption' },
     ],
     situation:
-      'COVID-19 closed the district with no remote-learning capability in place. All 15,000 students needed a Chromebook each, the asset inventory was incomplete enough that nobody knew what the district already owned, and teachers had no training on the tools they were about to depend on entirely. The deadline was the school calendar, which does not move. The two halves of the job pulled against each other: with buildings closed, distribution had to run out of a single district staging site rather than school by school — one queue, one staging area, six technical assistants, every device passing through it — while the inventory had to reach into all 31 schools, every cart, lab and classroom, to count what was there and pull what was dead.',
+      'COVID-19 closed the district, and remote learning was not in place. All 15,000 students needed a Chromebook. The asset list was so incomplete that nobody knew what the district already owned. Teachers had no training on the tools they were about to depend on. The deadline was the school calendar, which does not move. The two halves of the job pulled against each other. With buildings closed, devices had to go out from one district site, with one queue, one staging area, six technical assistants and every device passing through. At the same time, the inventory had to reach into all 31 schools, every cart, lab and classroom, to count what was there and pull what was dead.',
     scope: {
       inScope: [
-        '1:1 Chromebook rollout — a device for every one of 15,000 students, staged from a single district site',
-        'Asset inventory of every computer and laptop in all 31 schools — every cart, lab and classroom',
-        'Decommissioning and recycling end-of-life desktops and laptops as the count went',
-        'Google Workspace remote-learning curriculum for teachers',
-        'Train-the-trainer so IT staff at each school could deliver it',
-        'Directing six technical assistants, and personally leading the work in 10 of the 31 schools',
+        'A 1:1 Chromebook rollout: a device for each of 15,000 students, staged from one district site',
+        'An inventory of every computer and laptop in all 31 schools, in every cart, lab and classroom',
+        'Retiring and recycling old desktops and laptops as the count went',
+        'A Google Workspace remote-learning curriculum for teachers',
+        'Train-the-trainer sessions so IT staff at each school could teach it',
+        'Directing six technical assistants, and leading the work myself in 10 of the 31 schools',
       ],
       outOfScope: [
-        'Academic curriculum and instructional design — owned by teaching staff',
-        'Home internet provisioning for families',
+        'Academic curriculum and lesson design, which belong to teaching staff',
+        'Home internet for families',
         'Student information system changes',
       ],
     },
     stakeholders: [
-      { group: 'Principals', need: 'Their school’s students equipped, and teachers able to use the tools' },
+      { group: 'Principals', need: 'Their students equipped and their teachers able to use the tools' },
       { group: 'Teachers', need: 'Training that worked for non-technical staff under time pressure' },
-      { group: 'Families', need: 'Devices in hand, with the handover working around closure restrictions' },
-      { group: 'District administration', need: 'An accurate asset inventory and accountability for 15,000 devices' },
-      { group: 'Six technical assistants', need: 'An owned stage on the staging line and an owned set of schools, with no ambiguity either way' },
+      { group: 'Families', need: 'Devices in hand, with pickup that worked within closure rules' },
+      { group: 'District administration', need: 'An accurate asset list and accountability for 15,000 devices' },
+      { group: 'Six technical assistants', need: 'A clear stage on the staging line and a clear set of schools, with no doubt about either' },
     ],
     plan: [
-      { phase: '1 · Inventory as you go', detail: 'Ran the count alongside distribution rather than before it — waiting for a clean inventory would have cost weeks the calendar did not have. Each new Chromebook was recorded to its student at handover, so distribution was its own audit trail.' },
-      { phase: '2 · Parallelize inside one site', detail: 'Split the staging line into owned stages — unboxing, enrollment, asset tagging, cart build, handout — so six people worked concurrently on different batches instead of walking each device through end to end.' },
-      { phase: '3 · Walk every room in all 31 schools', detail: 'Counted every computer and laptop in every cart, lab and classroom across the district and pulled end-of-life machines for recycling as the count went. Personally led that sweep in 10 of the 31 schools.' },
-      { phase: '4 · Train the trainers', detail: 'Wrote the Google Workspace remote-learning curriculum once, then trained IT staff at each school to deliver it locally — the only way to reach every teacher inside the window.' },
-      { phase: '5 · Escalation path', detail: 'Kept a single point of escalation so a blocked site could be unblocked in hours rather than waiting for a weekly check-in.' },
+      { phase: '1 · Count as you go', detail: 'I ran the inventory alongside distribution, not before it. Waiting for a clean count would have cost weeks the calendar did not have. Each new Chromebook was recorded to its student at handover, so distribution was its own audit trail.' },
+      { phase: '2 · Work in parallel inside one site', detail: 'I split the staging line into owned stages: unboxing, enrollment, asset tagging, cart building and handout. Six people could work on different batches at once, and nobody walked a device through every step.' },
+      { phase: '3 · Walk every room in 31 schools', detail: 'We counted every computer and laptop in every cart, lab and classroom, and pulled dead machines for recycling as we went. I led that sweep myself in 10 of the 31 schools.' },
+      { phase: '4 · Train the trainers', detail: 'I wrote the Google Workspace remote-learning curriculum once, then trained IT staff at each school to teach it locally. That was the only way to reach every teacher in the time we had.' },
+      { phase: '5 · One path for escalations', detail: 'I kept a single point of escalation, so a blocked site could be unblocked in hours and not wait for a weekly meeting.' },
     ],
     risks: [
-      { risk: 'Incomplete inventory means devices go unaccounted for', mitigation: 'Recorded each device to a student at the point of handover, making distribution the inventory' },
-      { risk: 'One distribution site becomes the throughput ceiling for the whole district', mitigation: 'Ran the staging line in parallel stages and sequenced handout by school and grade band' },
-      { risk: 'Teachers receive devices they cannot teach on', mitigation: 'Built and delivered the curriculum alongside the rollout, not after it' },
-      { risk: 'Closure restrictions block physical distribution', mitigation: 'Structured handover around the access the closure permitted, school by school' },
+      { risk: 'An incomplete inventory means devices go missing', mitigation: 'Record each device to a student at handover, so distribution becomes the inventory' },
+      { risk: 'One distribution site becomes the limit for the whole district', mitigation: 'Run the staging line in parallel stages and hand out by school and grade band' },
+      { risk: 'Teachers get devices they cannot teach on', mitigation: 'Build and deliver the curriculum alongside the rollout, not after it' },
+      { risk: 'Closure rules block physical handout', mitigation: 'Plan pickup around the access the closure allowed, school by school' },
     ],
     wentWrong:
-      'Teacher training was underscoped at the start. The original plan trained teachers directly, which could not scale to a whole district inside eight weeks, and had to be rebuilt as train-the-trainer once that became obvious — IT staff at each school delivering the curriculum locally instead of one team delivering it everywhere. The logistics had a second trap: distribution from one site was the right call with buildings closed, but it made that site the only place throughput could stall, while the 31-school inventory sweep pulled the same six people in the opposite direction. Sequencing handout by school and grade band, and keeping the sweep off the critical path, mattered more than it would have school by school.',
+      'I under-planned teacher training. The first plan trained teachers directly, which could not reach a whole district in eight weeks. It had to be rebuilt as train-the-trainer once that was clear, with IT staff at each school teaching the curriculum locally and not one team teaching it everywhere. The logistics had a second trap. Sending devices out from one site was right with buildings closed, but it made that site the only place things could jam, while the 31-school sweep pulled the same six people the other way. Handing out by school and grade band, and keeping the sweep off the critical path, mattered more than it would have if we had worked school by school.',
     outcome: [
-      '15,000 students equipped 1:1 within eight weeks — one device each, all staged from a single site',
-      'Every computer and laptop in all 31 schools inventoried, with end-of-life machines decommissioned and recycled',
-      'Google Workspace remote-learning curriculum adopted district-wide at the principal’s request',
-      'IT staff at every school trained to deliver the curriculum locally',
+      '15,000 students had a 1:1 device within eight weeks, all staged from a single site',
+      'Every computer and laptop in all 31 schools counted, with old machines retired and recycled',
+      'The Google Workspace remote-learning curriculum was adopted district-wide at the principal’s request',
+      'IT staff at every school trained to teach the curriculum locally',
     ],
     retro:
-      'Scope training as delivery capacity rather than content. The question is never "is the material good" but "how many people can deliver it" — and answering that late cost a rebuild of the training plan mid-rollout. On the logistics, running everything through one site was right for a closed district, but it means throughput is set by the slowest stage on the line, so I would instrument the stages from day one rather than after the first backlog.',
+      'Plan training as delivery capacity, not content. The question is never "is the material good". It is "how many people can teach it". Answering that late cost me a rebuild of the training plan in the middle of the rollout. On the logistics, running everything through one site was right for a closed district, but it means the slowest stage sets the speed of the whole line. Next time I would measure each stage from day one, not after the first backlog.',
   },
 ];

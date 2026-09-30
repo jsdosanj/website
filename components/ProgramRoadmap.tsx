@@ -241,7 +241,7 @@ export default function ProgramRoadmap() {
       </ol>
 
       <p className="mt-3 type-caption text-ink-500">
-        Pan the roadmap sideways — with the arrows above, a swipe, or the arrow keys — to move
+        Pan the roadmap sideways with the arrows above, a swipe, or the arrow keys to move
         through the decade. Bars are to scale, and where two share a column the work overlapped:
         contract engagements ran alongside a full-time role.
       </p>

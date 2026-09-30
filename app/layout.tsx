@@ -37,7 +37,7 @@ const gurmukhi = Noto_Serif_Gurmukhi({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.founder} — ${site.shortTagline}`, template: `%s · ${site.brand}` },
+  title: { default: `${site.founder}: ${site.shortTagline}`, template: `%s · ${site.brand}` },
   description: site.description,
   manifest: '/site.webmanifest',
   icons: {

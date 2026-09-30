@@ -1,10 +1,10 @@
 export const site = {
   brand: 'Jasvant Dosanjh',
   founder: 'Jasvant Singh Dosanjh',
-  tagline: 'Programs that ship — scoped, staffed, and measured.',
+  tagline: 'Programs that ship: scoped, staffed and measured.',
   shortTagline: 'Technical Program Manager.',
   description:
-    'Jasvant Singh Dosanjh is a Technical Program Manager with 10+ years delivering technical programs across higher education, healthcare, gaming, and big tech. He has shipped 12 security and compliance products end to end, run $250K and $750K budget programs, led teams of up to 9, coordinated five healthcare vendors through a clinical IT onboarding, and delivered a six-month, zero-downtime security migration. He runs Agile and Waterfall delivery, owns the SDLC from requirements through CI/CD, and manages risk in HIPAA-, FERPA-, and NIST-regulated environments. PMP exam scheduled September 2026.',
+    'Jasvant Singh Dosanjh is a Technical Program Manager with 10+ years of experience in higher education, healthcare, gaming and big tech. He built the repeatable process that moved eight University of Washington departments onto central IT. He has shipped 12 security and compliance products, run $250K and $750K budgets, led a team of 9, and finished a six-month security migration with zero downtime. He uses Agile and Waterfall, owns the software lifecycle from requirements to deployment, and manages risk under HIPAA, FERPA and NIST rules. He builds with Claude Code, GitHub Copilot and OpenRouter. His PMP exam is scheduled for October 2026.',
   location: 'Open to Relocating',
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
@@ -18,13 +18,13 @@ export const site = {
     'IT Program Manager',
   ],
   positioning:
-    'Technical Program Manager with 10+ years delivering technical programs across higher ed, healthcare, gaming, and big tech — owning roadmaps, budgets, vendors, and the full SDLC. Shipped 12 security and compliance products from requirements through CI/CD, ran $250K and $750K hardware and buildout programs, led teams of up to 9 including union staff, and delivered a six-month multi-building security migration with zero downtime. The rare PM who writes the runbook, reads the audit control, and still holds the roadmap.',
+    'Technical Program Manager with 10+ years of experience in higher ed, healthcare, gaming and big tech. I own the roadmap, the budget, the vendors and the full software lifecycle. I built the repeatable process that moved eight university departments onto central IT. I have shipped 12 security and compliance products, run $250K and $750K programs, led a team of 9 that included union staff, and finished a six-month, multi-building security migration with zero downtime. I write the runbook, read the audit control, and still hold the roadmap.',
   socials: {
     linkedin: 'https://linkedin.com/in/jasvantsd',
     github: 'https://github.com/jsdosanj',
     huggingface: 'https://huggingface.co/jsdosanj',
   },
-  // One current, ATS-optimized résumé for the Technical Program Manager track —
+  // One current, ATS-optimized résumé for the Technical Program Manager track,
   // the roles being targeted. Superseded IT Manager / Senior Systems Engineer
   // variants were removed rather than left to go stale; they remain in git history.
   resumes: [

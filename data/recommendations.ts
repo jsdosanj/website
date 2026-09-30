@@ -10,7 +10,7 @@ export const recommendations: Recommendation[] = [
     name: 'Tiffany Calverley',
     title: 'Director of Development, Social Sciences @ University of Washington',
     link: 'https://www.linkedin.com/in/tiffany-calverley/',
-    text: 'Jasvant really walks the walk as a professional dedicated to elite customer service. In a space often occupied by people unable to explain complexity or who are dismissive, Jasvant has always valued being the complete opposite — and it shows in everything he does. I am glad for anyone lucky enough to benefit from his talents.',
+    text: 'Jasvant really walks the walk as a professional dedicated to elite customer service. In a space often occupied by people unable to explain complexity or who are dismissive, Jasvant has always valued being the complete opposite, and it shows in everything he does. I am glad for anyone lucky enough to benefit from his talents.',
   },
   {
     name: 'Kate Cescon',

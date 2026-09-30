@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # =====================================================================
-# AI answer & search engines — welcome to crawl and cite this site.
+# AI answer & search engines: welcome to crawl and cite this site.
 # These drive real referral traffic and are not blocked.
 # =====================================================================
 User-agent: OAI-SearchBot
@@ -48,11 +48,11 @@ User-agent: DuckAssistBot
 Allow: /
 
 # =====================================================================
-# AI/ML training & dataset crawlers — disallowed. This site's content is
+# AI/ML training & dataset crawlers: disallowed. This site's content is
 # reserved under the W3C TDM Reservation Protocol; see /ai-policy for the
 # human-readable policy and /ai.txt and /.well-known/tdmrep.json for the
 # machine-readable declarations. (Google-Extended / Applebot-Extended are
-# training opt-out tokens only — they do not affect Googlebot/Applebot
+# training opt-out tokens only. They do not affect Googlebot/Applebot
 # search indexing, which stays fully allowed above.)
 # =====================================================================
 User-agent: GPTBot

@@ -28,7 +28,7 @@ export type PageDescriptor = {
 
 export function pageMetadata(opts: PageDescriptor): Metadata {
   const { title, description = site.description, keywords = [], path, ogSlug, noindex } = opts;
-  const fullTitle = title ? `${title} · ${site.brand}` : `${site.founder} — ${site.shortTagline}`;
+  const fullTitle = title ? `${title} · ${site.brand}` : `${site.founder}: ${site.shortTagline}`;
   const canonical = new URL(path, site.url).href;
   const ogImage = new URL(`/og/${ogSlug ?? 'home'}.png`, site.url).href;
 
@@ -48,7 +48,7 @@ export function pageMetadata(opts: PageDescriptor): Metadata {
       description,
       url: canonical,
       locale: 'en_US',
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `${site.brand} — ${site.tagline}` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${site.brand}: ${site.tagline}` }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -123,7 +123,7 @@ export function personGraph() {
  */
 export function pageGraph(opts: PageDescriptor, extra: object[] = []) {
   const { title, description = site.description, path, ogSlug } = opts;
-  const fullTitle = title ? `${title} · ${site.brand}` : `${site.founder} — ${site.shortTagline}`;
+  const fullTitle = title ? `${title} · ${site.brand}` : `${site.founder}: ${site.shortTagline}`;
   const canonical = new URL(path, site.url).href;
 
   const segments = path.split('/').filter(Boolean);

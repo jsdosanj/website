@@ -1,4 +1,4 @@
-# ai.txt — AI & content-usage policy for jasvant.me
+# ai.txt: AI & content-usage policy for jasvant.me
 # Human-readable summary; see /.well-known/tdmrep.json for the machine-
 # readable W3C TDM Reservation Protocol declaration, and /ai-policy for
 # the full policy page.

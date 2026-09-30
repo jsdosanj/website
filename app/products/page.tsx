@@ -11,9 +11,9 @@ import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadat
 const page: PageDescriptor = {
   path: '/products',
   ogSlug: 'products',
-  title: 'Products — Sikhi University, Sightline & Bastion',
+  title: 'Products: Sikhi University, Sightline & Bastion',
   description:
-    'Products from Jasvant Dosanjh — Sikhi University (free Sikhi education), a 12-product GRC & security suite (Sightline, Bastion, Ward & more), and open-source tools GurmukhiFix and Cairn.',
+    'Products from Jasvant Dosanjh: Sikhi University (free Sikhi education), a 12-product GRC & security suite (Sightline, Bastion, Ward & more), and the open-source tools GurmukhiFix and Cairn.',
   keywords: [
     'Sikhi University', 'Sightline', 'Bastion', 'GurmukhiFix', 'Cairn', 'SikhLibrary dataset',
     'Gurmukhi OCR', 'compliance software', 'GRC suite',
@@ -31,7 +31,7 @@ export default function Products() {
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Dosanjh Labs — Products',
+    name: 'Dosanjh Labs: Products',
     itemListElement: products.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -62,8 +62,7 @@ export default function Products() {
             </span>
           </h1>
           <p className="reveal is-visible mt-5 type-body text-ink-600 leading-relaxed">
-            Every product here exists because something that should have been easy was needlessly hard
-            — OCR that fails on the world’s scripts, knowledge locked in manuscripts, fleets that break
+            Every product here exists because something that should have been easy was needlessly hard: OCR that fails on the world’s scripts, knowledge locked in manuscripts, fleets that break
             before anyone notices. Some are live today; others are taking shape on the workbench.
           </p>
         </div>
@@ -100,7 +99,7 @@ export default function Products() {
       <section className="container-x mt-16">
         <SectionHeading eyebrow="Free & open" title="Open source">
           <p className="reveal mt-4 max-w-xl text-ink-600">
-            Tools I’ve open-sourced for IT and security teams to run, audit, and self-host — no
+            Tools I’ve open-sourced for IT and security teams to run, audit, and self-host, with no
             lock-in.
           </p>
         </SectionHeading>

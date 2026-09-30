@@ -17,7 +17,7 @@ export const skillGroups: SkillGroup[] = [
     icon: 'workflow',
     wide: true,
     blurb:
-      'Running technical programs end to end — roadmap, budget, vendors, and the SDLC underneath them — in Agile, Waterfall, and the hybrid most organizations actually run. The part I care about most is a plan stakeholders can trust two months out.',
+      'Running technical programs from start to finish: roadmap, budget, vendors and the software lifecycle underneath them. I use Agile, Waterfall and the mix most organizations really run. What I care about most is a plan stakeholders can still trust two months out.',
     skills: [
       'Technical Program Management',
       'Technical Project Management',
@@ -42,7 +42,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Security, Risk & Compliance',
     icon: 'shield',
-    blurb: 'Keeping regulated programs audit-ready, and translating control language into work a team can actually schedule.',
+    blurb: 'Keeping regulated programs ready for audit, and turning control language into work a team can schedule.',
     skills: [
       'NIST CSF',
       'NIST SP 800-53',
@@ -63,7 +63,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Leadership & Team Management',
     icon: 'spark',
-    blurb: 'Aligning people, vendors, and executives around one outcome — including the hard version: someone else’s team, mid-vacancy.',
+    blurb: 'Getting people, vendors and executives working toward one outcome, including the hard version: someone else’s team during a vacancy.',
     skills: [
       'People Management',
       'Union Staff Management',
@@ -78,7 +78,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'IT Service & Operations',
     icon: 'headset',
-    blurb: 'Running the day-to-day: service desk leadership, SLAs, and the lifecycle behind every device and ticket.',
+    blurb: 'Running the day-to-day: service desk leadership, response-time targets, and the lifecycle behind every device and ticket.',
     skills: [
       'ITSM',
       'Help/Service Desk Management',
@@ -94,7 +94,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Infrastructure & Endpoints',
     icon: 'server',
-    blurb: 'A decade of running real device fleets at college and studio scale — and hardening them.',
+    blurb: 'A decade of running real device fleets at college and studio scale, and making them more secure.',
     skills: [
       'Jamf Pro (Certified)',
       'Microsoft Intune',
@@ -114,7 +114,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Automation & Development',
     icon: 'code',
-    blurb: 'Automation and tooling that removes toil — so the program plan does not depend on someone remembering a manual step.',
+    blurb: 'Automation and tools that remove repetitive work, so the program plan never depends on someone remembering a manual step.',
     skills: [
       'PowerShell',
       'Bash / Shell',
@@ -133,7 +133,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Cloud & DevOps',
     icon: 'target',
-    blurb: 'Shipping to a serverless edge — containerized, CI-driven, and paid-for.',
+    blurb: 'Shipping to a serverless edge: containerized, built by CI, and paid for.',
     skills: [
       'Docker & Containerization',
       'Cloudflare Workers / Pages',
@@ -148,7 +148,7 @@ export const skillGroups: SkillGroup[] = [
     title: 'Development with AI',
     icon: 'sparkles',
     blurb:
-      'Shipping real products with AI as a force multiplier — from RAG pipelines over a 1.07-billion-word corpus to OCR repair engines and agentic coding workflows.',
+      'I build real products with AI tools, and I can show the results. I used Claude Code, GitHub Copilot and OpenRouter, with several models for OCR and translation, to translate 4,000+ Punjabi texts into English for the Sikh Library dataset. I used the same tools to build the Dosanjh Labs products, including a RAG search over a 1.07-billion-word corpus and the GurmukhiFix OCR repair engine.',
     skills: [
       'RAG Architecture',
       'LLM Application Design',
@@ -167,7 +167,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Languages',
     icon: 'globe',
-    blurb: 'Meeting people — and communities — in their own language.',
+    blurb: 'Meeting people and communities in their own language.',
     skills: [
       'English (fluent)',
       'Punjabi (fluent)',

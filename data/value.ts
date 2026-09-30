@@ -11,33 +11,33 @@ export const helpAreas = [
     icon: 'workflow',
     role: 'Technical Program Manager',
     blurb:
-      'I run multi-workstream programs end to end — strategy, roadmap, budget, and the SDLC underneath them — so engineering, vendors, and leadership all work off one plan they can actually trust.',
+      'I run programs with many workstreams from start to finish: strategy, roadmap, budget and the software lifecycle underneath them. Engineering, vendors and leadership all work from one plan they can trust.',
     proof: [
-      'Shipped 12 live security and compliance products by owning strategy, roadmap, and the SDLC from requirements through CI/CD',
-      'Unified 22+ compliance frameworks into one dashboard by building Sightline over the tools an organization already runs',
-      'Helped secure $2M+ from Nestlé and the Chilean government by defining MVP requirements and managing stakeholders through launch',
+      'Shipped 12 live security and compliance products by owning strategy, the roadmap and the software lifecycle from requirements to deployment',
+      'Brought 22+ compliance frameworks into one dashboard by building Sightline on top of the tools an organization already runs',
+      'Helped a startup raise $2M+ from Nestlé and the Chilean government by defining MVP requirements and managing stakeholders through launch',
     ],
   },
   {
     icon: 'target',
     role: 'Technical Project Manager',
     blurb:
-      'Hand me the escalated project — five vendors, a missed deadline, and a department that has stopped trusting IT. I scope it, sequence it, and land it without breaking anything that is already working.',
+      'Hand me the escalated project: five vendors, a missed deadline, and a department that no longer trusts IT. I scope it, plan the order of work, and land it without breaking anything that already works.',
     proof: [
-      'Cut a clinic’s SLA 96% (48 hours to 2) by leading the program that onboarded it into central IT, rebuilding a broken faculty–IT relationship first',
-      'Delivered a six-month, multi-building security migration with zero downtime by sequencing cutovers building by building',
-      'Stood up a gaming studio’s entire IT environment in five months against a $750K budget by owning vendor selection and supervising two reports',
+      'Cut a clinic’s response time by 96% (48 hours to 2) by leading the program that moved it onto central IT, starting with rebuilding a broken relationship between faculty and IT',
+      'Finished a six-month, multi-building security migration with zero downtime by planning the cutover one building at a time',
+      'Built a gaming studio’s whole IT environment in five months on a $750K budget by owning vendor selection and supervising two people',
     ],
   },
   {
     icon: 'shield',
     role: 'IT Program Manager',
     blurb:
-      'The programs that never finish — hardware lifecycle, endpoint fleet, audit readiness, and the team keeping them moving. I own the budget, the compliance posture, and the people side of all three.',
+      'The programs that never end: hardware lifecycle, the device fleet, audit readiness, and the team that keeps them moving. I own the budget, the compliance posture and the people side of all three.',
     proof: [
-      'Held a $250K annual hardware program on budget as sole Workday buyer by forecasting with department heads and negotiating with Dell and Apple',
-      'Kept a 9-person team delivering through a 3-month leadership vacancy by establishing formal ticket-dispatch accountability',
-      'Assessed 40 servers and delivered gap-remediation plans to department heads by leading the college’s NIST SP 800-53 audits',
+      'Kept a $250K annual hardware program on budget as the only Workday buyer by forecasting with department heads and negotiating with Dell and Apple',
+      'Kept a 9-person team delivering through a 3-month leadership gap by setting up formal ticket-dispatch accountability',
+      'Assessed 40 servers and sent fix-it plans to department heads by leading the college’s NIST SP 800-53 audits',
     ],
   },
 ];
@@ -63,8 +63,9 @@ export const metricGroups: MetricGroup[] = [
     icon: 'workflow',
     metrics: [
       { value: '12', label: 'products shipped end to end', source: 'Dosanjh Labs · requirements → CI/CD' },
+      { value: '8', label: 'departments moved onto central IT', source: 'UW · Dean’s Office onboarding program' },
       { value: 'Zero', label: 'downtime across a 6-month migration', source: 'UW · multi-building security cutover' },
-      { value: '96', unit: '%', label: 'SLA cut — 48 hrs to 2', source: 'UW · Speech & Hearing Clinic' },
+      { value: '96', unit: '%', label: 'faster response, 48 hrs to 2', source: 'UW · Speech & Hearing Clinic' },
       { value: '8', unit: ' wks', label: 'to a full district 1:1 rollout', source: 'Rochester · COVID-19 closure' },
     ],
   },

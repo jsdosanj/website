@@ -21,7 +21,7 @@ const page: PageDescriptor = {
   path: '/resume',
   ogSlug: 'resume',
   title: 'Résumé',
-  description: `The live web résumé of ${site.founder} — ${site.positioning}`,
+  description: `The live web résumé of ${site.founder}. ${site.positioning}`,
   keywords: ['resume', 'CV', 'Technical Program Manager resume', 'TPM resume', 'program manager CV', 'printable resume'],
 };
 
@@ -32,7 +32,7 @@ export default function Resume() {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
     '@id': `${site.url}/resume#profilepage`,
-    name: `${site.founder} — Résumé`,
+    name: `${site.founder}: Résumé`,
     mainEntity: { '@id': `${site.url}/#person` },
   };
 
@@ -202,7 +202,7 @@ export default function Resume() {
         </article>
 
         <p className="no-print reveal mt-8 text-center type-caption text-ink-500 max-w-[62rem] mx-auto">
-          This page is generated from the same source data as the rest of the site — it will never
+          This page is generated from the same source data as the rest of the site, so it will never
           drift out of date. The PDF above is the 2-page, ATS-friendly version, current as of
           September 2026.
         </p>

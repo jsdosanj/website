@@ -9,9 +9,9 @@ import ContactForm from './ContactForm';
 const page: PageDescriptor = {
   path: '/contact',
   ogSlug: 'contact',
-  title: 'Contact — Hire a Technical Program Manager',
+  title: 'Contact: Hire a Technical Program Manager',
   description:
-    'Get in touch with Jasvant Singh Dosanjh — Technical Program Manager open to relocating, open to Technical Program Manager, Technical Project Manager, and IT Program Manager roles.',
+    'Get in touch with Jasvant Singh Dosanjh, a Technical Program Manager open to relocating and open to Technical Program Manager, Technical Project Manager and IT Program Manager roles.',
 };
 
 export const metadata = pageMetadata(page);
@@ -50,7 +50,7 @@ export default function Contact() {
             <p className="reveal is-visible mt-5 type-body text-ink-600 leading-relaxed">
               I’m actively interviewing for <span className="text-ink-800">Technical Program Manager</span>,{' '}
               <span className="text-ink-800">Technical Project Manager</span>, and{' '}
-              <span className="text-ink-800">IT Program Manager</span> roles — and always happy to talk
+              <span className="text-ink-800">IT Program Manager</span> roles. I’m also always happy to talk
               delivery, infrastructure, or a tool worth building. If you’re hiring, let’s find 20
               minutes.
             </p>
@@ -107,7 +107,7 @@ export default function Contact() {
               ))}
             </div>
             <p className="reveal mt-4 text-center type-caption text-ink-500">
-              A 2-page, ATS-friendly résumé — current as of September 2026.
+              A 2-page, ATS-friendly résumé, current as of September 2026.
             </p>
           </div>
 

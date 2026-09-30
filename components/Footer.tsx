@@ -82,7 +82,8 @@ export default function Footer() {
             </Link>
           </p>
           <p className="gurmukhi type-subhead text-white/75">
-            <span lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</span> —{' '}
+            <span lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</span>{' '}
+            ·{' '}
             <span className="font-sans not-italic text-white/60">built in chardi kala</span>
           </p>
         </div>

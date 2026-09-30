@@ -64,7 +64,7 @@ export async function sendMessage(_prev: ContactState, data: FormData): Promise<
         _captcha: 'false',
         name,
         email,
-        company: company || '—',
+        company: company || 'none given',
         message,
       }),
     });
@@ -72,7 +72,7 @@ export async function sendMessage(_prev: ContactState, data: FormData): Promise<
   } catch {
     return {
       ok: false,
-      error: 'The message couldn’t be sent just now — please try again, or reach me on LinkedIn.',
+      error: 'The message couldn’t be sent just now. Please try again, or reach me on LinkedIn.',
     };
   }
 

@@ -19,9 +19,9 @@ import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadat
 const page: PageDescriptor = {
   path: '/about',
   ogSlug: 'about',
-  title: 'About — Track Record & Experience',
+  title: 'About: Track Record & Experience',
   description:
-    'The track record of Jasvant Singh Dosanjh: a Technical Program Manager who has delivered programs across healthcare, education, gaming, and big tech — roadmaps, budgets, vendors, SDLC, and GRC.',
+    'The track record of Jasvant Singh Dosanjh: a Technical Program Manager who has delivered programs across healthcare, education, gaming, and big tech. That includes roadmaps, budgets, vendors, the software lifecycle and GRC.',
   keywords: [
     'Jasvant Dosanjh about', 'Technical Program Manager experience',
     'technical program management track record', 'Technical Project Manager',
@@ -39,29 +39,29 @@ const raid = [
     key: 'R',
     heading: 'Risks',
     rule: 'Surfaced in week two, not week ten.',
-    text: 'A risk raised early is a scheduling conversation; the same risk raised late is an apology. I would rather give a later date I can hold than an early one that slips twice — and I would rather be the one who names the problem.',
-    evidence: 'Sequenced a six-month, multi-building security migration building by building specifically so a failure could never take the whole college down. Zero downtime.',
+    text: 'A risk raised early is a scheduling conversation; the same risk raised late is an apology. I would rather give a later date I can hold than an early one that slips twice, and I would rather be the one who names the problem.',
+    evidence: 'Planned a six-month, multi-building security migration one building at a time, so a failure could never take the whole college down. Zero downtime.',
   },
   {
     key: 'A',
     heading: 'Assumptions',
     rule: 'Written down, then re-tested.',
     text: 'Most slipped programs were scoped on an assumption nobody wrote down. I put them on the page where stakeholders can disagree with them early, and I revisit them when the ground moves.',
-    evidence: 'Forecast a $250K annual hardware program with department heads rather than for them — so the device counts were their numbers, aligned to their budgets, before a PO was raised.',
+    evidence: 'Forecast a $250K annual hardware program with department heads, not for them, so the device counts were their numbers, matched to their budgets, before a purchase order was raised.',
   },
   {
     key: 'I',
     heading: 'Issues',
     rule: 'Owned by a name, not a team.',
     text: 'Work assigned to "IT" is work nobody has picked up. Every open issue gets a person and a date, and the dispatch is visible enough that the team can hold each other to it.',
-    evidence: 'Stepping into a three-month leadership vacancy, established formal ticket-dispatch accountability across a 9-person team — including 4 union civil-service staff — and service never dropped.',
+    evidence: 'During a three-month leadership gap, set up formal ticket-dispatch accountability across a 9-person team that included 4 union civil-service staff, and service never dropped.',
   },
   {
     key: 'D',
     heading: 'Dependencies',
     rule: 'Mapped before the date is given.',
-    text: 'The vendor who needs four weeks, the clinician who is only free on Tuesdays, the approval that takes a committee — those set the critical path, not the engineering estimate. I find them first.',
-    evidence: 'Coordinated five healthcare vendors, clinicians, and infrastructure stakeholders through a HIPAA clinic onboarding, taking the SLA from 48 hours to 2 and cutting $30K a year.',
+    text: 'The vendor who needs four weeks, the clinician who is only free on Tuesdays, the approval that takes a committee: these set the critical path, not the engineering estimate. I find them first.',
+    evidence: 'Coordinated five healthcare vendors, clinicians and infrastructure stakeholders through a HIPAA clinic onboarding. Response time went from 48 hours to 2, and $30K a year was saved.',
   },
 ];
 
@@ -156,8 +156,8 @@ export default function About() {
             <span className="text-ink-800">IT Program Manager</span> roles
           </p>
           <p className="reveal is-visible mt-6 max-w-2xl mx-auto text-ink-600 leading-relaxed">
-            The settings have changed a lot over ten years — healthcare, higher ed, gaming, big tech —
-            but the job hasn’t. I take the program nobody can see the end of, break it into work people
+            The settings have changed a lot over ten years: healthcare, higher ed, gaming, big tech.
+            The job hasn’t. I take the program nobody can see the end of, break it into work people
             can actually schedule, and land it on a date I gave them up front.
           </p>
           <div className="reveal is-visible mt-8 flex flex-wrap justify-center gap-2.5">
@@ -210,11 +210,11 @@ export default function About() {
                 built outlived his involvement, picked up by other teams, departments, and studios.
               </p>
               <p className="mt-4 text-ink-600 leading-relaxed">
-                He builds with one assumption —{' '}
+                He builds with one assumption:{' '}
                 <span className="text-kesari-700">
-                  that what he makes will be used far beyond its original scope
-                </span>{' '}
-                — and serves with one belief: that something valuable should never stay locked away
+                  what he makes will be used far beyond its original scope
+                </span>
+                . He serves with one belief: something valuable should never stay locked away
                 where only one person can reach it.
               </p>
               <p className="mt-4 type-subhead text-ink-500">
@@ -230,7 +230,7 @@ export default function About() {
       <section className="container-x mt-28">
         <SectionHeading eyebrow="Origin story" title="The trajectory" align="center">
           <p className="reveal mt-4 max-w-2xl mx-auto text-ink-600">
-            Same instinct, five very different rooms — from a schoolyard in Michigan to a global stage.
+            Same instinct, five very different rooms, from a schoolyard in Michigan to a global stage.
           </p>
         </SectionHeading>
         <div className="mt-12 max-w-2xl mx-auto">
@@ -243,8 +243,8 @@ export default function About() {
         <SectionHeading eyebrow="How I run a program" title="The register I keep" align="center">
           <p className="reveal mt-4 max-w-2xl mx-auto text-ink-600">
             Risks, assumptions, issues, dependencies. Every program I have run came down to how honestly
-            these four were tracked — so rather than list values, here is the operating rule for each one
-            and the program that proves it.
+            these four were tracked. So instead of a list of values, here is the operating rule for each
+            one and the program that proves it.
           </p>
         </SectionHeading>
 
@@ -278,12 +278,12 @@ export default function About() {
           <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-kesari-500/10 blur-3xl" aria-hidden="true" />
           <div className="relative grid lg:grid-cols-[1.25fr_1fr] gap-8 items-center">
             <div className="min-w-0">
-              <h3 className="type-title-3 text-navy-900">Depth you can trust — explained so everyone gets it</h3>
+              <h3 className="type-title-3 text-navy-900">Depth you can trust, explained so everyone gets it</h3>
               <p className="mt-4 text-ink-600 leading-relaxed">
                 The part I take most seriously is understanding a system well enough to explain it
                 simply. I’m not trying to sound like the smartest person in the room. I’m trying to make
                 something complex feel approachable, for engineers and executives alike. When people
-                understand the “why,” they trust the plan — and a plan people trust is the difference
+                understand the “why,” they trust the plan. A plan people trust is the difference
                 between a program that stalls in status meetings and one that ships.
               </p>
             </div>
@@ -292,7 +292,7 @@ export default function About() {
                 <figure key={q.name} className="rounded-xl bg-paper-200/60 border border-navy-800/[0.10] p-5">
                   <blockquote className="type-subhead leading-relaxed text-ink-700">“{q.text}”</blockquote>
                   <figcaption className="mt-3 type-caption text-ink-500">
-                    — {q.name}, <span className="text-ink-600">{q.role}</span>
+                    {q.name}, <span className="text-ink-600">{q.role}</span>
                   </figcaption>
                 </figure>
               ))}
@@ -305,8 +305,8 @@ export default function About() {
       <section className="container-x mt-28">
         <SectionHeading eyebrow="Selected work" title="Programs & projects I’ve led" align="center">
           <p className="reveal mt-4 max-w-2xl mx-auto text-ink-600">
-            A decade of programs and projects across education, healthcare, gaming, and big tech — each
-            one shipped on a date, and many adopted well beyond their original scope.
+            A decade of programs and projects across education, healthcare, gaming, and big tech. Each
+            one shipped on a date, and many were adopted well beyond their original scope.
           </p>
         </SectionHeading>
 
@@ -466,7 +466,7 @@ export default function About() {
       <section className="container-x mt-28">
         <SectionHeading eyebrow="Experience" title="Career roadmap">
           <p className="reveal mt-4 max-w-2xl text-ink-600">
-            Ten years of roles, to scale — including the stretches where a contract engagement ran
+            Ten years of roles, drawn to scale, including the stretches where a contract job ran
             alongside a full-time one.
           </p>
         </SectionHeading>

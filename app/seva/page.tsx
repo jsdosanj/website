@@ -10,9 +10,9 @@ import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadat
 const page: PageDescriptor = {
   path: '/seva',
   ogSlug: 'seva',
-  title: 'Seva & Parchar — Sikh Heritage Work',
+  title: 'Seva & Parchar: Sikh Heritage Work',
   description:
-    'The parcharik and seva work of Jasvant Dosanjh — speaking with Basics of Sikhi, preserving heritage with Sikhi.io, and teaching Gurbani Santhiya worldwide.',
+    'The parcharik and seva work of Jasvant Dosanjh: speaking with Basics of Sikhi, preserving heritage with Sikhi.io, and teaching Gurbani Santhiya worldwide.',
   keywords: [
     'Sikh parcharik', 'Basics of Sikhi speaker', 'Sikhi.io', 'Guru Nanak', 'seva',
     'Sikh heritage technology', 'Gurbani Santhiya',
@@ -149,8 +149,8 @@ export default function Seva() {
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-ink-600 leading-relaxed">
               The parchar and the products serve the same mission. The open dataset and OCR engines I
-              build exist so that over a billion words of Sikh heritage — manuscripts, scripture, and
-              history — can be searched, understood, and shared by the global Sangat. Preservation is
+              build exist so that over a billion words of Sikh heritage (manuscripts, scripture and
+              history) can be searched, understood and shared by the global Sangat. Preservation is
               seva. Access is seva. Building the tools is seva.
             </p>
             <p className="mt-6 gurmukhi type-title-4 text-kesari-700" lang="pa">ਚੜ੍ਹਦੀ ਕਲਾ</p>

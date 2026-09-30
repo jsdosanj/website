@@ -1223,13 +1223,17 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 40rem) {
   .snap-rail {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: visible;
     margin-inline: 0;
     padding-inline: 0;
     padding-bottom: 0;
   }
   .snap-rail > * { flex: initial; }
+}
+/* Four case studies: two rows of two, then one row of four, never a lone card. */
+@media (min-width: 64rem) {
+  .snap-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* ============================================================
