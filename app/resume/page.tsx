@@ -204,7 +204,7 @@ export default function Resume() {
         <p className="no-print reveal mt-8 text-center type-caption text-ink-500 max-w-[62rem] mx-auto">
           This page is generated from the same source data as the rest of the site, so it will never
           drift out of date. The PDF above is the 2-page, ATS-friendly version, current as of
-          September 2026.
+          October 2026.
         </p>
       </section>
     </>

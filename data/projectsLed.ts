@@ -125,7 +125,7 @@ export const headlineProjects: LedProject[] = [
     ],
     org: 'Rochester Community Schools',
     date: '2019 – 2020',
-    text: 'Put a Chromebook in the hands of each of 15,000 students and counted every machine in all 31 schools within eight weeks, during a district-wide closure. I did it as operational IT lead: I ran device handout from one district site with six technical assistants, and personally led the count and retirement of old machines in 10 schools. The deadline was fixed and nobody could move it.',
+    text: 'Put a Chromebook in the hands of each of 15,000 students and counted every machine in all 31 schools within eight weeks, during a district-wide closure. I did it as operational IT lead: I ran the rollout from one school where Dell delivered every Chromebook, directed six technical assistants across seven schools, and consulted in 10 of the 31 schools. The deadline was fixed and nobody could move it.',
   },
   {
     title: 'Zero-touch endpoint enrollment pipeline',
@@ -175,5 +175,5 @@ export const moreProjects: MoreProject[] = [
   { title: 'Automation tooling for repeat tasks', org: 'University of Washington', date: '2023 – 2026' },
   { title: 'Server imaging & deployment automation', org: 'Omni Group', date: '2022', note: 'ramp-up 4 hrs → 1 per server' },
   { title: 'PowerShell self-service tooling', org: 'Oakland University, Technology Services', date: '2020', note: '−40% ticket volume' },
-  { title: 'Athletics facility reservation system', org: 'Oakland Community College', date: '2016 – 2018' },
+  { title: 'Athletics facility reservation system', org: 'Oakland Community College', date: '2016 – 2018', note: '−90% reservation-related tickets' },
 ];

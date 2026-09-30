@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'studio-buildout',
     title: 'A gaming studio’s IT, from zero to launch in five months',
     org: 'Tencent, Team Kaiju Studio',
-    role: 'Lead Systems Administrator (Contract), buildout owner',
+    role: 'Technical Program Manager (Contract), buildout owner',
     date: '2022',
     status: 'delivered',
     summary:
@@ -243,15 +243,15 @@ export const caseStudies: CaseStudy[] = [
       { value: 'District-wide', label: 'curriculum adoption' },
     ],
     situation:
-      'COVID-19 closed the district, and remote learning was not in place. All 15,000 students needed a Chromebook. The asset list was so incomplete that nobody knew what the district already owned. Teachers had no training on the tools they were about to depend on. The deadline was the school calendar, which does not move. The two halves of the job pulled against each other. With buildings closed, devices had to go out from one district site, with one queue, one staging area, six technical assistants and every device passing through. At the same time, the inventory had to reach into all 31 schools, every cart, lab and classroom, to count what was there and pull what was dead.',
+      'COVID-19 closed the district, and remote learning was not in place. All 15,000 students needed a Chromebook. The asset list was so incomplete that nobody knew what the district already owned. Teachers had no training on the tools they were about to depend on. The deadline was the school calendar, which does not move. The two halves of the job pulled against each other. Dell delivered every new Chromebook to one school, and the Chromebooks from every other school in the district were brought there too. So the rollout ran through one queue and one staging area at that school, and every technical assistant in the district worked there during the rollout. Normally the six assistants supported seven schools as their main job. At the same time, the inventory had to reach into all 31 schools, every cart, lab and classroom, to count what was there and pull what was dead.',
     scope: {
       inScope: [
-        'A 1:1 Chromebook rollout: a device for each of 15,000 students, staged from one district site',
+        'A 1:1 Chromebook rollout: a device for each of 15,000 students, staged from one school where Dell delivered every Chromebook and the district’s other Chromebooks were brought together',
         'An inventory of every computer and laptop in all 31 schools, in every cart, lab and classroom',
         'Retiring and recycling old desktops and laptops as the count went',
         'A Google Workspace remote-learning curriculum for teachers',
         'Train-the-trainer sessions so IT staff at each school could teach it',
-        'Directing six technical assistants, and leading the work myself in 10 of the 31 schools',
+        'Directing six technical assistants across seven schools, and consulting in 10 of the 31 schools',
       ],
       outOfScope: [
         'Academic curriculum and lesson design, which belong to teaching staff',
@@ -264,30 +264,30 @@ export const caseStudies: CaseStudy[] = [
       { group: 'Teachers', need: 'Training that worked for non-technical staff under time pressure' },
       { group: 'Families', need: 'Devices in hand, with pickup that worked within closure rules' },
       { group: 'District administration', need: 'An accurate asset list and accountability for 15,000 devices' },
-      { group: 'Six technical assistants', need: 'A clear stage on the staging line and a clear set of schools, with no doubt about either' },
+      { group: 'Six technical assistants', need: 'A clear stage on the staging line, with no doubt about who owns what' },
     ],
     plan: [
       { phase: '1 · Count as you go', detail: 'I ran the inventory alongside distribution, not before it. Waiting for a clean count would have cost weeks the calendar did not have. Each new Chromebook was recorded to its student at handover, so distribution was its own audit trail.' },
-      { phase: '2 · Work in parallel inside one site', detail: 'I split the staging line into owned stages: unboxing, enrollment, asset tagging, cart building and handout. Six people could work on different batches at once, and nobody walked a device through every step.' },
-      { phase: '3 · Walk every room in 31 schools', detail: 'We counted every computer and laptop in every cart, lab and classroom, and pulled dead machines for recycling as we went. I led that sweep myself in 10 of the 31 schools.' },
+      { phase: '2 · Work in parallel at one school', detail: 'I split the staging line into owned stages: unboxing, enrollment, asset tagging, cart building and handout. Six people could work on different batches at once, and nobody walked a device through every step.' },
+      { phase: '3 · Walk every room in 31 schools', detail: 'We counted every computer and laptop in every cart, lab and classroom, and pulled dead machines for recycling as we went. I consulted in 10 of the 31 schools.' },
       { phase: '4 · Train the trainers', detail: 'I wrote the Google Workspace remote-learning curriculum once, then trained IT staff at each school to teach it locally. That was the only way to reach every teacher in the time we had.' },
       { phase: '5 · One path for escalations', detail: 'I kept a single point of escalation, so a blocked site could be unblocked in hours and not wait for a weekly meeting.' },
     ],
     risks: [
       { risk: 'An incomplete inventory means devices go missing', mitigation: 'Record each device to a student at handover, so distribution becomes the inventory' },
-      { risk: 'One distribution site becomes the limit for the whole district', mitigation: 'Run the staging line in parallel stages and hand out by school and grade band' },
+      { risk: 'One school becomes the limit for the whole district’s rollout', mitigation: 'Run the staging line in parallel stages and hand out by school and grade band' },
       { risk: 'Teachers get devices they cannot teach on', mitigation: 'Build and deliver the curriculum alongside the rollout, not after it' },
       { risk: 'Closure rules block physical handout', mitigation: 'Plan pickup around the access the closure allowed, school by school' },
     ],
     wentWrong:
-      'I under-planned teacher training. The first plan trained teachers directly, which could not reach a whole district in eight weeks. It had to be rebuilt as train-the-trainer once that was clear, with IT staff at each school teaching the curriculum locally and not one team teaching it everywhere. The logistics had a second trap. Sending devices out from one site was right with buildings closed, but it made that site the only place things could jam, while the 31-school sweep pulled the same six people the other way. Handing out by school and grade band, and keeping the sweep off the critical path, mattered more than it would have if we had worked school by school.',
+      'I under-planned teacher training. The first plan trained teachers directly, which could not reach a whole district in eight weeks. It had to be rebuilt as train-the-trainer once that was clear, with IT staff at each school teaching the curriculum locally and not one team teaching it everywhere. The logistics had a second trap. Running the rollout from one school was right, because Dell shipped everything there and every technical assistant worked there. But it made that school the only place things could jam, while the 31-school sweep pulled the same people the other way. Handing out by school and grade band, and keeping the sweep off the critical path, mattered more than it would have if we had worked school by school.',
     outcome: [
-      '15,000 students had a 1:1 device within eight weeks, all staged from a single site',
+      '15,000 students had a 1:1 device within eight weeks, all staged from one school',
       'Every computer and laptop in all 31 schools counted, with old machines retired and recycled',
       'The Google Workspace remote-learning curriculum was adopted district-wide at the principal’s request',
       'IT staff at every school trained to teach the curriculum locally',
     ],
     retro:
-      'Plan training as delivery capacity, not content. The question is never "is the material good". It is "how many people can teach it". Answering that late cost me a rebuild of the training plan in the middle of the rollout. On the logistics, running everything through one site was right for a closed district, but it means the slowest stage sets the speed of the whole line. Next time I would measure each stage from day one, not after the first backlog.',
+      'Plan training as delivery capacity, not content. The question is never "is the material good". It is "how many people can teach it". Answering that late cost me a rebuild of the training plan in the middle of the rollout. On the logistics, running everything through one school was right for this rollout, but it means the slowest stage sets the speed of the whole line. Next time I would measure each stage from day one, not after the first backlog.',
   },
 ];

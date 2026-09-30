@@ -6,6 +6,7 @@ import Marquee from '@/components/Marquee';
 import MetricsDashboard from '@/components/MetricsDashboard';
 import Portrait from '@/components/Portrait';
 import ProductCard from '@/components/ProductCard';
+import { ProductGroup } from '@/components/ProductGroup';
 import SectionHeading from '@/components/SectionHeading';
 import { pageMetadata } from '@/lib/site-metadata';
 import { products } from '@/data/products';
@@ -17,17 +18,22 @@ export const metadata = pageMetadata({
   path: '/',
   ogSlug: 'home',
   description:
-    'Jasvant Singh Dosanjh is a Technical Program Manager open to relocating. He has 10 years of experience in healthcare, education, gaming and big tech, and built the process that moved eight university departments onto central IT.',
+    'Jasvant Singh Dosanjh is a Technical Program Manager open to hybrid or onsite roles in Seattle, WA and San Francisco, CA, and remote roles anywhere in the USA. He has 10 years of experience in healthcare, education, gaming and big tech, and built the process that moved eight university departments onto central IT.',
   keywords: ['TPM', 'program management', 'roadmap', 'SDLC', 'Agile', 'Waterfall', 'open to work'],
 });
 
+// Two marquee rows. The top row is program and project management, the
+// discipline the site is about. The bottom row is the strongest skills outside
+// it. Both follow the October 2026 résumé's skill groups.
 const stackTop = [
-  'Jira', 'Confluence', 'Azure DevOps', 'Microsoft Project', 'Workday',
-  'Agile / Scrum', 'Waterfall', 'Lean', 'SAFe', 'Kanban',
+  'Technical Program Management', 'Technical Project Management', 'Roadmapping', 'Risk Management',
+  'Budget Management', 'Vendor Management', 'Stakeholder Management', 'Agile / Scrum', 'Waterfall',
+  'Lean', 'Kanban', 'SDLC', 'Jira', 'Confluence', 'Azure DevOps', 'Microsoft Project',
 ];
 const stackBottom = [
-  'NIST CSF', 'NIST SP 800-53', 'HIPAA', 'FERPA', 'CMMC', 'SOC 2',
-  'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'AWS', 'Azure', 'GCP', 'CI/CD',
+  'NIST CSF', 'NIST SP 800-53', 'HIPAA', 'FERPA', 'Security Audits', 'Incident Response',
+  'IAM & SSO/MFA', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud', 'AWS / Azure / GCP',
+  'PowerShell', 'Power Automate', 'Claude Code', 'GitHub Copilot', 'RAG Architecture',
 ];
 
 const principles = [
@@ -54,7 +60,10 @@ const principles = [
 ];
 
 export default function Home() {
-  const featured = products.filter((p) => p.featured);
+  // The three projects to highlight: the dataset, the compliance platform and the archive.
+  const featured = ['sikh-library-dataset', 'sightline', 'sikharchive']
+    .map((slug) => products.find((p) => p.slug === slug))
+    .filter((p): p is (typeof products)[number] => Boolean(p));
 
   return (
     <>
@@ -68,7 +77,7 @@ export default function Home() {
           <div className="reveal flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="chip chip-delivered">Open to work</span>
             <span className="type-footnote text-white/75">
-              In-person, hybrid, or remote · open to relocating
+              Hybrid or onsite in Seattle, WA and San Francisco, CA · remote anywhere in the USA
             </span>
           </div>
 
@@ -175,10 +184,34 @@ export default function Home() {
       {/* ===================== STACK MARQUEE ===================== */}
       <section
         className="mt-16 sm:mt-20 py-6 border-y border-navy-800/[0.11] bg-paper-300/40 space-y-3"
-        aria-label="Tools, platforms, and frameworks I work with"
+        aria-label="Program management skills, then security, infrastructure and AI skills"
       >
-        <Marquee items={stackTop} dur={52} label="Platforms and tools, row 1" />
-        <Marquee items={stackBottom} dur={58} reverse label="Methods and frameworks, row 2" />
+        <Marquee items={stackTop} dur={52} label="Program and project management skills" />
+        <Marquee items={stackBottom} dur={58} reverse label="Security, infrastructure and AI skills" />
+      </section>
+
+      {/* ===================== PRODUCTS ===================== */}
+      <section className="container-x mt-16 sm:mt-24">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading eyebrow="Featured work" title="Sikh Library, Sightline and Sikhi.io">
+            <p className="reveal mt-4 max-w-xl text-ink-600">
+              These three show the whole job: a dataset I built and published, a compliance platform I
+              shipped, and a live archive I run as program manager. I build the tools I’d want as a
+              program manager, so my scoping holds up when engineering pushes back.
+            </p>
+          </SectionHeading>
+          <Link
+            href="/products"
+            className="reveal link-control type-subhead font-semibold text-navy-700 hover:text-navy-900 hover:gap-3"
+          >
+            All products <Icon name="arrow" size={16} />
+          </Link>
+        </div>
+        <ProductGroup ids={featured.map((p) => p.slug)} label="Featured work" toolbar={false} defaultOpen>
+          {featured.map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </ProductGroup>
       </section>
 
       {/* ===================== OUTCOMES ===================== */}
@@ -273,29 +306,6 @@ export default function Home() {
           >
             Full story &amp; track record <Icon name="arrow" size={16} />
           </Link>
-        </div>
-      </section>
-
-      {/* ===================== PRODUCTS ===================== */}
-      <section className="container-x mt-28">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="I stay close to the work" title="Products from the lab">
-            <p className="reveal mt-4 max-w-xl text-ink-600">
-              I build the tools I’d want as a program manager. It keeps me honest about what I’m asking
-              engineers to do, and it’s why my scoping survives contact with the actual work.
-            </p>
-          </SectionHeading>
-          <Link
-            href="/products"
-            className="reveal link-control type-subhead font-semibold text-navy-700 hover:text-navy-900 hover:gap-3"
-          >
-            All products <Icon name="arrow" size={16} />
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featured.map((p) => (
-            <ProductCard key={p.slug} product={p} />
-          ))}
         </div>
       </section>
 

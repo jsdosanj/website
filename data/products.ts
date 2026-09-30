@@ -30,9 +30,9 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'A free, open online university for Sikhi, from the basics to the depths.',
     description:
-      'Sikhi University is a free, open online university where anyone, anywhere can study Sikhi, from its basics to its depths. 200+ courses across 19 subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside Sikhi.io.',
+      'Sikhi University is a free, open online university where anyone, anywhere can study Sikhi, from its basics to its depths. 558+ courses across many subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside Sikhi.io.',
     highlights: [
-      '200+ courses across 19 subjects, each attributed to a real Sikh scholar, with key terms in Punjabi (Gurmukhi) and Chicago-style citations.',
+      '558+ courses, each attributed to a real Sikh scholar, with key terms in Punjabi (Gurmukhi) and Chicago-style citations.',
       'A read-along reader for the complete SGGS, Dasam Granth and Sri Sarbloh Granth Sahib, plus a beginner Gurmukhi primer (Baal Updesh).',
       'A full platform: magic-link accounts, 80%-to-pass tests, printable certificates, learning paths, search, and one site-wide light/dark theme. It runs on Cloudflare (Workers + D1 + R2) and is built with Astro + Tailwind.',
     ],
@@ -397,8 +397,9 @@ featured: false,
     status: 'live',
     tagline: 'The largest known open Sikh text corpus.',
     description:
-      'The Universal Sikh Research Library: ~1.07 billion words of Sikh scripture, exegesis, history and scholarship, scanned, OCR’d and made machine-readable, in one standardized corpus. 23,366 files across 14.2 GB, covering 3,616+ individually catalogued works in 115 collections and 26 declared languages. Built so researchers no longer have to hunt across scattered archives, out-of-print books and regional digital libraries for primary sources. Free to access on request, under CC BY-NC-ND 4.0.',
+      'The Universal Sikh Research Library: ~1.07 billion words of Sikh scripture, exegesis, history and scholarship, scanned, OCR’d and made machine-readable, in one standardized corpus. 23,366 files across 14.2 GB, covering 3,616+ individually catalogued works in 115 collections and 26 declared languages. Built so researchers no longer have to hunt across scattered archives, out-of-print books and regional digital libraries for primary sources. Free to access on request, under CC BY-NC-ND 4.0. I built a custom OCR pipeline to make it.',
     highlights: [
+      'Used by 13+ independent projects worldwide, and the base for a learning platform of 558+ courses built with Claude Code.',
       'Primary scripture, exegesis, and the complete Mahan Kosh, Bhai Kahan Singh Nabha’s 1930 encyclopedia as structured JSON across 28 language and script editions sharing one entry ID.',
       '86 dedicated single-author archives holding the collected works of named Sikh scholars, historians, and theologians including Bhai Vir Singh, Prof. Sahib Singh, Giani Sant Singh Maskeen, and Dr. Ganda Singh.',
       'Reference corpora built for NLP: an 87,636-entry Punjabi dictionary, 1,179 katha transcripts, sakhi collections, and per-Guru biographical pages, in clean UTF-8 text and structured OCR JSON.',
@@ -422,9 +423,10 @@ featured: false,
     status: 'live',
     tagline: 'Five centuries of Sikh literature, open to the world.',
     description:
-      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable, now serving over 50,000 views a month. It is also the production home of the Sikh Library corpus. This isn’t my own project. I contribute to it as a developer, helping push the platform forward alongside the team.',
+      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable. It has had over 2 million visits in the last 30 days. It is also the production home of the Sikh Library corpus. I am its Lead Technical Program Manager. I direct the lifecycle of several connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
     highlights: [
-      'Serves 50,000+ views a month, and is the production home of the ~1.07-billion-word Sikh Library corpus.',
+      'Over 2 million visits in the last 30 days, and the production home of the ~1.07-billion-word Sikh Library corpus.',
+      'Lead Technical Program Manager for the platform and its sub-projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
       'Built Gurbani search and an AI-powered search engine, plus design improvements.',
       'Patching security vulnerabilities and shipping mobile web-app improvements.',
     ],

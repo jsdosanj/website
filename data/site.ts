@@ -5,7 +5,9 @@ export const site = {
   shortTagline: 'Technical Program Manager.',
   description:
     'Jasvant Singh Dosanjh is a Technical Program Manager with 10+ years of experience in higher education, healthcare, gaming and big tech. He built the repeatable process that moved eight University of Washington departments onto central IT. He has shipped 12 security and compliance products, run $250K and $750K budgets, led a team of 9, and finished a six-month security migration with zero downtime. He uses Agile and Waterfall, owns the software lifecycle from requirements to deployment, and manages risk under HIPAA, FERPA and NIST rules. He builds with Claude Code, GitHub Copilot and OpenRouter. His PMP exam is scheduled for October 2026.',
-  location: 'Open to Relocating',
+  location: 'Seattle, WA · San Francisco, CA · Remote (USA)',
+  /** Full sentence for places that have room for it. */
+  workPreference: 'Open to hybrid or onsite roles in Seattle, WA and San Francisco, CA, and to remote roles anywhere in the USA.',
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
   url: 'https://jasvant.me',
@@ -28,7 +30,7 @@ export const site = {
   // the roles being targeted. Superseded IT Manager / Senior Systems Engineer
   // variants were removed rather than left to go stale; they remain in git history.
   resumes: [
-    { label: 'Technical Program Manager', short: 'Program Manager', href: '/resumes/JSD Technical Program Manager Resume Sept 2026.pdf', primary: true },
+    { label: 'Technical Program Manager', short: 'Program Manager', href: '/resumes/JSD Technical Program Manager Resume Oct 2026.pdf', primary: true },
   ],
 };
 
