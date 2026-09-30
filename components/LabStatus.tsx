@@ -32,7 +32,7 @@ export default async function LabStatus() {
   if (live.length === 0 && typeof datasetDownloads !== 'number') {
     return (
       <p className="max-w-2xl mx-auto text-center type-subhead text-ink-500">
-        Live release data is temporarily unavailable — see the source links on each card below.
+        Live release data is temporarily unavailable. See the source links on each card below.
       </p>
     );
   }
@@ -66,12 +66,12 @@ export default async function LabStatus() {
                     <span className="type-mono font-medium text-navy-900">{r.name}</span>
                     <span className="block type-caption-2 text-ink-500">{r.kind}</span>
                   </td>
-                  <td className="px-5 py-3 type-mono text-ink-700">{r.version ? `v${r.version}` : '—'}</td>
+                  <td className="px-5 py-3 type-mono text-ink-700">{r.version ? `v${r.version}` : 'n/a'}</td>
                   <td className="px-5 py-3 type-mono text-ink-700">
-                    {r.pushedAt ? relativeFromNow(r.pushedAt) : '—'}
+                    {r.pushedAt ? relativeFromNow(r.pushedAt) : 'n/a'}
                   </td>
                   <td className="px-5 py-3 type-mono text-ink-700 text-right tabular-nums">
-                    {typeof r.stars === 'number' ? r.stars : '—'}
+                    {typeof r.stars === 'number' ? r.stars : 'n/a'}
                   </td>
                 </tr>
               ))}
@@ -90,7 +90,7 @@ export default async function LabStatus() {
       )}
 
       <p className="px-5 py-3 border-t border-navy-800/[0.08] type-caption-2 text-ink-500">
-        Fetched from GitHub, PyPI, and HuggingFace on the server and refreshed every few hours —
+        Fetched from GitHub, PyPI, and HuggingFace on the server and refreshed every few hours,
         not hand-maintained.
       </p>
     </div>

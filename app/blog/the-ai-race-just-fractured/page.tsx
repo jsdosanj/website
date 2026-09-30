@@ -11,7 +11,7 @@ const page: PageDescriptor = {
   ogSlug: `blog-${SLUG}`,
   title: essay.title,
   description:
-    "The US banned its own best AI models, Japan matched frontier performance without one, and China's open-weight stack is closing fast — what the fracture means.",
+    "The US banned its own best AI models, Japan matched frontier performance without one, and China's open-weight stack is closing fast. Here is what the fracture means.",
   keywords: [
     'AI race', 'Fugu Ultra', 'Sakana AI', 'GLM 5.2', 'Fable ban', 'Mythos ban', 'US DoD AI',
     'Japan AI', 'China AI', 'AI geopolitics', 'Nvidia datacenter cooling',
@@ -21,14 +21,14 @@ const page: PageDescriptor = {
 export const metadata = { ...pageMetadata(page), openGraph: { ...pageMetadata(page).openGraph, type: 'article' as const } };
 
 const sources = [
-  { label: 'Anthropic — Statement on the directive to suspend Fable 5 & Mythos 5', href: 'https://www.anthropic.com/news/fable-mythos-access' },
-  { label: 'Sakana AI — Fugu Release', href: 'https://sakana.ai/fugu-release/' },
-  { label: "The Decoder — Sakana AI's Fugu orchestrates multiple LLMs to match Anthropic's Fable and Mythos benchmarks", href: 'https://the-decoder.com/sakana-ais-fugu-orchestrates-multiple-llms-to-match-anthropics-fable-and-mythos-benchmarks/' },
-  { label: 'BenchLM — Best Chinese AI Models', href: 'https://benchlm.ai/best/chinese-models' },
-  { label: 'Council on Foreign Relations — The U.S. Is Losing the AI Credibility War to Itself', href: 'https://www.cfr.org/articles/the-u-s-is-losing-the-ai-credibility-war-to-itself' },
-  { label: "Tom's Hardware — Anthropic's Mythos reportedly breached almost all NSA classified systems", href: 'https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-powerful-mythos-ai-reportedly-breached-almost-all-nsa-classified-systems-within-a-few-hours-during-red-team-test-report-sheds-more-light-on-the-u-s-governments-sudden-ban-on-the-flagship-models' },
-  { label: "Fortune — Nvidia's new data center design and the AI water problem", href: 'https://fortune.com/2026/06/22/nvidia-new-data-center-design-ai-water-problem-cooling/' },
-  { label: 'NDTV — Sakana AI launches Fugu, reportedly outperforms Claude Fable 5 on some benchmarks', href: 'https://www.ndtv.com/artificial-intelligence/japanese-ai-company-sakana-launches-fugu-system-reportedly-outperforms-anthropics-claude-fable-5-on-some-benchmarks-11673130' },
+  { label: 'Anthropic: Statement on the directive to suspend Fable 5 & Mythos 5', href: 'https://www.anthropic.com/news/fable-mythos-access' },
+  { label: 'Sakana AI: Fugu Release', href: 'https://sakana.ai/fugu-release/' },
+  { label: "The Decoder: Sakana AI's Fugu orchestrates multiple LLMs to match Anthropic's Fable and Mythos benchmarks", href: 'https://the-decoder.com/sakana-ais-fugu-orchestrates-multiple-llms-to-match-anthropics-fable-and-mythos-benchmarks/' },
+  { label: 'BenchLM: Best Chinese AI Models', href: 'https://benchlm.ai/best/chinese-models' },
+  { label: 'Council on Foreign Relations: The U.S. Is Losing the AI Credibility War to Itself', href: 'https://www.cfr.org/articles/the-u-s-is-losing-the-ai-credibility-war-to-itself' },
+  { label: "Tom's Hardware: Anthropic's Mythos reportedly breached almost all NSA classified systems", href: 'https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-powerful-mythos-ai-reportedly-breached-almost-all-nsa-classified-systems-within-a-few-hours-during-red-team-test-report-sheds-more-light-on-the-u-s-governments-sudden-ban-on-the-flagship-models' },
+  { label: "Fortune: Nvidia's new data center design and the AI water problem", href: 'https://fortune.com/2026/06/22/nvidia-new-data-center-design-ai-water-problem-cooling/' },
+  { label: 'NDTV: Sakana AI launches Fugu, reportedly outperforms Claude Fable 5 on some benchmarks', href: 'https://www.ndtv.com/artificial-intelligence/japanese-ai-company-sakana-launches-fugu-system-reportedly-outperforms-anthropics-claude-fable-5-on-some-benchmarks-11673130' },
 ];
 
 export default function Post() {
@@ -53,13 +53,13 @@ export default function Post() {
         <p>
           On June 12, 2026, the US government issued an export control order that forced Anthropic to
           suspend all access to <strong>Fable 5 and Mythos 5</strong> for any foreign national, anywhere
-          in the world. To comply, Anthropic had no choice but to disable both models entirely — for
+          in the world. To comply, Anthropic had no choice but to disable both models entirely, for
           everyone. This was the second time in ten days the government had pulled a commercial AI model
           off the market for the whole planet.
         </p>
         <p>
           What reportedly triggered it: during a classified red-team exercise,{' '}
-          <strong>Mythos reportedly breached nearly every NSA system it was pointed at — within a few
+          <strong>Mythos reportedly breached nearly every NSA system it was pointed at, within a few
           hours</strong>. The capability was real enough that officials treated the model itself as the
           threat. Anthropic complied with the legal order but pushed back on the reasoning publicly:{' '}
           <em>
@@ -70,8 +70,8 @@ export default function Post() {
         <p>
           The argument over whether the ban was proportionate is real. But the mechanism matters more
           than the merits: the most capable AI on Earth was revoked with essentially no notice, by a
-          party that was neither the buyer nor the vendor. If you had built on these models — or paid for
-          them — you woke up to a product that no longer existed.
+          party that was neither the buyer nor the vendor. If you had built on these models, or paid for
+          them, you woke up to a product that no longer existed.
         </p>
 
         <h2 id="credibility-cost">The credibility cost the US hasn’t priced in</h2>
@@ -84,8 +84,8 @@ export default function Post() {
         <p>
           That sentence should land hard. The US has spent years arguing that democracies should adopt
           US-aligned AI rather than Chinese alternatives. The case for that rests entirely on
-          reliability. If allies can’t trust that access will be stable — if a government letter can
-          switch the lights off overnight, globally, with no transparent process — the persuasion
+          reliability. If allies can’t trust that access will be stable, if a government letter can
+          switch the lights off overnight, globally, with no transparent process, the persuasion
           campaign collapses. You don’t need China to undermine American AI influence. The policy process
           does it more efficiently.
         </p>
@@ -93,7 +93,7 @@ export default function Post() {
           Meanwhile, China’s leading models are estimated to be{' '}
           <strong>three to eight months behind</strong> the US frontier. That window is closing
           regardless of what the US does with export controls. Restrictions that alienate allies while
-          barely slowing adversaries are not a strategy — they’re a self-inflicted wound dressed up as
+          barely slowing adversaries are not a strategy. They’re a self-inflicted wound dressed up as
           one.
         </p>
 
@@ -105,7 +105,7 @@ export default function Post() {
         </p>
         <p>
           Fugu is not a bigger model. It’s a trained orchestration system that dynamically coordinates a
-          pool of specialized AI agents — routing tasks, delegating to the right expert, running checks,
+          pool of specialized AI agents, routing tasks, delegating to the right expert, running checks,
           and synthesizing results into a single response. Users see one OpenAI-compatible API endpoint.
           Internally, Fugu is assembling teams.
         </p>
@@ -120,11 +120,11 @@ export default function Post() {
             top performers.
           </li>
           <li>
-            <strong>Humanity’s Last Exam:</strong> 50.0 — competitive with frontier-class models.
+            <strong>Humanity’s Last Exam:</strong> 50.0, competitive with frontier-class models.
           </li>
         </ul>
         <p>
-          Sakana notes pointedly that <strong>Fable and Mythos aren’t in Fugu’s agent pool</strong> —
+          Sakana notes pointedly that <strong>Fable and Mythos aren’t in Fugu’s agent pool</strong>:
           they’re not publicly accessible. The implication is explicit:{' '}
           <em>“Fugu would likely score even higher”</em> if they were. The system is designed to route
           around exactly this kind of access problem. When a provider restricts a model, Fugu swaps it
@@ -137,8 +137,8 @@ export default function Post() {
         </p>
 
         <blockquote>
-          Fugu’s bet is that orchestration beats scale. You don’t need to train the world’s largest model
-          — you need to train the world’s best conductor. Japan may have just proved that thesis correct.
+          Fugu’s bet is that orchestration beats scale. You don’t need to train the world’s largest model.
+          You need to train the world’s best conductor. Japan may have just proved that thesis correct.
         </blockquote>
 
         <p>
@@ -146,8 +146,8 @@ export default function Post() {
           represents. Every major AI lab in the US, UK, and China has been racing to build a bigger,
           denser, more capable single model. Sakana is betting that{' '}
           <em>how you coordinate existing intelligence</em> matters more than how much raw capability you
-          pour into a single system. If Fugu continues to improve as the pool of agents expands —
-          including future open-weight releases from any country — the competitive moat shifts from
+          pour into a single system. If Fugu continues to improve as the pool of agents expands,
+          including future open-weight releases from any country, the competitive moat shifts from
           training compute to orchestration intelligence. That’s a race Japan has positioned itself to
           lead.
         </p>
@@ -161,27 +161,27 @@ export default function Post() {
         <p>On BenchLM’s Chinese model leaderboard, the current rankings look like this:</p>
         <ul>
           <li>
-            <strong>GLM-5.2</strong> (Z.AI) — score 91, open-weight, the top self-hostable model in the
+            <strong>GLM-5.2</strong> (Z.AI): score 91, open-weight, the top self-hostable model in the
             category
           </li>
           <li>
-            <strong>Qwen3.7 Max</strong> (Alibaba) — score 90, proprietary
+            <strong>Qwen3.7 Max</strong> (Alibaba): score 90, proprietary
           </li>
           <li>
-            <strong>DeepSeek V4 Pro</strong> (DeepSeek) — score 88, open-weight
+            <strong>DeepSeek V4 Pro</strong> (DeepSeek): score 88, open-weight
           </li>
         </ul>
         <p>
           Chinese labs have pulled into a position where their models{' '}
           <em>“now compete directly with GPT and Claude on a growing share of practical benchmarks.”</em>{' '}
-          More importantly, GLM-5.2 and DeepSeek are open-weight — which means any organization, anywhere
+          More importantly, GLM-5.2 and DeepSeek are open-weight, which means any organization, anywhere
           in the world, can download, run, and fine-tune them without an API key, without a vendor
           relationship, and without fear of an export control letter.
         </p>
         <p>
           Think about what the Fable/Mythos ban looks like from the perspective of a CTO in Germany,
           Singapore, or Brazil who had built on US models. They just lived through an overnight outage
-          driven by American domestic policy. GLM-5.2 doesn’t have that risk — not because China is more
+          driven by American domestic policy. GLM-5.2 doesn’t have that risk, not because China is more
           trustworthy, but because the model sits on their own servers. The open-weight advantage is
           suddenly a geopolitical argument.
         </p>
@@ -192,16 +192,16 @@ export default function Post() {
           comfortably ahead and the gap looking durable. That picture has fractured.
         </p>
         <p>
-          The US still has the most capable models — Mythos was capable enough to breach NSA systems in
+          The US still has the most capable models. Mythos was capable enough to breach NSA systems in
           hours, which is both impressive and the reason it got banned. But capability is only one
           dimension of the race. Reliability, accessibility, and perceived independence from American
-          foreign policy are also dimensions — and on all three, the US just took significant
+          foreign policy are also dimensions, and on all three, the US just took significant
           self-inflicted damage.
         </p>
         <p>
           Japan’s entry is a signal that the frontier race isn’t purely about training compute anymore. A
           sufficiently clever orchestration layer over mid-tier models can match frontier benchmarks. As
-          more open-weight models release from more countries, Fugu-style systems become more powerful —
+          more open-weight models release from more countries, Fugu-style systems become more powerful,
           not less. The moat of “we trained the biggest model” erodes every time a capable open-weight
           checkpoint ships.
         </p>
@@ -217,18 +217,18 @@ export default function Post() {
 
         <h2 id="one-bright-spot">One real bright spot: the datacenters are finally getting cleaner</h2>
         <p>
-          Amid all of this, there’s one piece of news that deserves attention and optimism — with an
+          Amid all of this, there’s one piece of news that deserves attention and optimism, with an
           honest asterisk.
         </p>
         <p>
           Nvidia announced a new datacenter cooling architecture that replaces traditional air-cooling
-          with a <strong>closed-loop liquid system</strong> — a water and propylene glycol mixture that
+          with a <strong>closed-loop liquid system</strong>: a water and propylene glycol mixture that
           circulates without drawing fresh water from the environment. The system operates at up to 45°C
           (compared to the 30°C industry standard), which reduces the energy overhead of climate control.
           For a 50-megawatt facility, Nvidia estimates over{' '}
           <strong>$4 million in annual savings</strong> on cooling-related energy and water costs. The UN
           had projected that AI-related water consumption could equal the annual needs of 1.3 billion
-          people by 2030 — this design directly attacks that problem.
+          people by 2030. This design directly attacks that problem.
         </p>
         <p>
           It’s genuinely good engineering. The asterisk is the one Nvidia’s own team acknowledges: these
@@ -238,13 +238,13 @@ export default function Post() {
             Whether this actually bends the environmental curve depends on adoption velocity, not just
             the technology existing.
           </strong>{' '}
-          Promising, real, and worth watching — but not a solved problem yet.
+          Promising, real, and worth watching, but not a solved problem yet.
         </p>
 
         <h2 id="the-takeaway">The takeaway</h2>
         <p>
           I build security and compliance software, so I read this week through that lens. What I see is a
-          risk landscape that just got materially more complex — but also more interesting.
+          risk landscape that just got materially more complex, but also more interesting.
         </p>
         <ul>
           <li>
@@ -254,13 +254,13 @@ export default function Post() {
           </li>
           <li>
             <strong>The open-weight case got stronger overnight.</strong> GLM-5.2 and DeepSeek aren’t the
-            best models in the world — but they’re on your servers, and no government letter can take
+            best models in the world, but they’re on your servers, and no government letter can take
             them away. For a large class of workloads, that trade-off now looks different than it did two
             weeks ago.
           </li>
           <li>
-            <strong>Orchestration is the new moat.</strong> Fugu’s architecture — a trained conductor over
-            a swappable pool of agents — is a bet that the intelligence lives in the coordination, not
+            <strong>Orchestration is the new moat.</strong> Fugu’s architecture, a trained conductor over
+            a swappable pool of agents, is a bet that the intelligence lives in the coordination, not
             the weights. If that bet pays off, it changes who wins the next five years of this race.
           </li>
           <li>
@@ -271,7 +271,7 @@ export default function Post() {
           </li>
         </ul>
         <p className="signoff">
-          — Jasvant Singh Dosanjh. I build local-first, privacy-respecting security &amp; compliance
+          Jasvant Singh Dosanjh. I build local-first, privacy-respecting security &amp; compliance
           software at{' '}
           <a href="https://dosanjhlabs.com" target="_blank" rel="noopener noreferrer">
             Dosanjh Labs

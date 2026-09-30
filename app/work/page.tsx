@@ -12,15 +12,14 @@ import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadat
  * stakeholders, plan, risks, what went wrong, outcome, retro.
  *
  * One page rather than one page per study: a hiring manager reads these in a
- * single sitting, and three studies at this depth is a comfortable read while
- * three separate pages would bury two of them.
+ * single sitting, and separate pages would bury most of them.
  */
 const page: PageDescriptor = {
   path: '/work',
   ogSlug: 'work',
-  title: 'Case Studies — Programs Delivered',
+  title: 'Case Studies: Programs Delivered',
   description:
-    'Three programs delivered by Jasvant Singh Dosanjh at interview depth: an escalated clinical IT rescue, a zero-to-one gaming studio buildout, and a 15,000-student district rollout in eight weeks.',
+    'Four programs delivered by Jasvant Singh Dosanjh, told in full: a repeatable process that moved eight university departments onto central IT, a clinic IT rescue, a gaming studio built from zero, and a 15,000-student device rollout in eight weeks.',
   keywords: [
     'program management case study', 'technical program manager portfolio',
     'project management case study', 'stakeholder management', 'risk register',
@@ -53,13 +52,12 @@ export default function Work() {
         <div className="max-w-3xl">
           <p className="eyebrow reveal is-visible">Case studies</p>
           <h1 className="mt-4 type-display-2 text-navy-900" data-kinetic>
-            <span className="kin-line"><span className="kin-inner">Three programs, start to finish.</span></span>
+            <span className="kin-line"><span className="kin-inner">Four programs, start to finish.</span></span>
           </h1>
           <p className="reveal is-visible mt-5 type-body text-ink-600 leading-relaxed">
             A card can tell you a program shipped. It can’t tell you how it was scoped, who had to be
-            moved, what was actually at risk, or what went wrong — which is the part worth interviewing
-            about. So here are three at the depth I’d discuss them in a room, including the parts I got
-            wrong first.
+            moved, what was at risk, or what went wrong. That is the part worth talking about. So here
+            are four, told the way I’d explain them in a room, including the parts I got wrong first.
           </p>
         </div>
 
@@ -119,7 +117,7 @@ export default function Work() {
 
               <div>
                 <h3 className="eyebrow">Scope</h3>
-                <div className="mt-4 grid gap-5 md:grid-cols-2">
+                <div className={`mt-4 grid gap-5 ${c.scope.outOfScope.length > 0 ? 'md:grid-cols-2' : ''}`}>
                   <div className="rounded-xl border border-navy-800/10 bg-paper-200/50 p-5">
                     <p className="type-label font-semibold text-status-green">In scope</p>
                     <ul className="mt-3 space-y-2" role="list">
@@ -131,6 +129,7 @@ export default function Work() {
                       ))}
                     </ul>
                   </div>
+                  {c.scope.outOfScope.length > 0 && (
                   <div className="rounded-xl border border-navy-800/10 bg-paper-200/50 p-5">
                     <p className="type-label font-semibold text-ink-400">Explicitly out of scope</p>
                     <ul className="mt-3 space-y-2" role="list">
@@ -142,6 +141,7 @@ export default function Work() {
                       ))}
                     </ul>
                   </div>
+                  )}
                 </div>
               </div>
 
@@ -249,8 +249,8 @@ export default function Work() {
           <div className="text-center px-6 py-12 sm:px-10 sm:py-16">
             <SectionHeading eyebrow="Next" title="Want the version with follow-up questions?" align="center">
               <p className="reveal mt-4 max-w-xl mx-auto text-ink-600">
-                These are the written versions. The interesting parts are the ones you’d ask about —
-                happy to walk through any of them.
+                These are the written versions. The interesting parts are the ones you’d ask about.
+                I’m happy to walk through any of them.
               </p>
             </SectionHeading>
             <div className="mt-8 flex flex-wrap justify-center gap-3">

@@ -59,7 +59,7 @@ export default function AiPolicy() {
           <p className="reveal is-visible mt-5 eyebrow eyebrow-center">AI &amp; content policy</p>
           <h1 className="reveal is-visible mt-4 type-display-2 text-navy-900">AI &amp; Content Usage Policy</h1>
           <p className="reveal is-visible mt-6 max-w-2xl mx-auto type-body text-ink-600 leading-relaxed">
-            This site welcomes AI answer and search engines — they may crawl and cite it, and that
+            This site welcomes AI answer and search engines. They may crawl and cite it, and that
             traffic is welcome. Its content is reserved against use for AI/ML training, fine-tuning, or
             dataset creation without a license.
           </p>
@@ -75,7 +75,7 @@ export default function AiPolicy() {
               <span className="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-status-green/10 border border-status-green/25 text-status-green">
                 <Icon name="globe" size={20} />
               </span>
-              <h2 className="type-title-4 text-navy-900">Crawl &amp; cite — welcome</h2>
+              <h2 className="type-title-4 text-navy-900">Crawl &amp; cite: welcome</h2>
             </div>
             <p className="mt-4 type-subhead leading-relaxed text-ink-600">
               Answer engines and search assistants may crawl this site and cite it when responding to a
@@ -95,7 +95,7 @@ export default function AiPolicy() {
               <span className="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-paper-200 border border-navy-800/12 text-kesari-600">
                 <Icon name="shield" size={20} />
               </span>
-              <h2 className="type-title-4 text-navy-900">Training &amp; datasets — reserved</h2>
+              <h2 className="type-title-4 text-navy-900">Training &amp; datasets: reserved</h2>
             </div>
             <p className="mt-4 type-subhead leading-relaxed text-ink-600">
               Automated collection of this site’s content for AI/ML training, fine-tuning, RAG-corpus
@@ -117,7 +117,7 @@ export default function AiPolicy() {
       <section className="container-x mt-24">
         <SectionHeading eyebrow="How it's declared" title="Machine-readable, everywhere it matters" align="center">
           <p className="reveal mt-4 max-w-2xl mx-auto text-ink-600">
-            The reservation above isn’t just a page of prose — it’s backed by the W3C TDM Reservation
+            The reservation above isn’t just a page of prose. It’s backed by the W3C TDM Reservation
             Protocol and declared in every place a crawler or agent is likely to check.
           </p>
         </SectionHeading>
@@ -157,7 +157,7 @@ export default function AiPolicy() {
           <p className="gurmukhi type-title-2 text-kesari-600" lang="pa">ੴ</p>
           <h2 className="mt-4 type-title-2 text-navy-900 max-w-2xl mx-auto">Why the split policy</h2>
           <p className="mt-4 max-w-2xl mx-auto text-ink-600 leading-relaxed">
-            Search and answer traffic is a two-way exchange — the same one this site has always relied
+            Search and answer traffic is a two-way exchange, the same one this site has always relied
             on with traditional search engines. Model training is different: it’s a one-way extraction
             with no attribution and no way back to the source. This policy keeps the door open to the
             first and closed to the second, unless a license is arranged.

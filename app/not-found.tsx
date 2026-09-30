@@ -13,7 +13,7 @@ import { pageMetadata } from '@/lib/site-metadata';
 export const metadata = pageMetadata({
   path: '/404',
   title: 'Page not found',
-  description: "404 — that page doesn't exist on this site.",
+  description: "404: that page doesn't exist on this site.",
   noindex: true,
 });
 
@@ -24,7 +24,7 @@ export default function NotFound() {
       <p className="mt-6 type-display-1 text-kesari-gradient">404</p>
       <h1 className="mt-4 type-title-2 text-navy-900">This page doesn’t exist.</h1>
       <p className="mt-3 max-w-md mx-auto text-ink-600">
-        That address isn’t part of this site — it may have moved, or never existed. Everything that is
+        That address isn’t part of this site. It may have moved, or never existed. Everything that is
         here is one click away.
       </p>
 

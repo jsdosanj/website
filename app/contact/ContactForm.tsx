@@ -30,7 +30,7 @@ export default function ContactForm() {
         </span>
         <div>
           <p className="font-display type-subhead font-semibold text-status-green">
-            Thanks — your message is on its way.
+            Thanks, your message is on its way.
           </p>
           <p className="type-caption text-status-green/80 mt-0.5">I’ll get back to you as soon as I can.</p>
         </div>

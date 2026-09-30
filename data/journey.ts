@@ -18,7 +18,7 @@ export const journey = [
     chapter: '03',
     era: 'Southeast Michigan → North America',
     title: 'Service at scale',
-    text: 'College full-time, several jobs at once, and every spare hour spent organizing community events across Southeast Michigan. His seva outgrew a single Gurdwara and spread across North America. Whatever the gap was — technical, logistical, or just nobody else stepping up — he tended to be the one who closed it.',
+    text: 'College full-time, several jobs at once, and every spare hour spent organizing community events across Southeast Michigan. His seva outgrew a single Gurdwara and spread across North America. Whatever the gap was, whether technical, logistical, or just nobody else stepping up, he tended to be the one who closed it.',
     marker: 'Scale',
   },
   {
@@ -39,5 +39,5 @@ export const journey = [
 
 export const journeyCreed = {
   values: ['Love', 'Compassion', 'Forgiveness', 'Kindness', 'Self-research'],
-  line: 'A problem-solver by instinct, solutions-driven by choice — and relentlessly optimistic by faith.',
+  line: 'A problem-solver by instinct, solutions-driven by choice, and relentlessly optimistic by faith.',
 };

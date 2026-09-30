@@ -52,7 +52,7 @@ greenfield build, a rollout), not its subject.
 | Route | Purpose |
 |---|---|
 | `/` | Delivery record, the three reqs I map to, products, principles |
-| `/work` | Three case studies at interview depth — scope, stakeholders, plan, risks, what went wrong, retro |
+| `/work` | Four case studies at interview depth — scope, stakeholders, plan, risks, what went wrong, retro |
 | `/about` | Track record, the RAID register I keep, programs led, career roadmap, education |
 | `/skills` | Capabilities, with program & delivery management featured |
 | `/products` | Every product, plus live release data from GitHub / PyPI / HuggingFace |

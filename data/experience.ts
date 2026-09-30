@@ -83,14 +83,15 @@ export const experience: Role[] = [
     track: 'program',
     shortLabel: 'Dosanjh Labs · TPM',
     bullets: [
-      'Took a security and compliance suite from zero to market, measured by 12 live products shipped and an early-stage release pipeline still expanding, by owning product strategy, the roadmap, and the end-to-end SDLC from requirements through CI/CD deployment.',
-      'Replaced framework-by-framework spreadsheet audits with a single compliance view, measured by 22+ frameworks — NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA, and GDPR — mapped in one dashboard, by building Sightline to integrate data from the tools and systems an organization already runs.',
-      'Cut CMMC Level 2 readiness from a consultant engagement to a self-service workflow, measured by a live DoD SPRS score plus an auto-generated, audit-ready SSP and POA&M, by building Bastion as a NIST SP 800-171 self-assessment tool.',
+      'Took a security and compliance suite from zero to market, measured by 12 live products and a release pipeline that is still growing, by owning product strategy, the roadmap and the full software lifecycle from requirements to deployment, and by building with Claude Code, GitHub Copilot and OpenRouter.',
+      'Replaced framework-by-framework spreadsheet audits with one compliance view, measured by 22+ frameworks (NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA and GDPR) mapped in one dashboard, by building Sightline to pull data from the tools an organization already runs.',
+      'Turned CMMC Level 2 readiness from a consultant project into a self-service workflow, measured by a live DoD SPRS score and an auto-generated SSP and POA&M ready for audit, by building Bastion as a NIST SP 800-171 self-assessment tool.',
+      'Built the largest known open Sikh text corpus, measured by 4,000+ texts translated from Punjabi to English, by using Claude Code, GitHub Copilot and OpenRouter with several models for OCR and translation.',
     ],
   },
   {
     title: 'Senior Computer Specialist',
-    company: 'University of Washington — College of Arts & Sciences',
+    company: 'University of Washington, College of Arts & Sciences',
     date: 'Jan 2023 – Mar 2026',
     start: 2023 + MONTH.jan,
     end: 2026 + MONTH.mar,
@@ -98,7 +99,7 @@ export const experience: Role[] = [
     // carries its own, so the roadmap bar changes colour where the job did.
     track: 'ic',
     shortLabel: 'UW · Sr Computer Specialist',
-    note: 'Two scopes under the same role — infrastructure and security, then program and project delivery from January 2025.',
+    note: 'One role with two scopes: infrastructure and security first, then program and project delivery from January 2025.',
     sections: [
       {
         label: 'Program & project delivery',
@@ -107,12 +108,12 @@ export const experience: Role[] = [
         end: 2026 + MONTH.mar,
         track: 'program',
         bullets: [
-          'Made departmental onboarding into a repeatable program, measured by eight departments brought into central College of Arts & Sciences IT between Feb 2025 and Mar 2026 — Speech & Hearing Sciences, Music, Anthropology, Statistics, Mathematics, the Jackson School of International Studies, Political Science, and Biology — by serving as program manager for the Dean’s Office and creating the repeatable process each onboarding project followed.',
-          'Took on a clinical department that had lost its own IT staff and its trust in the function, measured by a 96% SLA reduction (48 hours to 2), $30,000 in annual spend eliminated, and clinical staff filing tickets again, by leading the program that onboarded the Speech and Hearing Sciences Clinic into central College of Arts & Sciences IT — rebuilding the faculty–IT relationship as the first project, then running HIPAA security audits and coordinating five healthcare vendors, clinicians, and infrastructure stakeholders to closure.',
-          'Held college-wide IT service steady through a three-month leadership vacancy, measured by a 9-person infrastructure and help desk team — including 4 union civil-service staff — delivering uninterrupted service, by operationally leading the team, owning work assignments, and establishing formal ticket-dispatch accountability.',
-          'Kept a $250,000 annual hardware lifecycle program on budget as the team’s sole Workday buyer, measured by device forecasts aligned to every departmental budget across the college, by forecasting demand with department heads and negotiating pricing directly with Dell and Apple.',
-          'Carried personal accountability for restricted research and healthcare data as CIO and System Security Officer of UW’s Center for Social Science Computation & Research, measured by certified secure destruction of every restricted dataset under multi-state (WA/CA) and federal IES requirements, by managing the center’s data servers and personally executing and certifying each destruction.',
-          'Turned an unaudited server estate into a documented remediation plan, measured by 40 servers across multiple campus locations assessed and control gaps delivered to department heads with remediation steps, by leading NIST SP 800-53 security audits for the College of Arts & Sciences.',
+          'Moved eight departments from their own IT onto the Dean’s Office IT team, measured by 8 departments onboarded between Feb 2025 and Mar 2026 (Speech & Hearing Sciences, Music, Anthropology, Statistics, Mathematics, the Jackson School of International Studies, Political Science and Biology), each with a full inventory, IT budget and needs list and a 2-hour response and 48-hour resolution target, by building one repeatable process: workflows, Power Automate automations, a checklist, a kickoff, a handoff, a runbook and documentation guidelines.',
+              'Won back a clinic that had lost its IT staff and its trust in IT, measured by a 96% faster response time (48 hours to 2), resolution time cut from 7 days to 48 hours, $30,000 a year in spend removed and clinical staff filing tickets again, by leading the program that moved the Speech and Hearing Sciences Clinic onto central IT: I rebuilt the relationship first, then ran HIPAA security audits and coordinated five healthcare vendors.',
+          'Kept college-wide IT running through a three-month leadership gap, measured by a 9-person infrastructure and help desk team, including 4 union civil-service staff, working with no break in service, by leading the team day to day, owning work assignments and setting up formal ticket-dispatch accountability.',
+          'Kept a $250,000 annual hardware program on budget as the team’s only Workday buyer, measured by device forecasts that matched every departmental budget in the college, by forecasting demand with department heads and negotiating prices directly with Dell and Apple.',
+          'Took personal responsibility for restricted research and healthcare data as CIO and System Security Officer of UW’s Center for Social Science Computation & Research, measured by every restricted dataset securely destroyed and certified under Washington, California and federal IES rules, by managing the center’s data servers and carrying out and certifying each destruction myself.',
+          'Turned an unaudited group of servers into a written fix-it plan, measured by 40 servers across several campus locations assessed and control gaps sent to department heads with steps to fix them, by leading NIST SP 800-53 security audits for the College of Arts & Sciences.',
         ],
       },
       {
@@ -122,24 +123,24 @@ export const experience: Role[] = [
         end: 2025 + MONTH.jan,
         track: 'ic',
         bullets: [
-          'Enabled zero-touch device enrollment at college-wide scale, measured by 2,000+ devices deployed and provisioned across the College of Arts & Sciences — including 400+ Macs and iPads standardized on Jamf Pro across 40+ departments ahead of executive deadlines — by designing and administering the Windows Autopilot and Jamf enrollment and lifecycle pipeline, whose compliance framework other university departments later adopted.',
-          'Modernized network security across College of Arts & Sciences buildings without disrupting research or instruction, measured by zero downtime across six months and a migration framework later adopted by IT teams at other UW colleges, by sequencing building-by-building cutovers and documenting each step as a reusable playbook.',
-          'Ended the college’s reliance on tribal knowledge, measured by a runbook and guide library adopted as the shared reference for IT staff across the entire college rather than just the Dean’s Office team, by building its documentation hub from scratch and writing the runbooks behind it.',
+          'Made device setup hands-off across the whole college, measured by 2,000+ devices deployed and set up, including 400+ Macs and iPads on Jamf Pro across 40+ departments ahead of executive deadlines, by designing and running the Windows Autopilot and Jamf enrollment and lifecycle pipeline. Other university departments later adopted its compliance framework.',
+          'Upgraded network security across College of Arts & Sciences buildings without disrupting research or teaching, measured by zero downtime over six months and a migration framework that IT teams at other UW colleges later adopted, by planning the cutover one building at a time and writing down each step as a reusable playbook.',
+          'Ended the college’s reliance on knowledge that only a few people had, measured by a library of runbooks and guides that IT staff across the whole college now use as their shared reference, by building the documentation hub from scratch and writing the runbooks in it.',
         ],
       },
     ],
   },
   {
     title: 'Lead Systems Administrator (Contract)',
-    company: 'Tencent — Team Kaiju Studio',
+    company: 'Tencent, Team Kaiju Studio',
     date: 'Jul 2022 – Dec 2022',
     start: 2022 + MONTH.jul,
     end: 2022 + MONTH.dec,
     track: 'contract',
     shortLabel: 'Tencent · Lead SysAdmin',
     bullets: [
-      'Delivered a new gaming studio’s entire IT environment ahead of its launch date, measured by AWS infrastructure, identity and endpoint management, office networking, and 100+ multi-OS workstations live in five months against a $750,000 budget, by owning vendor selection across Google, JumpCloud, AWS, Cisco, and 1Password while supervising a systems administrator and a project manager.',
-      'Set the identity standard for Tencent’s North American studios, measured by adoption as the default configuration across studios in Los Angeles and Montreal, by designing and implementing a unified JumpCloud MDM and Google Workspace SSO/MFA architecture, including the JumpCloud Go MFA rollout.',
+      'Delivered a new gaming studio’s whole IT environment before its launch date, measured by AWS infrastructure, identity and device management, office networking and 100+ multi-OS workstations all live in five months on a $750,000 budget, by owning vendor selection across Google, JumpCloud, AWS, Cisco and 1Password while supervising a systems administrator and a project manager.',
+      'Set the identity standard for Tencent’s North American studios, measured by its adoption as the default setup at the Los Angeles and Montreal studios, by designing and building one JumpCloud MDM and Google Workspace single sign-on and MFA setup, including the JumpCloud Go MFA rollout.',
     ],
   },
   {
@@ -151,7 +152,7 @@ export const experience: Role[] = [
     track: 'contract',
     shortLabel: 'Omni · DevOps',
     bullets: [
-      'Removed the manual bottleneck in server provisioning, measured by per-server ramp-up cut 75% (4 hours to 1) and horizontal scaling achieved with no added headcount, by automating macOS server imaging, volume mounting, and API configuration in shell.',
+      'Removed the manual bottleneck in server setup, measured by a 75% cut in ramp-up time per server (4 hours to 1) and room to scale with no added headcount, by automating macOS server imaging, volume mounting and API configuration in shell scripts.',
     ],
   },
   {
@@ -163,9 +164,9 @@ export const experience: Role[] = [
     track: 'ic',
     shortLabel: 'Meta · Lead Apprentice Tech',
     bullets: [
-      'Built the Pacific Northwest enterprise support bench, measured by 30 technicians and externs mentored, five Year Up externs converted to full-time roles, and the PNW Enterprise Support team ranked #1 nationally in ticket resolution, by running hands-on mentorship and onboarding for 20 externs and 10 enterprise support technicians.',
-      'Resolved a privileged-access compatibility gap that blocked Linux users, measured by 5,000+ AR/VR engineers unblocked and the write-up adopted by Meta’s Director of Enterprise Operations and by BeyondTrust as a first-party supported solution, by authoring the Bomgar-on-Linux porting documentation from the failures the Oculus teams kept hitting.',
-      'Unstalled platform-accessibility issues affecting international users, measured by resolution paths established across three functions — engineering, policy, and trust and safety — by owning the cross-functional escalation and driving each issue to an accountable team.',
+      'Built up the Pacific Northwest enterprise support team, measured by 30 technicians and externs mentored, five Year Up externs hired full time and the PNW Enterprise Support team ranked #1 in the country for ticket resolution, by mentoring and onboarding 20 externs and 10 enterprise support technicians hands on.',
+      'Fixed a privileged-access problem that blocked Linux users, measured by 5,000+ AR/VR engineers unblocked and a guide that Meta’s Director of Enterprise Operations and BeyondTrust both adopted as a supported solution, by writing the Bomgar-on-Linux porting documentation from the failures the Oculus teams kept hitting.',
+      'Got stuck platform-accessibility issues for international users moving again, measured by clear resolution paths set up across three teams (engineering, policy, and trust and safety), by owning the escalation and driving each issue to a team that was accountable for it.',
     ],
   },
   {
@@ -177,8 +178,8 @@ export const experience: Role[] = [
     track: 'program',
     shortLabel: 'Rochester · IT Lead',
     bullets: [
-      'Kept a district teaching through the COVID-19 closure, measured by a Chromebook delivered to every one of 15,000 students and every machine in all 31 schools inventoried inside eight weeks, by serving as operational IT lead — staging distribution from a single district site with six technical assistants while personally leading the inventory and decommissioning sweep in 10 of those schools.',
-      'Got teachers and students productive on remote instruction instead of waiting on IT, measured by a curriculum adopted district-wide at the principal’s request and delivered by trained IT staff at every school, by developing a Google Workspace remote-learning curriculum and training the trainers.',
+      'Kept a district teaching through the COVID-19 closure, measured by a Chromebook for each of 15,000 students and every machine in all 31 schools counted within eight weeks, by serving as operational IT lead: I ran device handout from one district site with six technical assistants and personally led the count and retirement of old machines in 10 of the schools.',
+      'Got teachers and students working on remote learning without waiting on IT, measured by a curriculum the whole district adopted at the principal’s request and IT staff at every school trained to teach it, by writing a Google Workspace remote-learning curriculum and training the trainers.',
     ],
   },
   {
@@ -190,8 +191,8 @@ export const experience: Role[] = [
     track: 'ic',
     shortLabel: 'Oakland UTS · Shares Admin',
     bullets: [
-      'Cleared the university’s Shares Access backlog as a single intern, measured by over 18% of all cases closed, by processing employee access tickets end to end.',
-      'Cut the ticket queue at its source, measured by over 40% of incoming requests eliminated, by building self-service portal features in PowerShell.',
+      'Cleared the university’s Shares Access backlog as a single intern, measured by over 18% of all cases closed, by working employee access tickets from start to finish.',
+      'Cut the ticket queue at its source, measured by over 40% of incoming requests removed, by building self-service portal features in PowerShell.',
     ],
   },
   {
@@ -203,19 +204,19 @@ export const experience: Role[] = [
     track: 'contract',
     shortLabel: 'Chef Koochooloo · TPM',
     bullets: [
-      'Positioned an early-stage ed-tech startup to raise, measured by $2M+ in funding from Nestlé and the Chilean government and a launch across multiple Mountain View schools, by defining MVP requirements, overseeing development, coordinating game-development vendors and developers, and managing stakeholders through launch.',
+      'Got an early-stage ed-tech startup ready to raise money, measured by $2M+ from Nestlé and the Chilean government and a launch in several Mountain View schools, by defining MVP requirements, overseeing development, coordinating game-development vendors and developers, and managing stakeholders through launch.',
     ],
   },
   {
     title: 'Technology Services Mentor',
-    company: 'Oakland University — Kresge Library',
+    company: 'Oakland University, Kresge Library',
     date: 'May 2018 – Jan 2020',
     start: 2018 + MONTH.may,
     end: 2020 + MONTH.jan,
     track: 'ic',
     shortLabel: 'Kresge Library · Mentor',
     bullets: [
-      'Reduced the library’s support load while growing its student staff, measured by a 40% drop in ticket volume, by managing and mentoring student IT technicians and standardizing their onboarding workflows.',
+      'Cut the library’s support load while growing its student staff, measured by a 40% drop in ticket volume, by managing and mentoring student IT technicians and standardizing how they were onboarded.',
     ],
   },
   {
@@ -227,19 +228,19 @@ export const experience: Role[] = [
     track: 'ic',
     shortLabel: 'Shabad OS · Researcher',
     bullets: [
-      'Improved the reliability of software Gurdwaras depend on worldwide, measured by bug fixes accepted upstream into ShabadOS and Gurmukhi-to-English translation work delivered for Guru Granth Sahib Ji and the Dasam Granth, by testing releases against real congregation-facing use and contributing fixes back.',
+      'Made software that Gurdwaras around the world rely on more reliable, measured by bug fixes accepted into ShabadOS and Gurmukhi-to-English translation work delivered for Guru Granth Sahib Ji and the Dasam Granth, by testing releases against real congregation use and contributing fixes back.',
     ],
   },
   {
     title: 'IT Support Specialist',
-    company: 'Oakland Community College — Athletics Dept.',
+    company: 'Oakland Community College, Athletics Dept.',
     date: '2016 – 2018',
     start: 2016 + MONTH.sep,
     end: 2018 + MONTH.may,
     track: 'ic',
     shortLabel: 'OCC Athletics · IT Support',
     bullets: [
-      'Covered an entire department’s technology needs as its only technologist, measured by sustained tier 1 and tier 2 support across hardware, networking, AV, and web systems plus a facility reservation system delivered into daily use, by owning every request end to end for the athletics department.',
+      'Covered a whole department’s technology needs as its only technologist, measured by steady tier 1 and tier 2 support across hardware, networking, AV and web systems, plus a facility reservation system in daily use, by owning every request from start to finish for the athletics department.',
     ],
   },
 ];

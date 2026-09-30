@@ -19,7 +19,7 @@ export const education = [
     detail: 'Completed Harvard’s CS50 Cybersecurity course.',
   },
   {
-    credential: 'Coursework — Political Science & Government',
+    credential: 'Coursework in Political Science & Government',
     school: 'Oakland Community College',
     date: '2016 – 2018',
     detail: '54 credits toward the Michigan Transfer Agreement. No degree awarded.',
@@ -27,12 +27,12 @@ export const education = [
 ];
 
 export const certifications = [
-  'PMP — Project Management Professional (PMI) — exam scheduled September 2026',
-  'Cognitive Project Management in AI — CPMAI™ (PMI)',
+  'PMP, Project Management Professional (PMI): exam scheduled for October 2026',
+  'Cognitive Project Management in AI, CPMAI™ (PMI)',
   'Fundamentals of Agile Project Management (PMI)',
   'Fundamentals of Predictive Project Management (PMI)',
   'Strategic Applications of IT Project & Program Management (UW)',
-  'New Manager’s Toolkit (Indiana University — Kelley School of Business)',
+  'New Manager’s Toolkit (Indiana University, Kelley School of Business)',
   'CompTIA Security+ (in progress)',
   'Cloud Security & Audit Fundamentals (AWS, Azure, GCP)',
   'Cyber Incident Response Certified (InfoSec)',

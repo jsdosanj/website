@@ -17,7 +17,7 @@ export const metadata = pageMetadata({
   path: '/',
   ogSlug: 'home',
   description:
-    'Jasvant Singh Dosanjh — Technical Program Manager, open to relocating. 10 years delivering technical programs across healthcare, education, gaming, and big tech: roadmaps, budgets, vendors, SDLC, and GRC.',
+    'Jasvant Singh Dosanjh is a Technical Program Manager open to relocating. He has 10 years of experience in healthcare, education, gaming and big tech, and built the process that moved eight university departments onto central IT.',
   keywords: ['TPM', 'program management', 'roadmap', 'SDLC', 'Agile', 'Waterfall', 'open to work'],
 });
 
@@ -34,22 +34,22 @@ const principles = [
   {
     icon: 'workflow',
     title: 'Run it like a program',
-    text: 'Matrixed teams, vendors, and budgets aligned to one roadmap. I own the SDLC end to end, hold the delivery cadence that actually ships, and keep a plan stakeholders can still trust two months out.',
+    text: 'I line up teams, vendors and budgets behind one roadmap. I own the software lifecycle from start to finish, keep a steady delivery rhythm, and keep a plan stakeholders can still trust two months out.',
   },
   {
     icon: 'shield',
     title: 'Compliant & secure by default',
-    text: 'A decade across healthcare, education, and big tech taught me to plan around NIST, HIPAA, and FERPA from the first sprint — not to discover them halfway through an audit.',
+    text: 'A decade in healthcare, education and big tech taught me to plan for NIST, HIPAA and FERPA from the first sprint, not to find them halfway through an audit.',
   },
   {
     icon: 'sparkles',
     title: 'Estimates from someone who builds',
-    text: 'I still ship real products — a 12-product compliance suite, OCR repair for endangered scripts — which is exactly why my scoping holds up when engineering pushes back on it.',
+    text: 'I still ship real products, like a 12-product compliance suite and OCR repair for endangered scripts, built with Claude Code, GitHub Copilot and OpenRouter. That is why my estimates hold up when engineering pushes back.',
   },
   {
     icon: 'globe',
     title: 'Technology for human good',
-    text: 'The throughline from infrastructure to heritage preservation: programs and teams that uplift people and help them do their best work.',
+    text: 'From infrastructure to heritage preservation, the goal is the same: programs and teams that lift people up and help them do their best work.',
   },
 ];
 
@@ -63,7 +63,7 @@ export default function Home() {
           portrait carries the emotion; the two glass cards float over it the
           way Superhuman composites product UI over photography — translucent
           white, 16px radius, no drop shadow, depth from the photo behind. */}
-      <section className="hero-dark relative isolate overflow-hidden text-white pt-32 sm:pt-40 pb-20 sm:pb-28">
+      <section className="hero-dark relative isolate overflow-hidden text-white pt-32 sm:pt-40 pb-32 sm:pb-40">
         <div className="container-x relative">
           <div className="reveal flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="chip chip-delivered">Open to work</span>
@@ -78,15 +78,15 @@ export default function Home() {
                   see type-hero in globals.css. */}
               <h1 className="type-hero text-white" data-kinetic>
                 <span className="kin-line"><span className="kin-inner">Technical Program</span></span>
-                <span className="kin-line"><span className="kin-inner">Manager who sprints,</span></span>
-                <span className="kin-line"><span className="kin-inner text-gradient">ships &amp; scales.</span></span>
+                <span className="kin-line"><span className="kin-inner">Manager who plans,</span></span>
+                <span className="kin-line"><span className="kin-inner text-gradient">ships &amp; measures.</span></span>
               </h1>
               <p className="reveal mt-6 max-w-xl type-body leading-relaxed text-white/80">
-                I’m <span className="text-white font-medium">Jasvant Singh Dosanjh</span> — 10 years
-                delivering technical programs across higher ed, healthcare, gaming, and big tech. I own
-                the roadmap, the budget, the vendors, and the SDLC behind them: 12 products shipped, eight
-                university departments onboarded through a program I built, a $750K studio buildout, and a
-                six-month security migration with zero downtime.
+                I’m <span className="text-white font-medium">Jasvant Singh Dosanjh</span>, a program
+                manager with 10 years in higher ed, healthcare, gaming and big tech. I own the roadmap,
+                the budget, the vendors and the software lifecycle. I built the process that moved eight
+                university departments onto central IT. I have also shipped 12 products, built a $750K
+                studio, and finished a six-month security migration with zero downtime.
               </p>
 
               <div className="reveal mt-6 flex flex-wrap gap-2">
@@ -234,10 +234,9 @@ export default function Home() {
           ))}
         </div>
         <p className="reveal mt-10 text-center type-callout text-ink-600 max-w-2xl mx-auto">
-          Plenty of program managers can run the ceremony. Fewer can write the runbook, read the audit
-          control, and still hold the roadmap — <span className="text-ink-800">all three</span>. That’s
-          the combination that makes an estimate survive contact with engineering, and it’s what I
-          bring.
+          Plenty of program managers can run the meetings. Fewer can write the runbook, read the audit
+          control, and still hold the roadmap. I do <span className="text-ink-800">all three</span>. That
+          is why my estimates hold up when engineering pushes back.
         </p>
       </section>
 
@@ -347,8 +346,8 @@ export default function Home() {
               <p className="gurmukhi type-title-2 text-kesari-600" lang="pa">ੴ</p>
               <h2 className="mt-3 type-title-2 text-navy-900">The character behind the résumé</h2>
               <p className="mt-4 max-w-2xl text-ink-600 leading-relaxed">
-                Beyond the work, I serve as a parcharik — speaking at community events worldwide and
-                preserving Sikh heritage with
+                Beyond the work, I serve as a parcharik. I speak at community events worldwide and
+                preserve Sikh heritage with
                 <span className="text-ink-800"> Basics of Sikhi</span> and{' '}
                 <span className="text-ink-800">Sikhi.io</span>. The code and the seva come from the same
                 place: leadership rooted in service, resilience, and putting people first.
@@ -369,7 +368,7 @@ export default function Home() {
             <p className="eyebrow eyebrow-center">Currently interviewing</p>
             <h2 className="mt-4 type-title-1 text-navy-900">Hiring a Technical Program Manager?</h2>
             <p className="mt-4 max-w-xl mx-auto text-ink-600">
-              Let’s talk about the program you need landed — the roadmap, the vendors, the budget, and
+              Let’s talk about the program you need landed: the roadmap, the vendors, the budget and
               the engineering work underneath it.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">

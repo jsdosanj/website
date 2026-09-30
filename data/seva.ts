@@ -1,7 +1,7 @@
 // Parcharik / Seva — Sikh heritage, speaking, and community work
 export const sevaIntro = {
   gurmukhi: 'ੴ',
-  mool: 'Ik Onkar — one creative reality, present in all.',
+  mool: 'Ik Onkar: one creative reality, present in all.',
   heading: 'Parchar & Seva',
   lead:
     'Beyond the lab, I serve as a parcharik: a teacher and speaker carrying the message of Guru Nanak around the world. It comes from the same place as the work I do with technology. Knowledge that lifts people up should be within reach of everyone, not locked away for a few.',
@@ -19,12 +19,12 @@ export type SevaEngagement = {
 
 export const engagements: SevaEngagement[] = [
   {
-    org: 'Basics of Sikhi — Everything’s 13 (North America)',
+    org: 'Basics of Sikhi, Everything’s 13 (North America)',
     role: 'Public Speaker & Parcharik',
     date: 'Jun 2024 – Present',
     icon: 'mic',
     description:
-      'Speak and teach at Sikh camps, universities, Gurdwaras, and interfaith events across the U.S., Canada, the U.K., and Malaysia — sharing Gurmat principles and inspiring people to live with purpose and compassion. 60+ educational presentations, including San Jose, Vancouver, Calgary, Winnipeg, Seattle, Detroit, and Kuala Lumpur, teaching campers from age 8 to 50 at camps ranging from 30 to 600 attendees, and speaking at events with 500+ people. Organize and host events throughout the Pacific Northwest, coordinate Amrit Sanchars worldwide, and teach Santhiya (correct pronunciation and understanding of Gurbani) to students globally.',
+      'Speak and teach at Sikh camps, universities, Gurdwaras, and interfaith events across the U.S., Canada, the U.K. and Malaysia, sharing Gurmat principles and encouraging people to live with purpose and compassion. I have given 60+ talks, including in San Jose, Vancouver, Calgary, Winnipeg, Seattle, Detroit and Kuala Lumpur. I teach campers from age 8 to 50 at camps of 30 to 600 people, and speak at events of 500+. I also run events across the Pacific Northwest, coordinate Amrit Sanchars worldwide, and teach Santhiya (correct pronunciation and understanding of Gurbani) to students around the world.',
     link: { label: 'Basics of Sikhi', href: 'https://www.basicsofsikhi.com/' },
     tags: ['Public Speaking', 'Gurmat Education', 'Santhiya', 'Youth Camps'],
   },
@@ -34,7 +34,7 @@ export const engagements: SevaEngagement[] = [
     date: 'Ongoing',
     icon: 'book',
     description:
-      'Lead the engineering behind the digital preservation and accessibility of Sikh historical texts and manuscripts — now serving over 50,000 views a month. Sikhi.io is the production home of the Sikh Library corpus: ~1.07 billion words across 3,616+ catalogued works, 115 collections and 26 languages, bridging my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable for researchers and the global Sangat.',
+      'Lead the engineering behind the digital preservation of Sikh historical texts and manuscripts. The site now serves over 50,000 views a month. Sikhi.io is the production home of the Sikh Library corpus: about 1.07 billion words across 3,616+ catalogued works, 115 collections and 26 languages. It connects my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable for researchers and the global Sangat.',
     link: { label: 'Sikhi.io', href: 'https://sikhi.io/' },
     tags: ['Digital Preservation', 'Manuscripts', 'Open Access'],
   },
@@ -44,7 +44,7 @@ export const engagements: SevaEngagement[] = [
     date: 'Until Mar 2026',
     icon: 'globe',
     description:
-      'Provided counselling and teaching to individuals worldwide, helping people deepen their connection to Sikh heritage through one-on-one and group learning, until stepping away in March 2026.',
+      'Provided counselling and teaching to people around the world, helping them deepen their connection to Sikh heritage through one-on-one and group learning, until I stepped away in March 2026.',
     tags: ['Counselling', 'Teaching', 'Community'],
   },
   {
@@ -53,7 +53,7 @@ export const engagements: SevaEngagement[] = [
     date: 'Aug 2017 – Jul 2019',
     icon: 'code',
     description:
-      'Tested and improved software used by Gurdwaras worldwide and contributed translations of Guru Granth Sahib Ji and Dasam Granth from Gurmukhi to English — early roots of the heritage-tech work that continues today.',
+      'Tested and improved software used by Gurdwaras worldwide and contributed translations of Guru Granth Sahib Ji and Dasam Granth from Gurmukhi to English. This was the start of the heritage-tech work I still do today.',
     link: { label: 'Shabad OS', href: 'https://shabados.com/' },
     tags: ['Translation', 'Open Source', 'Gurbani'],
   },
@@ -63,16 +63,16 @@ export const sevaValues = [
   {
     title: 'Naam',
     gurmukhi: 'ਨਾਮ',
-    text: 'Grounded in remembrance — staying centred in something larger than the work itself.',
+    text: 'Grounded in remembrance, and staying centred in something larger than the work itself.',
   },
   {
     title: 'Seva',
     gurmukhi: 'ਸੇਵਾ',
-    text: 'Selfless service — building and giving so that others can rise without keeping score.',
+    text: 'Selfless service: building and giving so that others can rise, without keeping score.',
   },
   {
     title: 'Chardi Kala',
     gurmukhi: 'ਚੜ੍ਹਦੀ ਕਲਾ',
-    text: 'Relentless optimism — meeting every challenge in high, rising spirits.',
+    text: 'Relentless optimism: meeting every challenge in high, rising spirits.',
   },
 ];

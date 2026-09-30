@@ -22,7 +22,7 @@ export const posts: Post[] = [
     featured: true,
   },
   {
-    title: 'Launching SikhArchive V2.0 — 500 years of literature, open to all',
+    title: 'Launching SikhArchive V2.0: 500 years of literature, open to all',
     date: 'Jun 2026',
     category: 'AI & Heritage',
     excerpt:
@@ -56,7 +56,7 @@ export const posts: Post[] = [
     date: 'May 2026',
     category: 'AI & Heritage',
     excerpt:
-      'OCR managed only ~40% accuracy on printed Gurmukhi and failed entirely on handwritten manuscripts — so I built GurmukhiFix. Plus: earning the trust of eight Sikh organizations through the right license.',
+      'OCR managed only ~40% accuracy on printed Gurmukhi and failed entirely on handwritten manuscripts, so I built GurmukhiFix. Plus: earning the trust of eight Sikh organizations through the right license.',
     url: 'https://www.linkedin.com/posts/activity-7459737140105617408-tQDW',
     tags: ['OCR', 'GurmukhiFix', 'Heritage'],
     featured: false,
@@ -66,7 +66,7 @@ export const posts: Post[] = [
     date: 'May 2026',
     category: 'AI & Heritage',
     excerpt:
-      'A fully local RAG pipeline over a billion-word corpus across 26 languages, with Research and Learn modes and Chicago-style citations — making manuscripts modern OCR couldn’t read finally searchable.',
+      'A fully local RAG pipeline over a billion-word corpus across 26 languages, with Research and Learn modes and Chicago-style citations. It finally makes manuscripts that modern OCR couldn’t read searchable.',
     url: 'https://www.linkedin.com/posts/activity-7456884362802778112-tp6P',
     tags: ['RAG', 'NLP', 'Multilingual'],
     featured: false,

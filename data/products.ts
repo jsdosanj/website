@@ -28,13 +28,13 @@ export const products: Product[] = [
     gurmukhiName: 'ਸਿੱਖ ਯੂਨੀਵਰਸਿਟੀ',
     category: 'Education / Sikhi',
     status: 'live',
-    tagline: 'A free, open online university for Sikhi — from the basics to the depths.',
+    tagline: 'A free, open online university for Sikhi, from the basics to the depths.',
     description:
-      'Sikhi University is a free, open online university where anyone, anywhere can study Sikhi — from its basics to its depths. 200+ courses across 19 subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside Sikhi.io.',
+      'Sikhi University is a free, open online university where anyone, anywhere can study Sikhi, from its basics to its depths. 200+ courses across 19 subjects (theology, history, philosophy, ethics, comparative religion, apologetics, science, language, music, the arts and more), each drawn from the works of a named Sikh scholar acting as the course professor, with tests, certificates, learning paths and magic-link accounts. It also has a read-along reader for the complete Sri Guru Granth Sahib Ji, Dasam Granth and Sri Sarbloh Granth Sahib with Santhya audio. Built free and open on Cloudflare, alongside Sikhi.io.',
     highlights: [
       '200+ courses across 19 subjects, each attributed to a real Sikh scholar, with key terms in Punjabi (Gurmukhi) and Chicago-style citations.',
       'A read-along reader for the complete SGGS, Dasam Granth and Sri Sarbloh Granth Sahib, plus a beginner Gurmukhi primer (Baal Updesh).',
-      'A full platform: magic-link accounts, 80%-to-pass tests, printable certificates, learning paths, search, and one site-wide light/dark theme — on Cloudflare (Workers + D1 + R2), in Astro + Tailwind.',
+      'A full platform: magic-link accounts, 80%-to-pass tests, printable certificates, learning paths, search, and one site-wide light/dark theme. It runs on Cloudflare (Workers + D1 + R2) and is built with Astro + Tailwind.',
     ],
     tech: ['Astro', 'Tailwind', 'Cloudflare Workers', 'D1 / R2'],
     links: [
@@ -52,10 +52,10 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Touch-first Sikhi learning, built for gurdwara kiosks.',
     description:
-      'Sikhinteractive.com is a touch-interactive learning experience built for kiosks installed at gurdwaras. Sangat of any age can walk up and explore Sikhi — no account, no instructions, just touch. Designed for the environment it lives in: large-format touchscreens, short walk-up sessions, and content that meets absolute beginners where they are.',
+      'Sikhinteractive.com is a touch-interactive learning experience built for kiosks installed at gurdwaras. Sangat of any age can walk up and explore Sikhi with no account, no instructions, just touch. Designed for the environment it lives in: large-format touchscreens, short walk-up sessions, and content that meets absolute beginners where they are.',
     highlights: [
       'Built for walk-up use: large touch targets, zero sign-in, and interactions that make sense in seconds.',
-      'Designed for kiosk installs at gurdwaras — full-screen, touch-first, ready for shared public use.',
+      'Designed for kiosk installs at gurdwaras: full-screen, touch-first and ready for shared public use.',
     ],
     tech: ['Touchscreen UI', 'Kiosk', 'Education / Sikhi'],
     links: [
@@ -70,9 +70,9 @@ export const products: Product[] = [
     name: 'Sightline',
     category: 'Compliance / GRC',
     status: 'live',
-    tagline: 'Know your compliance before an auditor — or an attacker — does.',
+    tagline: 'Know your compliance before an auditor or an attacker does.',
     description:
-      'Sightline is a compliance platform that continuously checks your security posture against 22+ frameworks — NIST CSF 2.0, HIPAA, SOC 2, PCI DSS, ISO 27001, CMMC, FERPA, GDPR, and more. It connects to the identity, device, cloud, and ticketing tools you already run and tells you, in plain English, exactly where you stand — before a gap turns into a failed audit or a breach.',
+      'Sightline is a compliance platform that continuously checks your security posture against 22+ frameworks, including NIST CSF 2.0, HIPAA, SOC 2, PCI DSS, ISO 27001, CMMC, FERPA, GDPR, and more. It connects to the identity, device, cloud, and ticketing tools you already run and tells you, in plain English, exactly where you stand, before a gap turns into a failed audit or a breach.',
     highlights: [
       'Continuous, plain-English verdicts on controls across 22+ regulatory frameworks at once.',
       'Connects to your existing identity, MDM, cloud, and ticketing tools to gather evidence automatically.',
@@ -93,7 +93,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'CMMC Level 2, without the consultant.',
     description:
-      'Bastion walks defense suppliers through all 110 NIST 800-171 controls, calculates a live DoD SPRS score, and generates an audit-ready System Security Plan and POA&M — entirely in the browser, so sensitive CUI never leaves the machine. Built for the small and mid-size suppliers that primes like Boeing now require to reach CMMC Level 2.',
+      'Bastion walks defense suppliers through all 110 NIST 800-171 controls, calculates a live DoD SPRS score, and generates an audit-ready System Security Plan and POA&M. It all runs in the browser, so sensitive CUI never leaves the machine. Built for the small and mid-size suppliers that primes like Boeing now require to reach CMMC Level 2.',
     highlights: [
       'Guided 110-control NIST 800-171 self-assessment with a live, methodology-accurate DoD SPRS score.',
       'Auto-generates the SSP and POA&M assessors expect, and prioritizes the highest-impact gaps to fix first.',
@@ -112,7 +112,7 @@ export const products: Product[] = [
     name: 'Ward',
     category: 'Compliance / GRC',
     status: 'live',
-    tagline: 'Prove HIPAA compliance before an auditor — or 2026 — does.',
+    tagline: 'Prove HIPAA compliance before an auditor or 2026 does.',
     description:
       'Ward is a guided, plain-English HIPAA Security Risk Assessment plus a full compliance program: SRA, risk register, policy and BAA management, training records, and a one-click 2026 Security Rule readiness gap report. Local-first so PHI never leaves the machine, with optional cloud sync for multi-device and MSP multi-client management.',
     highlights: [
@@ -135,7 +135,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Write, version, and prove your security policies.',
     description:
-      'Charter is a guided security-policy generator plus a version-controlled, audit-ready policy library and full attestation workflow — draft, review, approve, publish, assign, attest. Real version diffs, framework-mapped clauses (HIPAA, FERPA, CMMC/800-171, SOC 2, ISO 27001, CIS, NIST), and machine-readable evidence that flows into Sightline, Bastion, and Ward.',
+      'Charter is a guided security-policy generator plus a version-controlled, audit-ready policy library and full attestation workflow: draft, review, approve, publish, assign, attest. Real version diffs, framework-mapped clauses (HIPAA, FERPA, CMMC/800-171, SOC 2, ISO 27001, CIS, NIST), and machine-readable evidence that flows into Sightline, Bastion, and Ward.',
     highlights: [
       'Generates 25+ framework-mapped security policies from a plain-English questionnaire.',
       'Built-in version control with real clause-level diffs and an employee attestation workflow.',
@@ -156,7 +156,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Vendor & third-party risk + BAA tracking.',
     description:
-      'Covenant tracks third-party risk, security reviews, and Business Associate Agreements across every vendor — so you always know who touches your data, what they signed, and when each agreement expires. Risk scoring, questionnaire workflows, and BAA lifecycle management in one console.',
+      'Covenant tracks third-party risk, security reviews, and Business Associate Agreements across every vendor, so you always know who touches your data, what they signed, and when each agreement expires. Risk scoring, questionnaire workflows, and BAA lifecycle management in one console.',
     highlights: [
       'One register for every vendor: risk tier, security review status, and BAA on file.',
       'BAA lifecycle tracking with renewal and expiry alerts so no agreement lapses.',
@@ -177,7 +177,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Phishing simulation + security-awareness training.',
     description:
-      'Watchword runs phishing simulations and delivers security-awareness training that actually changes behavior — with per-user risk scores that prove your workforce is getting harder to fool. Scheduled campaigns, branded landing pages, and compliance training tracks.',
+      'Watchword runs phishing simulations and delivers security-awareness training that actually changes behavior, with per-user risk scores that prove your workforce is getting harder to fool. Scheduled campaigns, branded landing pages, and compliance training tracks.',
     highlights: [
       'Realistic phishing simulations with per-user risk scoring over time.',
       'SCORM courses and compliance training tracks with completion reporting.',
@@ -198,7 +198,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'IT onboarding & offboarding, automated.',
     description:
-      'Passage automates the IT side of onboarding and offboarding so nothing — and no access — slips through the cracks. Provision, transfer, and revoke across every app on day one and last day, with approval workflows, app connectors, and a full audit trail.',
+      'Passage automates the IT side of onboarding and offboarding so nothing, and no access, slips through the cracks. Provision, transfer, and revoke across every app on day one and last day, with approval workflows, app connectors, and a full audit trail.',
     highlights: [
       'Automated provisioning and deprovisioning across your app stack via connectors.',
       'Approval workflows, role templates, and SSO/SCIM sync for clean access control.',
@@ -219,9 +219,9 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Continuous vuln & external attack-surface scanner.',
     description:
-      'Perimeter continuously scans your external attack surface and known vulnerabilities, and tells you what to fix first — discovering the assets, domains, and exposures attackers can already see. Continuous scanning, vuln prioritization, and ticketing integrations.',
+      'Perimeter continuously scans your external attack surface and known vulnerabilities, and tells you what to fix first. It discovers the assets, domains, and exposures attackers can already see. Continuous scanning, vuln prioritization, and ticketing integrations.',
     highlights: [
-      'Discovers your external attack surface — domains, assets, and exposures.',
+      'Discovers your external attack surface: domains, assets and exposures.',
       'Continuous scanning with vulnerability prioritization and Slack/email alerts.',
       'Ticketing integrations, scheduled reports, and a multi-tenant MSP tier.',
     ],
@@ -240,7 +240,7 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Incident response + breach notification playbook.',
     description:
-      'Klaxon gives you guided incident-response and breach-notification playbooks so you know exactly who to tell, and when — with jurisdiction-aware HIPAA and all-50-state notification timelines built in. Runbook builder, evidence log, tabletop exercises, and SLA timers.',
+      'Klaxon gives you guided incident-response and breach-notification playbooks so you know exactly who to tell, and when, with jurisdiction-aware HIPAA and all-50-state notification timelines built in. Runbook builder, evidence log, tabletop exercises, and SLA timers.',
     highlights: [
       'Jurisdiction-aware HIPAA and all-50-state breach-notification timelines.',
       'Runbook builder, evidence log, and notification templates for live incidents.',
@@ -261,11 +261,11 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Turn an Obsidian vault into a governed company documentation hub.',
     description:
-      'Ledger turns an Obsidian vault into a governed, company-grade documentation hub: a shared org vault with roles and permissions, review/approval governance, org-wide search, read-only published portals, and a full audit trail. Everything stays Obsidian-compatible Markdown — no lock-in. Run it hosted, or self-host the open-source core.',
+      'Ledger turns an Obsidian vault into a governed, company-grade documentation hub: a shared org vault with roles and permissions, review/approval governance, org-wide search, read-only published portals, and a full audit trail. Everything stays Obsidian-compatible Markdown, so there is no lock-in. Run it hosted, or self-host the open-source core.',
     highlights: [
       'Shared org vault with roles, permissions, and review/approval governance over every doc.',
       'Org-wide search, read-only published portals for readers, and a complete audit trail.',
-      'Obsidian-compatible Markdown with no lock-in — hosted, or self-host the open-source core.',
+      'Obsidian-compatible Markdown with no lock-in. Use it hosted, or self-host the open-source core.',
     ],
     tech: ['Documentation', 'Obsidian', 'Markdown', 'Knowledge Base'],
     links: [
@@ -284,12 +284,12 @@ export const products: Product[] = [
     status: 'live',
     tagline: 'Safe, evidence-gated OCR correction for Gurmukhi & Indic scripts.',
     description:
-      'An OCR post-processing engine that repairs the systematic Unicode-order and diacritic errors OCR makes on Gurmukhi (Punjabi), Hindi and Devanagari — and is built so it can never silently corrupt correct text, including Gurbani. Every automatic change must clear an evidence gate: verbatim scripture is locked, and any substitution needs a validity gain or a dictionary hit. It is engine-agnostic, reading Tesseract, Surya, Gemini and Google Vision output alike.',
+      'An OCR post-processing engine that repairs the systematic Unicode-order and diacritic errors OCR makes on Gurmukhi (Punjabi), Hindi and Devanagari. It is built so it can never silently corrupt correct text, including Gurbani. Every automatic change must clear an evidence gate: verbatim scripture is locked, and any substitution needs a validity gain or a dictionary hit. It is engine-agnostic, reading Tesseract, Surya, Gemini and Google Vision output alike.',
     highlights: [
-      'An evidence gate plus a 67,000-word Gurbani lexicon lock scripture and refuse any blind, unsupported edit — proven by property-based tests across every supported script.',
+      'An evidence gate plus a 67,000-word Gurbani lexicon lock scripture and refuse any blind, unsupported edit, proven by property-based tests across every supported script.',
       'OCR-engine-agnostic input (Tesseract JSON/TSV/hOCR, ALTO, Surya, Google Vision), so it survives the shift beyond Tesseract.',
-      'On 300 real Sri Guru Granth Sahib lines with OCR errors injected, character error rate drops to 0.00 — with zero corruption of clean text.',
-      'Live on PyPI — pip install gurmukhifix — with the Gurbani lexicon bundled inside the wheel.',
+      'On 300 real Sri Guru Granth Sahib lines with OCR errors injected, character error rate drops to 0.00, with zero corruption of clean text.',
+      'Live on PyPI (pip install gurmukhifix), with the Gurbani lexicon bundled inside the wheel.',
     ],
     tech: ['Python', 'Unicode', 'Gurbani lexicon', 'PyPI'],
     links: [
@@ -310,11 +310,11 @@ featured: false,
     freeLimited: true,
     tagline: 'An in-depth, no-fluff study platform for Security+, CISM & PMP.',
     description:
-      'A self-study platform for three IT certifications — CompTIA Security+, ISACA CISM and PMI PMP — on one shared, no-build engine. It pairs 1,200+ original practice questions with a timed exam simulator, Leitner spaced-repetition flashcards, rapid drills, quick-reference sheets, an interactive study planner with calendar export, and topic-organised video lessons — with all progress kept locally in the browser.',
+      'A self-study platform for three IT certifications (CompTIA Security+, ISACA CISM and PMI PMP) on one shared, no-build engine. It pairs 1,200+ original practice questions with a timed exam simulator, Leitner spaced-repetition flashcards, rapid drills, quick-reference sheets, an interactive study planner with calendar export, and topic-organised video lessons. All progress kept locally in the browser.',
     highlights: [
       '1,200+ original practice questions across Security+, CISM and PMP, with a timed exam simulator and scaled-score estimate.',
       'Leitner spaced-repetition flashcards, rapid drills, quick-reference sheets, and an interactive study planner with `.ics` calendar export.',
-      'A fast, no-build engine — everything runs in the browser (localStorage) with Markdown export/import, installable as a PWA.',
+      'A fast, no-build engine. Everything runs in the browser (localStorage) with Markdown export/import, installable as a PWA.',
     ],
     tech: ['Vanilla JS', 'HTML', 'JSON', 'PWA'],
     links: [
@@ -329,13 +329,13 @@ featured: false,
     category: 'Education / MCAT',
     status: 'beta',
     freeLimited: true,
-    tagline: 'MCAT practice tests, questions and flashcards — aim for 528.',
+    tagline: 'MCAT practice tests, questions and flashcards. Aim for 528.',
     description:
-      'A MCAT study toolkit: 900+ original AAMC-style practice questions, five full-length timed exam simulators, spaced-repetition flashcards, a progress dashboard, cheat sheets, curated videos, and a three-month study plan — built on the same no-build engine as CertPrep, with all progress kept in the browser. Not affiliated with the AAMC.',
+      'A MCAT study toolkit: 900+ original AAMC-style practice questions, five full-length timed exam simulators, spaced-repetition flashcards, a progress dashboard, cheat sheets, curated videos, and a three-month study plan. It is built on the same no-build engine as CertPrep, with all progress kept in the browser. Not affiliated with the AAMC.',
     highlights: [
       '900+ original AAMC-style questions and five distinct full-length exam simulators with scaled-score estimates.',
       'Leitner spaced-repetition flashcards, cheat sheets, curated video lessons, and a day-by-day three-month study plan.',
-      'A fast, no-build engine — everything runs in the browser (localStorage) with Markdown export/import; original items with site-wide AAMC disclaimers.',
+      'A fast, no-build engine. Everything runs in the browser (localStorage) with Markdown export/import; original items with site-wide AAMC disclaimers.',
     ],
     tech: ['Vanilla JS', 'HTML', 'JSON', 'PWA'],
     links: [
@@ -349,11 +349,11 @@ featured: false,
     name: 'Lookout',
     category: 'Infrastructure / Monitoring',
     status: 'live',
-    tagline: 'Know your servers are healthy — before they’re not.',
+    tagline: 'Know your servers are healthy, before they’re not.',
     description:
-      'Lookout is infrastructure monitoring built for humans. Lightweight agents report each server’s health to one dashboard in plain English — “disk /data is 94% full” instead of a wall of raw metrics — so anyone can tell what needs attention at a glance.',
+      'Lookout is infrastructure monitoring built for humans. Lightweight agents report each server’s health to one dashboard in plain English, like “disk /data is 94% full”, instead of a wall of raw metrics, so anyone can tell what needs attention at a glance.',
     highlights: [
-      'Single, dependency-free agent for Linux, Windows, and macOS — outbound-only, no open ports.',
+      'Single, dependency-free agent for Linux, Windows, and macOS, outbound-only, no open ports.',
       'Plain-English OK / WARNING / CRITICAL alerts via email, Slack, or webhooks, with deduplication and escalation.',
       'Nagios-plugin compatible, with managed and on-prem deployment options.',
     ],
@@ -373,11 +373,11 @@ featured: false,
     status: 'live',
     tagline: 'Every device. One source of truth.',
     description:
-      'Cairn reconciles your device fleet across every tool you already run — Jamf, Intune, Kandji, JumpCloud, CrowdStrike, Defender, and more — and syncs one authoritative inventory into Snipe-IT. It resolves conflicting records by serial number, previews every change with a dry run, and finally makes your asset system of record actually accurate. Open-source under AGPL-3.0, and live on PyPI — pip install cairn-sync.',
+      'Cairn reconciles your device fleet across every tool you already run (Jamf, Intune, Kandji, JumpCloud, CrowdStrike, Defender, and more) and syncs one authoritative inventory into Snipe-IT. It resolves conflicting records by serial number, previews every change with a dry run, and finally makes your asset system of record actually accurate. Open-source under AGPL-3.0, and live on PyPI (pip install cairn-sync).',
     highlights: [
       'Pulls from 12+ MDM and EDR sources and writes one reconciled source of truth to Snipe-IT.',
       'Serial-based reconciliation with a trust-priority system and a dry-run preview before any change.',
-      'Single cross-platform binary (macOS, Windows, Linux) with a guided GUI — no YAML required.',
+      'Single cross-platform binary (macOS, Windows, Linux) with a guided GUI and no YAML required.',
     ],
     tech: ['Snipe-IT', 'MDM / EDR Sync', 'Open Source (AGPL)', 'Cross-Platform', 'PyPI'],
     links: [
@@ -392,17 +392,18 @@ featured: false,
   {
     slug: 'sikh-library-dataset',
     published: 'May 31, 2026',
-    name: 'Sikh Library — Living Dataset',
+    name: 'Sikh Library: Living Dataset',
     category: 'NLP / Dataset',
     status: 'live',
-    tagline: 'The largest open-source Sikh text corpus.',
+    tagline: 'The largest known open Sikh text corpus.',
     description:
-      'The Universal Sikh Research Library: ~1.07 billion words of Sikh scripture, exegesis, history and scholarship — scanned, OCR’d and made machine-readable — in one standardized corpus. 23,366 files across 14.2 GB, covering 3,616+ individually catalogued works in 115 collections and 26 declared languages. Built so researchers no longer have to hunt across scattered archives, out-of-print books and regional digital libraries for primary sources. Free to access on request, under CC BY-NC-ND 4.0.',
+      'The Universal Sikh Research Library: ~1.07 billion words of Sikh scripture, exegesis, history and scholarship, scanned, OCR’d and made machine-readable, in one standardized corpus. 23,366 files across 14.2 GB, covering 3,616+ individually catalogued works in 115 collections and 26 declared languages. Built so researchers no longer have to hunt across scattered archives, out-of-print books and regional digital libraries for primary sources. Free to access on request, under CC BY-NC-ND 4.0.',
     highlights: [
-      'Primary scripture, exegesis, and the complete Mahan Kosh — Bhai Kahan Singh Nabha’s 1930 encyclopedia as structured JSON across 28 language and script editions sharing one entry ID.',
-      '86 dedicated single-author archives — the collected works of named Sikh scholars, historians, and theologians including Bhai Vir Singh, Prof. Sahib Singh, Giani Sant Singh Maskeen, and Dr. Ganda Singh.',
+      'Primary scripture, exegesis, and the complete Mahan Kosh, Bhai Kahan Singh Nabha’s 1930 encyclopedia as structured JSON across 28 language and script editions sharing one entry ID.',
+      '86 dedicated single-author archives holding the collected works of named Sikh scholars, historians, and theologians including Bhai Vir Singh, Prof. Sahib Singh, Giani Sant Singh Maskeen, and Dr. Ganda Singh.',
       'Reference corpora built for NLP: an 87,636-entry Punjabi dictionary, 1,179 katha transcripts, sakhi collections, and per-Guru biographical pages, in clean UTF-8 text and structured OCR JSON.',
-      'Version 3.1 (September 2026), independently re-verified — and the README openly invites correction if a larger open Sikh corpus exists.',
+      '4,000+ texts translated from Punjabi to English by using Claude Code, GitHub Copilot and OpenRouter, with several models for OCR and translation.',
+      'Version 3.1 (September 2026), independently re-verified, and the README openly invites correction if a larger open Sikh corpus exists.',
     ],
     tech: ['Dataset', 'HuggingFace', '26 Languages', 'OCR', 'CC BY-NC-ND 4.0'],
     links: [
@@ -421,7 +422,7 @@ featured: false,
     status: 'live',
     tagline: 'Five centuries of Sikh literature, open to the world.',
     description:
-      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable, now serving over 50,000 views a month. It is also the production home of the Sikh Library corpus. This isn’t my own project — I contribute to it as a developer, helping push the platform forward alongside the team.',
+      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable, now serving over 50,000 views a month. It is also the production home of the Sikh Library corpus. This isn’t my own project. I contribute to it as a developer, helping push the platform forward alongside the team.',
     highlights: [
       'Serves 50,000+ views a month, and is the production home of the ~1.07-billion-word Sikh Library corpus.',
       'Built Gurbani search and an AI-powered search engine, plus design improvements.',

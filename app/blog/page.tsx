@@ -10,9 +10,9 @@ import { essays } from './essays';
 const page: PageDescriptor = {
   path: '/blog',
   ogSlug: 'blog',
-  title: 'Writing — AI, Security & GRC Essays',
+  title: 'Writing: AI, Security & GRC Essays',
   description:
-    'Essays by Jasvant Singh Dosanjh on AI, security, GRC, and building local-first, privacy-respecting software — plus recent posts on LinkedIn.',
+    'Essays by Jasvant Singh Dosanjh on AI, security, GRC, and building local-first, privacy-respecting software, plus recent posts on LinkedIn.',
   keywords: ['Jasvant Dosanjh blog', 'local AI', 'GRC writing', 'privacy-respecting software', 'security essays'],
 };
 
@@ -69,7 +69,7 @@ export default function Blog() {
       <section className="container-x mt-24">
         <SectionHeading eyebrow="From LinkedIn" title="More short-form posts">
           <p className="reveal mt-4 max-w-2xl text-ink-600 leading-relaxed">
-            I share most of my day-to-day thinking on LinkedIn — from AI and cybersecurity to heritage
+            I share most of my day-to-day thinking on LinkedIn, from AI and cybersecurity to heritage
             and seva. Here are a few recent ones.
           </p>
         </SectionHeading>

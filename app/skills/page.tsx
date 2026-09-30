@@ -7,7 +7,7 @@ import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadat
 const page: PageDescriptor = {
   path: '/skills',
   ogSlug: 'skills',
-  title: 'Skills — Program Delivery, Security & Cloud',
+  title: 'Skills: Program Delivery, Security & Cloud',
   description:
     "Jasvant Dosanjh's skills: technical program and project management (Agile, Waterfall, roadmaps, risk, budget, vendors), security & compliance (NIST, HIPAA), infrastructure, and AI development.",
   keywords: [
@@ -37,7 +37,7 @@ export default function Skills() {
             <span className="kin-line"><span className="kin-inner">What I bring to the table.</span></span>
           </h1>
           <p className="reveal is-visible mt-5 type-body text-ink-600 leading-relaxed">
-            A decade of delivering technical programs — and enough time in the infrastructure
+            A decade of delivering technical programs, and enough time in the infrastructure
             underneath them to scope the work honestly. I pair the discipline of compliance and
             delivery with the appetite to ship things that didn’t exist yesterday.
           </p>
@@ -77,15 +77,15 @@ export default function Skills() {
               </div>
               <div className="mt-6 pt-6 hairline grid sm:grid-cols-3 gap-4 type-subhead">
                 <p className="text-ink-600">
-                  <span className="text-navy-900 font-medium">12 products</span> — shipped end to end,
-                  requirements through CI/CD.
+                  <span className="text-navy-900 font-medium">12 products</span>: shipped end to end,
+                  from requirements to deployment.
                 </p>
                 <p className="text-ink-600">
-                  <span className="text-navy-900 font-medium">$250K &amp; $750K</span> — annual hardware
+                  <span className="text-navy-900 font-medium">$250K &amp; $750K</span>: annual hardware
                   and studio-buildout budgets owned.
                 </p>
                 <p className="text-ink-600">
-                  <span className="text-navy-900 font-medium">Zero downtime</span> — across a 6-month,
+                  <span className="text-navy-900 font-medium">Zero downtime</span> across a 6-month,
                   multi-building migration.
                 </p>
               </div>

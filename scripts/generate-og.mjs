@@ -43,8 +43,8 @@ const KESARI_700 = '#56368f';
 
 /** Every page that opts into a generated OG image, keyed by its `ogSlug`. */
 const ogPages = {
-  home: { eyebrow: 'technical program manager', title: 'Programs that ship — scoped, staffed, and measured.' },
-  work: { eyebrow: 'case studies', title: 'Three programs, start to finish.' },
+  home: { eyebrow: 'technical program manager', title: 'Programs that ship: scoped, staffed and measured.' },
+  work: { eyebrow: 'case studies', title: 'Four programs, start to finish.' },
   about: { eyebrow: 'background', title: 'Jasvant Singh Dosanjh' },
   skills: { eyebrow: 'capabilities', title: 'What I bring to the table.' },
   products: { eyebrow: 'products', title: 'Tools that turn friction into momentum.' },
@@ -54,11 +54,11 @@ const ogPages = {
   blog: { eyebrow: 'writing', title: 'Notes on AI, security & building things that last' },
   'blog-the-ai-race-just-fractured': {
     eyebrow: 'essay',
-    title: 'The AI race just fractured — and the US did it to itself',
+    title: 'The AI race just fractured, and the US did it to itself',
   },
   'blog-the-future-of-ai-runs-on-your-device': {
     eyebrow: 'essay',
-    title: 'AI just became a single point of failure — the fix is local',
+    title: 'AI just became a single point of failure, and the fix is local',
   },
 };
 

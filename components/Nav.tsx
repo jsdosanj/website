@@ -56,7 +56,7 @@ export default function Nav() {
           <Link
             href="/"
             className="group flex items-center min-h-11 gap-3 min-w-0 btn-press"
-            aria-label="Jasvant Dosanjh — home"
+            aria-label="Jasvant Dosanjh, home"
           >
             <Logo emblemSize={28} className="gap-2" />
           </Link>
