@@ -99,10 +99,10 @@ export const experience: Role[] = [
     // carries its own, so the roadmap bar changes colour where the job did.
     track: 'program',
     shortLabel: 'UW · TPM / Sr Computer Specialist',
-    note: 'One role at UW. I started leading and managing projects once I finished my onboarding, and moved into program management in January 2025.',
+    note: 'One role at UW. I was a Senior Computer Specialist from January 2023, started leading and managing projects once I finished my onboarding, and became Technical Program Manager in January 2025.',
     sections: [
       {
-        label: 'Technical Program Manager / Senior Computer Specialist / Systems Administrator',
+        label: 'Technical Program Manager',
         date: 'Jan 2025 – Mar 2026',
         start: 2025 + MONTH.jan,
         end: 2026 + MONTH.mar,
@@ -117,7 +117,7 @@ export const experience: Role[] = [
         ],
       },
       {
-        label: 'Technical Project Manager / Senior Computer Specialist',
+        label: 'Senior Computer Specialist',
         date: 'Jan 2023 – Jan 2025',
         start: 2023 + MONTH.jan,
         end: 2025 + MONTH.jan,
