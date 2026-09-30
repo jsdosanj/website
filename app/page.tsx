@@ -63,7 +63,7 @@ export default function Home() {
           portrait carries the emotion; the two glass cards float over it the
           way Superhuman composites product UI over photography — translucent
           white, 16px radius, no drop shadow, depth from the photo behind. */}
-      <section className="hero-dark relative isolate overflow-hidden text-white pt-32 sm:pt-40 pb-20 sm:pb-28">
+      <section className="hero-dark relative isolate overflow-hidden text-white pt-32 sm:pt-40 pb-32 sm:pb-40">
         <div className="container-x relative">
           <div className="reveal flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="chip chip-delivered">Open to work</span>

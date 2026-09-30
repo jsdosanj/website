@@ -6,7 +6,7 @@ import { nav, site } from '@/data/site';
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative mt-28 pb-20 md:pb-0 bg-navy-800 text-white">
+    <footer className="footer-rise relative mt-28 pb-20 md:pb-0 bg-navy-800 text-white">
       <div className="container-x pt-3">
         <div className="type-footnote text-white/75 border-b border-white/10 py-3 flex flex-wrap items-center gap-x-5 gap-y-1.5">
           <span className="chip chip-delivered">open to work</span>
@@ -33,7 +33,7 @@ export default function Footer() {
             >
               <Icon name="download" size={16} /> Download résumé
             </Link>
-            <Link href="/resume" className="link-control type-caption text-white/60 hover:text-white">
+            <Link href="/resume" className="link-control ml-3 type-caption text-white/60 hover:text-white">
               or view it online →
             </Link>
           </div>
