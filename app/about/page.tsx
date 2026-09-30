@@ -19,9 +19,10 @@ import { pageGraph, pageMetadata, type PageDescriptor } from '@/lib/site-metadat
 const page: PageDescriptor = {
   path: '/about',
   ogSlug: 'about',
+  type: 'profile',
   title: 'About: Track Record & Experience',
   description:
-    'The track record of Jasvant Singh Dosanjh: a Technical Program Manager who has delivered programs across healthcare, education, gaming, and big tech. That includes roadmaps, budgets, vendors, the software lifecycle and GRC.',
+    'Jasvant Singh Dosanjh, Technical Program Manager in Seattle: 10 years of programs in higher ed, healthcare, gaming and big tech. Roadmaps, budgets, vendors and GRC.',
   keywords: [
     'Jasvant Dosanjh about', 'Technical Program Manager experience',
     'technical program management track record', 'Technical Project Manager',

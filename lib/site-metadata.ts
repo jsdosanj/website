@@ -24,31 +24,55 @@ export type PageDescriptor = {
   path: string;
   ogSlug?: string;
   noindex?: boolean;
+  /** Open Graph type. `profile` is for the About page; posts set `article` themselves. */
+  type?: 'website' | 'profile';
 };
 
+/** schema.org WebPage subtype per route, so search engines can tell the page's job. */
+const PAGE_TYPE: Record<string, string> = {
+  '/about': 'AboutPage',
+  '/contact': 'ContactPage',
+  '/work': 'CollectionPage',
+  '/products': 'CollectionPage',
+  '/blog': 'CollectionPage',
+};
+
+const FEED_URL = `${site.url}/feed.xml`;
+
 export function pageMetadata(opts: PageDescriptor): Metadata {
-  const { title, description = site.description, keywords = [], path, ogSlug, noindex } = opts;
+  const { title, description = site.description, keywords = [], path, ogSlug, noindex, type = 'website' } = opts;
   const fullTitle = title ? `${title} · ${site.brand}` : `${site.founder}: ${site.shortTagline}`;
   const canonical = new URL(path, site.url).href;
   const ogImage = new URL(`/og/${ogSlug ?? 'home'}.png`, site.url).href;
 
   return {
-    title: fullTitle,
+    // `absolute`, because fullTitle already carries the brand. Without it the root
+    // layout's `%s · brand` template appended the brand a second time to every
+    // inner page title.
+    title: { absolute: fullTitle },
     description,
     keywords: [...new Set([...BASE_KEYWORDS, ...keywords])],
     authors: [{ name: site.founder, url: site.url }],
-    alternates: { canonical },
+    creator: site.founder,
+    publisher: site.founder,
+    category: 'technology',
+    formatDetection: { telephone: false, email: false, address: false },
+    // The feed is advertised on every page so readers and aggregators find it
+    // wherever they land, not just on /blog.
+    alternates: { canonical, types: { 'application/rss+xml': FEED_URL } },
     robots: noindex
       ? { index: false, follow: true }
       : { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
     openGraph: {
-      type: 'website',
+      ...(type === 'profile'
+        ? { type: 'profile' as const, firstName: 'Jasvant', lastName: 'Dosanjh' }
+        : { type: 'website' as const }),
       siteName: site.brand,
       title: fullTitle,
       description,
       url: canonical,
       locale: 'en_US',
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `${site.brand}: ${site.tagline}` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${site.founder}, Technical Program Manager. ${site.tagline}` }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -77,11 +101,28 @@ export function personGraph() {
         name: site.founder,
         alternateName: 'Jasvant Dosanjh',
         url: site.url,
-        image: new URL('/images/headshot-v2.jpg', site.url).href,
+        image: {
+          '@type': 'ImageObject',
+          '@id': `${site.url}/#face`,
+          url: new URL(site.faceImage, site.url).href,
+          contentUrl: new URL(site.faceImage, site.url).href,
+          width: 512,
+          height: 512,
+          caption: `${site.founder}, Technical Program Manager`,
+        },
         description: site.description,
         jobTitle: 'Technical Program Manager',
         worksFor: { '@id': 'https://dosanjhlabs.com/#organization' },
-        address: { '@type': 'PostalAddress', addressCountry: 'US' },
+        homeLocation: { '@type': 'Place', name: 'Seattle, WA' },
+        address: { '@type': 'PostalAddress', addressLocality: 'Seattle', addressRegion: 'WA', addressCountry: 'US' },
+        alumniOf: [
+          { '@type': 'CollegeOrUniversity', name: 'Oakland University' },
+          { '@type': 'CollegeOrUniversity', name: 'Oakland Community College' },
+        ],
+        hasCredential: [
+          { '@type': 'EducationalOccupationalCredential', name: 'Jamf Pro Certified Technician' },
+          { '@type': 'EducationalOccupationalCredential', name: 'Google Cloud Digital Leader' },
+        ],
         knowsLanguage: ['English', 'Punjabi', 'Hindi', 'Urdu'],
         knowsAbout: [
           'Technical Program Management', 'Technical Project Management', 'Agile Delivery',
@@ -137,15 +178,22 @@ export function pageGraph(opts: PageDescriptor, extra: object[] = []) {
   return [
     {
       '@context': 'https://schema.org',
-      '@type': 'WebPage',
+      '@type': PAGE_TYPE[path] ?? 'WebPage',
       '@id': `${canonical}#webpage`,
       url: canonical,
       name: fullTitle,
       description,
       isPartOf: { '@id': `${site.url}/#website` },
       about: { '@id': `${site.url}/#person` },
+      breadcrumb: { '@id': `${canonical}#breadcrumb` },
       inLanguage: 'en',
-      primaryImageOfPage: new URL(`/og/${ogSlug ?? 'home'}.png`, site.url).href,
+      dateModified: site.lastUpdated,
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: new URL(`/og/${ogSlug ?? 'home'}.png`, site.url).href,
+        width: 1200,
+        height: 630,
+      },
     },
     {
       '@context': 'https://schema.org',

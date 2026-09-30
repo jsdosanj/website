@@ -2,10 +2,10 @@
   "name": "dosanjh-labs",
   "type": "module",
   "version": "1.0.0",
-  "description": "Dosanjh Labs \u2014 turning technology that hinders into technology that helps you succeed.",
+  "description": "Dosanjh Labs — turning technology that hinders into technology that helps you succeed.",
   "scripts": {
     "dev": "next dev",
-    "og": "node scripts/generate-og.mjs",
+    "og": "node scripts/generate-og.mjs && node scripts/generate-feed.mjs",
     "prebuild": "npm run og",
     "build": "next build",
     "prebuild:worker": "npm run og",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@fontsource/bricolage-grotesque": "^5.3.0",
     "@fontsource/hanken-grotesk": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
     "@opennextjs/cloudflare": "^1.20.6",
     "@resvg/resvg-js": "^2.6.2",
@@ -38,6 +39,7 @@
     "@types/react-dom": "^19.3.0",
     "playwright": "^1.58.0",
     "satori": "^0.33.5",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.0",
     "typescript": "7.0.2",
     "wrangler": "^4.143.1"

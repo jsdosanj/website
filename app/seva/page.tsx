@@ -12,7 +12,7 @@ const page: PageDescriptor = {
   ogSlug: 'seva',
   title: 'Seva & Parchar: Sikh Heritage Work',
   description:
-    'The parcharik and seva work of Jasvant Dosanjh: speaking with Basics of Sikhi, preserving heritage with Sikhi.io, and teaching Gurbani Santhiya worldwide.',
+    'Parchar and seva by Jasvant Dosanjh: 60+ talks with Basics of Sikhi, Sikh heritage preservation with Sikhi.io, and Gurbani Santhiya teaching worldwide.',
   keywords: [
     'Sikh parcharik', 'Basics of Sikhi speaker', 'Sikhi.io', 'Guru Nanak', 'seva',
     'Sikh heritage technology', 'Gurbani Santhiya',

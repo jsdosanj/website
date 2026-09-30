@@ -9,7 +9,7 @@ const page: PageDescriptor = {
   ogSlug: 'skills',
   title: 'Skills: Program Delivery, Security & Cloud',
   description:
-    "Jasvant Dosanjh's skills: technical program and project management (Agile, Waterfall, roadmaps, risk, budget, vendors), security & compliance (NIST, HIPAA), infrastructure, and AI development.",
+    "Skills of Jasvant Dosanjh, Technical Program Manager: Agile and Waterfall delivery, roadmaps, risk, budget, vendors, NIST and HIPAA compliance, endpoints and AI.",
   keywords: [
     'technical program management', 'technical project management', 'Agile', 'Waterfall', 'Lean',
     'SDLC', 'roadmapping', 'risk management', 'budget management', 'vendor management', 'Jira',

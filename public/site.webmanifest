@@ -1,19 +1,13 @@
 {
-  "name": "Jasvant Dosanjh \u2014 Technical Program Manager",
+  "name": "Jasvant Dosanjh: Technical Program Manager",
   "short_name": "Jasvant Dosanjh",
-  "description": "Technical Program Manager and builder, open to relocating. Open to Technical Program Manager, Technical Project Manager, and IT Program Manager roles.",
+  "description": "Technical Program Manager in Seattle, WA. Open to hybrid or onsite roles in Seattle and San Francisco and remote roles anywhere in the USA.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f2f0eb",
   "theme_color": "#f2f0eb",
   "icons": [
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
@@ -25,6 +19,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

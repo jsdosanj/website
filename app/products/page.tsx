@@ -14,7 +14,7 @@ const page: PageDescriptor = {
   ogSlug: 'products',
   title: 'Products: Sikhi University, Sightline & Bastion',
   description:
-    'Products from Jasvant Dosanjh: Sikhi University (free Sikhi education), a 12-product GRC & security suite (Sightline, Bastion, Ward & more), and the open-source tools GurmukhiFix and Cairn.',
+    'Products by Jasvant Dosanjh: a 12-product GRC and security suite (Sightline, Bastion, Ward), the Sikh Library dataset, Sikhi University, and open-source tools.',
   keywords: [
     'Sikhi University', 'Sightline', 'Bastion', 'GurmukhiFix', 'Cairn', 'SikhLibrary dataset',
     'Gurmukhi OCR', 'compliance software', 'GRC suite',

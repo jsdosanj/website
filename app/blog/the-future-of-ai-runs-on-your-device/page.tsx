@@ -19,7 +19,7 @@ const page: PageDescriptor = {
 };
 
 const base = pageMetadata(page);
-export const metadata = { ...base, openGraph: { ...base.openGraph, type: 'article' as const } };
+export const metadata = { ...base, openGraph: { ...base.openGraph, type: 'article' as const, publishedTime: essay.published, modifiedTime: essay.published, authors: ['Jasvant Singh Dosanjh'], section: 'Technology', tags: page.keywords } };
 
 const sources = [
   { label: 'Anthropic: Statement on the directive to suspend Fable 5 & Mythos 5', href: 'https://www.anthropic.com/news/fable-mythos-access' },
@@ -43,6 +43,10 @@ export default function Post() {
     url,
     datePublished: essay.published,
     dateModified: essay.published,
+    image: [new URL(`/og/blog-${SLUG}.png`, 'https://jasvant.me').href],
+    articleSection: 'Technology',
+    keywords: page.keywords?.join(', '),
+    isAccessibleForFree: true,
     author: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.me' },
     publisher: { '@type': 'Person', name: 'Jasvant Singh Dosanjh', url: 'https://jasvant.me' },
     mainEntityOfPage: url,

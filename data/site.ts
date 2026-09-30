@@ -2,7 +2,7 @@ export const site = {
   brand: 'Jasvant Dosanjh',
   founder: 'Jasvant Singh Dosanjh',
   tagline: 'Programs that ship: scoped, staffed and measured.',
-  shortTagline: 'Technical Program Manager.',
+  shortTagline: 'Technical Program Manager in Seattle',
   description:
     'Jasvant Singh Dosanjh is a Technical Program Manager with 10+ years of experience in higher education, healthcare, gaming and big tech. He built the repeatable process that moved eight University of Washington departments onto central IT. He has shipped 12 security and compliance products, run $250K and $750K budgets, led a team of 9, and finished a six-month security migration with zero downtime. He uses Agile and Waterfall, owns the software lifecycle from requirements to deployment, and manages risk under HIPAA, FERPA and NIST rules. He builds with Claude Code, GitHub Copilot and OpenRouter. His PMP exam is scheduled for October 2026.',
   location: 'Seattle, WA · San Francisco, CA · Remote (USA)',
@@ -11,6 +11,10 @@ export const site = {
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
   url: 'https://jasvant.me',
+  /** Square face crop used for the logo, icons, structured data and social cards. */
+  faceImage: '/images/logo-face.webp',
+  /** ISO date of the last meaningful content change; feeds the sitemap's lastmod. Update it when content changes. */
+  lastUpdated: '2026-10-01',
   // Hire-me positioning
   openToWork: true,
   targetRole: 'Technical Program Manager',

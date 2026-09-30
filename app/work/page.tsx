@@ -19,7 +19,7 @@ const page: PageDescriptor = {
   ogSlug: 'work',
   title: 'Case Studies: Programs Delivered',
   description:
-    'Four programs delivered by Jasvant Singh Dosanjh, told in full: a repeatable process that moved eight university departments onto central IT, a clinic IT rescue, a gaming studio built from zero, and a 15,000-student device rollout in eight weeks.',
+    'Four case studies by Jasvant Dosanjh: eight university departments moved onto central IT, a clinic IT rescue, a new studio’s IT, and 15,000 devices in eight weeks.',
   keywords: [
     'program management case study', 'technical program manager portfolio',
     'project management case study', 'stakeholder management', 'risk register',

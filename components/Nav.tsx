@@ -58,7 +58,7 @@ export default function Nav() {
             className="group flex items-center min-h-11 gap-3 min-w-0 btn-press"
             aria-label="Jasvant Dosanjh, home"
           >
-            <Logo emblemSize={28} className="gap-2" />
+            <Logo emblemSize={34} className="gap-2.5" />
           </Link>
 
           <ul className="hidden md:flex items-center gap-0.5" role="list">
