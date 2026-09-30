@@ -86,7 +86,7 @@ export const experience: Role[] = [
       'Took a security and compliance suite from zero to market, measured by 12 live products and a release pipeline that is still growing, by owning product strategy, the roadmap and the full software lifecycle from requirements to deployment, and by building with Claude Code, GitHub Copilot and OpenRouter.',
       'Replaced framework-by-framework spreadsheet audits with one compliance view, measured by 22+ frameworks (NIST CSF 2.0, NIST SP 800-53, HIPAA, SOC 2, CMMC, ISO 27001, FERPA and GDPR) mapped in one dashboard, by building Sightline to pull data from the tools an organization already runs.',
       'Turned CMMC Level 2 readiness from a consultant project into a self-service workflow, measured by a live DoD SPRS score and an auto-generated SSP and POA&M ready for audit, by building Bastion as a NIST SP 800-171 self-assessment tool.',
-      'Built the largest open-source Sikh dataset, measured by 4,000+ texts translated from Punjabi to English, by using Claude Code, GitHub Copilot and OpenRouter with several models for OCR and translation.',
+      'Built the largest known open Sikh text corpus, measured by 4,000+ texts translated from Punjabi to English, by using Claude Code, GitHub Copilot and OpenRouter with several models for OCR and translation.',
     ],
   },
   {

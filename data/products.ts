@@ -395,7 +395,7 @@ featured: false,
     name: 'Sikh Library: Living Dataset',
     category: 'NLP / Dataset',
     status: 'live',
-    tagline: 'The largest open-source Sikh text corpus.',
+    tagline: 'The largest known open Sikh text corpus.',
     description:
       'The Universal Sikh Research Library: ~1.07 billion words of Sikh scripture, exegesis, history and scholarship, scanned, OCR’d and made machine-readable, in one standardized corpus. 23,366 files across 14.2 GB, covering 3,616+ individually catalogued works in 115 collections and 26 declared languages. Built so researchers no longer have to hunt across scattered archives, out-of-print books and regional digital libraries for primary sources. Free to access on request, under CC BY-NC-ND 4.0.',
     highlights: [

@@ -66,12 +66,12 @@ export const caseStudies: CaseStudy[] = [
     stakeholders: [
       { group: 'Dean', need: 'How the department can save money and keep faculty and staff happier, and how central IT can support the department’s research' },
       { group: 'Department chair and co-chair', need: 'Save money, raise faculty and staff satisfaction, white-glove IT support, help with technical projects, upkeep of the infrastructure, and a review of the IT budget' },
-      { group: 'Administrators', need: 'Clear answers on IT budget and equipment' },
+      { group: 'Administrators', need: 'Support during business hours, remote or in person, help automating workflows, an inventory, a hardware refresh lifecycle, and help setting up classrooms and labs' },
       { group: 'Faculty', need: 'Excellent IT support, help with their research, and help writing grants' },
       { group: 'Staff', need: 'Excellent IT support, help automating workflows, and better documentation' },
       { group: 'CAS IT (our own team)', need: 'What we can support without adding staff, what we would need to hire for, what is in the project backlog, and the state of the inventory' },
-      { group: 'UW-IT', need: 'Complete access requests in a standard format' },
-      { group: 'Facilities', need: 'Clear requests for access to physical spaces' },
+      { group: 'UW-IT', need: 'What access CAS IT needs, including network and DNS access and server needs' },
+      { group: 'Facilities', need: 'Whether CAS IT needs physical access to rooms, labs and other spaces' },
     ],
     plan: [
       { phase: '1 · Kickoff (PMBOK: initiating)', detail: 'Start every department with the same kickoff. Identify the stakeholders (dean, chair and co-chair, administrators, faculty, staff, UW-IT and facilities), write down what each group needs, and agree on the goal: the department on CAS IT, with a 2-hour response and 48-hour resolution target. In PMBOK terms, this means knowing who is involved and what success looks like before any work starts.' },
@@ -95,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
       'A reusable kit: workflows, Power Automate automations, checklist, phases, kickoff, handoff, runbook and documentation guidelines',
     ],
     retro:
-      'The access problem came back in every department, and I only wrote the standard plan after the first one. Next time I would write it before the first onboarding starts. I would also put the most time into the investigation checklist when the old IT staff are already gone, as at the clinic and in Anthropology, because there is nobody to ask.',
+      'I would change three things. First, I would ask the university PMI office for help building fuller documentation and runbooks. Second, I would attend faculty, staff and department meetings during the kickoff phase, so I meet every stakeholder in person and gather what the investigate phase needs. Third, I would get as much information as I could from the departing IT staff and teams before they leave. At the clinic and in Anthropology the old IT staff were already gone, and that made those two the hardest.',
   },
   {
     slug: 'clinic-onboarding',
