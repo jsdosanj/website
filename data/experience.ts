@@ -232,15 +232,16 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'IT Support Specialist',
+    title: 'Front Desk Coordinator',
     company: 'Oakland Community College, Athletics Dept.',
     date: '2016 – 2018',
     start: 2016 + MONTH.sep,
     end: 2018 + MONTH.may,
     track: 'ic',
-    shortLabel: 'OCC Athletics · IT Support',
+    shortLabel: 'OCC Athletics · Front Desk',
     bullets: [
-      'Covered a whole department’s technology needs as its only technologist, measured by steady tier 1 and tier 2 support across hardware, networking, AV and web systems, plus a facility reservation system in daily use, by owning every request from start to finish for the athletics department.',
+      'Cut reservation-related support tickets by 90%, measured by the drop in tickets after the change, by leading an overhaul of the athletics and student-club room reservation system.',
+      'Kept the facility and technology equipment running for more than 10,000 students, faculty and community members, by managing it day to day at the athletics front desk.',
     ],
   },
 ];

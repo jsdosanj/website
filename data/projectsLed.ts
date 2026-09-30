@@ -175,5 +175,5 @@ export const moreProjects: MoreProject[] = [
   { title: 'Automation tooling for repeat tasks', org: 'University of Washington', date: '2023 – 2026' },
   { title: 'Server imaging & deployment automation', org: 'Omni Group', date: '2022', note: 'ramp-up 4 hrs → 1 per server' },
   { title: 'PowerShell self-service tooling', org: 'Oakland University, Technology Services', date: '2020', note: '−40% ticket volume' },
-  { title: 'Athletics facility reservation system', org: 'Oakland Community College', date: '2016 – 2018' },
+  { title: 'Athletics facility reservation system', org: 'Oakland Community College', date: '2016 – 2018', note: '−90% reservation-related tickets' },
 ];
