@@ -18,7 +18,7 @@ export const metadata = pageMetadata({
   path: '/',
   ogSlug: 'home',
   description:
-    'Jasvant Singh Dosanjh is a Technical Program Manager open to hybrid or onsite roles in Seattle, WA and San Francisco, CA, and remote roles anywhere in the USA. He has 10 years of experience in healthcare, education, gaming and big tech, and built the process that moved eight university departments onto central IT.',
+    'Jasvant Singh Dosanjh is a Technical Program Manager in Seattle, open to hybrid or onsite roles in Seattle and San Francisco and remote roles across the USA.',
   keywords: ['TPM', 'program management', 'roadmap', 'SDLC', 'Agile', 'Waterfall', 'open to work'],
 });
 

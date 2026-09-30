@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="container-x py-16">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <Logo emblemSize={34} textClass="type-body" />
+            <Logo emblemSize={44} textClass="type-body" />
             <p className="mt-4 max-w-sm type-subhead leading-relaxed text-white/75">{site.tagline}</p>
             <Link
               href="/contact#resumes"

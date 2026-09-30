@@ -21,6 +21,7 @@ import { Resvg } from '@resvg/resvg-js';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import satori from 'satori';
+import sharp from 'sharp';
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'public', 'og');
@@ -31,15 +32,9 @@ export const OG_HEIGHT = 630;
 // Literal hex, not design tokens: satori resolves no custom properties and no
 // cascade, so every value has to be concrete. The comments name the token each
 // one mirrors, so a palette change has a checklist.
-const PAPER_50 = '#ffffff';
-const PAPER_100 = '#f2f0eb';
-const PAPER_300 = '#ebe8e1';
-const NAVY_900 = '#292827';
-const NAVY_600 = '#5b3d99';
-const INK_500 = '#625e5a';
-const INK_400 = '#8a857f';
-const KESARI_500 = '#714cb6';
-const KESARI_700 = '#56368f';
+const WINE_950 = '#1a0d10'; // navy-950
+const WINE_800 = '#421d24'; // navy-800
+const LILAC = '#d4c7ff'; // kesari-400
 
 /** Every page that opts into a generated OG image, keyed by its `ogSlug`. */
 const ogPages = {
@@ -66,11 +61,11 @@ const ogPages = {
 const el = (type, props, children) => ({ type, props: { ...props, children } });
 
 /**
- * The shared card: paper ground, a kesari rule above a mono eyebrow, navy
- * display type, and a footer byline — so a shared link looks like it came from
- * this specific site rather than a generic template.
+ * The shared card: midnight wine falling to near-black, a lilac mono eyebrow,
+ * white display type, and my face on the right. A link preview with a face and
+ * a name on it is recognised in a feed far faster than a text-only card.
  */
-function card({ eyebrow, title }) {
+function card({ eyebrow, title }, faceDataUri) {
   return el(
     'div',
     {
@@ -78,103 +73,72 @@ function card({ eyebrow, title }) {
         width: '100%',
         height: '100%',
         display: 'flex',
-        flexDirection: 'column',
-        background: PAPER_100,
-        // the same two ambient washes the site's .bg-page uses
-        backgroundImage:
-          'radial-gradient(52% 58% at 6% -12%, rgba(224,156,34,0.16), rgba(255,255,255,0)), radial-gradient(48% 55% at 98% 2%, rgba(53,89,143,0.16), rgba(255,255,255,0))',
-        padding: 56,
-        fontFamily: 'Hanken Grotesk',
+        background: WINE_950,
+        backgroundImage: `linear-gradient(135deg, ${WINE_800} 0%, ${WINE_950} 100%)`,
+        padding: 64,
+        fontFamily: 'Inter',
       },
     },
     [
+      // left column: eyebrow, title, byline
       el(
         'div',
-        {
-          style: {
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            borderRadius: 24,
-            background: PAPER_50,
-            border: `1px solid ${PAPER_300}`,
-            overflow: 'hidden',
-          },
-        },
+        { style: { flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', paddingRight: 32 } },
         [
-          // top rule — the kesari accent as a full-bleed hairline
-          el('div', { style: { display: 'flex', height: 6, background: KESARI_500 } }),
-          el(
-            'div',
-            {
-              style: {
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                padding: '0 62px',
-              },
-            },
-            [
-              el(
-                'div',
-                {
-                  style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    color: KESARI_700,
-                    fontSize: 22,
-                    fontWeight: 500,
-                    letterSpacing: 3,
-                    textTransform: 'uppercase',
-                    fontFamily: 'JetBrains Mono',
-                  },
-                },
-                eyebrow
-              ),
-              el(
-                'div',
-                {
-                  style: {
-                    display: 'flex',
-                    marginTop: 24,
-                    color: NAVY_900,
-                    // Two steps only: a continuous scale would render a 33- and
-                    // a 35-character title at visibly different sizes for no
-                    // reason a reader could perceive.
-                    fontSize: title.length > 34 ? 58 : 70,
-                    fontWeight: 700,
-                    lineHeight: 1.06,
-                    fontFamily: 'Bricolage Grotesque',
-                    letterSpacing: -1.5,
-                    maxWidth: 980,
-                  },
-                },
-                title
-              ),
-            ]
-          ),
           el(
             'div',
             {
               style: {
                 display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                padding: '20px 62px 26px',
-                borderTop: `1px solid ${PAPER_300}`,
-                fontSize: 21,
+                color: LILAC,
+                fontSize: 22,
+                fontWeight: 500,
+                letterSpacing: 3,
+                textTransform: 'uppercase',
                 fontFamily: 'JetBrains Mono',
               },
             },
+            eyebrow
+          ),
+          el(
+            'div',
+            {
+              style: {
+                display: 'flex',
+                color: '#ffffff',
+                // Two steps only: a continuous scale would render a 33- and a
+                // 35-character title at visibly different sizes for no reason
+                // a reader could perceive.
+                fontSize: title.length > 34 ? 56 : 68,
+                fontWeight: 500,
+                lineHeight: 1.08,
+                letterSpacing: -1.5,
+                maxWidth: 700,
+              },
+            },
+            title
+          ),
+          el(
+            'div',
+            { style: { display: 'flex', flexDirection: 'column', gap: 6, fontFamily: 'JetBrains Mono', fontSize: 21 } },
             [
-              el('span', { style: { color: NAVY_900, fontWeight: 500 } }, 'Jasvant Singh Dosanjh'),
-              el('span', { style: { color: INK_400 } }, '·'),
-              el('span', { style: { color: NAVY_600 } }, 'Technical Program Manager'),
-              el('span', { style: { color: INK_500, marginLeft: 'auto' } }, 'jasvant.me'),
+              el('span', { style: { color: '#ffffff', fontWeight: 500 } }, 'Jasvant Singh Dosanjh'),
+              el('span', { style: { color: LILAC } }, 'Technical Program Manager · Seattle, WA'),
+              el('span', { style: { color: 'rgba(255,255,255,0.6)' } }, 'jasvant.me'),
             ]
           ),
         ]
+      ),
+      // right column: the face
+      el(
+        'div',
+        { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', width: 340 } },
+        el('img', {
+          src: faceDataUri,
+          width: 300,
+          height: 300,
+          style: { width: 300, height: 300, borderRadius: 150, border: `6px solid ${LILAC}` },
+        })
       ),
     ]
   );
@@ -182,16 +146,20 @@ function card({ eyebrow, title }) {
 
 async function loadFonts() {
   const read = (pkg) => readFile(path.join(ROOT, 'node_modules', pkg));
-  const [display, body, mono] = await Promise.all([
-    read('@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff'),
-    read('@fontsource/hanken-grotesk/files/hanken-grotesk-latin-400-normal.woff'),
+  const [display, mono] = await Promise.all([
+    read('@fontsource/inter/files/inter-latin-500-normal.woff'),
     read('@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff'),
   ]);
   return [
-    { name: 'Bricolage Grotesque', data: display, weight: 700, style: 'normal' },
-    { name: 'Hanken Grotesk', data: body, weight: 400, style: 'normal' },
+    { name: 'Inter', data: display, weight: 500, style: 'normal' },
     { name: 'JetBrains Mono', data: mono, weight: 500, style: 'normal' },
   ];
+}
+
+/** satori reads PNG or JPEG data URIs, not WebP, so the face is re-encoded once here. */
+async function loadFace() {
+  const png = await sharp(path.join(ROOT, 'public/images/logo-face.webp')).resize(300, 300).png().toBuffer();
+  return `data:image/png;base64,${png.toString('base64')}`;
 }
 
 /**
@@ -236,9 +204,10 @@ async function main() {
   await checkSlugsMatchPages();
   await mkdir(OUT_DIR, { recursive: true });
   const fonts = await loadFonts();
+  const face = await loadFace();
 
   for (const [slug, props] of Object.entries(ogPages)) {
-    const svg = await satori(card(props), { width: OG_WIDTH, height: OG_HEIGHT, fonts });
+    const svg = await satori(card(props, face), { width: OG_WIDTH, height: OG_HEIGHT, fonts });
     const png = new Resvg(svg, { fitTo: { mode: 'width', value: OG_WIDTH } }).render().asPng();
     await writeFile(path.join(OUT_DIR, `${slug}.png`), png);
   }

@@ -11,7 +11,7 @@ const page: PageDescriptor = {
   ogSlug: 'contact',
   title: 'Contact: Hire a Technical Program Manager',
   description:
-    'Get in touch with Jasvant Singh Dosanjh, a Technical Program Manager open to Technical Program Manager, Technical Project Manager and IT Program Manager roles, hybrid or onsite in Seattle, WA and San Francisco, CA, or remote anywhere in the USA.',
+    'Contact Jasvant Singh Dosanjh about Technical Program Manager, Technical Project Manager and IT Program Manager roles in Seattle, San Francisco or remote (USA).',
 };
 
 export const metadata = pageMetadata(page);

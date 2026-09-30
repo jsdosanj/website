@@ -13,7 +13,7 @@ const page: PageDescriptor = {
   ogSlug: 'blog',
   title: 'Writing: AI, Security & GRC Essays',
   description:
-    'Essays by Jasvant Singh Dosanjh on AI, security, GRC, and building local-first, privacy-respecting software, plus recent posts on LinkedIn.',
+    'Essays by Jasvant Singh Dosanjh on AI, security, GRC and building local-first, privacy-respecting software, plus recent LinkedIn posts. RSS feed available.',
   keywords: ['Jasvant Dosanjh blog', 'local AI', 'GRC writing', 'privacy-respecting software', 'security essays'],
 };
 

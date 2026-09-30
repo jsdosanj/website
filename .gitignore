@@ -27,3 +27,5 @@ pnpm-debug.log*
 .vscode/
 .idea/
 .gstack/
+# generated RSS feed (scripts/generate-feed.mjs, run by prebuild)
+public/feed.xml

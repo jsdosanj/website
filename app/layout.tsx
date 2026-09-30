@@ -41,8 +41,12 @@ export const metadata: Metadata = {
   description: site.description,
   manifest: '/site.webmanifest',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    apple: [{ url: '/icons/apple-touch-icon.png' }],
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/icons/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/favicon-48.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180' }],
   },
 };
 
@@ -60,6 +64,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body>
         <JsonLd data={personGraph()} />
+        {/* rel="me": these profiles link back to this site, so search engines and
+            the fediverse can verify they belong to the same person. */}
+        <link rel="me" href={site.socials.linkedin} />
+        <link rel="me" href={site.socials.github} />
+        <link rel="me" href={site.socials.huggingface} />
         <div className="bg-page" />
         <div className="bg-grid" />
 
