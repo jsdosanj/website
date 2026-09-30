@@ -556,6 +556,31 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===================== BEYOND THE WORK ===================== */}
+      <section className="container-x mt-28">
+        <SectionHeading eyebrow="Beyond the work" title="Curious about how things are made" />
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+          {[
+            { src: '/images/beyond-html-wall.webp', alt: 'Jasvant smiling in front of a wall-sized display of HTML source code', focus: '50% 40%' },
+            { src: '/images/beyond-big-ben.webp', alt: 'Jasvant smiling in sunglasses on a bridge, with Big Ben behind him', focus: '50% 62%' },
+            { src: '/images/beyond-old-trafford.webp', alt: 'Jasvant looking out over a football stadium with red seating', focus: '80% 50%' },
+            { src: '/images/beyond-tudor.webp', alt: 'Jasvant smiling in a violet turban and saffron shawl in front of a half-timbered house', focus: '50% 55%' },
+            { src: '/images/beyond-statue.webp', alt: 'Jasvant smiling beside a marble statue in an arched alcove', focus: '30% 65%' },
+            { src: '/images/beyond-peacock.webp', alt: 'A peacock eating from an outstretched hand', focus: '50% 50%' },
+          ].map((ph) => (
+            <div key={ph.src} className="reveal overflow-hidden rounded-2xl border border-paper-400">
+              <Portrait
+                src={ph.src}
+                alt={ph.alt}
+                className="aspect-[3/4]"
+                focus={ph.focus}
+                sizes="(max-width: 640px) 48vw, 30vw"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ===================== CTA ===================== */}
       <section className="container-x mt-28">
         <div className="reveal text-center">

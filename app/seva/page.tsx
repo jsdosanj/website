@@ -62,6 +62,19 @@ export default function Seva() {
         </div>
       </section>
 
+      {/* A pause between the values and the photographs: the instruments of the parchar. */}
+      <section className="container-x mt-28">
+        <div className="reveal overflow-hidden rounded-3xl border border-paper-400">
+          <Portrait
+            src="/images/seva-tabla-lake.webp"
+            alt="A pair of tabla and a bowed string instrument resting on a white blanket beside a mountain lake at sunset"
+            className="aspect-[4/3] sm:aspect-[21/9]"
+            focus="50% 55%"
+            sizes="(max-width: 1400px) 92vw, 88rem"
+          />
+        </div>
+      </section>
+
       {/* In the room — photographs from speaking engagements. */}
       <section className="container-x mt-28">
         <SectionHeading eyebrow="In the room" title="Parchar, in person" />
