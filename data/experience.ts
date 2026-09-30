@@ -90,7 +90,7 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Technical Program Manager / Senior Computer Specialist',
+    title: 'Senior Computer Specialist',
     company: 'University of Washington, College of Arts & Sciences',
     date: 'Jan 2023 – Mar 2026',
     start: 2023 + MONTH.jan,
@@ -98,8 +98,8 @@ export const experience: Role[] = [
     // The role's own track is the scope it started in; each section below
     // carries its own, so the roadmap bar changes colour where the job did.
     track: 'program',
-    shortLabel: 'UW · TPM / Sr Computer Specialist',
-    note: 'One role at UW. I was a Senior Computer Specialist from January 2023, started leading and managing projects once I finished my onboarding, and became Technical Program Manager in January 2025.',
+    shortLabel: 'UW · Sr Computer Specialist',
+    note: 'Senior Computer Specialist is the HR title for the whole role. My job title was Technical Project Manager from January 2023 to January 2025, and Technical Program Manager from January 2025 to March 2026.',
     sections: [
       {
         label: 'Technical Program Manager',
@@ -117,7 +117,7 @@ export const experience: Role[] = [
         ],
       },
       {
-        label: 'Senior Computer Specialist',
+        label: 'Technical Project Manager',
         date: 'Jan 2023 – Jan 2025',
         start: 2023 + MONTH.jan,
         end: 2025 + MONTH.jan,
