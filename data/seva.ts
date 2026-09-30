@@ -30,11 +30,11 @@ export const engagements: SevaEngagement[] = [
   },
   {
     org: 'Sikhi.io',
-    role: 'Senior Technical Program Manager',
+    role: 'Lead Technical Program Manager',
     date: 'Ongoing',
     icon: 'book',
     description:
-      'Lead the engineering behind the digital preservation of Sikh historical texts and manuscripts. The site now serves over 50,000 views a month. Sikhi.io is the production home of the Sikh Library corpus: about 1.07 billion words across 3,616+ catalogued works, 115 collections and 26 languages. It connects my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable for researchers and the global Sangat.',
+      'Lead the program behind the digital preservation of Sikh historical texts and manuscripts. The platform has had over 2 million visits in the last 30 days, and I direct several connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae. Sikhi.io is the production home of the Sikh Library corpus: about 1.07 billion words across 3,616+ catalogued works, 115 collections and 26 languages. It connects my parchar work with the AI and OCR tools I build to make rare Sikh heritage searchable for researchers and the global Sangat.',
     link: { label: 'Sikhi.io', href: 'https://sikhi.io/' },
     tags: ['Digital Preservation', 'Manuscripts', 'Open Access'],
   },

@@ -9,7 +9,7 @@ const BASE_KEYWORDS = [
   'roadmap', 'risk management', 'budget management', 'vendor management', 'stakeholder management',
   'Agile', 'Waterfall', 'Scrum', 'SDLC', 'Jira', 'Azure DevOps', 'PMP',
   'Sightline', 'Bastion', 'Cairn', 'Jamf Pro', 'Intune', 'JumpCloud',
-  'NIST', 'HIPAA', 'FERPA', 'GRC', 'open to work', 'open to relocating',
+  'NIST', 'HIPAA', 'FERPA', 'GRC', 'open to work', 'Seattle', 'San Francisco', 'remote USA',
 ];
 
 /**

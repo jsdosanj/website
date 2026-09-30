@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'studio-buildout',
     title: 'A gaming studio’s IT, from zero to launch in five months',
     org: 'Tencent, Team Kaiju Studio',
-    role: 'Lead Systems Administrator (Contract), buildout owner',
+    role: 'Technical Program Manager (Contract), buildout owner',
     date: '2022',
     status: 'delivered',
     summary:

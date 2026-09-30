@@ -1,5 +1,6 @@
 import Icon from './Icon';
 import ProductVisual from './ProductVisual';
+import { ProductDetails } from './ProductGroup';
 import { statusMeta, type Product } from '@/data/products';
 import { getLiveStats } from '@/data/live';
 import { withInlineCode } from '@/lib/rich-text';
@@ -92,9 +93,10 @@ export default async function ProductCard({ product }: { product: Product }) {
       </div>
 
       <p className={`mt-5 type-subhead font-medium ${accentText}`}>{product.tagline}</p>
+<ProductDetails id={product.slug} name={product.name}>
       <p className="mt-2 type-subhead leading-relaxed text-ink-600">{product.description}</p>
 
-      <ul className="mt-5 space-y-2 flex-1" role="list">
+      <ul className="mt-5 space-y-2" role="list">
         {product.highlights.map((h) => (
           <li key={h} className="flex gap-2.5 type-subhead text-ink-700">
             <span className={`mt-1.5 h-1.5 w-1.5 rounded-full shrink-0 ${accentDot}`} aria-hidden="true" />
@@ -111,8 +113,11 @@ export default async function ProductCard({ product }: { product: Product }) {
         ))}
       </div>
 
+      </ProductDetails>
+
       {product.links.length > 0 && (
-        <div className="mt-5 pt-5 hairline flex flex-wrap gap-3">
+        <div className="mt-auto pt-5">
+        <div className="pt-5 hairline flex flex-wrap gap-3">
           {product.links.map((l) => (
             <a
               key={l.href}
@@ -125,6 +130,7 @@ export default async function ProductCard({ product }: { product: Product }) {
               {l.label}
             </a>
           ))}
+        </div>
         </div>
       )}
     </article>

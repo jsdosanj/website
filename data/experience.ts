@@ -90,19 +90,19 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Senior Computer Specialist',
+    title: 'Technical Program Manager / Senior Computer Specialist',
     company: 'University of Washington, College of Arts & Sciences',
     date: 'Jan 2023 – Mar 2026',
     start: 2023 + MONTH.jan,
     end: 2026 + MONTH.mar,
     // The role's own track is the scope it started in; each section below
     // carries its own, so the roadmap bar changes colour where the job did.
-    track: 'ic',
-    shortLabel: 'UW · Sr Computer Specialist',
-    note: 'One role with two scopes: infrastructure and security first, then program and project delivery from January 2025.',
+    track: 'program',
+    shortLabel: 'UW · TPM / Sr Computer Specialist',
+    note: 'One role at UW. I started leading and managing projects once I finished my onboarding, and moved into program management in January 2025.',
     sections: [
       {
-        label: 'Program & project delivery',
+        label: 'Technical Program Manager / Senior Computer Specialist / Systems Administrator',
         date: 'Jan 2025 – Mar 2026',
         start: 2025 + MONTH.jan,
         end: 2026 + MONTH.mar,
@@ -117,11 +117,11 @@ export const experience: Role[] = [
         ],
       },
       {
-        label: 'Infrastructure & security',
+        label: 'Technical Project Manager / Senior Computer Specialist',
         date: 'Jan 2023 – Jan 2025',
         start: 2023 + MONTH.jan,
         end: 2025 + MONTH.jan,
-        track: 'ic',
+        track: 'program',
         bullets: [
           'Made device setup hands-off across the whole college, measured by 2,000+ devices deployed and set up, including 400+ Macs and iPads on Jamf Pro across 40+ departments ahead of executive deadlines, by designing and running the Windows Autopilot and Jamf enrollment and lifecycle pipeline. Other university departments later adopted its compliance framework.',
           'Upgraded network security across College of Arts & Sciences buildings without disrupting research or teaching, measured by zero downtime over six months and a migration framework that IT teams at other UW colleges later adopted, by planning the cutover one building at a time and writing down each step as a reusable playbook.',
@@ -131,15 +131,15 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Lead Systems Administrator (Contract)',
+    title: 'Technical Program Manager (Contract)',
     company: 'Tencent, Team Kaiju Studio',
     date: 'Jul 2022 – Dec 2022',
     start: 2022 + MONTH.jul,
     end: 2022 + MONTH.dec,
-    track: 'contract',
-    shortLabel: 'Tencent · Lead SysAdmin',
+    track: 'program',
+    shortLabel: 'Tencent · TPM',
     bullets: [
-      'Delivered a new gaming studio’s whole IT environment before its launch date, measured by AWS infrastructure, identity and device management, office networking and 100+ multi-OS workstations all live in five months on a $750,000 budget, by owning vendor selection across Google, JumpCloud, AWS, Cisco and 1Password while supervising a systems administrator and a project manager.',
+      'Delivered a new gaming studio’s whole IT environment before its launch date, measured by AWS infrastructure, identity and device management, office networking and 100+ multi-OS workstations all live in five months on a $750,000 budget, by running the work as one program of connected projects, owning vendor selection across Google, JumpCloud, AWS, Cisco and 1Password, and supervising a systems administrator and a project manager.',
       'Set the identity standard for Tencent’s North American studios, measured by its adoption as the default setup at the Los Angeles and Montreal studios, by designing and building one JumpCloud MDM and Google Workspace single sign-on and MFA setup, including the JumpCloud Go MFA rollout.',
     ],
   },
@@ -161,7 +161,7 @@ export const experience: Role[] = [
     date: 'Aug 2020 – Feb 2022',
     start: 2020 + MONTH.aug,
     end: 2022 + MONTH.feb,
-    track: 'ic',
+    track: 'program',
     shortLabel: 'Meta · Lead Apprentice Tech',
     bullets: [
       'Built up the Pacific Northwest enterprise support team, measured by 30 technicians and externs mentored, five Year Up externs hired full time and the PNW Enterprise Support team ranked #1 in the country for ticket resolution, by mentoring and onboarding 20 externs and 10 enterprise support technicians hands on.',
@@ -188,11 +188,11 @@ export const experience: Role[] = [
     date: 'Jan 2020 – Apr 2020',
     start: 2020 + MONTH.jan,
     end: 2020 + MONTH.apr,
-    track: 'ic',
+    track: 'program',
     shortLabel: 'Oakland UTS · Shares Admin',
     bullets: [
       'Cleared the university’s Shares Access backlog as a single intern, measured by over 18% of all cases closed, by working employee access tickets from start to finish.',
-      'Cut the ticket queue at its source, measured by over 40% of incoming requests removed, by building self-service portal features in PowerShell.',
+      'Cut the ticket queue at its source, measured by over 40% of incoming requests removed, by managing the file-share, onboarding and support workflow improvements as projects, mentoring student IT technicians, and building self-service portal features in PowerShell.',
     ],
   },
   {

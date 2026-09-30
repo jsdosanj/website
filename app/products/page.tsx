@@ -3,6 +3,7 @@ import Icon from '@/components/Icon';
 import JsonLd from '@/components/JsonLd';
 import LabStatus from '@/components/LabStatus';
 import ProductCard from '@/components/ProductCard';
+import { ProductGroup } from '@/components/ProductGroup';
 import SectionHeading from '@/components/SectionHeading';
 import { products } from '@/data/products';
 import { site } from '@/data/site';
@@ -103,11 +104,11 @@ export default function Products() {
             lock-in.
           </p>
         </SectionHeading>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ProductGroup ids={openSource.map((p) => p.slug)} label="Open source">
           {openSource.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
-        </div>
+        </ProductGroup>
         <p className="reveal mt-10 eyebrow">Live, not just claimed</p>
         <div className="reveal mt-5">
           <LabStatus />
@@ -117,11 +118,11 @@ export default function Products() {
       {/* Live */}
       <section className="container-x mt-20">
         <SectionHeading eyebrow="Shipping now" title="Live products" />
-        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ProductGroup ids={live.map((p) => p.slug)} label="Live products">
           {live.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
-        </div>
+        </ProductGroup>
       </section>
 
       {/* In progress / planned */}
@@ -135,11 +136,11 @@ export default function Products() {
             .
           </p>
         </SectionHeading>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ProductGroup ids={building.map((p) => p.slug)} label="In progress and in the lab">
           {building.map((p) => (
             <ProductCard key={p.slug} product={p} />
           ))}
-        </div>
+        </ProductGroup>
       </section>
 
       {/* CTA */}

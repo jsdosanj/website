@@ -3,7 +3,7 @@
 > Technical Program Manager. Programs that ship — scoped, staffed, and measured.
 
 The personal site of [Jasvant Singh Dosanjh](https://linkedin.com/in/jasvantsd) — a Technical
-Program Manager, open to relocating. It carries the delivery record (case studies at interview
+Program Manager, open to hybrid or onsite roles in Seattle and San Francisco and remote roles across the USA. It carries the delivery record (case studies at interview
 depth, a career roadmap to scale, a live web résumé), the products built alongside it, and the
 parchar & seva work.
 

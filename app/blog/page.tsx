@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Icon from '@/components/Icon';
+import Portrait from '@/components/Portrait';
 import JsonLd from '@/components/JsonLd';
 import SectionHeading from '@/components/SectionHeading';
 import { posts as linkedinPosts } from '@/data/posts';
@@ -47,6 +48,7 @@ export default function Blog() {
 
       {/* ===================== ESSAYS ===================== */}
       <section className="container-x mt-12 sm:mt-16">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem] gap-10 xl:gap-16 items-start">
         <ul className="space-y-5 max-w-3xl" role="list">
           {essays.map((p) => (
             <li key={p.slug} className="reveal">
@@ -63,6 +65,24 @@ export default function Blog() {
             </li>
           ))}
         </ul>
+
+        {/* The blank space to the right of the list, on wide screens. */}
+        <aside className="hidden lg:block sticky top-28" aria-label="About the author">
+          <div className="overflow-hidden rounded-3xl border border-paper-400">
+            <Portrait
+              src="/images/beyond-tudor.webp"
+              alt="Jasvant smiling in a violet turban and saffron shawl in front of a half-timbered house"
+              className="aspect-[3/4]"
+              focus="50% 50%"
+              sizes="22rem"
+            />
+          </div>
+          <p className="mt-4 font-display type-title-4 text-navy-900">Jasvant Singh Dosanjh</p>
+          <p className="mt-1 type-subhead text-ink-600">
+            Technical Program Manager. I write about AI, security and building software people can trust.
+          </p>
+        </aside>
+        </div>
       </section>
 
       {/* ===================== LINKEDIN POSTS ===================== */}
