@@ -99,7 +99,10 @@ export function personGraph() {
         '@type': 'Person',
         '@id': `${site.url}/#person`,
         name: site.founder,
-        alternateName: 'Jasvant Dosanjh',
+        alternateName: ['Jasvant Dosanjh', 'Jasvant S. Dosanjh'],
+        // Tells a search engine which Jasvant Dosanjh this is.
+        disambiguatingDescription: 'Technical Program Manager in Seattle, WA',
+        mainEntityOfPage: { '@id': `${site.url}/#profilepage` },
         url: site.url,
         image: {
           '@type': 'ImageObject',
@@ -130,7 +133,8 @@ export function personGraph() {
           'Stakeholder Management', 'NIST CSF', 'HIPAA', 'FERPA', 'GRC', 'IT Security',
           'Cloud Infrastructure', 'Jamf Pro', 'Microsoft Intune', 'JumpCloud',
           'Endpoint Management', 'AI', 'NLP', 'OCR', 'Gurmukhi OCR',
-          'Sikh Heritage Preservation', 'Gurmat Education',
+          'Sikh Heritage Preservation', 'Gurmat Education', 'Program Management', 'Higher Education IT',
+          'Zero-Downtime Migration', 'HIPAA Compliance', 'Power Automate', 'Departmental IT Onboarding',
         ],
         hasOccupation: site.roles.map((r) => ({ '@type': 'Occupation', name: r })),
         seeks: site.roles.map((r) => ({ '@type': 'Demand', name: `${r} role` })),

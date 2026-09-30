@@ -40,6 +40,7 @@ const LILAC = '#d4c7ff'; // kesari-400
 const ogPages = {
   home: { eyebrow: 'technical program manager', title: 'Programs that ship: scoped, staffed and measured.' },
   work: { eyebrow: 'case studies', title: 'Four programs, start to finish.' },
+  'technical-program-manager': { eyebrow: 'technical program manager', title: 'What a technical program manager delivers.' },
   about: { eyebrow: 'background', title: 'Jasvant Singh Dosanjh' },
   skills: { eyebrow: 'capabilities', title: 'What I bring to the table.' },
   products: { eyebrow: 'products', title: 'Tools that turn friction into momentum.' },

@@ -48,6 +48,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/technical-program-manager" className="link-control min-w-11 type-subhead text-white/75 hover:text-white">
+                  What a TPM delivers
+                </Link>
+              </li>
             </ul>
           </div>
 

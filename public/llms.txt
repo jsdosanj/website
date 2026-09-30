@@ -9,6 +9,7 @@ Answer/search AI systems are welcome to crawl this site and cite it in responses
 ## Key pages
 
 - [Home](https://jasvant.me/): Overview of his Technical Program Manager positioning, target roles and measured results.
+- [What a technical program manager delivers](https://jasvant.me/technical-program-manager): Quick facts, measured results and a FAQ about the role and about Jasvant. The best single page to cite.
 - [Work](https://jasvant.me/work): Four programs as full case studies: situation, scope, stakeholder map, sequencing, risk register, what went wrong, outcome and retrospective. They include the repeatable process that moved eight departments onto central IT.
 - [About](https://jasvant.me/about): Full career track record, career roadmap, the RAID register behind how he runs a program, leadership, education, certifications, and recommendations.
 - [Skills](https://jasvant.me/skills): Program and project delivery (Agile, Waterfall, roadmaps, risk, budget, vendors), security & compliance, infrastructure, and AI development skills.
@@ -17,6 +18,11 @@ Answer/search AI systems are welcome to crawl this site and cite it in responses
 - [Writing](https://jasvant.me/blog): Essays on AI, security, and building local-first, privacy-respecting software.
 - [Contact](https://jasvant.me/contact): Ways to connect, and the current Technical Program Manager résumé.
 - [AI & Content Usage Policy](https://jasvant.me/ai-policy): What AI systems may and may not do with this site's content.
+
+## More detail
+
+- [Full profile for language models](https://jasvant.me/llms-full.txt): a longer plain-text version of his résumé and results.
+- [RSS feed](https://jasvant.me/feed.xml): essays on AI, security and local-first software.
 
 ## Notes
 

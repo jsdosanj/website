@@ -144,6 +144,9 @@ export default function Home() {
                 >
                   <Icon name="github" size={16} /> GitHub
                 </a>
+                <Link href="/technical-program-manager" className="link-control text-white/75 hover:text-white">
+                  <Icon name="arrow" size={15} /> What a TPM delivers
+                </Link>
                 <Link href="/contact" className="link-control text-white/75 hover:text-white">
                   <Icon name="arrow" size={15} /> Get in touch
                 </Link>
