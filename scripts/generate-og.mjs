@@ -32,14 +32,14 @@ export const OG_HEIGHT = 630;
 // cascade, so every value has to be concrete. The comments name the token each
 // one mirrors, so a palette change has a checklist.
 const PAPER_50 = '#ffffff';
-const PAPER_100 = '#fbfcfd';
-const PAPER_300 = '#eaeef3';
-const NAVY_900 = '#10203a';
-const NAVY_600 = '#35598f';
-const INK_500 = '#5d6e88';
-const INK_400 = '#7b8aa0';
-const KESARI_500 = '#e09c22';
-const KESARI_700 = '#94620d';
+const PAPER_100 = '#f2f0eb';
+const PAPER_300 = '#ebe8e1';
+const NAVY_900 = '#292827';
+const NAVY_600 = '#5b3d99';
+const INK_500 = '#625e5a';
+const INK_400 = '#8a857f';
+const KESARI_500 = '#714cb6';
+const KESARI_700 = '#56368f';
 
 /** Every page that opts into a generated OG image, keyed by its `ogSlug`. */
 const ogPages = {

@@ -36,33 +36,40 @@
    ============================================================ */
 
 @theme {
-  /* — Core surfaces — paper white through to deep navy ink — */
+  /* SUPERHUMAN PALETTE (styles.refero.design). The token *names* below are
+     legacy — `paper`, `navy`, `kesari`, `ink` are kept so every component
+     keeps compiling — but the values are now the warm editorial system:
+       paper-*  → parchment canvas and its warm neutrals
+       navy-*   → charcoal and midnight-wine (structure, headings, dark hero)
+                  with navy-700 = royal violet, the link colour
+       kesari-* → violet / lilac accent (no gold: the palette is
+                  maroon + violet + lilac only)
+     Text tokens are checked against the parchment canvas for WCAG AA. */
+  /* — Surfaces — parchment canvas, white cards, soft-mist hairlines — */
   --color-paper-50: #ffffff;
-  --color-paper-100: #fbfcfd;
-  --color-paper-200: #f4f6f9;
-  --color-paper-300: #eaeef3;
-  --color-paper-400: #dde3eb;
-  --color-paper-500: #cbd3de;
+  --color-paper-100: #f2f0eb;
+  --color-paper-200: #f8f6f2;
+  --color-paper-300: #ebe8e1;
+  --color-paper-400: #e3e3e2;
+  --color-paper-500: #d3d0c8;
 
-  /* — Navy / slate — structure, headings, hierarchy — */
-  --color-navy-950: #0a1628;
-  --color-navy-900: #10203a;
-  --color-navy-800: #1b3157;
-  --color-navy-700: #274472;
-  --color-navy-600: #35598f;
-  --color-navy-500: #4a72ad;
-  --color-navy-400: #7695c4;
-  --color-navy-300: #a8bddb;
+  /* — Charcoal → midnight wine → violet — */
+  --color-navy-950: #1a0d10;
+  --color-navy-900: #292827;
+  --color-navy-800: #421d24;
+  --color-navy-700: #714cb6;
+  --color-navy-600: #5b3d99;
+  --color-navy-500: #8a68cc;
+  --color-navy-400: #b39be6;
+  --color-navy-300: #d4c7ff;
 
-  /* — Kesari / saffron gold — the small accent (links, marks, emblem).
-     kesari-600 is for icons and rules only (3.4:1 — clears the 3:1 bar for
-     non-text UI, not the 4.5:1 one for body copy); kesari-700 is the
-     text-safe weight at ~6.8:1 on paper-100 and ~5.8:1 on paper-300. — */
-  --color-kesari-300: #f5cd7f;
-  --color-kesari-400: #eeb44b;
-  --color-kesari-500: #e09c22;
-  --color-kesari-600: #bd7d11;
-  --color-kesari-700: #7d520b;
+  /* — Violet / lilac accent. kesari-700 is the text-safe weight (~8:1 on
+     parchment); kesari-600 is for icons and rules (5.9:1). — */
+  --color-kesari-300: #e6dcff;
+  --color-kesari-400: #d4c7ff;
+  --color-kesari-500: #c6b5f7;
+  --color-kesari-600: #714cb6;
+  --color-kesari-700: #56368f;
 
   /* — Status — RAG reporting, used by program status chips — */
   --color-status-green: #15803d;
@@ -76,19 +83,19 @@
      paper-200, the lightest card surface: ink-900 ≈ 16:1, ink-700 ≈ 8.7:1,
      ink-500 ≈ 5.6:1, ink-400 ≈ 4.8:1. ink-400 is the floor — there is no
      lighter step, because one would not be readable at label sizes. — */
-  --color-ink-900: #0f1b2d;
-  --color-ink-800: #1f2d42;
-  --color-ink-700: #33445c;
-  --color-ink-600: #4a5b75;
-  --color-ink-500: #55637a;
-  --color-ink-400: #5f6d84;
+  --color-ink-900: #292827;
+  --color-ink-800: #33312f;
+  --color-ink-700: #45423f;
+  --color-ink-600: #57534f;
+  --color-ink-500: #625e5a;
+  --color-ink-400: #6b6661;
 
   /* — Fonts — Bricolage Grotesque for display, Hanken Grotesk for
      body, JetBrains Mono only for dates / labels / metrics. — */
   /* next/font supplies the family names via these --*-src variables (see
      app/layout.tsx); it self-hosts and preloads the files, and requests
      Bricolage with its opsz axis so optical sizing has something to act on. */
-  --font-display: var(--font-display-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sans-src), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-sans-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-src), ui-monospace, 'SF Mono', 'Fira Code', monospace;
   --font-gurmukhi: var(--font-gurmukhi-src), serif;
@@ -130,21 +137,10 @@
   /* — Elevation — ambient + direct pair, tinted with the surface's own
      navy rather than flat black, so shadows read as light falling on
      paper instead of a grey halo. — */
-  --shadow-1:
-    0 1px 1px -0.5px color-mix(in srgb, var(--color-navy-950) 8%, transparent),
-    0 2px 4px -2px color-mix(in srgb, var(--color-navy-950) 6%, transparent);
-  --shadow-2:
-    0 1px 1px -0.5px color-mix(in srgb, var(--color-navy-950) 7%, transparent),
-    0 6px 12px -4px color-mix(in srgb, var(--color-navy-950) 10%, transparent),
-    0 12px 28px -12px color-mix(in srgb, var(--color-navy-950) 12%, transparent);
-  --shadow-3:
-    0 1px 1px -0.5px color-mix(in srgb, var(--color-navy-950) 6%, transparent),
-    0 10px 20px -6px color-mix(in srgb, var(--color-navy-950) 12%, transparent),
-    0 24px 48px -16px color-mix(in srgb, var(--color-navy-950) 16%, transparent);
-  --shadow-nav:
-    0 1px 0 0 color-mix(in srgb, var(--color-paper-50) 60%, transparent) inset,
-    0 2px 6px -2px color-mix(in srgb, var(--color-navy-950) 8%, transparent),
-    0 12px 32px -12px color-mix(in srgb, var(--color-navy-950) 14%, transparent);
+  --shadow-1: 0 0 0 0 transparent;
+  --shadow-2: 0 12px 32px -16px color-mix(in srgb, var(--color-navy-800) 28%, transparent);
+  --shadow-3: 0 24px 56px -24px color-mix(in srgb, var(--color-navy-800) 34%, transparent);
+  --shadow-nav: 0 1px 0 0 color-mix(in srgb, white 8%, transparent) inset;
 }
 
 /* ---------- Base ---------- */
@@ -165,7 +161,6 @@ body {
   font-family: var(--font-sans);
   font-size: 1.0625rem;      /* Apple's 17pt default body size */
   line-height: 1.6875rem;
-  font-feature-settings: 'cv11', 'ss01';
   /* Let the variable fonts pick the drawing cut for the rendered size
      — Bricolage carries opsz[12..96]. This is the web equivalent of
      the HIG's "dynamic optical sizes". */
@@ -202,8 +197,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-kesari-400) 40%, transparent);
+  background: color-mix(in srgb, var(--color-kesari-400) 70%, transparent);
   color: var(--color-ink-900);
+}
+
+/* Dark editorial hero: midnight wine falling to near-black, with a soft royal
+   violet glow behind the portrait. Depth is the photo and the glow, not
+   elevation shadows. */
+.hero-dark {
+  /* Solid base under the gradients: what you see is the gradient layers, but a
+     computed background-color is what the contrast audit can read. */
+  background-color: var(--color-navy-950);
+  background-image:
+    radial-gradient(48rem 38rem at 82% 30%, color-mix(in srgb, var(--color-navy-700) 45%, transparent), transparent 66%),
+    radial-gradient(40rem 30rem at 4% 0%, color-mix(in srgb, var(--color-navy-800) 90%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--color-navy-800) 0%, var(--color-navy-950) 100%);
 }
 
 /* ---------- Ambient backdrop — restrained, paper-like ---------- */
@@ -211,25 +219,11 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   inset: 0;
   z-index: -3;
-  background:
-    radial-gradient(52rem 42rem at 8% -14%, color-mix(in srgb, var(--color-kesari-400) 11%, transparent), transparent 62%),
-    radial-gradient(46rem 40rem at 98% 2%, color-mix(in srgb, var(--color-navy-400) 13%, transparent), transparent 58%),
-    var(--color-paper-100);
+  background: var(--color-paper-100);
 }
-/* Faint blueprint grid — a delivery-plan surface, not scanlines */
-.bg-grid {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  opacity: 0.5;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--color-navy-800) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--color-navy-800) 5%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(75% 60% at 50% 0%, #000, transparent 75%);
-  mask-image: radial-gradient(75% 60% at 50% 0%, #000, transparent 75%);
-}
+/* The blueprint grid belonged to the old paper look; the editorial system
+   leaves the canvas plain. Element kept so the layout markup is unchanged. */
+.bg-grid { display: none; }
 
 /* ============================================================
    TYPE SYSTEM
@@ -273,7 +267,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4rem);   /* 40 → 64 */
   line-height: 1.04;
   letter-spacing: -0.026em;
-  font-weight: 700;
+  font-weight: 460;
   font-optical-sizing: auto;
   text-wrap: balance;
 }
@@ -283,7 +277,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(2rem, 1.4rem + 3vw, 3rem);       /* 32 → 48 */
   line-height: 1.08;
   letter-spacing: -0.022em;
-  font-weight: 700;
+  font-weight: 460;
   font-optical-sizing: auto;
   text-wrap: balance;
 }
@@ -296,7 +290,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.125rem;
   line-height: 2.5625rem;
   letter-spacing: -0.019em;
-  font-weight: 600;
+  font-weight: 480;
   font-optical-sizing: auto;
   text-wrap: balance;
 }
@@ -309,7 +303,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.75rem;
   line-height: 2.125rem;
   letter-spacing: -0.016em;
-  font-weight: 600;
+  font-weight: 480;
   font-optical-sizing: auto;
   text-wrap: balance;
 }
@@ -322,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.375rem;
   line-height: 1.75rem;
   letter-spacing: -0.012em;
-  font-weight: 600;
+  font-weight: 520;
   font-optical-sizing: auto;
   text-wrap: balance;
 }
@@ -335,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.25rem;
   line-height: 1.5625rem;
   letter-spacing: -0.008em;
-  font-weight: 600;
+  font-weight: 520;
   font-optical-sizing: auto;
 }
 /* Apple Headline — 17/22 semibold */
@@ -451,8 +445,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-size: min(2rem, 8.5vw);
   line-height: 0.96;
-  letter-spacing: -0.028em;
-  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-weight: 460;
   font-optical-sizing: auto;
   max-width: 100%;
   overflow-wrap: break-word;
@@ -486,10 +480,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reads as ink with a warm gold finish — not a neon gradient */
 @utility text-gradient {
-  background: linear-gradient(104deg, var(--color-navy-900) 0%, var(--color-navy-700) 44%, var(--color-kesari-700) 100%);
+  background: linear-gradient(104deg, var(--color-navy-900) 0%, var(--color-navy-600) 55%, var(--color-kesari-700) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+/* On the dark hero the same emphasis runs light: lilac stops that clear 4.5:1
+   on midnight wine, where the default dark stops would vanish. The audit can
+   only check gradient stops by value, so both sets are picked by hand. */
+.hero-dark .text-gradient {
+  background-image: linear-gradient(104deg, var(--color-navy-300) 0%, var(--color-navy-400) 55%, var(--color-kesari-500) 100%);
 }
 
 @utility text-kesari-gradient {
@@ -513,16 +513,16 @@ h1, h2, h3, h4, h5, h6 {
    foreground" behaviour the HIG describes.
    ============================================================ */
 @utility glass {
-  background: color-mix(in srgb, var(--color-paper-50) 82%, transparent);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid color-mix(in srgb, var(--color-navy-800) 10%, transparent);
+  background: color-mix(in srgb, var(--color-navy-950) 90%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid color-mix(in srgb, white 10%, transparent);
   box-shadow: var(--shadow-nav);
 }
 /* Fallback: without backdrop-filter the material must go opaque, or
    the nav becomes unreadable over scrolling content. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .glass { background: var(--color-paper-50); }
+  .glass { background: var(--color-navy-950); }
 }
 
 /* Content-layer surface. Opaque by design — see MATERIALS above.
@@ -534,9 +534,9 @@ h1, h2, h3, h4, h5, h6 {
      min-width:auto — which refuses to shrink below the card's own content.
      One wide child then drags the card past the viewport. */
   min-width: 0;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   background: var(--color-paper-50);
-  border: 1px solid color-mix(in srgb, var(--color-navy-800) 11%, transparent);
+  border: 1px solid var(--color-paper-400);
   box-shadow: var(--shadow-1);
   transition:
     transform var(--dur-base) var(--ease-out-expo),
@@ -607,10 +607,10 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--space-2);
   min-height: var(--control-min);
   padding-inline: var(--space-5, 1.25rem);
-  border-radius: 0.625rem;
+  border-radius: 1rem;
   font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.002em;
   /* Deliberately wrapping, not nowrap: at 200% text a fixed label is wider
      than a phone column, and a button on two lines is far better than a
@@ -640,22 +640,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @utility btn-primary {
-  background: var(--color-kesari-500);
-  color: var(--color-navy-950);
+  background: var(--color-navy-800);
+  color: #ffffff;
   box-shadow: var(--shadow-1);
-  &:hover { background: var(--color-kesari-400); box-shadow: var(--shadow-2); }
+  &:hover { background: color-mix(in srgb, var(--color-navy-800) 86%, white); box-shadow: var(--shadow-2); }
   &:active { box-shadow: var(--shadow-1); }
 }
 @utility btn-secondary {
-  background: var(--color-paper-50);
-  color: var(--color-ink-800);
-  border: 1px solid color-mix(in srgb, var(--color-navy-800) 16%, transparent);
-  box-shadow: var(--shadow-1);
-  &:hover {
-    color: var(--color-navy-900);
-    border-color: color-mix(in srgb, var(--color-navy-800) 30%, transparent);
-    box-shadow: var(--shadow-2);
-  }
+  background: var(--color-kesari-400);
+  color: var(--color-ink-900);
+  border: 1px solid var(--color-ink-900);
+  &:hover { background: var(--color-kesari-300); box-shadow: var(--shadow-2); }
   &:active { box-shadow: var(--shadow-1); }
 }
 @utility btn-quiet {

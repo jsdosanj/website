@@ -10,6 +10,7 @@ const { BASE, PATHS, VIEWPORTS, browser } = require('./lib.cjs');
 const PAGE_FN = () => {
   // ---- colour parsing -> linear-light RGB + alpha ----
   const srgbToLinear = (v) => (v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
+  const linearToSrgb = (v) => (v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow(v, 1 / 2.4) - 0.055);
 
   function oklabToLinear(L, a, bb) {
     const l_ = L + 0.3963377774 * a + 0.2158037573 * bb;
@@ -46,9 +47,14 @@ const PAGE_FN = () => {
   }
 
   const lumOf = ([r, g, b]) => 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  // Browsers composite alpha in gamma-encoded sRGB, not in linear light, so
+  // blend there. Blending linear values overstates how much a translucent dark
+  // surface (the wine nav bar) is lightened by the page behind it, which
+  // reported white-on-wine text as failing when it renders at ~9:1.
   const over = (fg, bg) => {
     const a = fg[3];
-    return [fg[0] * a + bg[0] * (1 - a), fg[1] * a + bg[1] * (1 - a), fg[2] * a + bg[2] * (1 - a), 1];
+    const mix = (i) => srgbToLinear(linearToSrgb(fg[i]) * a + linearToSrgb(bg[i]) * (1 - a));
+    return [mix(0), mix(1), mix(2), 1];
   };
   const ratio = (l1, l2) => {
     const hi = Math.max(l1, l2), lo = Math.min(l1, l2);
