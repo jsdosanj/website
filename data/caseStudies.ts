@@ -64,20 +64,21 @@ export const caseStudies: CaseStudy[] = [
       outOfScope: [],
     },
     stakeholders: [
-      { group: 'Dean', need: 'A clear plan and a clear result for each department' },
-      { group: 'Department chair and co-chair', need: 'A say in what the department needs from IT' },
+      { group: 'Dean', need: 'How the department can save money and keep faculty and staff happier, and how central IT can support the department’s research' },
+      { group: 'Department chair and co-chair', need: 'Save money, raise faculty and staff satisfaction, white-glove IT support, help with technical projects, upkeep of the infrastructure, and a review of the IT budget' },
       { group: 'Administrators', need: 'Clear answers on IT budget and equipment' },
-      { group: 'Faculty', need: 'Support they can count on' },
-      { group: 'Staff', need: 'A help desk that answers quickly' },
+      { group: 'Faculty', need: 'Excellent IT support, help with their research, and help writing grants' },
+      { group: 'Staff', need: 'Excellent IT support, help automating workflows, and better documentation' },
+      { group: 'CAS IT (our own team)', need: 'What we can support without adding staff, what we would need to hire for, what is in the project backlog, and the state of the inventory' },
       { group: 'UW-IT', need: 'Complete access requests in a standard format' },
       { group: 'Facilities', need: 'Clear requests for access to physical spaces' },
     ],
     plan: [
-      { phase: '1 · Kickoff', detail: 'Start every department with the same kickoff, so each stakeholder group hears the same plan and knows what is coming.' },
-      { phase: '2 · Investigate', detail: 'Work through a checklist of what to look into: inventory, IT budget, infrastructure, vendors to keep in mind, and what the department needs from IT.' },
-      { phase: '3 · Get access', detail: 'Send UW-IT the access requests for IT, faculty, staff, the chair and the dean, as soon as UW-IT confirms onboarding can begin.' },
-      { phase: '4 · Move to CAS IT', detail: 'Move help desk, systems administration and any other services the department needs onto CAS IT, and put the department on the 2-hour and 48-hour targets. Power Automate workflows handle the steps that repeat.' },
-      { phase: '5 · Hand off and document', detail: 'Hand the department over with a runbook, using the same documentation guidelines every time.' },
+      { phase: '1 · Kickoff (PMBOK: initiating)', detail: 'Start every department with the same kickoff. Identify the stakeholders (dean, chair and co-chair, administrators, faculty, staff, UW-IT and facilities), write down what each group needs, and agree on the goal: the department on CAS IT, with a 2-hour response and 48-hour resolution target. In PMBOK terms, this means knowing who is involved and what success looks like before any work starts.' },
+      { phase: '2 · Investigate (PMBOK: planning)', detail: 'Work through the checklist to build a baseline: inventory, IT budget, infrastructure, vendors to keep in mind, and what the department needs from IT, such as help desk, systems administration and web development. In PMBOK terms this is gathering requirements and setting scope. It also answers CAS IT’s own questions: what it can support without adding staff, what it would need to hire for, and what is in the project backlog.' },
+      { phase: '3 · Get access (PMBOK: risk and resource planning)', detail: 'Turn the checklist into access requests for IT, faculty, staff, the chair and the dean, and send them to UW-IT as soon as onboarding can begin. Facilities is asked for access to physical spaces. Access was the biggest risk in the first onboarding, so this step plans for it up front, as PMBOK risk management asks.' },
+      { phase: '4 · Move to CAS IT (PMBOK: executing, monitoring and controlling)', detail: 'Do the move: help desk, systems administration and any other services the department needs. Power Automate workflows handle the steps that repeat. Track the department against the 2-hour response and 48-hour resolution targets, which is monitoring against a baseline in PMBOK terms, and deal with changes to the plan as they come up.' },
+      { phase: '5 · Hand off and document (PMBOK: closing)', detail: 'Close the onboarding with a handoff and a runbook that follow the same documentation guidelines every time. In PMBOK terms this is the transition to operations plus lessons learned. The standard access plan came from the first onboarding and was reused for the rest.' },
     ],
     risks: [
       { risk: 'CAS IT cannot get into the department’s physical spaces, software or hardware', mitigation: 'A standard access plan, sent to UW-IT as soon as onboarding can start' },
@@ -108,18 +109,18 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { value: '48h → 2h', label: 'response time, a 96% cut' },
       { value: '$30K/yr', label: 'duplicate spend removed' },
-      { value: '5', label: 'healthcare vendors coordinated' },
+      { value: '7d → 48h', label: 'resolution time, to the CAS IT standard' },
       { value: '2 months', label: 'to rebuild the relationship' },
     ],
     situation:
-      'The Speech and Hearing Sciences Clinic ran its own IT: its own staff, systems, servers and vendor contracts. The relationship with the college’s central IT had broken down over the years. Response times had drifted to about 48 hours. Tickets went unanswered so often that clinical staff stopped filing them. Equipment was set up for IT’s convenience, not for how clinicians work. Then the clinic’s IT staff left, and the clinic came under central IT with no IT of its own. The systems moved over, and so did the distrust, which was now aimed at IT as a whole. Because the clinic holds patient data, every gap was also a HIPAA risk. The technical problems were real, but they were not the blocker. A department that no longer believed IT would answer was not going to hand over its systems because of a plan. So rebuilding the relationship became the first project.',
+      'The Speech and Hearing Sciences Clinic ran its own IT: its own staff, systems, servers and vendor contracts. The relationship with the college’s central IT had broken down over the years. The clinic’s response time had drifted to 48 hours and its resolution time to 7 days. Tickets went unanswered so often that clinical staff stopped filing them. Equipment was set up for IT’s convenience, not for how clinicians work. Then the clinic’s IT staff left, and the clinic came under central IT with no IT of its own. The systems moved over, and so did the distrust, which was now aimed at IT as a whole. Because the clinic holds patient data, every gap was also a HIPAA risk. The technical problems were real, but they were not the blocker. A department that no longer believed IT would answer was not going to hand over its systems because of a plan. So rebuilding the relationship became the first project.',
     scope: {
       inScope: [
         'Rebuild the working relationship between clinical staff and IT, as the first project',
         'Move the clinic onto central IT support, systems and servers, with no clinic IT staff left to hand over',
         'Run a HIPAA security audit of the clinic’s environment and fix what it finds',
         'Combine and renegotiate five overlapping clinical vendor relationships',
-        'Set a response time the clinical staff can rely on',
+        'Bring the clinic up to the CAS IT standard: 2-hour response and 48-hour resolution',
         'Fix the systems and server faults the clinic had been living with',
       ],
       outOfScope: [
@@ -140,7 +141,7 @@ export const caseStudies: CaseStudy[] = [
       { phase: '2 · Audit before promising', detail: 'With the clinic on board, I ran the HIPAA security audit and wrote down every finding. The scope was based on the real environment, not on what either side believed was there.' },
       { phase: '3 · Combine vendors', detail: 'I mapped which of the five vendors owned which system, cut the overlaps, and gave each remaining contract one owner.' },
       { phase: '4 · Migrate in clinical downtime', detail: 'I planned the systems and server cutover around the clinic’s patient schedule, so no appointment was affected.' },
-      { phase: '5 · Commit to a response time', detail: 'I published a response-time commitment and the dispatch process behind it, so the 2-hour figure was a process and not just a promise.' },
+      { phase: '5 · Commit to a response time', detail: 'I published the CAS IT commitment (2-hour response, 48-hour resolution) and the dispatch process behind it, so the numbers were a process and not just a promise.' },
     ],
     risks: [
       { risk: 'Clinicians refuse to cooperate because the last IT team let them down', mitigation: 'Deliver visible fixes early, with no strings attached, before asking for anything' },
@@ -151,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
     wentWrong:
       'Putting the relationship first was the right call, but two months is a long time with nothing to show. There were no migrated systems and no closed findings, only goodwill, and goodwill does not fit on a status report. The schedule kept running and the clinic had no IT of its own in the meantime. Holding the line against pressure to start cutting over early was the hardest part. It would have been easier if the trust-building had been a named project in the plan, with its own deliverables and dates, and not something that happened before the plan officially began.',
     outcome: [
-      'Response time cut from about 48 hours to 2, a 96% improvement, kept in place by a published dispatch process',
+      'Response time cut from 48 hours to 2 (a 96% improvement) and resolution time from 7 days to 48 hours, kept in place by a published dispatch process',
       '$30,000 a year in duplicate IT spend removed',
       'Five vendor relationships combined, each with clear technical ownership',
       'HIPAA audit findings fixed and compliance kept up under central IT',

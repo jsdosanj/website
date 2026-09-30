@@ -83,7 +83,7 @@ export const headlineProjects: LedProject[] = [
     ],
     org: 'University of Washington',
     date: '2025 – 2026',
-    text: 'Moved a clinical department onto central IT after its own IT staff left, cutting response time by 96% (48 hours to 2) and removing $30,000 a year in duplicate spend. I did it by leading the program. I rebuilt trust with the clinic first, over two months, then ran HIPAA security audits, combined five healthcare vendors, and moved systems and servers around the clinic’s patient schedule.',
+    text: 'Moved a clinical department onto central IT after its own IT staff left, cutting response time by 96% (48 hours to 2), resolution time from 7 days to 48 hours, and $30,000 a year in duplicate spend. I did it by leading the program. I rebuilt trust with the clinic first, over two months, then ran HIPAA security audits, combined five healthcare vendors, and moved systems and servers around the clinic’s patient schedule.',
   },
   {
     title: 'Leading a 9-person team through a vacancy',
