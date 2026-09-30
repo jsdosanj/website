@@ -251,7 +251,7 @@ export const caseStudies: CaseStudy[] = [
         'Retiring and recycling old desktops and laptops as the count went',
         'A Google Workspace remote-learning curriculum for teachers',
         'Train-the-trainer sessions so IT staff at each school could teach it',
-        'Directing six technical assistants, and leading the work myself in 10 of the 31 schools',
+        'Directing six technical assistants across seven schools, and consulting in 10 of the 31 schools',
       ],
       outOfScope: [
         'Academic curriculum and lesson design, which belong to teaching staff',
@@ -269,7 +269,7 @@ export const caseStudies: CaseStudy[] = [
     plan: [
       { phase: '1 · Count as you go', detail: 'I ran the inventory alongside distribution, not before it. Waiting for a clean count would have cost weeks the calendar did not have. Each new Chromebook was recorded to its student at handover, so distribution was its own audit trail.' },
       { phase: '2 · Work in parallel inside one site', detail: 'I split the staging line into owned stages: unboxing, enrollment, asset tagging, cart building and handout. Six people could work on different batches at once, and nobody walked a device through every step.' },
-      { phase: '3 · Walk every room in 31 schools', detail: 'We counted every computer and laptop in every cart, lab and classroom, and pulled dead machines for recycling as we went. I led that sweep myself in 10 of the 31 schools.' },
+      { phase: '3 · Walk every room in 31 schools', detail: 'We counted every computer and laptop in every cart, lab and classroom, and pulled dead machines for recycling as we went. I consulted in 10 of the 31 schools.' },
       { phase: '4 · Train the trainers', detail: 'I wrote the Google Workspace remote-learning curriculum once, then trained IT staff at each school to teach it locally. That was the only way to reach every teacher in the time we had.' },
       { phase: '5 · One path for escalations', detail: 'I kept a single point of escalation, so a blocked site could be unblocked in hours and not wait for a weekly meeting.' },
     ],

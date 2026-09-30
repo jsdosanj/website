@@ -125,7 +125,7 @@ export const headlineProjects: LedProject[] = [
     ],
     org: 'Rochester Community Schools',
     date: '2019 – 2020',
-    text: 'Put a Chromebook in the hands of each of 15,000 students and counted every machine in all 31 schools within eight weeks, during a district-wide closure. I did it as operational IT lead: I ran device handout from one district site with six technical assistants, and personally led the count and retirement of old machines in 10 schools. The deadline was fixed and nobody could move it.',
+    text: 'Put a Chromebook in the hands of each of 15,000 students and counted every machine in all 31 schools within eight weeks, during a district-wide closure. I did it as operational IT lead: I directed six technical assistants across seven schools and consulted in 10 of the 31 schools. The deadline was fixed and nobody could move it.',
   },
   {
     title: 'Zero-touch endpoint enrollment pipeline',
