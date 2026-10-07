@@ -31,6 +31,30 @@ const nextConfig: NextConfig = {
     // dependency out of the client bundle.
     optimizePackageImports: ['gsap', 'lenis'],
   },
+  // URLs that search engines still hold from earlier versions of the site.
+  // Each answered 404 once its file was replaced, and Search Console reports
+  // those as "Not found (404)". A permanent redirect hands the old URL's
+  // standing to its replacement instead of dropping it.
+  async redirects() {
+    const currentResume = '/resumes/JSD%20Technical%20Program%20Manager%20Resume%20Oct%202026.pdf';
+    const retiredResumes = [
+      'JSD IT Manager Resume Aug 2026',
+      'JSD IT Manager Resume June 2026',
+      'JSD IT Security GRC Leader Resume June 2026',
+      'JSD Senior Systems Engineer Resume Aug 2026',
+      'JSD Systems Engineer Resume June 2026',
+      'JSD Technical Program Manager Resume Sept 2026',
+    ];
+    return [
+      // robots.txt used to name this file; the sitemap has always been /sitemap.xml.
+      { source: '/sitemap-index.xml', destination: '/sitemap.xml', permanent: true },
+      ...retiredResumes.map((name) => ({
+        source: `/resumes/${encodeURIComponent(name)}.pdf`,
+        destination: currentResume,
+        permanent: true,
+      })),
+    ];
+  },
   async headers() {
     return [
       {
