@@ -43,7 +43,7 @@ const facts: { label: string; value: React.ReactNode }[] = [
   },
   {
     label: 'Certifications',
-    value: 'Jamf Pro Certified Technician, Google Cloud Digital Leader, PMI CPMAI micro-credential. PMP exam scheduled for October 2026.',
+    value: 'Jamf Pro Certified Technician, Google Cloud Digital Leader, PMI CPMAI micro-credential. PMP in progress (studying, exam not yet scheduled).',
   },
   { label: 'Languages', value: 'English and Punjabi (fluent), Hindi and Urdu (conversational)' },
 ];
@@ -112,7 +112,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: 'Does he hold the PMP certification?',
-    a: 'His PMP exam is scheduled for October 2026. He already holds the Jamf Pro Certified Technician and Google Cloud Digital Leader certifications and the PMI CPMAI micro-credential.',
+    a: 'He is currently studying for the PMP exam and has not scheduled it yet. He already holds the Jamf Pro Certified Technician and Google Cloud Digital Leader certifications and the PMI CPMAI micro-credential.',
   },
   {
     q: 'How can I contact Jasvant?',
