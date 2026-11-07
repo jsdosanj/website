@@ -447,7 +447,7 @@ featured: false,
     status: 'live',
     tagline: 'Five centuries of Sikh literature, open to the world.',
     description:
-      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable. It now gets over 3 million unique visits per month from more than 140 countries. It is also the production home of the Sikh Library corpus. I am its Lead Technical Product & Program Manager at Everythings13, where Sikhi.io and all of its subsidiary projects now sit. I direct the lifecycle of several connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
+      'Sikhi.io is a collaborative, open-access archive that makes centuries of Sikh manuscripts and literature freely searchable. It now gets over 3 million unique visits per month from more than 140 countries. It is also the production home of the Sikh Library corpus. I am its Lead Technical Product & Program Manager at Everythings13 (a volunteer role), where Sikhi.io and all of its subsidiary projects now sit. I direct the lifecycle of several connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
     highlights: [
       'Over 3 million unique visits per month from 140+ countries, and the production home of the ~1.07-billion-word Sikh Library corpus.',
       'Lead Technical Product & Program Manager for the platform and its sub-projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
