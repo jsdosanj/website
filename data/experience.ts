@@ -75,20 +75,6 @@ export const MONTH = {
 
 export const experience: Role[] = [
   {
-    title: 'Lead Technical Product & Program Manager',
-    company: 'Everythings13',
-    date: 'Oct 2026 – Present',
-    start: 2026 + MONTH.oct,
-    end: null,
-    track: 'program',
-    shortLabel: 'Everythings13 · Lead TPM',
-    bullets: [
-      'Brought one nonprofit tech portfolio under a single roadmap, measured by Sikhi.io and all of its subsidiary projects now sitting under Everythings13, by owning every technology initiative as one program.',
-      'Grew Sikhi.io into a global platform, measured by over 3 million unique visits per month from more than 140 countries, by directing the platform and its connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
-      'Took Sikhi.io to mobile, measured by a live iOS app on the App Store with an Android app next, by running market research, product design, agile delivery, QA and launch as one product program.',
-    ],
-  },
-  {
     title: 'Founder & Technical Program Manager',
     company: 'Dosanjh Labs',
     date: 'Mar 2026 – Present',
@@ -267,6 +253,20 @@ export const experience: Role[] = [
  * Only seva with a known start date is listed, because a bar needs one.
  */
 export const volunteerRoles: Role[] = [
+  {
+    title: 'Lead Technical Product & Program Manager (Volunteer)',
+    company: 'Everythings13',
+    date: 'Oct 2026 – Present',
+    start: 2026 + MONTH.oct,
+    end: null,
+    track: 'seva',
+    shortLabel: 'Everythings13 · Lead TPM (volunteer)',
+    bullets: [
+      'Brought one nonprofit tech portfolio under a single roadmap, measured by Sikhi.io and all of its subsidiary projects now sitting under Everythings13, by owning every technology initiative as one program.',
+      'Grew Sikhi.io into a global platform, measured by over 3 million unique visits per month from more than 140 countries, by directing the platform and its connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
+      'Took Sikhi.io to mobile, measured by a live iOS app on the App Store with an Android app next, by running market research, product design, agile delivery, QA and launch as one product program.',
+    ],
+  },
   {
     title: 'Public Speaker & Parcharik',
     company: 'Basics of Sikhi',
