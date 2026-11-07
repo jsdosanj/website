@@ -152,9 +152,8 @@ export default function About() {
             Problem-solver by instinct. Solutions-driven by choice.
           </p>
           <p className="reveal is-visible mt-4 type-subhead text-ink-600">
-            Open to <span className="text-ink-800">Technical Program Manager</span> ·{' '}
-            <span className="text-ink-800">Technical Project Manager</span> ·{' '}
-            <span className="text-ink-800">IT Program Manager</span> roles
+            Looking for <span className="text-ink-800">Technical Program Manager</span> and{' '}
+            <span className="text-ink-800">Technical Project Manager</span> roles
           </p>
           <p className="reveal is-visible mt-6 max-w-2xl mx-auto text-ink-600 leading-relaxed">
             The settings have changed a lot over ten years: healthcare, higher ed, gaming, big tech.
@@ -467,8 +466,8 @@ export default function About() {
       <section className="container-x mt-28">
         <SectionHeading eyebrow="Experience" title="Career roadmap">
           <p className="reveal mt-4 max-w-2xl text-ink-600">
-            Ten years of roles, drawn to scale, including the stretches where a contract job ran
-            alongside a full-time one.
+            Ten years of roles, drawn to scale, with my volunteer seva in teal beside them. It shows how
+            service work and a full-time career have run side by side, and how each has made the other better.
           </p>
         </SectionHeading>
         <div className="mt-10">

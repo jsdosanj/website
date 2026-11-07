@@ -1,5 +1,5 @@
 import RoadmapScroller from '@/components/RoadmapScroller';
-import { experience, type Role } from '@/data/experience';
+import { experience, volunteerRoles, type Role } from '@/data/experience';
 
 /**
  * Career as a delivery roadmap, read the way a roadmap is actually read: left
@@ -61,18 +61,20 @@ import { experience, type Role } from '@/data/experience';
  * panned from the keyboard.
  */
 
-const NOW = 2026 + 8 / 12; // Sep 2026 — the "present" edge of the chart
+const NOW = 2026 + 10 / 12; // Nov 2026 — the "present" edge of the chart
 
 const trackClass = {
   program: 'roadmap-bar-pm',
   ic: 'roadmap-bar-ic',
   contract: 'roadmap-bar-contract',
+  seva: 'roadmap-bar-seva',
 } as const;
 
 const trackLabel = {
   program: 'Program / project management',
   ic: 'Engineering & operations',
   contract: 'Contract',
+  seva: 'Volunteer / seva',
 } as const;
 
 /**
@@ -124,7 +126,7 @@ function packLanes(roles: Role[]): Role[][] {
 export default function ProgramRoadmap() {
   // Oldest first: the reader scrolls rightward into the present, so the array
   // order and the reading order agree.
-  const roles = [...experience].sort((a, b) => a.start - b.start || (a.end ?? NOW) - (b.end ?? NOW));
+  const roles = [...experience, ...volunteerRoles].sort((a, b) => a.start - b.start || (a.end ?? NOW) - (b.end ?? NOW));
 
   const spanStart = Math.floor(Math.min(...roles.map((r) => r.start)));
   const spanEnd = NOW; // stop at today rather than the end of the year
@@ -141,7 +143,7 @@ export default function ProgramRoadmap() {
       <RoadmapScroller
         legend={
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            {(['program', 'ic', 'contract'] as const).map((t) => (
+            {(['program', 'ic', 'contract', 'seva'] as const).map((t) => (
               <span key={t} className="inline-flex items-center gap-2 type-caption text-ink-600">
                 <span className={`h-3 w-6 rounded-[3px] shrink-0 ${trackClass[t]}`} aria-hidden="true" />
                 {trackLabel[t]}
@@ -243,7 +245,7 @@ export default function ProgramRoadmap() {
       <p className="mt-3 type-caption text-ink-500">
         Pan the roadmap sideways with the arrows above, a swipe, or the arrow keys to move
         through the decade. Bars are to scale, and where two share a column the work overlapped:
-        contract engagements ran alongside a full-time role.
+        contract engagements and volunteer seva (teal) ran alongside a full-time role.
       </p>
     </div>
   );

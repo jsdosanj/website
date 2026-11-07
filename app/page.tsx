@@ -75,7 +75,7 @@ export default function Home() {
       <section className="hero-dark relative isolate overflow-hidden text-white pt-32 sm:pt-40 pb-32 sm:pb-40">
         <div className="container-x relative">
           <div className="reveal flex flex-wrap items-center gap-x-3 gap-y-2">
-            <span className="chip chip-delivered">Open to work</span>
+            <span className="chip chip-delivered">Open to work: Technical Program / Project Manager roles</span>
             <span className="type-footnote text-white/75">
               Hybrid or onsite in Seattle, WA and San Francisco, CA · remote anywhere in the USA
             </span>

@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="type-footnote text-white/75 border-b border-white/10 py-3 flex flex-wrap items-center gap-x-5 gap-y-1.5">
           <span className="chip chip-delivered">open to work</span>
           <span>
-            Seeking <span className="font-medium text-white">{site.targetRole}</span> roles
+            Looking for <span className="font-medium text-white">{site.targetRole}</span> roles
           </span>
           <span className="hidden sm:inline text-white/50">·</span>
           <span className="hidden sm:inline">{site.location}</span>
