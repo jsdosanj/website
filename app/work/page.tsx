@@ -19,7 +19,7 @@ const page: PageDescriptor = {
   ogSlug: 'work',
   title: 'Case Studies: Programs Delivered',
   description:
-    'Four case studies by Jasvant Dosanjh: eight university departments moved onto central IT, a clinic IT rescue, a new studio’s IT, and 15,000 devices in eight weeks.',
+    'Five case studies by Jasvant Dosanjh: the Sikhi.io iOS app from research to launch, eight university departments moved onto central IT, a clinic IT rescue, a new studio’s IT, and 15,000 devices in eight weeks.',
   keywords: [
     'program management case study', 'technical program manager portfolio',
     'project management case study', 'stakeholder management', 'risk register',
@@ -52,12 +52,12 @@ export default function Work() {
         <div className="max-w-3xl">
           <p className="eyebrow reveal is-visible">Case studies</p>
           <h1 className="mt-4 type-display-2 text-navy-900" data-kinetic>
-            <span className="kin-line"><span className="kin-inner">Four programs, start to finish.</span></span>
+            <span className="kin-line"><span className="kin-inner">Five programs, start to finish.</span></span>
           </h1>
           <p className="reveal is-visible mt-5 type-body text-ink-600 leading-relaxed">
             A card can tell you a program shipped. It can’t tell you how it was scoped, who had to be
             moved, what was at risk, or what went wrong. That is the part worth talking about. So here
-            are four, told the way I’d explain them in a room, including the parts I got wrong first.
+            are five, told the way I’d explain them in a room, including the parts I got wrong first.
           </p>
         </div>
 

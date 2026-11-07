@@ -32,9 +32,9 @@ export const metadata = pageMetadata(page);
 
 const facts: { label: string; value: React.ReactNode }[] = [
   { label: 'Name', value: site.founder },
-  { label: 'Role', value: 'Technical Program Manager (also Technical Project Manager and IT Program Manager roles)' },
+  { label: 'Role', value: 'Technical Program Manager (also Technical Project Manager roles)' },
   { label: 'Based in', value: 'Seattle, WA' },
-  { label: 'Available for', value: site.workPreference.replace(/^Open to /, '') },
+  { label: 'Available for', value: 'Hybrid or onsite in Seattle, WA and San Francisco, CA, or remote anywhere in the USA' },
   { label: 'Experience', value: '10+ years in higher education, healthcare, gaming and big tech' },
   {
     label: 'Recent results',
@@ -104,7 +104,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: 'Is Jasvant open to work, and where?',
-    a: 'Yes. He is open to hybrid or onsite roles in Seattle, WA and San Francisco, CA, and to remote roles anywhere in the USA. He is open to Technical Program Manager, Technical Project Manager and IT Program Manager roles.',
+    a: 'Yes. He is looking for Technical Program Manager and Technical Project Manager roles, hybrid or onsite in Seattle, WA and San Francisco, CA, or remote anywhere in the USA.',
   },
   {
     q: 'What tools and methods does he use?',

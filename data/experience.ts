@@ -21,7 +21,7 @@ export type Role = {
   start: number;
   end: number | null;
   /** Which swimlane colour the roadmap bar uses. */
-  track: 'program' | 'ic' | 'contract';
+  track: 'program' | 'ic' | 'contract' | 'seva';
   /** Short label for the roadmap bar, where the full title won't fit. */
   shortLabel: string;
   /**
@@ -63,7 +63,7 @@ export type RoleSection = {
   date: string;
   start: number;
   end: number | null;
-  track: 'program' | 'ic' | 'contract';
+  track: 'program' | 'ic' | 'contract' | 'seva';
   bullets: string[];
 };
 
@@ -74,6 +74,20 @@ export const MONTH = {
 } as const;
 
 export const experience: Role[] = [
+  {
+    title: 'Lead Technical Product & Program Manager',
+    company: 'Everythings13',
+    date: 'Oct 2026 – Present',
+    start: 2026 + MONTH.oct,
+    end: null,
+    track: 'program',
+    shortLabel: 'Everythings13 · Lead TPM',
+    bullets: [
+      'Brought one nonprofit tech portfolio under a single roadmap, measured by Sikhi.io and all of its subsidiary projects now sitting under Everythings13, by owning every technology initiative as one program.',
+      'Grew Sikhi.io into a global platform, measured by over 3 million unique visits per month from more than 140 countries, by directing the platform and its connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
+      'Took Sikhi.io to mobile, measured by a live iOS app on the App Store with an Android app next, by running market research, product design, agile delivery, QA and launch as one product program.',
+    ],
+  },
   {
     title: 'Founder & Technical Program Manager',
     company: 'Dosanjh Labs',
@@ -139,7 +153,7 @@ export const experience: Role[] = [
     track: 'program',
     shortLabel: 'Tencent · TPM',
     bullets: [
-      'Delivered a new gaming studio’s whole IT environment before its launch date, measured by AWS infrastructure, identity and device management, office networking and 100+ multi-OS workstations all live in five months on a $750,000 budget, by running the work as one program of connected projects, owning vendor selection across Google, JumpCloud, AWS, Cisco and 1Password, and supervising a systems administrator and a project manager.',
+      'Delivered a new gaming studio’s whole IT environment before its launch date, measured by AWS infrastructure, identity and device management, office networking and 100+ multi-OS workstations all live in five months on a $750,000 budget, by running the work as one program of connected projects, owning vendor selection across Google, JumpCloud, AWS, Cisco and 1Password, supervising a systems administrator and a project manager, and setting up the studio’s IT service management on ITIL practices (service requests, asset records, change enablement, incident handling and knowledge management).',
       'Set the identity standard for Tencent’s North American studios, measured by its adoption as the default setup at the Los Angeles and Montreal studios, by designing and building one JumpCloud MDM and Google Workspace single sign-on and MFA setup, including the JumpCloud Go MFA rollout.',
     ],
   },
@@ -243,5 +257,34 @@ export const experience: Role[] = [
       'Cut reservation-related support tickets by 90%, measured by the drop in tickets after the change, by leading an overhaul of the athletics and student-club room reservation system.',
       'Kept the facility and technology equipment running for more than 10,000 students, faculty and community members, by managing it day to day at the athletics front desk.',
     ],
+  },
+];
+
+/**
+ * Volunteer work, drawn on the roadmap beside the paid roles so the two can be
+ * read together. Kept out of `experience` because the résumé and the role
+ * list are paid employment; the roadmap is the one place both are shown.
+ * Only seva with a known start date is listed, because a bar needs one.
+ */
+export const volunteerRoles: Role[] = [
+  {
+    title: 'Public Speaker & Parcharik',
+    company: 'Basics of Sikhi',
+    date: 'Jun 2024 – Present',
+    start: 2024 + MONTH.jun,
+    end: null,
+    track: 'seva',
+    shortLabel: 'Basics of Sikhi · Parcharik',
+    bullets: ['60+ talks across the U.S., Canada, the U.K. and Malaysia, given alongside full-time program work.'],
+  },
+  {
+    title: 'Researcher & Translator',
+    company: 'Shabad OS',
+    date: 'Aug 2017 – Jul 2019',
+    start: 2017 + MONTH.aug,
+    end: 2019 + MONTH.jul,
+    track: 'seva',
+    shortLabel: 'Shabad OS · Translator',
+    bullets: ['Tested software used by Gurdwaras worldwide and translated Gurbani, while studying and working in IT.'],
   },
 ];

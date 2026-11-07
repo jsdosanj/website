@@ -41,7 +41,7 @@ export default function Contact() {
             </div>
             <span className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-status-green/30 bg-status-green/10 px-3.5 py-1.5 type-caption font-semibold text-status-green">
               <span className="h-2 w-2 rounded-full bg-status-green animate-pulse-glow" aria-hidden="true" />
-              open to work · Seattle · San Francisco · remote (USA)
+              looking for TPM / project manager roles · Seattle · San Francisco · remote (USA)
             </span>
             <p className="reveal is-visible mt-5 eyebrow eyebrow-center">Technical Program Manager</p>
             <h1 className="mt-3 type-display-2 text-navy-900" data-kinetic>

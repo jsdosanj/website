@@ -7,21 +7,20 @@ export const site = {
     'Jasvant Singh Dosanjh is a Technical Program Manager with 10+ years of experience in higher education, healthcare, gaming and big tech. He built the repeatable process that moved eight University of Washington departments onto central IT. He has shipped 12 security and compliance products, run $250K and $750K budgets, led a team of 9, and finished a six-month security migration with zero downtime. He uses Agile and Waterfall, owns the software lifecycle from requirements to deployment, and manages risk under HIPAA, FERPA and NIST rules. He builds with Claude Code, GitHub Copilot and OpenRouter. His PMP exam is scheduled for October 2026.',
   location: 'Seattle, WA · San Francisco, CA · Remote (USA)',
   /** Full sentence for places that have room for it. */
-  workPreference: 'Open to hybrid or onsite roles in Seattle, WA and San Francisco, CA, and to remote roles anywhere in the USA.',
+  workPreference: 'Looking for Technical Program Manager and Technical Project Manager roles, hybrid or onsite in Seattle, WA and San Francisco, CA, or remote anywhere in the USA.',
   email: 'jasvantdosanjh@outlook.com',
   phone: '+1 (425) 309-5295',
   url: 'https://jasvant.me',
   /** Square face crop used for the logo, icons, structured data and social cards. */
   faceImage: '/images/logo-face.webp',
   /** ISO date of the last meaningful content change; feeds the sitemap's lastmod. Update it when content changes. */
-  lastUpdated: '2026-10-01',
+  lastUpdated: '2026-11-07',
   // Hire-me positioning
   openToWork: true,
-  targetRole: 'Technical Program Manager',
+  targetRole: 'Technical Program / Project Manager',
   roles: [
     'Technical Program Manager',
     'Technical Project Manager',
-    'IT Program Manager',
   ],
   positioning:
     'Technical Program Manager with 10+ years of experience in higher ed, healthcare, gaming and big tech. I own the roadmap, the budget, the vendors and the full software lifecycle. I built the repeatable process that moved eight university departments onto central IT. I have shipped 12 security and compliance products, run $250K and $750K programs, led a team of 9 that included union staff, and finished a six-month, multi-building security migration with zero downtime. I write the runbook, read the audit control, and still hold the roadmap.',

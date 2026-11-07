@@ -911,6 +911,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Program-management roles carry the accent; IC roles stay navy */
 .roadmap-bar-pm { background: var(--color-kesari-500); color: var(--color-navy-950); }
 .roadmap-bar-ic { background: var(--color-navy-700); color: var(--color-paper-100); }
+/* Teal sits opposite purple on the wheel, so volunteer work reads as its own lane without clashing. */
+.roadmap-bar-seva { background: #1f8a7e; color: #ffffff; }
 .roadmap-bar-contract {
   background: repeating-linear-gradient(
     135deg,
@@ -966,6 +968,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .roadmap-bar-pm::before { background: var(--color-kesari-500); }
 .roadmap-bar-ic::before { background: var(--color-navy-700); }
+.roadmap-bar-seva::before { background: #1f8a7e; }
 .roadmap-bar-contract::before {
   background: repeating-linear-gradient(
     135deg,

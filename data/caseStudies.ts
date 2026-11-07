@@ -1,4 +1,4 @@
-// Four flagship programs, told at interview depth.
+// Five flagship programs, told at interview depth.
 //
 // A one-paragraph card can't show how a program was run, so each study below
 // follows the order an interviewer asks in: the situation, what was in and out
@@ -35,6 +35,77 @@ export type CaseStudy = {
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: 'sikhi-io-ios-app',
+    title: 'Taking Sikhi.io to iPhone and iPad: research to 1.0.0 in one month',
+    org: 'Everythings13, Sikhi.io',
+    role: 'Lead Technical Product & Program Manager, product owner',
+    date: 'Oct 2026 – Nov 2026',
+    status: 'delivered',
+    summary:
+      'A platform with over 3 million unique visits a month and no native app. I ran one product program from market research through design, agile delivery and QA to a 1.0.0 App Store launch, with Android next.',
+    metrics: [
+      { value: '1 month', label: 'from kickoff to 1.0.0 on the App Store' },
+      { value: '1 week', label: 'sprint length' },
+      { value: '112', label: 'languages of SGGS translation' },
+      { value: '~100,000', label: 'audio recordings in the library' },
+    ],
+    situation:
+      'Sikhi.io reaches over 3 million unique visitors a month in more than 140 countries, almost all on the mobile web. Sangat read Gurbani, listen to kirtan and study on their phones, in gurdwaras and at home, often with poor signal. A website could not give them what a native app can: fast search, offline-friendly reading, background audio and a layout that works on an iPad on a presenter stand. Other Gurbani apps already existed, so the question was not whether to build an app. It was what a new one had to do that the others did not, and how to ship it fast without shipping something fragile. Everythings13 had also just taken Sikhi.io and its subsidiary projects under one roof, so the app was the first product delivered under that structure.',
+    scope: {
+      inScope: [
+        'Market research: a feature-by-feature analysis of the existing Gurbani apps, and the gaps users and volunteers kept reporting',
+        'Product definition: personas, a prioritized backlog and a 1.0.0 release scope',
+        'Product design for iPhone and iPad, including an iPad and desktop-style layout with a presenter view',
+        'Development in one-week agile sprints',
+        'Translations at scale through our own translation pipeline: 112 languages for SGGS, 32 for Dasam and Sarbloh, 28 for Mahan Kosh, plus the Faridkot Teeka in English',
+        'Tools for parchariks and ragis, learning material including the Santhiya curriculum, and about 100,000 recordings',
+        '108FM, a radio that plays audio based on your location and time',
+        'Extensive QA on iPhones and iPads, then App Store submission and launch',
+      ],
+      outOfScope: [
+        'The Android app, which is the next release and reuses the research, backlog and translation work',
+        'Rebuilding the Sikhi.io website or its subsidiary sites',
+        'New translation or recording content beyond what the existing pipeline and library already held',
+      ],
+    },
+    stakeholders: [
+      { group: 'Sangat and everyday readers', need: 'Fast, accurate Gurbani search and reading, in their own language, on the phone in their hand' },
+      { group: 'Parchariks and ragis', need: 'Tools for teaching and for kirtan, and a presenter view that works in a diwan' },
+      { group: 'Students and learners', need: 'Structured learning material, including the Santhiya curriculum, that meets a beginner where they are' },
+      { group: 'Scholars and translators', need: 'Translations that are attributed, accurate and handled with respect' },
+      { group: 'Everythings13 leadership and the Sikhi.io team', need: 'A launch that reflects the platform’s standing, with a plan for Android after it' },
+      { group: 'Apple App Review', need: 'A build that meets App Store guidelines on the first or second submission' },
+    ],
+    plan: [
+      { phase: '1 · Initiating: charter and stakeholder register', detail: 'I wrote a short project charter: the problem, the 1.0.0 goal, the one-month window, success criteria and who could approve scope changes. I built a stakeholder register that rated each group by influence and interest, and set how often each would hear from me.' },
+      { phase: '2 · Market research', detail: 'I analyzed the other Gurbani apps feature by feature: search speed, languages, reading experience, audio, tablet support and tools for sevadars. I wrote up where they were strong, where they were weak, and which gaps Sikhi.io could fill with assets it already had, such as the translation pipeline and the recording library. That became the positioning: depth of translation, speed of search, and tools built for the people who serve the sangat.' },
+      { phase: '3 · Product definition and scope baseline', detail: 'I turned the research into personas, a prioritized backlog and a release scope for 1.0.0. I ranked items by value to the user against effort, and sorted them into must, should and later. I broke the must-haves into a work breakdown structure with owners, and froze that as the scope baseline. Anything outside it went through change control.' },
+      { phase: '4 · Product design', detail: 'Design started before development did, and then ran one sprint ahead of it. I reviewed flows with the people who use the content most. The iPad and presenter view got its own design track, because a projected diwan screen has different needs from a phone.' },
+      { phase: '5 · Agile delivery in one-week sprints', detail: 'We ran one-week sprints with planning, a daily check-in, a demo at the end and a retrospective. I owned the backlog and the sprint goals, kept a risk register that was reviewed every sprint, and tracked progress with a burndown against the 1.0.0 scope, not against a calendar of tasks.' },
+      { phase: '6 · Quality management and QA', detail: 'I wrote the test approach alongside the backlog, not after it. Builds were tested on iPhones and iPads, including the tablet layout and the presenter view. Search and the translations got the most attention, because wrong or missing Gurbani text is the failure users would care about most. Defects were triaged by severity, and the release criteria said what could not ship open.' },
+      { phase: '7 · Launch and closing', detail: 'I ran a release checklist: App Store listing and screenshots, privacy and review requirements, a final regression pass, a go or no-go review and a launch communication plan. After 1.0.0 shipped I held a lessons-learned session and handed the backlog for Android and the next iOS release into the roadmap.' },
+    ],
+    risks: [
+      { risk: 'A one-month window invites scope creep, because every feature feels essential', mitigation: 'Freeze a scope baseline, rank the backlog and send every new request through change control with an explicit trade-off' },
+      { risk: 'Wrong or missing Gurbani or translation text reaches users', mitigation: 'Make search and translation accuracy the first thing tested and a hard release criterion, and use the existing translation pipeline instead of one-off content' },
+      { risk: 'The iPad and presenter view is built as an afterthought and works badly in a real diwan', mitigation: 'Give it its own design track and test it on real iPads, not only a simulator' },
+      { risk: 'App Store review rejects the build and puts the launch date at risk', mitigation: 'Check the guidelines during design, prepare the listing early and leave room before the target date for a second submission' },
+      { risk: 'A large audio library and 108FM slow the app or drain the battery', mitigation: 'Test playback on real devices in each sprint and treat performance as acceptance criteria, not a later polish item' },
+      { risk: 'Building for iOS first leaves Android users waiting', mitigation: 'Say plainly that Android is coming, keep it as a roadmap item and keep the research, backlog and translations reusable' },
+    ],
+    wentWrong:
+      'The tight window did what tight windows do: it made everything look like a must-have. Several good ideas for the diwan and learning features arrived in the first two sprints, and each one had a person behind it who cared about it. Saying no, or not yet, was the hardest part of the job. What worked was never saying no without a plan: each item went onto the ranked backlog with a reason and a target release, so people could see it was kept, just not in 1.0.0. The other lesson was testing. The first rounds on a phone looked fine and the tablet layout did not, which is the reason the iPad and presenter view got its own test pass on real devices. I would have put that device coverage into the test plan on day one, not the second week.',
+    outcome: [
+      'Sikhi.io for iOS shipped as version 1.0.0 on the App Store in one month, built in one-week sprints and tested on iPhones and iPads',
+      'SGGS translations in 112 languages, Dasam and Sarbloh translations in 32 languages and Mahan Kosh translations in 28 languages, produced through our own translation pipeline',
+      'The first app to include the Faridkot Teeka in English',
+      'A fast Gurbani search, an iPad and desktop view with a presenter view, tools for parchariks and ragis, a Santhiya learning curriculum, close to 100,000 recordings and the 108FM location-aware radio',
+      'Android app planned next, on the same research, backlog and translation foundation',
+    ],
+    retro:
+      'The research decided more than the build did. Knowing which gaps the other apps left, and which assets we already owned, told us what to leave out as well as what to put in. Next time I would write the release criteria and the device test matrix in the first week, so quality is a plan from the start and not something the last week has to find. For Android, I would also set up cross-platform feedback early, so the first Android release starts from what real iOS users told us.',
+  },
   {
     slug: 'department-onboarding-program',
     title: 'One repeatable process to move eight departments onto central IT',
@@ -188,6 +259,7 @@ export const caseStudies: CaseStudy[] = [
         'Office networking from end to end',
         '100+ custom high-end multi-OS workstations, from spec to deployment',
         'Vendor selection and negotiation across the whole stack',
+        'Setting up the studio’s IT service management on ITIL practices: asset tracking, change control, service requests, incident handling and a knowledge base',
         'Supervising a systems administrator and a project manager',
       ],
       outOfScope: [
@@ -207,13 +279,14 @@ export const caseStudies: CaseStudy[] = [
       { phase: '1 · Identity first', detail: 'I chose and set up JumpCloud MDM and Google Workspace single sign-on with MFA before anything else, because every later decision depended on one source of identity.' },
       { phase: '2 · Network and cloud in parallel', detail: 'I built the office network and the AWS infrastructure at the same time. Neither blocked the other, and both blocked devices.' },
       { phase: '3 · Vendor comparison', detail: 'I compared Google, JumpCloud, AWS, Cisco and 1Password against the studio’s needs, and did not just default to corporate standards.' },
-      { phase: '4 · Workstation pipeline', detail: 'I specified, ordered, imaged and enrolled 100+ multi-OS machines through the MDM from phase one. They were zero-touch by design, not by retrofit.' },
-      { phase: '5 · Handover', detail: 'I documented the setup so the studio’s own administrator could run it after my contract ended.' },
+      { phase: '4 · Workstation pipeline', detail: 'I specified, ordered, imaged and enrolled 100+ multi-OS machines through the MDM from phase one. They were zero-touch by design, not by retrofit. In ITIL terms this was service request management: a new hire’s machine was a standard request that fulfilled itself. Each machine was recorded as a configuration item (asset tag, owner, spec, enrollment state), so IT asset management was a by-product of the build and not a spreadsheet cleaned up afterwards.' },
+      { phase: '5 · Handover', detail: 'I documented the setup so the studio’s own administrator could run it after my contract ended. I followed ITIL’s knowledge management practice: runbooks for the common incidents, a record of every standard change and a short guide for escalating anything the administrator could not fix alone.' },
     ],
     risks: [
       { risk: 'Hardware lead times slip past the launch date', mitigation: 'Order workstations against the identity milestone, not the launch date, to build in slack' },
       { risk: 'The identity choice locks the studio into a setup it outgrows', mitigation: 'Choose against the studio’s needs and write down the reasons for corporate review' },
       { risk: 'Two reports and a fixed date leave no room for rework', mitigation: 'Order the phases so each one’s output is the next one’s starting point, with no speculative work' },
+      { risk: 'Changes to identity or network settings after launch break people’s work with no record of why', mitigation: 'Use a light change enablement process from day one: standard changes pre-approved and logged, anything touching identity or network reviewed first, with a rollback written down' },
       { risk: 'Workstations use up the budget before infrastructure is done', mitigation: 'Fund infrastructure first and treat workstation specs as the adjustable line' },
     ],
     wentWrong:
@@ -223,9 +296,10 @@ export const caseStudies: CaseStudy[] = [
       'Delivered in five months against a $750,000 budget',
       'The JumpCloud MDM and Google Workspace single sign-on and MFA setup, including the JumpCloud Go MFA rollout, became the standard for Tencent studios in Los Angeles and Montreal',
       'Handed over documented, so the studio’s own administrator could support it',
+      'Ran the studio on a small set of ITIL practices from day one (service requests, asset and configuration records, change enablement, incident handling and knowledge management), scaled to a team of three and not a full service desk',
     ],
     retro:
-      'Order long-lead hardware against the dependency that gates it, not against the date you need it. The other lesson held up too: choosing identity first made every later decision cheaper, and it is why two other studios could reuse the setup.',
+      'Order long-lead hardware against the dependency that gates it, not against the date you need it. The other lesson held up too: choosing identity first made every later decision cheaper, and it is why two other studios could reuse the setup. ITIL helped most where I kept it small. I used only the practices the studio needed on day one, and left out the ones that would have been paperwork for a team of three.',
   },
   {
     slug: 'district-rollout',
