@@ -75,7 +75,7 @@ export const MONTH = {
 
 export const experience: Role[] = [
   {
-    title: 'Founder & Technical Program Manager',
+    title: 'Technical Program Manager',
     company: 'Dosanjh Labs',
     date: 'Mar 2026 – Present',
     start: 2026 + MONTH.mar,
@@ -99,10 +99,10 @@ export const experience: Role[] = [
     // carries its own, so the roadmap bar changes colour where the job did.
     track: 'program',
     shortLabel: 'UW · Sr Computer Specialist',
-    note: 'Senior Computer Specialist is the HR title for the whole role. My job title was Technical Project Manager from January 2023 to January 2025, and Technical Program Manager from January 2025 to March 2026.',
+    note: 'Senior Computer Specialist is the HR title for the whole role. My job title was Senior Computer Specialist from January 2023 to January 2025, and Technical Project Manager from January 2025 to March 2026.',
     sections: [
       {
-        label: 'Technical Program Manager',
+        label: 'Technical Project Manager',
         date: 'Jan 2025 – Mar 2026',
         start: 2025 + MONTH.jan,
         end: 2026 + MONTH.mar,
@@ -117,7 +117,7 @@ export const experience: Role[] = [
         ],
       },
       {
-        label: 'Technical Project Manager',
+        label: 'Senior Computer Specialist',
         date: 'Jan 2023 – Jan 2025',
         start: 2023 + MONTH.jan,
         end: 2025 + MONTH.jan,
@@ -131,8 +131,8 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Technical Program Manager (Contract)',
-    company: 'Tencent, Team Kaiju Studio',
+    title: 'Technical Program Manager',
+    company: 'Tencent',
     date: 'Jul 2022 – Dec 2022',
     start: 2022 + MONTH.jul,
     end: 2022 + MONTH.dec,
@@ -183,13 +183,13 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Department Shares Administrator (Intern)',
-    company: 'Oakland University UTS',
+    title: 'Department Shares Administrator (Internship)',
+    company: 'Oakland University IT',
     date: 'Jan 2020 – Apr 2020',
     start: 2020 + MONTH.jan,
     end: 2020 + MONTH.apr,
     track: 'program',
-    shortLabel: 'Oakland UTS · Shares Admin',
+    shortLabel: 'Oakland IT · Shares Admin',
     bullets: [
       'Cleared the university’s Shares Access backlog as a single intern, measured by over 18% of all cases closed, by working employee access tickets from start to finish.',
       'Cut the ticket queue at its source, measured by over 40% of incoming requests removed, by managing the file-share, onboarding and support workflow improvements as projects, mentoring student IT technicians, and building self-service portal features in PowerShell.',
@@ -254,13 +254,13 @@ export const experience: Role[] = [
  */
 export const volunteerRoles: Role[] = [
   {
-    title: 'Lead Technical Product & Program Manager (Volunteer)',
-    company: 'Everythings13',
-    date: 'Oct 2026 – Present',
-    start: 2026 + MONTH.oct,
+    title: 'Principal Program Manager (Volunteer)',
+    company: 'Sikhi.io',
+    date: 'Mar 2026 – Present',
+    start: 2026 + MONTH.mar,
     end: null,
     track: 'seva',
-    shortLabel: 'Everythings13 · Lead TPM (volunteer)',
+    shortLabel: 'Sikhi.io · Principal PM (volunteer)',
     bullets: [
       'Brought one nonprofit tech portfolio under a single roadmap, measured by Sikhi.io and all of its subsidiary projects now sitting under Everythings13, by owning every technology initiative as one program.',
       'Grew Sikhi.io into a global platform, measured by over 3 million unique visits per month from more than 140 countries, by directing the platform and its connected projects: sikhiuni.com, punjabiuni.com, sikh.jp and sikh.ae.',
@@ -275,7 +275,7 @@ export const volunteerRoles: Role[] = [
     end: null,
     track: 'seva',
     shortLabel: 'Basics of Sikhi · Parcharik',
-    bullets: ['60+ talks across the U.S., Canada, the U.K. and Malaysia, given alongside full-time program work.'],
+    bullets: ['100+ talks across the U.S., Canada, the U.K. and Malaysia, given alongside full-time program work.'],
   },
   {
     title: 'Researcher & Translator',

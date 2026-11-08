@@ -1,5 +1,5 @@
 // Leadership and service roles, bullets in XYZ form like the career history.
-// Counts and countries follow the Sept 2026 résumé (60+ presentations from
+// Counts and countries follow the Sept 2026 résumé (100+ presentations from
 // June 2024; U.S., Canada, U.K., Malaysia) rather than the older figures.
 export type LeadershipItem = {
   title: string;
@@ -23,7 +23,7 @@ export const leadership: LeadershipItem[] = [
     org: 'Basics of Sikhi North America (Everything’s 13)',
     date: 'Jun 2024 – Present',
     bullets: [
-      'Brought Sikh history and philosophy to audiences with no local teacher, measured by 60+ talks at universities, Gurdwaras and interfaith events in the U.S., Canada, the U.K. and Malaysia, by building each talk for the room in front of me instead of reusing one deck.',
+      'Brought Sikh history and philosophy to audiences with no local teacher, measured by 100+ talks at universities, Gurdwaras and interfaith events in the U.S., Canada, the U.K. and Malaysia, by building each talk for the room in front of me instead of reusing one deck.',
       'Kept the attention of audiences across a 40-year age range, measured by camps of 30 to 600 people and events of 500+, by teaching campers from age 8 to 50 and adjusting the depth to the audience, not the syllabus.',
       'Made correct Gurbani pronunciation reachable for students without a local teacher, measured by Santhiya taught to students around the world and Amrit Sanchars coordinated worldwide, by running events at universities and Gurdwaras in the Pacific Northwest and teaching the rest online.',
     ],

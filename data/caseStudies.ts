@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'sikhi-io-ios-app',
     title: 'Taking Sikhi.io to iPhone and iPad: research to 1.0.0 in one month',
-    org: 'Everythings13, Sikhi.io',
+    org: 'Sikhi.io (Everythings13)',
     role: 'Lead Technical Product & Program Manager (Volunteer), product owner',
     date: 'Oct 2026 – Nov 2026',
     status: 'delivered',
