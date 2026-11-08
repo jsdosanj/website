@@ -14,7 +14,7 @@ export const site = {
   /** Square face crop used for the logo, icons, structured data and social cards. */
   faceImage: '/images/logo-face.webp',
   /** ISO date of the last meaningful content change; feeds the sitemap's lastmod. Update it when content changes. */
-  lastUpdated: '2026-11-07',
+  lastUpdated: '2026-11-08',
   // Hire-me positioning
   openToWork: true,
   targetRole: 'Technical Program / Project Manager',
@@ -33,7 +33,7 @@ export const site = {
   // the roles being targeted. Superseded IT Manager / Senior Systems Engineer
   // variants were removed rather than left to go stale; they remain in git history.
   resumes: [
-    { label: 'Technical Program Manager', short: 'Program Manager', href: '/resumes/JSD Technical Program Manager Resume Oct 2026.pdf', primary: true },
+    { label: 'Technical Program Manager', short: 'Program Manager', href: '/resumes/JSD Technical Program Manager Resume Nov 2026.pdf', primary: true },
   ],
 };
 
