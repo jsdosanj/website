@@ -107,7 +107,7 @@ export default function Contact() {
               ))}
             </div>
             <p className="reveal mt-4 text-center type-caption text-ink-500">
-              A 2-page, ATS-friendly résumé, current as of October 2026.
+              A 2-page, ATS-friendly résumé, current as of November 2026.
             </p>
           </div>
 
